@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Scenes/DungeonRooms/BasementStart.unity
+    guid: 72118a2e03f2b634b9b6a22092937716
+  - enabled: 1
+    path: Assets/_Scenes/DungeonRooms/BasementEnd.unity
+    guid: 5e085cc5bc3593c4bba466019b958a31
+  - enabled: 1
+    path: Assets/_Scenes/DungeonRooms/BasementEmpty.unity
+    guid: 56d04fd516f19854a915ba7d51820766
+  m_configObjects: {}
