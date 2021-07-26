@@ -10,10 +10,36 @@ public class Gun : Weapon
 
     [SerializeField] private GameObject projectile;
     [SerializeField] private float speed;
-    [SerializeField] private float randomness;
+    [SerializeField] private float coolDown;
+
+    private float _coolDownTimer = 0.0f;
+    private bool _canFire = true;
+
+
+    private void Update()
+    {
+        CheckIfCanFire();
+    }
+    public void CheckIfCanFire()
+    {
+        if(_canFire == false)
+        {
+            _coolDownTimer += Time.deltaTime;
+            if(_coolDownTimer >= coolDown )
+            {
+                _canFire = true;
+                _coolDownTimer = 0.0f;
+            }
+        }
+    }
 
     public override void Attack()
     {
-        Instantiate(projectile, scopePos.position, scopePos.rotation);
+        if (_canFire)
+        {
+            Instantiate(projectile, scopePos.position, scopePos.rotation);
+            _canFire = false;
+        }
+       
     }
 }
