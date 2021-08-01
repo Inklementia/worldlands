@@ -6,7 +6,7 @@ public class RotatableWeapon : MonoBehaviour
 {
     public PlayerInputHandler inputHandler { get; private set; }
 
-    private float rotateAngle;
+    public float rotateAngle { get; private set; }
 
     private void Awake()
     {
