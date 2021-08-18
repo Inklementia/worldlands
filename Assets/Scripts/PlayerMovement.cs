@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Weapons;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -27,12 +28,12 @@ public class PlayerMovement : MonoBehaviour
 
     private float dustTimer = 0.0f;
 
-    private Weapon _weapon;
+    private BaseWeapon _weapon;
 
 
     private void Awake()
     {
-        _weapon = weaponGO.GetComponent<Weapon>();
+        _weapon = weaponGO.GetComponent<BaseWeapon>();
     }
     private void Update()
     {
