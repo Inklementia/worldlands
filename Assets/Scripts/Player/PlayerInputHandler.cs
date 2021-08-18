@@ -17,14 +17,19 @@ public class PlayerInputHandler : MonoBehaviour
     public bool _isJoystickPressed { get; private set; }
     public bool _isAttackButtonPressed { get; private set; }
 
+
     private void Update()
     {
+
+
         _movementPosX = joystick.Horizontal;
         _movementPosY = joystick.Vertical;
 
         _isPlayerMoving = _movementPosX != 0.0f && _movementPosY != 0.0f;
         _isJoystickPressed = touchField.Pressed;
         _isAttackButtonPressed = attackButton.Pressed;
-        //Debug.Log("ATTACK: " + _isAttackButtonPressed);
+
     }
+
+   
 }
