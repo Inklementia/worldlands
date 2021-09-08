@@ -8,6 +8,7 @@ namespace Weapons
     {
         private float _travelDistance;
         private float _dragMultiplier;
+
         private float _speed;
         private Vector2 _direction;
 
@@ -15,8 +16,10 @@ namespace Weapons
         private bool _shouldSlowDown;
         private float _xStartPos;
         private float _maxDrag = 30;
-    
-    
+
+        private float _lifeDuration;
+
+        private float _lifeDurationTimer = 0.0f;
 
         private void Start()
         {
@@ -31,7 +34,12 @@ namespace Weapons
 
         private void FixedUpdate()
         {
-           
+            _lifeDurationTimer += Time.deltaTime;
+
+            if (_lifeDurationTimer >= _lifeDuration)
+            {
+                gameObject.SetActive(false);
+            }
 
             if (Mathf.Abs(_xStartPos - transform.position.x) >= _travelDistance && !_shouldSlowDown)
             {
@@ -41,8 +49,8 @@ namespace Weapons
             }
         }
 
-
         public override void FireProjectile(
+            int damage,
             float speed,
             float rotationSpeed,
             float rotationAngleDeviation,
@@ -51,9 +59,11 @@ namespace Weapons
             float lifeDuration,
             float dragMultiplier)
         {
+            _damage = damage;
             _speed = speed;
             _direction = direction;
             _travelDistance = travelDistance;
+            _lifeDuration = lifeDuration;
             _dragMultiplier = dragMultiplier;
         }
 

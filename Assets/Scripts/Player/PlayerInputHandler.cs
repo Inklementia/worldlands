@@ -29,6 +29,8 @@ public class PlayerInputHandler : MonoBehaviour
         _isJoystickPressed = touchField.Pressed;
         _isAttackButtonPressed = attackButton.Pressed;
 
+
+        //Debug.Log(_movementPosX +" , "+ _movementPosY);
     }
 
    

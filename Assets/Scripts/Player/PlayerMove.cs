@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMove : PlayerAction
 {
     [SerializeField] private float speed;
+    [SerializeField] private GameObject playerToFlip;
+
 
     private void Update()
     {
@@ -25,11 +27,11 @@ public class PlayerMove : PlayerAction
     {
         if (inputHandler._movementPosX > 0)
         {
-            transform.rotation = Quaternion.identity;
+            playerToFlip.transform.rotation = Quaternion.identity;
         }
         else if (inputHandler._movementPosX < 0)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            playerToFlip.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 }
