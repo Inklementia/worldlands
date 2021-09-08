@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe1c30a913c7c24bb866815e10b58ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 7cda641532bb4d8498e71bbead753d87, type: 2}
+  WeaponDataStats: {fileID: 0}
   attackPosition: {fileID: 9101568737133009199}
   projectilePrefab: {fileID: 301904004805489461, guid: ac2a22d53946ab64da8ae4d70267e082,
     type: 3}
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateOnAttack: 0
+  _initialAngle: 90
 --- !u!1 &9101568737133009616
 GameObject:
   m_ObjectHideFlags: 0

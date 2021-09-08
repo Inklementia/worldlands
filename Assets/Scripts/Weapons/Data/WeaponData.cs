@@ -6,8 +6,9 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     [Header("Base")]
-    public float EnergyCostPerAttack;
-    public float AttackCooldown;
+    public int Damage = 5;
+    public float EnergyCostPerAttack = 1f;
+    public float AttackCooldown = .3f;
 
     [Header("Shooting")]
     public int NumberOfProjectilesPerRound = 1;
@@ -20,12 +21,14 @@ public class WeaponData : ScriptableObject
     public float AngleDeviation;
     [Range(0,3)]
     public float ProjectileSpeedDeviation;
+    public bool RemoveAdditionalSegmentAtEnd;
 
     [Header("Charging")]
     [Range(0, 5)]
     public float MaxCharge;
 
     [Header("Bullet Projectile")]
+
     public float ProjectileTravelDistance = 5f;
     public float ProjectileLifeDuration = 6f;
     public float ProjectileDragMultiplier = .5f;
@@ -35,4 +38,8 @@ public class WeaponData : ScriptableObject
     public float ProjectileRotationSpeed = 200f;
     [Range(0, 3)]
     public float ProjectileRotateAngleDeviation;
+
+    [Header("Melee Weapon")]
+    [Range(0.01f, 2f)]
+    public float AttackSpeed;
 }

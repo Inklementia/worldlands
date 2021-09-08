@@ -8,8 +8,9 @@ namespace Weapons
     public class ChargebleWeapon : MonoBehaviour
     {
         [SerializeField] private BaseWeapon baseWeapon;
-       
-        [SerializeField] private Slider chargeSlider;
+        [SerializeField] private Tag chargeSliderTag;
+
+        private Slider chargeSlider;
 
         private PlayerInputHandler inputHandler;
         private WeaponData _weaponData;
@@ -20,8 +21,10 @@ namespace Weapons
 
         private void Start()
         {
+            chargeSlider = gameObject.FindWithTag(chargeSliderTag).GetComponent<Slider>();
+
             inputHandler = GetComponentInParent<PlayerInputHandler>();
-            _weaponData = baseWeapon.BaseWeaponData;
+            _weaponData = baseWeapon.WeaponDataStats;
 
             _maxChargeValue = _weaponData.MaxCharge;
             chargeSlider.value = 0f;
@@ -52,8 +55,8 @@ namespace Weapons
         public void Charge()
         {
             // show arrow and do bow animation
-           // Debug.Log("CHARGING");
-
+            // Debug.Log("CHARGING");
+     
             _chargeValue += Time.deltaTime;
             chargeSlider.value = _chargeValue;
 

@@ -10,17 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 728cc60355a409f40b3b7b88fb6c0fba, type: 3}
-  m_Name: 4thHorseman
+  m_Name: GreenStuff
   m_EditorClassIdentifier: 
-  EnergyCostPerAttack: 3
-  AttackCooldown: 1
+  Damage: 5
+  EnergyCostPerAttack: 0
+  AttackCooldown: 0.5
   NumberOfProjectilesPerRound: 1
-  IntervalBetweenRounds: 0.05
-  FireAngle: 30
-  NumberOfProjectiles: 4
-  AngleDeviation: 0.04
-  ProjectileSpeedDeviation: 0.3
+  IntervalBetweenRounds: 0.5
+  FireAngle: 360
+  NumberOfProjectiles: 8
+  AngleDeviation: 0
+  ProjectileSpeedDeviation: 0
+  RemoveAdditionalSegmentAtEnd: 0
+  MaxCharge: 0
   ProjectileTravelDistance: 5
-  ProjectileLifeDuration: 6
+  ProjectileLifeDuration: 5
   ProjectileDragMultiplier: 0.5
-  ProjectileSpeed: 8
+  ProjectileSpeed: 5
+  ProjectileRotationSpeed: 200
+  ProjectileRotateAngleDeviation: 0
+  AttackSpeed: 0

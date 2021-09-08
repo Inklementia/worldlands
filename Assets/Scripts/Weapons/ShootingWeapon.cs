@@ -22,31 +22,32 @@ namespace Weapons
 
         //single bullet
         protected void SpawnProjectile(Vector3 position, Quaternion rotation, Vector2 direction, 
-            float projectileSpeed, float projectileRotationSpeed, float projectileRotationAngleDeviation)
+            float projectileSpeed, int projectileDamage, float projectileRotationSpeed, float projectileRotationAngleDeviation)
         {
             GameObject projectileGO = Instantiate(projectilePrefab, position, rotation);
             Projectile projectile = projectileGO.GetComponent<Projectile>();
 
             projectile.FireProjectile(
+                projectileDamage,
                 projectileSpeed,
                 projectileRotationSpeed,
                 projectileRotationAngleDeviation,
                 direction,
-                BaseWeaponData.ProjectileTravelDistance,
-                BaseWeaponData.ProjectileLifeDuration,
-                BaseWeaponData.ProjectileDragMultiplier
+                WeaponDataStats.ProjectileTravelDistance,
+                WeaponDataStats.ProjectileLifeDuration,
+                WeaponDataStats.ProjectileDragMultiplier
                 );
         }
 
         // several bullets in round
         protected IEnumerator SpawnProjectilesInInterval(Vector3 position, Quaternion rotation, Vector2 direction,
-            float projectileSpeed, float projectileRotationSpeed, float projectileRotationAngleDeviation)
+            float projectileSpeed, int projectileDamage, float projectileRotationSpeed, float projectileRotationAngleDeviation)
         {
-            for (int i = 0; i < BaseWeaponData.NumberOfProjectilesPerRound; i++)
+            for (int i = 0; i < WeaponDataStats.NumberOfProjectilesPerRound; i++)
             {
                 SpawnProjectile(position, rotation, direction, 
-                    projectileSpeed, projectileRotationSpeed, projectileRotationAngleDeviation);
-                yield return new WaitForSeconds(BaseWeaponData.IntervalBetweenRounds);
+                    projectileSpeed, projectileDamage, projectileRotationSpeed, projectileRotationAngleDeviation);
+                yield return new WaitForSeconds(WeaponDataStats.IntervalBetweenRounds);
             }
         }
 

@@ -8,11 +8,11 @@ public abstract class PlayerAction : MonoBehaviour
     public Rigidbody2D rb { get; private set; }
     public Animator anim { get; private set; }
 
-    private void Start()
-    {
+    protected virtual void Awake()
+    { 
 
-        anim = GetComponent<Animator>();
-        inputHandler = GetComponentInParent<PlayerInputHandler>();
+        anim = GetComponentInChildren<Animator>();
+        inputHandler = GetComponent<PlayerInputHandler>();
         rb = GetComponent<Rigidbody2D>();
     }
 }

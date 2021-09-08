@@ -7,31 +7,32 @@ public class PlayerAttack : PlayerAction
 {
     private BaseWeapon _weapon;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _weapon = GetComponentInChildren<BaseWeapon>();
     }
 
     private void Update()
     {
-        if (inputHandler._isAttackButtonPressed && !_weapon.ShouldBeCharged)
+        if ((inputHandler._isAttackButtonPressed && !_weapon.ShouldBeCharged && !_weapon.ShouldBeAnimatedBeforeAttack && !_weapon.IsAnimating) ||
+            (!inputHandler._isAttackButtonPressed && (_weapon.ShouldBeCharged && _weapon.Charged)) ||
+            (_weapon.ShouldBeAnimatedBeforeAttack && _weapon.Animated))
+
         {
+            
             _weapon.Attack();
         }
-        else if(inputHandler._isAttackButtonPressed && _weapon.ShouldBeCharged)
+        else if (inputHandler._isAttackButtonPressed && _weapon.ShouldBeCharged)
         {
-            Debug.Log("Should be charged");
             _weapon.ChargebleWeapon.Charge();
         }
-        else if (!inputHandler._isAttackButtonPressed && (_weapon.ShouldBeCharged && _weapon.Charged))
+        else if (inputHandler._isAttackButtonPressed && _weapon.ShouldBeAnimatedBeforeAttack && !_weapon.IsAnimating)
         {
-            Debug.Log("Should attcked");
-            _weapon.Attack();
+            _weapon.AnimateBeforeAttackWeapon.AnimateAttack();
+            Debug.Log(1);
         }
+   
     }
 
-    private void Attack()
-    {
-        _weapon.Attack();
-    }
 }

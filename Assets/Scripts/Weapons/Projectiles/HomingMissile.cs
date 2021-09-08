@@ -53,6 +53,7 @@ namespace Weapons
         }
 
         public override void FireProjectile(
+            int damage,
             float speed,
             float rotationSpeed,
             float rotationAngleDeviation,
@@ -62,6 +63,7 @@ namespace Weapons
             float dragMultiplier
             )
         {
+            _damage = damage;
             _speed = speed;
             _rotationSpeed = rotationSpeed;
             _rotateAngleDeviation = rotationAngleDeviation;

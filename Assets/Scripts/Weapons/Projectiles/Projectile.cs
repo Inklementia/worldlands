@@ -10,13 +10,10 @@ namespace Weapons
         [SerializeField] protected string targetTag = "Enemy";
 
         protected GameObject[] _targets;
+        protected int _damage;
 
-        private float _lifeDuration;
-
-        private float _lifeDurationTimer = 0.0f;
-
- 
-        public abstract void FireProjectile(
+        public virtual void FireProjectile(
+            int damage,
             float speed,
             float rotationSpeed,
             float rotationAngleDeviation,
@@ -24,17 +21,9 @@ namespace Weapons
             float travelDistance,
             float lifeDuration,
             float dragMultiplier
-            );
-
-
-        private void FixedUpdate()
+            )
         {
-            _lifeDurationTimer += Time.deltaTime;
-
-            if (_lifeDurationTimer >= _lifeDuration)
-            {
-                gameObject.SetActive(false);
-            }
+            _damage = damage;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -42,6 +31,8 @@ namespace Weapons
             if (collision.tag == targetTag)
             {
                 // TODO: instaciate particles
+                
+                collision.gameObject.GetComponentInParent<HealthSystem>().Damage(_damage);
                 gameObject.SetActive(false);
 
             }

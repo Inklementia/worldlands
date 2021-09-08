@@ -19,7 +19,7 @@ namespace Weapons
                 CanFire = false;
                 Charged = false;
                 SpawnProjectile(attackPosition.position, attackPosition.rotation, transform.right,
-                  ChargebleWeapon.ChargedProjectileSpeed, BaseWeaponData.ProjectileRotationSpeed, BaseWeaponData.ProjectileRotateAngleDeviation);
+                  ChargebleWeapon.ChargedProjectileSpeed, WeaponDataStats.Damage, WeaponDataStats.ProjectileRotationSpeed, WeaponDataStats.ProjectileRotateAngleDeviation);
              
 
             }
@@ -27,15 +27,15 @@ namespace Weapons
 
         private void Fire()
         {
-            if (BaseWeaponData.NumberOfProjectilesPerRound > 1)
+            if (WeaponDataStats.NumberOfProjectilesPerRound > 1)
             {
                 StartCoroutine(SpawnProjectilesInInterval(attackPosition.position, attackPosition.rotation, transform.right,
-                    BaseWeaponData.ProjectileSpeed, BaseWeaponData.ProjectileRotationSpeed, BaseWeaponData.ProjectileRotateAngleDeviation));
+                    WeaponDataStats.ProjectileSpeed, WeaponDataStats.Damage, WeaponDataStats.ProjectileRotationSpeed, WeaponDataStats.ProjectileRotateAngleDeviation));
             }
             else
             {
                 SpawnProjectile(attackPosition.position, attackPosition.rotation, transform.right,
-                    BaseWeaponData.ProjectileSpeed, BaseWeaponData.ProjectileRotationSpeed, BaseWeaponData.ProjectileRotateAngleDeviation);
+                    WeaponDataStats.ProjectileSpeed, WeaponDataStats.Damage, WeaponDataStats.ProjectileRotationSpeed, WeaponDataStats.ProjectileRotateAngleDeviation);
             }
         }
     }
