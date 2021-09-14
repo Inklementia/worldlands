@@ -3,8 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Enemy
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -14,9 +13,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Wall
+  - Enemy
+  - Player
   - 
   - 
   - 
@@ -43,26 +42,20 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Background
-    uniqueID: 3534980831
+    uniqueID: 3900556083
     locked: 0
-  - name: MiddleGround
-    uniqueID: 1128243681
+  - name: Middleground
+    uniqueID: 699028903
+    locked: 0
+  - name: Characters
+    uniqueID: 1048795557
+    locked: 0
+  - name: Weapons
+    uniqueID: 2546169397
+    locked: 0
+  - name: Projectiles
+    uniqueID: 2369357703
     locked: 0
   - name: Foreground
-    uniqueID: 4094796093
-    locked: 0
-  - name: Player
-    uniqueID: 4150642747
-    locked: 0
-  - name: Enemies
-    uniqueID: 224796377
-    locked: 0
-  - name: Weapon
-    uniqueID: 2937526669
-    locked: 0
-  - name: PlayerProjectile
-    uniqueID: 835953237
-    locked: 0
-  - name: EnemyProjectile
-    uniqueID: 1526723141
+    uniqueID: 3215441047
     locked: 0
