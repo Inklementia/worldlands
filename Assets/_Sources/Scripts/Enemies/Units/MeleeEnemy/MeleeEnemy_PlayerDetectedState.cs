@@ -16,6 +16,8 @@ public class MeleeEnemy_PlayerDetectedState : PlayerDetectedState
     {
         base.Enter();
         _enemy.StopMovement();
+        //_enemy.ChargeState.SetWhereToCharge(PlayerDetectedAt);
+        //Debug.Log("Player detected a: " + PlayerDetectedAt);
     }
 
     public override void Exit()
@@ -26,11 +28,20 @@ public class MeleeEnemy_PlayerDetectedState : PlayerDetectedState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (!IsPlayerInMaxAgroRange)
+
+        if (PerformCloseRangeAction)
         {
-            StateMachine.ChangeState(_enemy.IdleState);
+            StateMachine.ChangeState(_enemy.MeleeAttackState);
         }
-        
+        else if (PerformLongRangeAction)
+        {
+            StateMachine.ChangeState(_enemy.ChargeState);
+        }
+        else if (!IsPlayerInMaxAgroRange)
+        {
+            StateMachine.ChangeState(_enemy.PatrolState);
+
+        }
     }
 
     public override void PhysicsUpdate()

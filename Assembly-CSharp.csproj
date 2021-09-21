@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{F9A13A51-1329-92FE-E7FC-845C9AA57BD8}</ProjectGuid>
+    <ProjectGuid>{E8AB3635-CD18-5B3D-7842-3532E0D98CE5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -113,27 +113,37 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+    <Compile Include="Assets\_Sources\Scripts\AnimationToStatemachine.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_ChargeState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_Entity.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_IdleState.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_MeleeAttackState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_MoveState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_PatrolState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_PlayerDetectedState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\State Mashine\Entity.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\State Mashine\FiniteStateMashine.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\State Mashine\State.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Enemies\States\AttackState.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Enemies\States\ChargeState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\States\IdleState.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Enemies\States\MeleeAttackState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\States\MoveState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\States\PatrolState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\States\PlayerDetectedState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_ChargeState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_IdleState.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_MeleeAttackState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_MoveState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_PatrolState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_PlayerDetectedState.cs" />
+    <Compile Include="Assets\_Sources\Scripts\HealthSystem.cs" />
     <Compile Include="Assets\_Sources\Scripts\Object Pooler\Interfaces\IPooledObject.cs" />
     <Compile Include="Assets\_Sources\Scripts\Object Pooler\ObjectPooler.cs" />
     <Compile Include="Assets\_Sources\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\_Sources\Scripts\SingletonClass.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Structs\AttackDetails.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -831,19 +841,19 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{A19AD14F-0EE2-1EF6-8C1A-E9D65A05438C}</Project>
+      <Project>{EAD0349E-BBBF-454D-30BF-4BCA1D0FDA99}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.Modules.UnityMathematics.csproj">
-      <Project>{F282E8D0-3C86-83B0-3CB6-438ED08EFC8F}</Project>
+      <Project>{5E91F9C5-7419-F050-E71B-3573F780DB41}</Project>
       <Name>Sirenix.OdinInspector.Modules.UnityMathematics</Name>
     </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj">
-      <Project>{2BDB3D5F-164F-08D4-4928-EE5D00680D51}</Project>
+      <Project>{70E6657C-7F35-7859-92F3-0EB113AF0727}</Project>
       <Name>Sirenix.OdinInspector.CompatibilityLayer.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.csproj">
-      <Project>{C2D4681B-A1A8-C495-FEFD-E6733AC439B8}</Project>
+      <Project>{FEE5CF7E-D081-8EC1-4C5A-7B7C8BBF0329}</Project>
       <Name>Sirenix.OdinInspector.CompatibilityLayer</Name>
     </ProjectReference>
   </ItemGroup>

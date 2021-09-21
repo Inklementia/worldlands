@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{2BDB3D5F-164F-08D4-4928-EE5D00680D51}</ProjectGuid>
+    <ProjectGuid>{70E6657C-7F35-7859-92F3-0EB113AF0727}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Sirenix.OdinInspector.CompatibilityLayer.Editor</AssemblyName>
@@ -682,7 +682,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.csproj">
-      <Project>{C2D4681B-A1A8-C495-FEFD-E6733AC439B8}</Project>
+      <Project>{FEE5CF7E-D081-8EC1-4C5A-7B7C8BBF0329}</Project>
       <Name>Sirenix.OdinInspector.CompatibilityLayer</Name>
     </ProjectReference>
   </ItemGroup>

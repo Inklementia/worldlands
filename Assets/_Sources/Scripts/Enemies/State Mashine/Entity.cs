@@ -11,8 +11,10 @@ public class Entity : MonoBehaviour
     public Rigidbody2D Rb { get; private set; }
     public Animator Anim { get; private set; }
     public GameObject AliveGO { get; private set; }
-
+    public AnimationToStateMachine AnimationToStateMachine { get; private set; }
+    public GameObject Player { get; private set; }
     public Vector2 StartingPos { get; private set; }
+
 
     [SerializeField] private Transform wallCheck;
     [SerializeField] private Transform playerCheck;
@@ -27,10 +29,13 @@ public class Entity : MonoBehaviour
         AliveGO = transform.Find("Alive").gameObject;
         Anim = AliveGO.GetComponent<Animator>();
         Rb = AliveGO.GetComponent<Rigidbody2D>();
+        AnimationToStateMachine = AliveGO.GetComponent<AnimationToStateMachine>();
 
         StartingPos = transform.position;
         FacingDirection = -1;
         StateMachine = new FiniteStateMashine();
+
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public virtual void Update()
@@ -60,12 +65,14 @@ public class Entity : MonoBehaviour
     public virtual void GoTo(Vector2 point, float speed)
     {
         var distance = Vector2.Distance(AliveGO.transform.position, point);
-        AliveGO.transform.DOMove(point, distance/speed);
+        Rb.DOMove(point, distance/speed);
         //transform.position = Vector2.MoveTowards(transform.position, MovePos, speed * Time.deltaTime);
     }
+
+
     public virtual void StopMovement()
     {
-        AliveGO.transform.DOPause();
+        Rb.DOPause();
     }
 
     public virtual bool CheckWall()
@@ -86,6 +93,17 @@ public class Entity : MonoBehaviour
     public virtual bool CheckPlayerInMaxAgroRange()
     {
         return Physics2D.CircleCast(playerCheck.position, EntityData.MaxAgroDistance, AliveGO.transform.right, 0.1f, EntityData.WhatIsPlayer);
+    }
+
+    //in melee attack Range
+    public virtual bool CheckPlayerInCloseRangeAction()
+    {
+        return Physics2D.CircleCast(playerCheck.position, EntityData.CloseRangeActionDistance, AliveGO.transform.right, 0.1f, EntityData.WhatIsPlayer);
+    }
+
+    public virtual Vector2 GetPlayerPosition()
+    {
+        return Player.transform.position;
     }
 
     public virtual void Flip()
@@ -115,9 +133,13 @@ public class Entity : MonoBehaviour
 
         Gizmos.DrawWireSphere(wallCheck.position, EntityData.WallCheckDistance);
 
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(playerCheck.position, EntityData.MinAgroDistance);
         Gizmos.DrawWireSphere(playerCheck.position, EntityData.MaxAgroDistance);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(playerCheck.position, EntityData.CloseRangeActionDistance);
+  
         Gizmos.color = Color.white;
 
 

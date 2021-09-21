@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
+    [SerializeField] private HealthSystem health;
 
     private Vector2 _movement;
     private bool _isFacingRight = true;
@@ -61,5 +62,10 @@ public class PlayerController : MonoBehaviour
         _isFacingRight = !_isFacingRight;
         transform.Rotate(0, 180, 0);
     }
+    private void Damage(AttackDetails attackDetails)
+    {
+        health.DecreaseHealth(attackDetails.DamageAmount);
 
+        // direction bullshit
+    }
 }

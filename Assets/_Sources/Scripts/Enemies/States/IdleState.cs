@@ -11,7 +11,6 @@ public class IdleState : State
 
     protected bool IsDetectingWall;
     protected bool IsPlayerInMinAgroRange;
-    protected bool IsPlayerInMaxAgroRange;
 
     public IdleState(Entity entity, FiniteStateMashine stateMachine, string animBoolName, D_IdleState stateData) : 
         base(entity, stateMachine, animBoolName)
@@ -19,14 +18,19 @@ public class IdleState : State
         StateData = stateData;
     }
 
+    public override void DoChecks()
+    {
+        base.DoChecks();
+
+        IsDetectingWall = Entity.CheckWall();
+        IsPlayerInMinAgroRange = Entity.CheckPlayerInMinAgroRange();
+    }
+
     public override void Enter()
     {
         base.Enter();
         IsIdleTimeOver = false;
 
-        IsDetectingWall = Entity.CheckWall();
-        IsPlayerInMinAgroRange = Entity.CheckPlayerInMinAgroRange();
-        IsPlayerInMaxAgroRange = Entity.CheckPlayerInMaxAgroRange();
         SetRandomIdleTime();
        
     }
@@ -53,8 +57,6 @@ public class IdleState : State
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        IsPlayerInMinAgroRange = Entity.CheckPlayerInMinAgroRange();
-        IsPlayerInMaxAgroRange = Entity.CheckPlayerInMaxAgroRange();
     }
 
     public void SetRandomIdleTime()

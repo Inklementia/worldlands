@@ -11,6 +11,8 @@ public class MoveState : State
     protected float SpendTime;
     protected float TimeBeforeDetectingWall = 1f;
 
+    protected bool IsPlayerInMinAgroRange;
+    protected bool IsPlayerInMaxAgroRange;
     protected bool IsDetectingWall;
 
     public MoveState(Entity entity, FiniteStateMashine stateMachine, string animBoolName, D_MoveState stateData) : 
@@ -19,10 +21,19 @@ public class MoveState : State
         StateData = stateData;
     }
 
+    public override void DoChecks()
+    {
+        base.DoChecks();
+
+        IsDetectingWall = Entity.CheckWall();
+        IsPlayerInMinAgroRange = Entity.CheckPlayerInMinAgroRange();
+        IsPlayerInMaxAgroRange = Entity.CheckPlayerInMaxAgroRange();
+    }
+
     public override void Enter()
     {
         base.Enter();
-        IsDetectingWall = Entity.CheckWall();
+ 
         SpendTime = 0.0f;
         ChangeMoveDirection();
         HandleFlip();
@@ -43,7 +54,7 @@ public class MoveState : State
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        IsDetectingWall = Entity.CheckWall();
+ 
     }
 
     protected void ChangeMoveDirection()

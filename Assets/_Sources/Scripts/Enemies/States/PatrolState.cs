@@ -18,12 +18,19 @@ public class PatrolState : State
         StateData = stateData;
     }
 
+    public override void DoChecks()
+    {
+        base.DoChecks();
+
+        IsDetectingWall = Entity.CheckWall();
+        IsPlayerInMinAgroRange = Entity.CheckPlayerInMinAgroRange();
+        IsPlayerInMaxAgroRange = Entity.CheckPlayerInMaxAgroRange();
+    }
+
     public override void Enter()
     {
         base.Enter();
-        IsDetectingWall = Entity.CheckWall();
-        IsPlayerInMinAgroRange = Entity.CheckPlayerInMinAgroRange();
-        IsPlayerInMaxAgroRange  = Entity.CheckPlayerInMaxAgroRange();
+        // set velocity or transform
     }
 
     public override void Exit()
@@ -39,16 +46,13 @@ public class PatrolState : State
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        IsDetectingWall = Entity.CheckWall();
-        IsPlayerInMinAgroRange = Entity.CheckPlayerInMinAgroRange();
-        IsPlayerInMaxAgroRange = Entity.CheckPlayerInMaxAgroRange();
     }
 
     protected void ChangeMoveDirection()
     {
         MovePos = new Vector2(
-                 Random.Range(Entity.StartingPos.x - StateData.PatrolDistance, Entity.StartingPos.x + StateData.PatrolDistance),
-                 Random.Range(Entity.StartingPos.y - StateData.PatrolDistance, Entity.StartingPos.y + StateData.PatrolDistance)
+                 Random.Range(Entity.StartingPos.x - StateData.PatrolDistance - 1, Entity.StartingPos.x + StateData.PatrolDistance - 1),
+                 Random.Range(Entity.StartingPos.y - StateData.PatrolDistance - 1, Entity.StartingPos.y + StateData.PatrolDistance - 1)
                  );
     }
 

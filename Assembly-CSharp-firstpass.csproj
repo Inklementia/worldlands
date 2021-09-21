@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A19AD14F-0EE2-1EF6-8C1A-E9D65A05438C}</ProjectGuid>
+    <ProjectGuid>{EAD0349E-BBBF-454D-30BF-4BCA1D0FDA99}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
@@ -758,15 +758,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Sirenix.OdinInspector.Modules.UnityMathematics.csproj">
-      <Project>{F282E8D0-3C86-83B0-3CB6-438ED08EFC8F}</Project>
+      <Project>{5E91F9C5-7419-F050-E71B-3573F780DB41}</Project>
       <Name>Sirenix.OdinInspector.Modules.UnityMathematics</Name>
     </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj">
-      <Project>{2BDB3D5F-164F-08D4-4928-EE5D00680D51}</Project>
+      <Project>{70E6657C-7F35-7859-92F3-0EB113AF0727}</Project>
       <Name>Sirenix.OdinInspector.CompatibilityLayer.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.csproj">
-      <Project>{C2D4681B-A1A8-C495-FEFD-E6733AC439B8}</Project>
+      <Project>{FEE5CF7E-D081-8EC1-4C5A-7B7C8BBF0329}</Project>
       <Name>Sirenix.OdinInspector.CompatibilityLayer</Name>
     </ProjectReference>
   </ItemGroup>
