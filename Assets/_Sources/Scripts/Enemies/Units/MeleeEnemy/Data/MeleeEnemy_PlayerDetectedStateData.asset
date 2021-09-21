@@ -10,5 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8d67a989c6617442a60444afaa84ea9, type: 3}
-  m_Name: newPlayerDetectedStateData
+  m_Name: MeleeEnemy_PlayerDetectedStateData
   m_EditorClassIdentifier: 
+  TimeBeforLongRangeAction: 0.5
