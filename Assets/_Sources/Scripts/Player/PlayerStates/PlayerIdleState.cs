@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerIdleState : PlayerState
 {
+    private string _animBoolName;
     public PlayerIdleState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : 
-        base(player, stateMachine, playerData, animBoolName)
+        base(player, stateMachine, playerData)
     {
+        _animBoolName = animBoolName;
     }
 
     public override void DoChecks()
@@ -17,12 +19,14 @@ public class PlayerIdleState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        Player.Anim.SetBool(_animBoolName, true);
         Player.SetVelocity(0f, 0f);
     }
 
     public override void Exit()
     {
         base.Exit();
+        Player.Anim.SetBool(_animBoolName, false);
     }
 
     public override void LogicUpdate()
