@@ -42,6 +42,11 @@ public class MeleeEnemy_PlayerDetectedState : PlayerDetectedState
             StateMachine.ChangeState(_enemy.PatrolState);
 
         }
+        else if (IsDetectingWall)
+        {
+            // in idea:  flip and move, but...
+            StateMachine.ChangeState(_enemy.PatrolState);
+        }
     }
 
     public override void PhysicsUpdate()

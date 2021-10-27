@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthSystem : MonoBehaviour
 {
     private float _health;
-    [SerializeField] private float _maxHealth;
+    [SerializeField] private float _maxHealth = 100;
 
     public HealthSystem(int maxHealth)
     {
@@ -29,7 +29,7 @@ public class HealthSystem : MonoBehaviour
         if (_health < 0)
         {
             _health = 0;
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 
