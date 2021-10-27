@@ -6,6 +6,7 @@ public class PlayerDetectedState : State
 {
     protected D_PlayerDetectedState StateData;
 
+    protected bool IsDetectingWall;
     protected bool IsPlayerInMinAgroRange;
     protected bool IsPlayerInMaxAgroRange;
 
@@ -25,6 +26,8 @@ public class PlayerDetectedState : State
         IsPlayerInMinAgroRange = Entity.CheckPlayerInMinAgroRange();
         IsPlayerInMaxAgroRange = Entity.CheckPlayerInMaxAgroRange();
         PerformCloseRangeAction = Entity.CheckPlayerInCloseRangeAction();
+        IsDetectingWall = Entity.CheckWall();
+
     }
 
     public override void Enter()

@@ -1,0 +1,47 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DeadState : State
+{
+    protected D_DeadState StateData;
+    public DeadState(Entity entity, FiniteStateMashine stateMachine, string animBoolName, D_DeadState stateData) : 
+        base(entity, stateMachine, animBoolName)
+    {
+        StateData = stateData;
+    }
+
+    public override void DoChecks()
+    {
+        base.DoChecks();
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+
+        ObjectPooler.Instance.SpawnFromPool(StateData.DeathBloodParticlesTag, Entity.AliveGO.transform.position,
+                   Entity.AliveGO.transform.rotation);
+        ObjectPooler.Instance.SpawnFromPool(StateData.DeathChunkParticlesTag, Entity.AliveGO.transform.position,
+                   Entity.AliveGO.transform.rotation);
+
+        Entity.gameObject.SetActive(false);
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
+
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+    }
+
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
+    }
+}
+    
+

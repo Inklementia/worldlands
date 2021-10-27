@@ -71,6 +71,21 @@ TextureImporter:
   - first:
       213: -2103037476319426811
     second: enemy_cat-spritesheet_22
+  - first:
+      213: -3769445649450191040
+    second: enemy_cat-spritesheet_23
+  - first:
+      213: 8638148685965722068
+    second: enemy_cat-spritesheet_24
+  - first:
+      213: 3243193461320776181
+    second: enemy_cat-spritesheet_25
+  - first:
+      213: -5409844719512616266
+    second: enemy_cat-spritesheet_26
+  - first:
+      213: -3835635626428568115
+    second: enemy_cat-spritesheet_27
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -92,7 +107,6 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
-  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -124,12 +138,9 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
-  flipbookRows: 1
-  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -176,7 +187,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 400
+        y: 600
         width: 200
         height: 200
       alignment: 0
@@ -197,7 +208,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 200
-        y: 400
+        y: 600
         width: 200
         height: 200
       alignment: 0
@@ -218,7 +229,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 400
-        y: 400
+        y: 600
         width: 200
         height: 200
       alignment: 0
@@ -239,7 +250,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 600
-        y: 400
+        y: 600
         width: 200
         height: 200
       alignment: 0
@@ -260,7 +271,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 800
-        y: 400
+        y: 600
         width: 200
         height: 200
       alignment: 0
@@ -281,7 +292,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1000
-        y: 400
+        y: 600
         width: 200
         height: 200
       alignment: 0
@@ -302,7 +313,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 200
+        y: 400
         width: 200
         height: 200
       alignment: 0
@@ -323,7 +334,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 200
-        y: 200
+        y: 400
         width: 200
         height: 200
       alignment: 0
@@ -344,7 +355,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 400
-        y: 200
+        y: 400
         width: 200
         height: 200
       alignment: 0
@@ -365,7 +376,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 600
-        y: 200
+        y: 400
         width: 200
         height: 200
       alignment: 0
@@ -386,7 +397,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 800
-        y: 200
+        y: 400
         width: 200
         height: 200
       alignment: 0
@@ -407,7 +418,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1000
-        y: 200
+        y: 400
         width: 200
         height: 200
       alignment: 0
@@ -428,7 +439,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 200
         width: 200
         height: 200
       alignment: 0
@@ -449,7 +460,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 200
-        y: 0
+        y: 200
         width: 200
         height: 200
       alignment: 0
@@ -470,7 +481,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 400
-        y: 0
+        y: 200
         width: 200
         height: 200
       alignment: 0
@@ -491,7 +502,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 600
-        y: 0
+        y: 200
         width: 200
         height: 200
       alignment: 0
@@ -512,7 +523,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 800
-        y: 0
+        y: 200
         width: 200
         height: 200
       alignment: 0
@@ -533,7 +544,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1000
-        y: 0
+        y: 200
         width: 200
         height: 200
       alignment: 0
@@ -554,7 +565,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1200
-        y: 0
+        y: 200
         width: 200
         height: 200
       alignment: 0
@@ -575,7 +586,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1400
-        y: 0
+        y: 200
         width: 200
         height: 200
       alignment: 0
@@ -596,7 +607,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1600
-        y: 0
+        y: 200
         width: 200
         height: 200
       alignment: 0
@@ -617,7 +628,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1800
-        y: 0
+        y: 200
         width: 200
         height: 200
       alignment: 0
@@ -638,7 +649,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2000
-        y: 0
+        y: 200
         width: 200
         height: 200
       alignment: 0
@@ -650,6 +661,111 @@ TextureImporter:
       bones: []
       spriteID: 50785a2ce8280d2e0800000000000000
       internalID: -2103037476319426811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cat-spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0473168372d30bbc0800000000000000
+      internalID: -3769445649450191040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cat-spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d18ef7867ed0e770800000000000000
+      internalID: 8638148685965722068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cat-spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f9f4e71543220d20800000000000000
+      internalID: 3243193461320776181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cat-spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b28d63e3ee5ce4b0800000000000000
+      internalID: -5409844719512616266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cat-spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcd64e648b515cac0800000000000000
+      internalID: -3835635626428568115
       vertices: []
       indices: 
       edges: []

@@ -9,15 +9,31 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private HealthSystem health;
 
+    [SerializeField] private Transform AttackPosition;
+    [SerializeField] private float AttackRadius;
+    [SerializeField] private LayerMask WhatAreEnemies;
+
+    [SerializeField] private Transform enemy;
+
+    private AttackDetails AttackDetails;
+
     private Vector2 _movement;
     private bool _isFacingRight = true;
     private bool _isRunning;
 
+    private void Start()
+    {
+        
+    }
     private void Update()
     {
+        CheckAttackInput();
         CheckInput();
         CheckMovementDirection();
         UpdateAnimation();
+
+
+     
     }
 
     private void FixedUpdate()
@@ -67,5 +83,38 @@ public class PlayerController : MonoBehaviour
         health.DecreaseHealth(attackDetails.DamageAmount);
 
         // direction bullshit
+    }
+
+    private void CheckAttackInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Attack();
+        }
+    }
+    private void Attack()
+    {
+
+        anim.SetTrigger("attack");
+        //enemy.transform.SendMessage("Damage", AttackDetails);
+
+    }
+    public void TriggerAttack()
+    {
+        AttackDetails.DamageAmount = 100;
+        AttackDetails.Position = transform.position;
+
+        Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(AttackPosition.position, AttackRadius, WhatAreEnemies);
+
+        foreach (Collider2D collider in detectedObjects)
+        {
+            collider.transform.parent.SendMessage("Damage", AttackDetails);
+            
+        }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(AttackPosition.position, AttackRadius);
     }
 }

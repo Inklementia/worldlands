@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(HealthSystem))]
 public class Entity : MonoBehaviour
 {
     public FiniteStateMashine StateMachine;
@@ -18,11 +19,19 @@ public class Entity : MonoBehaviour
 
     [SerializeField] private Transform wallCheck;
     [SerializeField] private Transform playerCheck;
+    [SerializeField] private HealthSystem healthSystem;
     //public Transform TestTarget;
 
     public int FacingDirection { get; private set; }
-   
+
     private Vector2 _velocityWorkspace;
+
+    private float _knockbackStartTime;
+
+    private int _lastDamageDirection;
+
+    private bool _canKnockback;
+    protected bool _isDead;
 
     public virtual void Start()
     {
@@ -40,7 +49,10 @@ public class Entity : MonoBehaviour
 
     public virtual void Update()
     {
+        CheckKnockback();
+
         StateMachine.CurrentState.LogicUpdate();
+       
     }
 
     public virtual void FixedUpdate()
@@ -50,11 +62,16 @@ public class Entity : MonoBehaviour
 
     public virtual void SetVelocity(Vector2 direction, float speed)
     {
-       //direction.Normalize();
+       direction.Normalize();
         _velocityWorkspace = direction * speed;
         Rb.velocity = _velocityWorkspace;
     }
-
+    public virtual void SetVelocity(Vector2 angle, float speed, int direction)
+    {
+        angle.Normalize();
+        _velocityWorkspace.Set(angle.x * speed * direction, angle.y * speed * direction);
+        Rb.velocity = _velocityWorkspace;
+    }
     public virtual void SetVelocityZero()
     {
         _velocityWorkspace = Vector2.zero;
@@ -100,11 +117,52 @@ public class Entity : MonoBehaviour
     {
         return Physics2D.CircleCast(playerCheck.position, EntityData.CloseRangeActionDistance, AliveGO.transform.right, 0.1f, EntityData.WhatIsPlayer);
     }
+    public void CheckKnockback()
+    {
+        if (Time.time >= _knockbackStartTime + EntityData.KnockbackDuration)
+        {
+            _canKnockback = false;
+            SetVelocityZero();
+
+        }
+    }
 
     public virtual Vector2 GetPlayerPosition()
     {
         return Player.transform.position;
     }
+
+    // DAMAGE 
+    public virtual void Damage(AttackDetails attackDetails)
+    {
+        healthSystem.DecreaseHealth(attackDetails.DamageAmount);
+        //DamageHop(EntityData.KnockbackSpeed);
+
+        if(attackDetails.Position.x > AliveGO.transform.position.x)
+        {
+            _lastDamageDirection = -1;
+        }
+        else
+        {
+            _lastDamageDirection = 1;
+        }
+
+        _canKnockback = true;
+        _knockbackStartTime = Time.time;
+
+        SetVelocity(EntityData.KnockBackAngle, EntityData.KnockBackSpeed, _lastDamageDirection);
+
+        if(healthSystem.GetCurrentHealth() <= 0)
+        {
+            _isDead = true;
+        }
+    }
+
+    //public virtual void DamageHop(float velocity)
+    //{
+    //    _velocityWorkspace.Set(Rb.velocity.x, velocity);
+    //    Rb.velocity = _velocityWorkspace;
+    //}
 
     public virtual void Flip()
     {
