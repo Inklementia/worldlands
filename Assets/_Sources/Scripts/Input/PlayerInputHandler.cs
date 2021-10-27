@@ -7,26 +7,39 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private Joystick joystick;
     [SerializeField] private FixedTouchField touchField;
     [SerializeField] private FixedTouchField attackButton;
+    [SerializeField] private FixedButton switchWeaponButton;
 
     private Vector2 _movementPos; 
 
-    public float _movementPosX { get; private set; }
-    public float _movementPosY { get; private set; }
+    public float MovementPosX { get; private set; }
+    public float MovementPosY { get; private set; }
 
-    public bool _isPlayerMoving { get; private set; }
-    public bool _isJoystickPressed { get; private set; }
-    public bool _isAttackButtonPressed { get; private set; }
+    //public bool _isJoystickPressed { get; private set; }
+    public bool IsAttackButtonPressed { get; private set; }
+    public bool IsSwitchWeaponButtonPressed { get; private set; }
 
+    private float _pressButtonTimer;
+    [SerializeField] private float _switchWeaponButtonCd = .3f;
 
     private void Update()
     {
-        _movementPosX = joystick.Horizontal;
-        _movementPosY = joystick.Vertical;
+        MovementPosX = joystick.Horizontal;
+        MovementPosY = joystick.Vertical;
 
-        _isPlayerMoving = _movementPosX != 0.0f && _movementPosY != 0.0f;
-        _isJoystickPressed = touchField.Pressed;
-        _isAttackButtonPressed = attackButton.Pressed;
+        //_isPlayerMoving = _movementPosX != 0.0f && _movementPosY != 0.0f;
+        //_isJoystickPressed = touchField.Pressed;
+        IsAttackButtonPressed = attackButton.Pressed;
 
+        IsSwitchWeaponButtonPressed = false;
+        _pressButtonTimer += Time.deltaTime;
+        if (switchWeaponButton.Pressed && _pressButtonTimer >= _switchWeaponButtonCd)
+        {
+            IsSwitchWeaponButtonPressed = true;
+            _pressButtonTimer = 0f;
+        }
+      
+        
+       
     }
 
 }
