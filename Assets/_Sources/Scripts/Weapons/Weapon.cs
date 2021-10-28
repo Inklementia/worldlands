@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    public Player Player { get; private set; }
+    public Weapon()
+    {
+    }
+
     public void Equip()
     {
         gameObject.SetActive(true);
@@ -12,4 +17,6 @@ public class Weapon : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+   
 }

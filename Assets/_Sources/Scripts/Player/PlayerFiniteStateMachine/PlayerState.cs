@@ -10,6 +10,7 @@ public class PlayerState
 
     protected float StartTime;
     protected Vector2 Input;
+  
 
     public PlayerState(Player player, PlayerStateMachine stateMachine, PlayerData playerData)
     {
