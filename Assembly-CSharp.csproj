@@ -63,13 +63,16 @@
     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\INetEventListener.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Weapons\Weapon.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\States\MoveState.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Player\PlayerStates\PlayerAttackState.cs" />
     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\SimpleChannel.cs" />
     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\FastBitConverter.cs" />
     <Compile Include="Assets\_Sources\Scripts\DisableAflterAnimation.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_ChargeState.cs" />
     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetEndPoint.cs" />
     <Compile Include="Assets\_Sources\Scripts\Input\FixedTouchField.cs" />
+    <Compile Include="Assets\_Sources\Scripts\ICollectable.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\_Sources\Scripts\Input\PlayerInputHandler.cs" />
@@ -155,6 +158,7 @@
     <Compile Include="Assets\_Sources\Scripts\Enemies\States\PlayerDetectedState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_DamageState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Structs\AttackDetails.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Weapons\PlayerWeaponry.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\States\IdleState.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetPacketPool.cs" />
@@ -165,10 +169,7 @@
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_MeleeAttackState.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_DeadState.cs" />
-    <Compile Include="Assets\_Sources\Scripts\Player\PlayerStates\PlayerAttackState.cs" />
-    <Compile Include="Assets\_Sources\Scripts\Weapons\Weapon.cs" />
-    <Compile Include="Assets\_Sources\Scripts\ICollectable.cs" />
-    <Compile Include="Assets\_Sources\Scripts\Weapons\Weaponry.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Structs\EncounteredWeapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

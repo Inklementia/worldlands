@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAttackState : PlayerState
 {
+    private Weapon _weapon;
+
     public PlayerAttackState(Player player, PlayerStateMachine stateMachine, PlayerData playerData) :
         base(player, stateMachine, playerData)
     {
@@ -17,6 +19,7 @@ public class PlayerAttackState : PlayerState
     public override void Enter()
     {
         base.Enter();
+       
     }
 
     public override void Exit()
@@ -27,6 +30,8 @@ public class PlayerAttackState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
+
     }
 
     public override void PhysicsUpdate()
