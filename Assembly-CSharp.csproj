@@ -65,6 +65,7 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
     <Compile Include="Assets\_Sources\Scripts\Weapons\Weapon.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\States\MoveState.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Structs\EncounteredWeapon.cs" />
     <Compile Include="Assets\_Sources\Scripts\Player\PlayerStates\PlayerAttackState.cs" />
     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\SimpleChannel.cs" />
     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\FastBitConverter.cs" />
@@ -149,6 +150,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\States\PatrolState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Object Pooler\Interfaces\IPooledObject.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Input\ActionInputMode.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_IdleState.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
@@ -169,7 +171,10 @@
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_MeleeAttackState.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_DeadState.cs" />
-    <Compile Include="Assets\_Sources\Scripts\Structs\EncounteredWeapon.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Player\PlayerWeaponHandler.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Weapons\Data\BaseWeaponData.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Weapons\SingleDirectionalShootingWeapon.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Weapons\PlayerWeapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -1,33 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInputHandler : MonoBehaviour
 {
     [SerializeField] private Joystick joystick;
-    //[SerializeField] private FixedTouchField touchField;
-    [SerializeField] private FixedTouchField actionButton;
-    [SerializeField] private FixedTouchField attackButton;
-    //[SerializeField] private FixedTouchField doubleAttackButton;
-    [SerializeField] private FixedButton switchWeaponButton;
-
-    private Vector2 _movementPos; 
 
     public float MovementPosX { get; private set; }
     public float MovementPosY { get; private set; }
 
-    //public bool _isJoystickPressed { get; private set; }
-    public bool IsActionButtonPressed { get; private set; }
+    [SerializeField] private FixedButton switchWeaponButton;
+    [SerializeField] private float switchButtonPressCd = .2f;
+
+    [Header("Action Button")]
+    [SerializeField] private FixedButton actionButton;
+    [SerializeField] private Sprite[] actionButtonImages; //0 attack, 1 pick-up
+    [SerializeField] private ActionInputMode actionButtonMode; //0 attack, 1 pick-up
+    [SerializeField] private float pickUpButtonPressCd = .2f;
+
+
     public bool IsSwitchWeaponButtonPressed { get; private set; }
+    public bool IsPickUpButtonPressed { get; private set; }
+    public bool IsAttackButtonPressed { get; private set; }
 
-    private float _pressButtonTimer;
-    [SerializeField] private float _switchWeaponButtonCd = .3f;
-    [SerializeField] private float _actionButtonCd = .3f;
-
-
+    private float _pressSwitchButtonTimer;
+    private float _pressPickUpButtonTimer;
     private void Start()
     {
-        actionButton.gameObject.SetActive(false);
+        ChangeActionModeOnPickUp();
     }
 
     private void Update()
@@ -35,45 +36,68 @@ public class PlayerInputHandler : MonoBehaviour
         MovementPosX = joystick.Horizontal;
         MovementPosY = joystick.Vertical;
 
-        //_isPlayerMoving = _movementPosX != 0.0f && _movementPosY != 0.0f;
-        //_isJoystickPressed = touchField.Pressed;
+        CheckIfSwitchWeaponButtonPressed();
+        CheckIfPickUpButtonPressed();
+        CheckIfAttckButtonPressed();
 
-        //IsActionButtonPressed = actionButton.Pressed;
+    }
+    public bool CkeckIfJoystickPressed()
+    {
+       return MovementPosX != 0.0f && MovementPosY != 0.0f;
+    }
+    private void CheckIfPickUpButtonPressed()
+    {
+        IsPickUpButtonPressed = false;
+        _pressPickUpButtonTimer += Time.deltaTime;
+        if (actionButton.Pressed && _pressPickUpButtonTimer >= pickUpButtonPressCd)
+        {
+            IsPickUpButtonPressed = true;
+            _pressPickUpButtonTimer = 0f;
+        }
+    }
 
+    private void CheckIfAttckButtonPressed()
+    {
+        if (actionButtonMode == ActionInputMode.Attack)
+        {
+            if (actionButton.Pressed)
+            {
+                IsAttackButtonPressed = true;
+            }
+            else
+            {
+                IsAttackButtonPressed = false;
+            }
+        }
+    }
+    private void CheckIfSwitchWeaponButtonPressed()
+    {
         IsSwitchWeaponButtonPressed = false;
-        _pressButtonTimer += Time.deltaTime;
-        if (switchWeaponButton.Pressed && _pressButtonTimer >= _switchWeaponButtonCd)
+        _pressSwitchButtonTimer += Time.deltaTime;
+        if (switchWeaponButton.Pressed && _pressSwitchButtonTimer >= switchButtonPressCd)
         {
             IsSwitchWeaponButtonPressed = true;
-            _pressButtonTimer = 0f;
+            _pressSwitchButtonTimer = 0f;
         }
-
-
-        IsActionButtonPressed = false;
-        _pressButtonTimer += Time.deltaTime;
-        if (actionButton.Pressed && _pressButtonTimer >= _actionButtonCd)
-        {
-            IsActionButtonPressed = true;
-            _pressButtonTimer = 0f;
-        }
-
     }
-    public void EnableActionButton()
+
+    public void ChangeActionModeOnAttack()
     {
-        attackButton.gameObject.SetActive(false);
-        actionButton.gameObject.SetActive(true);
+        actionButtonMode = ActionInputMode.Attack;
+        actionButton.GetComponent<Image>().sprite = actionButtonImages[0];
     }
-    public void DisableActionButton()
+    public void ChangeActionModeOnPickUp()
     {
-        attackButton.gameObject.SetActive(true);
-        actionButton.gameObject.SetActive(false);
+        actionButtonMode = ActionInputMode.PickUp;
+        actionButton.GetComponent<Image>().sprite = actionButtonImages[1];
     }
-    public void EnableWeaponSwitchButton()
+
+    public void EnableWeaponSwitch()
     {
         switchWeaponButton.gameObject.SetActive(true);
     }
-    public void DisableWeaponSwitchButton()
+    public void DisableWeaponSwitch()
     {
-        switchWeaponButton.gameObject.SetActive(false);
+        switchWeaponButton.gameObject.SetActive(true);
     }
 }

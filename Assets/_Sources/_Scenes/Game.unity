@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 39061422}
   - component: {fileID: 39061427}
+  - component: {fileID: 39061428}
   - component: {fileID: 39061425}
   - component: {fileID: 39061423}
   - component: {fileID: 39061426}
@@ -274,8 +275,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: d7b341ed3c11a404b82057e23e2b3502, type: 2}
-  weaponry: {fileID: 198265088}
-  weaponsToCarry: 2
 --- !u!95 &39061424
 Animator:
   serializedVersion: 3
@@ -335,102 +334,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 849422846}
-  actionButton: {fileID: 71199060}
-  attackButton: {fileID: 2093222055}
   switchWeaponButton: {fileID: 244388169}
-  _switchWeaponButtonCd: 0.5
-  _actionButtonCd: 0.3
---- !u!1 &71199058
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 71199059}
-  - component: {fileID: 71199062}
-  - component: {fileID: 71199061}
-  - component: {fileID: 71199060}
-  m_Layer: 5
-  m_Name: ActionButton
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &71199059
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71199058}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 2}
-  m_Children: []
-  m_Father: {fileID: 1115398584}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -200, y: 200}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &71199060
+  switchButtonPressCd: 0.2
+  actionButton: {fileID: 2093222055}
+  actionButtonImages:
+  - {fileID: -2413806693520163455, guid: f1b849319f37a9a4fa4c5b058c47883d, type: 3}
+  - {fileID: 7482667652216324306, guid: 6943c8b53afdaaa4c913e19244a5b28f, type: 3}
+  actionButtonMode: 1
+  pickUpButtonPressCd: 0.2
+--- !u!114 &39061428
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71199058}
+  m_GameObject: {fileID: 39061418}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abca190ef577b084c84580491c1ed851, type: 3}
+  m_Script: {fileID: 11500000, guid: bf2863ce04efa8342b10751d17623bae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TouchDist: {x: 0, y: 0}
-  PointerOld: {x: 0, y: 0}
-  Pressed: 0
---- !u!114 &71199061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71199058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 84487d73ca4b791498332d8f6858417f, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &71199062
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71199058}
-  m_CullTransparentMesh: 1
+  inputHandler: {fileID: 39061427}
+  currentWeaponry: {fileID: 198265088}
+  weaponsToCarry: 2
+  WeaponTag: {fileID: 11400000, guid: f8ec1ccf4210661448a6e8317b7f8fd1, type: 2}
 --- !u!1 &99974090
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,6 +733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pressed: 0
+  Clicked: 0
 --- !u!114 &244388170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -856,7 +784,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1115398584}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -959,9 +887,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 489270040}
-  - component: {fileID: 489270041}
   - component: {fileID: 489270042}
   - component: {fileID: 489270043}
+  - component: {fileID: 489270044}
+  - component: {fileID: 489270041}
   m_Layer: 10
   m_Name: Weapon1
   m_TagString: Weapon
@@ -992,9 +921,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 489270039}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8264e4c6e56088548821db9cbfdfa428, type: 3}
+  m_Script: {fileID: 11500000, guid: 759c5c4d6c9cc084599e915e8ee1857e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BaseWeaponData: {fileID: 11400000, guid: db9a36bb3f8030d429cb59f7e0c9b299, type: 2}
+  PlayerTag: {fileID: 11400000, guid: 179e93f8c5d4574478cd4f2f2deddede, type: 2}
+  projectilePrefab: {fileID: 541749549301324428, guid: a57809fad020ccd49b2af984f0dfa940,
+    type: 3}
 --- !u!212 &489270042
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1062,6 +995,20 @@ CircleCollider2D:
   m_Offset: {x: 0.3333334, y: 0.096045196}
   serializedVersion: 2
   m_Radius: 0.8000001
+--- !u!114 &489270044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489270039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228569bddf6523d4ab9885c54b7a6c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - {fileID: 11400000, guid: f8ec1ccf4210661448a6e8317b7f8fd1, type: 2}
 --- !u!1 &495202690
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,13 +1021,14 @@ GameObject:
   - component: {fileID: 495202692}
   - component: {fileID: 495202693}
   - component: {fileID: 495202694}
+  - component: {fileID: 495202695}
   m_Layer: 10
   m_Name: Weapon2
   m_TagString: Weapon
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &495202691
 Transform:
   m_ObjectHideFlags: 0
@@ -1107,6 +1055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8264e4c6e56088548821db9cbfdfa428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Player>k__BackingField: {fileID: 0}
 --- !u!212 &495202693
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1174,6 +1123,20 @@ CircleCollider2D:
   m_Offset: {x: -0.01977384, y: 0.3220341}
   serializedVersion: 2
   m_Radius: 1.2
+--- !u!114 &495202695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495202690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228569bddf6523d4ab9885c54b7a6c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - {fileID: 11400000, guid: f8ec1ccf4210661448a6e8317b7f8fd1, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,7 +1590,6 @@ RectTransform:
   m_Children:
   - {fileID: 849422842}
   - {fileID: 2093222052}
-  - {fileID: 71199059}
   - {fileID: 244388172}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1841,13 +1803,14 @@ GameObject:
   - component: {fileID: 1323594109}
   - component: {fileID: 1323594108}
   - component: {fileID: 1323594107}
+  - component: {fileID: 1323594111}
   m_Layer: 10
   m_Name: Weapon3
   m_TagString: Weapon
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!58 &1323594107
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1928,6 +1891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8264e4c6e56088548821db9cbfdfa428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Player>k__BackingField: {fileID: 0}
 --- !u!4 &1323594110
 Transform:
   m_ObjectHideFlags: 0
@@ -1942,6 +1906,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1323594111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323594106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228569bddf6523d4ab9885c54b7a6c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - {fileID: 11400000, guid: f8ec1ccf4210661448a6e8317b7f8fd1, type: 2}
 --- !u!1 &1324015019
 GameObject:
   m_ObjectHideFlags: 0
@@ -2124,7 +2102,7 @@ GameObject:
   - component: {fileID: 2093222053}
   - component: {fileID: 2093222055}
   m_Layer: 5
-  m_Name: AttackButton
+  m_Name: ActionButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2196,12 +2174,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2093222051}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abca190ef577b084c84580491c1ed851, type: 3}
+  m_Script: {fileID: 11500000, guid: b0d8f35f07f8a1e4a86936654df45085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TouchDist: {x: 0, y: 0}
-  PointerOld: {x: 0, y: 0}
   Pressed: 0
+  Clicked: 0
 --- !u!1 &2132997870
 GameObject:
   m_ObjectHideFlags: 0

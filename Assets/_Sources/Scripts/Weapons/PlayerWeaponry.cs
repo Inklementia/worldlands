@@ -7,30 +7,32 @@ public class PlayerWeaponry : MonoBehaviour
 {
     private int _totalWeapons;
     private int _currentWeaponIndex;
-    public List<Weapon> CarriedWeapons { get; private set; }
-    public Weapon CurrentWeapon { get; private set; }
-
+    public List<PlayerWeapon> CarriedWeapons { get; private set; }
+    public PlayerWeapon CurrentWeapon { get; private set; }
+    public bool CanSwitchWeapons { get; private set; }
 
     private void Start()
     {
         CountCarriedWeapons();
         _currentWeaponIndex = 0;
+        CanSwitchWeapons = false;
     }
 
     private void CountCarriedWeapons()
     {
 
-        CarriedWeapons = GetComponentsInChildren<Weapon>().ToList();
+        CarriedWeapons = GetComponentsInChildren<PlayerWeapon>().ToList();
         _totalWeapons = CarriedWeapons.Count;
 
+   
         //EquipWeapon(CarriedWeapons[_currentWeaponIndex]);
     }
-    public void EquipWeapon(Weapon newWeapon)
+    public void EquipWeapon(PlayerWeapon newWeapon)
     {
 
         if (CarriedWeapons.Count > 0)
         {
-            foreach (Weapon Weapon in CarriedWeapons)
+            foreach (PlayerWeapon Weapon in CarriedWeapons)
             {
                 Weapon.UnEquip();
             }
@@ -40,12 +42,19 @@ public class PlayerWeaponry : MonoBehaviour
         CarriedWeapons.Add(CurrentWeapon);
         _totalWeapons++;
         _currentWeaponIndex++;
-
+        if (_totalWeapons > 1)
+        {
+            CanSwitchWeapons = true;
+        }
+        else
+        {
+            CanSwitchWeapons = false;
+        }
         PickUpWeapon();
 
         //CountCarriedWeapons();
     }
-    private void PickUpWeapon()
+    public void PickUpWeapon()
     {
         CurrentWeapon.Equip();
 
