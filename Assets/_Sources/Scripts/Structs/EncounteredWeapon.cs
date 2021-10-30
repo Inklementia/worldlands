@@ -5,7 +5,7 @@ using UnityEngine;
 public struct EncounteredWeapon {
 
     public Transform Position;
-    public Weapon Weapon;
+    public PlayerWeapon Weapon;
 
 }
 
