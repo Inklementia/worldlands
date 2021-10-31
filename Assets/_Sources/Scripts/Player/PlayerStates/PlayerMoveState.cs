@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMoveState : PlayerState
+public class PlayerMoveState : PlayerCanCombatState
 {
-    private string _animBoolName;
-    public PlayerMoveState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) :
-        base(player, stateMachine, playerData)
+    public PlayerMoveState(Player player, PlayerStateMachine stateMachine, PlayerDataSO playerData, string animBoolName) :
+        base(player, stateMachine, playerData, animBoolName)
     {
-        _animBoolName = animBoolName;
     }
 
     public override void DoChecks()
@@ -19,20 +17,20 @@ public class PlayerMoveState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        Player.Anim.SetBool(_animBoolName, true);
+     
     }
 
     public override void Exit()
     {
         base.Exit();
-        Player.Anim.SetBool(_animBoolName, false);
+  
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
 
-        Player.SetVelocity(Input.x * PlayerData.MovementVelocity, Input.y * PlayerData.MovementVelocity);
+        Core.Movement.SetVelocity(Input.x * PlayerData.MovementVelocity, Input.y * PlayerData.MovementVelocity);
         CheckMovementDirection();
 
         if (Input.x == 0f && Input.y == 0f)
@@ -48,13 +46,13 @@ public class PlayerMoveState : PlayerState
 
     private void CheckMovementDirection()
     {
-        if (Player.FacingDirection == 1 && Input.x < 0)
+        if (Core.Movement.FacingDirection == 1 && Input.x < 0)
         {
-            Player.Flip();
+            Core.Movement.Flip();
         }
-        else if (Player.FacingDirection == -1 && Input.x > 0)
+        else if (Core.Movement.FacingDirection == -1 && Input.x > 0)
         {
-            Player.Flip();
+            Core.Movement.Flip();
         }
     }
 

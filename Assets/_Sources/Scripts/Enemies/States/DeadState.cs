@@ -20,10 +20,10 @@ public class DeadState : State
     {
         base.Enter();
 
-        ObjectPooler.Instance.SpawnFromPool(StateData.DeathBloodParticlesTag, Entity.AliveGO.transform.position,
-                   Entity.AliveGO.transform.rotation);
-        ObjectPooler.Instance.SpawnFromPool(StateData.DeathChunkParticlesTag, Entity.AliveGO.transform.position,
-                   Entity.AliveGO.transform.rotation);
+        ObjectPooler.Instance.SpawnFromPool(StateData.DeathBloodParticlesTag, Entity.transform.position,
+                   Entity.transform.rotation);
+        ObjectPooler.Instance.SpawnFromPool(StateData.DeathChunkParticlesTag, Entity.transform.position,
+                   Entity.transform.rotation);
 
         Entity.gameObject.SetActive(false);
     }

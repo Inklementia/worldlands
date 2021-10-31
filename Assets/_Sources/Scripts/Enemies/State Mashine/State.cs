@@ -6,6 +6,7 @@ public class State
 {
     protected FiniteStateMashine StateMachine;
     protected Entity Entity;
+    protected Core Core;
 
     protected float StartTime;
 
@@ -16,6 +17,7 @@ public class State
         Entity = entity;
         StateMachine = stateMachine;
         AnimBoolName = animBoolName;
+        Core = entity.Core;
     }
 
     public virtual void Enter()

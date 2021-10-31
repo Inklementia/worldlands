@@ -5,38 +5,33 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     #region States
+    public Core Core { get; private set; }
     public PlayerStateMachine StateMachine { get; private set; }
     public PlayerWeaponHandler WeaponHandler { get; private set; }
     public PlayerIdleState IdleState { get; private set; }
     public PlayerMoveState MoveState { get; private set; }
-    public PlayerAttackState AttackState { get; private set; }
     #endregion
 
     public Animator Anim { get; private set; }
-    public Rigidbody2D Rb { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; } 
-    public int FacingDirection { get; private set; }
-
-    [SerializeField] private PlayerData playerData;
-
-    private Vector2 _velocityWorkSpace;
-    
+   
+    [SerializeField] private PlayerDataSO playerData;
 
     private void Awake()
     {
+        Core = GetComponentInChildren<Core>();
+
         StateMachine = new PlayerStateMachine();
-        // give current weapon
 
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
-        AttackState = new PlayerAttackState(this, StateMachine, playerData);
+        //AttackState = new PlayerAttackState(this, StateMachine, playerData);
     }
     private void Start()
     {
-        FacingDirection = 1;
+        Core.Movement.SetFacingDirection(1);
 
         Anim = GetComponent<Animator>();
-        Rb = GetComponent<Rigidbody2D>();
         InputHandler = GetComponent<PlayerInputHandler>();
         WeaponHandler = GetComponent<PlayerWeaponHandler>();
 
@@ -52,17 +47,6 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         StateMachine.CurrentState.PhysicsUpdate();
-    }
-
-    public void SetVelocity(float velocityX, float velocityY)
-    {
-        _velocityWorkSpace.Set(velocityX, velocityY);
-        Rb.velocity = _velocityWorkSpace;
-    }
-    public void Flip()
-    {
-        FacingDirection *= -1;
-        transform.Rotate(0, 180, 0);
     }
 
 

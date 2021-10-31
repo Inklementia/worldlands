@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdleState : PlayerCanCombatState
+public class PlayerCanCombatState : PlayerState
 {
-    public PlayerIdleState(Player player, PlayerStateMachine stateMachine, PlayerDataSO playerData, string animBoolName) :
+    protected Vector2 Input;
+
+    public PlayerCanCombatState(Player player, PlayerStateMachine stateMachine, PlayerDataSO playerData, string animBoolName) :
         base(player, stateMachine, playerData, animBoolName)
     {
     }
@@ -17,25 +19,20 @@ public class PlayerIdleState : PlayerCanCombatState
     public override void Enter()
     {
         base.Enter();
-
-        Core.Movement.SetVelocityZero();
     }
 
     public override void Exit()
     {
         base.Exit();
-      
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        Input.x = Player.InputHandler.MovementPosX;
+        Input.y = Player.InputHandler.MovementPosY;
 
-        if(Input.x != 0f && Input.y != 0f)
-        {
-            StateMachine.ChangeState(Player.MoveState);
-        }
-     
+        // if health < 0  -> DeathState
     }
 
     public override void PhysicsUpdate()

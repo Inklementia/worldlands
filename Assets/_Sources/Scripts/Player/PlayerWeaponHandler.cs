@@ -4,81 +4,81 @@ using UnityEngine;
 
 public class PlayerWeaponHandler : MonoBehaviour
 {
-    [SerializeField] private PlayerInputHandler inputHandler;
-    [SerializeField] private PlayerWeaponry currentWeaponry;
-    [SerializeField] private int weaponsToCarry = 1;
+    public PlayerInputHandler InputHandler { get; private set; }
+    public PlayerWeaponry Weaponry { get; private set; }
 
+    [SerializeField] private float weaponsNumberToCarry = 2;
     [SerializeField] private Tag WeaponTag;
 
     private EncounteredWeapon _encounteredWeapon;
 
+    private void Awake()
+    {
+        InputHandler = GetComponent<PlayerInputHandler>();
+        Weaponry = GetComponentInChildren<PlayerWeaponry>();
+    }
     // Start is called before the first frame update
     void Start()
     {
-        inputHandler.ChangeActionModeOnPickUp();
+        InputHandler.ChangeActionModeOnPickUp();
     }
 
     // Update is called once per frame
     private void Update()
     {
+        //_encounteredWeapon = Player.Core.CollisionSenses.EncounteredWeapon;
+
         //do events
-        if (currentWeaponry.CanSwitchWeapons)
+        if (Weaponry.CanSwitchWeapons)
         {
-            inputHandler.EnableWeaponSwitch();
+            InputHandler.EnableWeaponSwitch();
         }
         else
         {
-            inputHandler.DisableWeaponSwitch();
+            InputHandler.DisableWeaponSwitch();
         }
 
-        if (inputHandler.IsSwitchWeaponButtonPressed)
+        if (InputHandler.IsSwitchWeaponButtonPressed)
         {
-            currentWeaponry.SwitchWeapon();
+            Weaponry.SwitchWeapon();
         }
 
         if (_encounteredWeapon.Weapon != null)
         {
-            inputHandler.ChangeActionModeOnPickUp();
-            if (inputHandler.IsPickUpButtonPressed && currentWeaponry.CarriedWeapons.Count < weaponsToCarry)
+            InputHandler.ChangeActionModeOnPickUp();
+
+            if (InputHandler.IsPickUpButtonPressed && Weaponry.CarriedWeapons.Count < weaponsNumberToCarry)
             {
-                currentWeaponry.EquipWeapon(_encounteredWeapon.Weapon);
+                Weaponry.EquipWeapon(_encounteredWeapon.Weapon);
                 //InputHandler.EnableWeaponSwitchButton();
                 _encounteredWeapon.Weapon = null;
 
 
             }
-            else if (inputHandler.IsPickUpButtonPressed && currentWeaponry.CarriedWeapons.Count >= weaponsToCarry)
+            else if (InputHandler.IsPickUpButtonPressed && Weaponry.CarriedWeapons.Count >= weaponsNumberToCarry)
             {
-                currentWeaponry.DropCurrentWeapon(_encounteredWeapon.Position);
-                currentWeaponry.EquipWeapon(_encounteredWeapon.Weapon);
+                Weaponry.DropCurrentWeapon(_encounteredWeapon.Position);
+                Weaponry.EquipWeapon(_encounteredWeapon.Weapon);
             }
             //otherwise drop current and pick - up new
         }
         else
         {
-            inputHandler.ChangeActionModeOnAttack();
+            InputHandler.ChangeActionModeOnAttack();
         }
 
         // ATTACK
-        if (inputHandler.IsAttackButtonPressed)
+        if (InputHandler.IsAttackButtonPressed && Weaponry.CurrentWeapon != null)
         {
-            currentWeaponry.CurrentWeapon.Attack();
+            Weaponry.CurrentWeapon.Attack();
         }
     }
-
-    // TODO: change to Tags
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.HasTag(WeaponTag))
         {
             _encounteredWeapon.Position = collision.transform;
             _encounteredWeapon.Weapon = collision.GetComponent<PlayerWeapon>();
-
-
         }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        //InputHandler.DisableActionButton();
     }
 }

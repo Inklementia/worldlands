@@ -25,9 +25,9 @@ public class MoveState : State
     {
         base.DoChecks();
 
-        IsDetectingWall = Entity.CheckWall();
-        IsPlayerInMinAgroRange = Entity.CheckPlayerInMinAgroRange();
-        IsPlayerInMaxAgroRange = Entity.CheckPlayerInMaxAgroRange();
+        IsDetectingWall = Entity.Core.CollisionSenses.CheckWall();
+        IsPlayerInMinAgroRange = Entity.Core.CollisionSenses.CheckIfPlayerInMinAgroRange();
+        IsPlayerInMaxAgroRange = Entity.Core.CollisionSenses.CheckIfPlayerInMaxAgroRange();
     }
 
     public override void Enter()
@@ -69,11 +69,11 @@ public class MoveState : State
     {
         if (Direction.x > 0)
         {
-            Entity.Flip180();
+            Entity.Core.Movement.Flip180();
         }
         else if (Direction.x < 0)
         {
-            Entity.Flip0();
+            Entity.Core.Movement.Flip0();
         }
 
     }
