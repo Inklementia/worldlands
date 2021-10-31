@@ -22,8 +22,8 @@ public class IdleState : State
     {
         base.DoChecks();
 
-        IsDetectingWall = Entity.CheckWall();
-        IsPlayerInMinAgroRange = Entity.CheckPlayerInMinAgroRange();
+        IsDetectingWall = Entity.Core.CollisionSenses.CheckWall();
+        IsPlayerInMinAgroRange = Entity.Core.CollisionSenses.CheckIfPlayerInMinAgroRange();
     }
 
     public override void Enter()

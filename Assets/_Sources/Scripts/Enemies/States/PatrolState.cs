@@ -22,9 +22,9 @@ public class PatrolState : State
     {
         base.DoChecks();
 
-        IsDetectingWall = Entity.CheckWall();
-        IsPlayerInMinAgroRange = Entity.CheckPlayerInMinAgroRange();
-        IsPlayerInMaxAgroRange = Entity.CheckPlayerInMaxAgroRange();
+        IsDetectingWall = Entity.Core.CollisionSenses.CheckWall();
+        IsPlayerInMinAgroRange = Entity.Core.CollisionSenses.CheckIfPlayerInMinAgroRange();
+        IsPlayerInMaxAgroRange = Entity.Core.CollisionSenses.CheckIfPlayerInMaxAgroRange();
     }
 
     public override void Enter()
@@ -58,13 +58,13 @@ public class PatrolState : State
 
     protected void HandleFlip()
     {
-        if (MovePos.x > Entity.AliveGO.transform.position.x)
+        if (MovePos.x > Entity.transform.position.x)
         {
-            Entity.Flip180();
+            Entity.Core.Movement.Flip180();
         }
-        else if(MovePos.x < Entity.AliveGO.transform.position.x)
+        else if(MovePos.x < Entity.transform.position.x)
         {
-            Entity.Flip0();
+            Entity.Core.Movement.Flip0();
         }
     }
 }

@@ -33,7 +33,7 @@ public class MeleeEnemy_PatrolState : PatrolState
         {
             StateMachine.ChangeState(_enemy.PlayerDetectedState);
         }
-        else if (IsDetectingWall || Vector2.Distance(_enemy.AliveGO.transform.position, MovePos) < 0.2f)
+        else if (IsDetectingWall || Vector2.Distance(_enemy.transform.position, MovePos) < 0.2f)
         {
             StateMachine.ChangeState(_enemy.IdleState);
         }

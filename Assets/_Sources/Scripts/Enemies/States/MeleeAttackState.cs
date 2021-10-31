@@ -20,7 +20,7 @@ public class MeleeAttackState : AttackState
     {
         base.DoChecks();
 
-        PerformCloseRangeAction = Entity.CheckPlayerInCloseRangeAction();
+        PerformCloseRangeAction = Entity.Core.CollisionSenses.CheckIfPlayerInCloseRangeAction();
     }
 
     public override void Enter()
@@ -28,7 +28,7 @@ public class MeleeAttackState : AttackState
         base.Enter();
 
         AttackDetails.DamageAmount = StateData.AttackDamage;
-        AttackDetails.Position = Entity.AliveGO.transform.position;
+        AttackDetails.Position = Entity.transform.position;
     }
 
     public override void Exit()

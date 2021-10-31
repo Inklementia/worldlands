@@ -15,7 +15,7 @@ public class MeleeEnemy_MoveState : MoveState
     public override void Enter()
     {
         base.Enter();
-        _enemy.SetVelocity(Direction, StateData.MovementSpeed);
+        _enemy.Core.Movement.SetVelocity(Direction, StateData.MovementSpeed);
     }
 
     public override void Exit()

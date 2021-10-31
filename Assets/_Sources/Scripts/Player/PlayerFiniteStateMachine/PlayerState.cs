@@ -4,36 +4,38 @@ using UnityEngine;
 
 public class PlayerState
 {
+    protected Core Core;
+
     protected Player Player;
     protected PlayerStateMachine StateMachine;
-    protected PlayerData PlayerData;
+    protected PlayerDataSO PlayerData;
 
     protected float StartTime;
-    protected Vector2 Input;
   
+    private string _animBoolName;
 
-    public PlayerState(Player player, PlayerStateMachine stateMachine, PlayerData playerData)
+    public PlayerState(Player player, PlayerStateMachine stateMachine, PlayerDataSO playerData, string animBoolName)
     {
         Player = player;
         StateMachine = stateMachine;
         PlayerData = playerData;
-       
+        _animBoolName = animBoolName;
+        Core = player.Core;
     }
 
     public virtual void Enter()
     {
         DoChecks();
         StartTime = Time.time;
-       
+        Player.Anim.SetBool(_animBoolName, true);
     }
     public virtual void Exit()
     {
-       
+        Player.Anim.SetBool(_animBoolName, false);
     }
     public virtual void LogicUpdate()
     {
-        Input.x = Player.InputHandler.MovementPosX;
-        Input.y = Player.InputHandler.MovementPosY;
+ 
     }
     public virtual void PhysicsUpdate()
     {

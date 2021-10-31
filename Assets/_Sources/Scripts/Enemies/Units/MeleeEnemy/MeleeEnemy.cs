@@ -22,9 +22,9 @@ public class MeleeEnemy : Entity
 
     [SerializeField] private Transform meleeAttackPosition;
 
-    public override void Start()
+    public override void Awake()
     {
-        base.Start();
+        base.Awake();
 
         IdleState = new MeleeEnemy_IdleState(this, StateMachine, "idle", idleStateData, this);
         PatrolState = new MeleeEnemy_PatrolState(this, StateMachine, "move", patrolStateData, this);
@@ -61,7 +61,7 @@ public class MeleeEnemy : Entity
         base.Damage(attackDetails);
         StateMachine.ChangeState(DamageState);
 
-        if (_isDead)
+        if (IsDead)
         {
             StateMachine.ChangeState(DeadState);
         }

@@ -18,7 +18,7 @@ public class DamageState : State
     public override void DoChecks()
     {
         base.DoChecks();
-        IsPlayerInMinAgroRange = Entity.CheckPlayerInMinAgroRange();
+        IsPlayerInMinAgroRange = Entity.Core.CollisionSenses.CheckIfPlayerInMinAgroRange();
     }
 
     public override void Enter()
@@ -26,7 +26,7 @@ public class DamageState : State
         base.Enter();
         IsDamageTimeOver = false;
 
-        ObjectPooler.Instance.SpawnFromPool(StateData.HitParticles, Entity.AliveGO.transform.position,
+        ObjectPooler.Instance.SpawnFromPool(StateData.HitParticles, Entity.transform.position,
               Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
     }
 

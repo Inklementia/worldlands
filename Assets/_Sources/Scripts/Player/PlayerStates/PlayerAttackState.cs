@@ -6,8 +6,7 @@ public class PlayerAttackState : PlayerState
 {
     private Weapon _weapon;
 
-    public PlayerAttackState(Player player, PlayerStateMachine stateMachine, PlayerData playerData) :
-        base(player, stateMachine, playerData)
+    public PlayerAttackState(Player player, PlayerStateMachine stateMachine, PlayerDataSO playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
 

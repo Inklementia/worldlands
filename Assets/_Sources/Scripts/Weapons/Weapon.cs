@@ -4,13 +4,12 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    [SerializeField] protected BaseWeaponData BaseWeaponData;
-
-    protected Transform AttackPosition;
+    [SerializeField] protected BaseWeaponDataSO BaseWeaponData;
+    [SerializeField] protected Transform AttackPosition;
 
     public bool CanFire { get; protected set; }
-    private float _coolDownTimer = 0.0f;
 
+    private float _coolDownTimer = 0.0f;
 
     public void Equip()
     {

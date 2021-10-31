@@ -23,10 +23,10 @@ public class PlayerDetectedState : State
     public override void DoChecks()
     {
         base.DoChecks();
-        IsPlayerInMinAgroRange = Entity.CheckPlayerInMinAgroRange();
-        IsPlayerInMaxAgroRange = Entity.CheckPlayerInMaxAgroRange();
-        PerformCloseRangeAction = Entity.CheckPlayerInCloseRangeAction();
-        IsDetectingWall = Entity.CheckWall();
+        IsPlayerInMinAgroRange = Entity.Core.CollisionSenses.CheckIfPlayerInMinAgroRange();
+        IsPlayerInMaxAgroRange = Entity.Core.CollisionSenses.CheckIfPlayerInMaxAgroRange();
+        PerformCloseRangeAction = Entity.Core.CollisionSenses.CheckIfPlayerInCloseRangeAction();
+        IsDetectingWall = Entity.Core.CollisionSenses.CheckWall();
 
     }
 
