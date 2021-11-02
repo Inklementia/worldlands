@@ -1166,13 +1166,14 @@ GameObject:
   - component: {fileID: 489270044}
   - component: {fileID: 489270045}
   - component: {fileID: 489270041}
+  - component: {fileID: 489270046}
   m_Layer: 10
-  m_Name: Weapon1
+  m_Name: 4thHorseman_Shotgun
   m_TagString: Weapon
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &489270040
 Transform:
   m_ObjectHideFlags: 0
@@ -1180,14 +1181,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489270039}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.64, y: -6.12, z: 0}
+  m_LocalRotation: {x: -0.0043064896, y: 0.111512035, z: 0.041010156, w: 0.9929072}
+  m_LocalPosition: {x: -17.77, y: -7.365, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1366972137}
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -1.014, y: 12.775, z: 4.617}
 --- !u!114 &489270041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1201,7 +1202,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateOnAttack: 0
-  rotatable: {fileID: 0}
+  rotatableWeaponData: {fileID: 11400000, guid: d307d3308ce86754aaecc61d44706391,
+    type: 2}
+  initialAngle: 90
 --- !u!212 &489270042
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1266,9 +1269,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.3333334, y: 0.096045196}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.8000001
+  m_Radius: 1
 --- !u!114 &489270044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1295,8 +1298,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8264e4c6e56088548821db9cbfdfa428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseWeaponData: {fileID: 11400000, guid: 16aa9093399d399478eaefccd728eba6, type: 2}
-  AttackPosition: {fileID: 1366972137}
+  baseWeaponData: {fileID: 11400000, guid: 16aa9093399d399478eaefccd728eba6, type: 2}
+  attackPosition: {fileID: 1366972137}
+--- !u!114 &489270046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489270039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce62d0a4eca423f499ae2d82389b9c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multishotWeaponData: {fileID: 11400000, guid: d307d3308ce86754aaecc61d44706391,
+    type: 2}
+  _weapon: {fileID: 489270045}
+  _player: {fileID: 0}
 --- !u!1 &495202690
 GameObject:
   m_ObjectHideFlags: 0
@@ -1448,9 +1467,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 481245dfa07bc9146bc8b6e2174a5bb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chargeableWeaponData: {fileID: 11400000, guid: 80181ceae995c784c982ee7e6817cf69,
+    type: 2}
   chargeSlider: {fileID: 292539384}
   anim: {fileID: 495202692}
-  chargeable: {fileID: 11400000, guid: 80181ceae995c784c982ee7e6817cf69, type: 2}
+  projectileData: {fileID: 11400000, guid: 81412e00d6444ed45b14352d4e824184, type: 2}
 --- !u!114 &495202697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1463,8 +1484,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8264e4c6e56088548821db9cbfdfa428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseWeaponData: {fileID: 11400000, guid: 8fdf1229172e5f24abed649277eeef19, type: 2}
-  AttackPosition: {fileID: 1857605397}
+  baseWeaponData: {fileID: 11400000, guid: 8fdf1229172e5f24abed649277eeef19, type: 2}
+  attackPosition: {fileID: 1857605397}
 --- !u!114 &495202698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1478,7 +1499,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateOnAttack: 0
-  rotatable: {fileID: 11400000, guid: 635f71b3cc0de0e48b4201cdb75e3f7a, type: 2}
+  rotatableWeaponData: {fileID: 11400000, guid: 80181ceae995c784c982ee7e6817cf69,
+    type: 2}
+  initialAngle: 90
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2330,13 +2353,15 @@ GameObject:
   - component: {fileID: 1323594108}
   - component: {fileID: 1323594107}
   - component: {fileID: 1323594111}
+  - component: {fileID: 1323594112}
+  - component: {fileID: 1323594109}
   m_Layer: 10
-  m_Name: Weapon3
+  m_Name: Staff
   m_TagString: Weapon
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!58 &1323594107
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2393,7 +2418,7 @@ SpriteRenderer:
   m_SortingLayerID: -1748797899
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1147311794961225921, guid: 116d68121e3d4e043bcf2ea315c930c1,
+  m_Sprite: {fileID: 2913779094535755580, guid: e8bb93b5c97e0614e88fff3a876f0f68,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2405,6 +2430,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1323594109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323594106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce62d0a4eca423f499ae2d82389b9c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multishotWeaponData: {fileID: 11400000, guid: a1dda6818c1518646827a176ded543cc,
+    type: 2}
+  _weapon: {fileID: 1323594112}
+  _player: {fileID: 0}
 --- !u!4 &1323594110
 Transform:
   m_ObjectHideFlags: 0
@@ -2415,7 +2456,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -17.99, y: -5.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1668760425}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2433,6 +2475,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - {fileID: 11400000, guid: f8ec1ccf4210661448a6e8317b7f8fd1, type: 2}
+--- !u!114 &1323594112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323594106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8264e4c6e56088548821db9cbfdfa428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseWeaponData: {fileID: 11400000, guid: 92cb582d4829d4648ba5948d457d15b4, type: 2}
+  attackPosition: {fileID: 1668760425}
 --- !u!1 &1324015019
 GameObject:
   m_ObjectHideFlags: 0
@@ -2605,6 +2661,36 @@ MonoBehaviour:
   whatIsWall:
     serializedVersion: 2
     m_Bits: 256
+--- !u!1 &1668760424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1668760425}
+  m_Layer: 10
+  m_Name: AttackPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1668760425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668760424}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1323594110}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1727484620
 GameObject:
   m_ObjectHideFlags: 0
