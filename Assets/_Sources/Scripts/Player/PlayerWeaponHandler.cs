@@ -29,6 +29,14 @@ public class PlayerWeaponHandler : MonoBehaviour
         //_encounteredWeapon = Player.Core.CollisionSenses.EncounteredWeapon;
 
         //do events
+
+        ManageSwitchingAndEquipingWeapons();
+        ManageAttacking();
+
+
+    }
+    private void ManageSwitchingAndEquipingWeapons()
+    {
         if (Weaponry.CanSwitchWeapons)
         {
             InputHandler.EnableWeaponSwitch();
@@ -66,14 +74,27 @@ public class PlayerWeaponHandler : MonoBehaviour
         {
             StartCoroutine(WaitAndChangeActionModeOnAttack());
         }
-
-        // ATTACK
-        if (InputHandler.IsAttackButtonPressed && Weaponry.CurrentWeapon != null)
-        {
-            Weaponry.CurrentWeapon.Attack();
-        }
     }
+    private void ManageAttacking()
+    {
+        if (Weaponry.CurrentWeapon != null)
+        {
+            if(InputHandler.IsAttackButtonPressed && !Weaponry.CurrentWeapon.ShouldBeCharged)
+            {
+                Weaponry.CurrentWeapon.Attack();
+            }
+            else if (InputHandler.IsAttackButtonPressed && Weaponry.CurrentWeapon.ShouldBeCharged)
+            {
+                // charging
+                Weaponry.CurrentWeapon.ChargeableWeapon.Charge();
+            }
+            else if(!InputHandler.IsAttackButtonPressed && (Weaponry.CurrentWeapon.ShouldBeCharged && Weaponry.CurrentWeapon.Charged))
+            {
+                Weaponry.CurrentWeapon.Attack();
+            }
+        }
 
+    }
     //чтобы тут же, после поднятия оружия не срабатывала атака
     private IEnumerator WaitAndChangeActionModeOnAttack()
     {

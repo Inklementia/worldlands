@@ -5,16 +5,19 @@ using UnityEngine;
 public class RotatableWeapon : MonoBehaviour, IWeaponFeature
 {
     [SerializeField] private bool rotateOnAttack;
-    public AdditionalWeaponFeatureDataSO rotatable;
+    [SerializeField] private WeaponTypeDataSO rotatableWeaponData;
+    [SerializeField] private float initialAngle = 90;
 
     public float RotateAngle { get; private set; }
-   
+    public float InitialRotateAngle { get; private set; }
+
     private Player _player;
-    private float _initialAngle;
+    //private Weapon _weapon;
+    public WeaponTypeDataSO RotatableWeaponData { get => rotatableWeaponData; private set => rotatableWeaponData = value; }
 
     private void Awake()
     {
-        _initialAngle = transform.rotation.z;
+        InitialRotateAngle = initialAngle;
     }
     private void FixedUpdate()
     {
@@ -34,22 +37,23 @@ public class RotatableWeapon : MonoBehaviour, IWeaponFeature
     private void RotateWeapon()
     {
         RotateAngle = Mathf.Atan2(_player.InputHandler.MovementPosX, _player.InputHandler.MovementPosY) * Mathf.Rad2Deg;
+        InitialRotateAngle = Mathf.Atan2(_player.InputHandler.MovementPosX, _player.InputHandler.MovementPosY) * Mathf.Rad2Deg;
         if (RotateAngle < 0)
         {
             RotateAngle = -RotateAngle;
-            gameObject.transform.rotation = Quaternion.Euler(0, 180, -((RotateAngle - _initialAngle) - 90));
+            gameObject.transform.rotation = Quaternion.Euler(0, 180, -((RotateAngle - initialAngle) - 90));
         }
         else
         {
-            gameObject.transform.rotation = Quaternion.Euler(0, 0, -((RotateAngle - _initialAngle) - 90));
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, -((RotateAngle - initialAngle) - 90));
         }
     }
 
     public void Accept(IVisitor visitor)
     {
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        _player = gameObject.FindWithTag(RotatableWeaponData.PlayerTag).GetComponent<Player>();
         visitor.Visit(this);
-       
+
         //_player.WeaponHandler.Weaponry.CurrentWeapon.Accept(rotatable)
     }
 }

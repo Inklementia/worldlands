@@ -88,6 +88,5 @@ public class PlayerWeaponry : MonoBehaviour
 
         CurrentWeapon = CarriedWeapons[_currentWeaponIndex];
         CurrentWeapon.Equip();
-
     }
 }

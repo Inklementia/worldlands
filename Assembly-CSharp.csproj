@@ -178,7 +178,6 @@
     <Compile Include="Assets\_Sources\Scripts\Weapons\Data\ProjectileDataSO.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_IdleState.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
-    <Compile Include="Assets\_Sources\Scripts\Weapons\AdditionalWeaponFeatureDataSO.cs" />
     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetUtils.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\_Sources\Scripts\Core\Components\CoreComponent.cs" />
@@ -204,7 +203,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_DeadState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Weapons\Decorator\IWeapon.cs" />
-    <Compile Include="Assets\_Sources\Scripts\Weapons\IRotatableVisitor.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Weapons\WeaponTypeDataSO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
