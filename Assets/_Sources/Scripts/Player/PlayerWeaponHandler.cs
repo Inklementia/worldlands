@@ -64,7 +64,7 @@ public class PlayerWeaponHandler : MonoBehaviour
         }
         else
         {
-            InputHandler.ChangeActionModeOnAttack();
+            StartCoroutine(WaitAndChangeActionModeOnAttack());
         }
 
         // ATTACK
@@ -73,12 +73,19 @@ public class PlayerWeaponHandler : MonoBehaviour
             Weaponry.CurrentWeapon.Attack();
         }
     }
+
+    //чтобы тут же, после поднятия оружия не срабатывала атака
+    private IEnumerator WaitAndChangeActionModeOnAttack()
+    {
+        yield return new WaitForSeconds(.2f);
+        InputHandler.ChangeActionModeOnAttack();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.HasTag(WeaponTag))
         {
             _encounteredWeapon.Position = collision.transform;
-            _encounteredWeapon.Weapon = collision.GetComponent<PlayerWeapon>();
+            _encounteredWeapon.Weapon = collision.GetComponent<Weapon>();
         }
     }
 }

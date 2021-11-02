@@ -19,7 +19,6 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private ActionInputMode actionButtonMode; //0 attack, 1 pick-up
     [SerializeField] private float pickUpButtonPressCd = .2f;
 
-
     public bool IsSwitchWeaponButtonPressed { get; private set; }
     public bool IsPickUpButtonPressed { get; private set; }
     public bool IsAttackButtonPressed { get; private set; }
@@ -39,7 +38,7 @@ public class PlayerInputHandler : MonoBehaviour
         CheckIfSwitchWeaponButtonPressed();
         CheckIfPickUpButtonPressed();
         CheckIfAttckButtonPressed();
-
+        CkeckIfJoystickPressed();
     }
     public bool CkeckIfJoystickPressed()
     {

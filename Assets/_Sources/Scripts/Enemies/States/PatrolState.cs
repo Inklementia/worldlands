@@ -22,9 +22,9 @@ public class PatrolState : State
     {
         base.DoChecks();
 
-        IsDetectingWall = Entity.Core.CollisionSenses.CheckWall();
-        IsPlayerInMinAgroRange = Entity.Core.CollisionSenses.CheckIfPlayerInMinAgroRange();
-        IsPlayerInMaxAgroRange = Entity.Core.CollisionSenses.CheckIfPlayerInMaxAgroRange();
+        IsDetectingWall = Entity.Core.CollisionSenses.Wall;
+        IsPlayerInMinAgroRange = Entity.Core.PlayerDetectionSenses.InMinAgroRange;
+        IsPlayerInMaxAgroRange = Entity.Core.PlayerDetectionSenses.InMaxAgroRange;
     }
 
     public override void Enter()

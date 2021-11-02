@@ -23,9 +23,9 @@ public class ChargeState : State
     {
         base.DoChecks();
 
-        IsPlayerInMinAgroRange = Entity.Core.CollisionSenses.CheckIfPlayerInMinAgroRange();
-        PerformCloseRangeAction = Entity.Core.CollisionSenses.CheckIfPlayerInCloseRangeAction();
-        IsDetectingWall = Entity.Core.CollisionSenses.CheckWall();
+        IsPlayerInMinAgroRange = Entity.Core.PlayerDetectionSenses.InMinAgroRange;
+        PerformCloseRangeAction = Entity.Core.PlayerDetectionSenses.InCloseRangeAction;
+        IsDetectingWall = Entity.Core.CollisionSenses.Wall;
     }
 
     public override void Enter()
@@ -34,7 +34,7 @@ public class ChargeState : State
 
         IsChargeTimeOver = false;
         HandleFlip();
-        Entity.GoTo(Entity.GetPlayerPosition(), StateData.ChargeSpeed);
+        Entity.GoTo(Entity.GetTargetPosition(), StateData.ChargeSpeed);
     }
 
     public override void Exit()
@@ -59,11 +59,11 @@ public class ChargeState : State
 
     private void HandleFlip()
     {
-        if (Entity.Player.transform.position.x > Entity.transform.position.x)
+        if (Entity.Target.transform.position.x > Entity.transform.position.x)
         {
             Entity.Core.Movement.Flip180();
         }
-        else if (Entity.Player.transform.position.x < Entity.transform.position.x)
+        else if (Entity.Target.transform.position.x < Entity.transform.position.x)
         {
             Entity.Core.Movement.Flip0();
         }

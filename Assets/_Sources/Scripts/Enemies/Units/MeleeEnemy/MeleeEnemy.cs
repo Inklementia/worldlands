@@ -26,6 +26,12 @@ public class MeleeEnemy : Entity
     {
         base.Awake();
 
+        // not working from here (core is not seen)
+
+    }
+    public override void Start()
+    {
+        base.Start();
         IdleState = new MeleeEnemy_IdleState(this, StateMachine, "idle", idleStateData, this);
         PatrolState = new MeleeEnemy_PatrolState(this, StateMachine, "move", patrolStateData, this);
         PlayerDetectedState = new MeleeEnemy_PlayerDetectedState(this, StateMachine, "playerDetected", playerDetectedStateData, this);
@@ -33,11 +39,8 @@ public class MeleeEnemy : Entity
         MeleeAttackState = new MeleeEnemy_MeleeAttackState(this, StateMachine, "meleeAttack", meleeAttackPosition, meleeAttackStateData, this);
         DamageState = new MeleeEnemy_DamageState(this, StateMachine, "damage", damageStateData, this);
         DeadState = new MeleeEnemy_DeadState(this, StateMachine, "dead", deadStateData, this);
-
         StateMachine.Initialize(PatrolState);
-
     }
-
 
     public override void Update()
     {

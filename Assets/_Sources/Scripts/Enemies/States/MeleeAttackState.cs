@@ -20,7 +20,7 @@ public class MeleeAttackState : AttackState
     {
         base.DoChecks();
 
-        PerformCloseRangeAction = Entity.Core.CollisionSenses.CheckIfPlayerInCloseRangeAction();
+        PerformCloseRangeAction = Entity.Core.PlayerDetectionSenses.InCloseRangeAction;
     }
 
     public override void Enter()

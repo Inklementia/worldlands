@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootingWeapon : PlayerWeapon
+public class ShootingWeapon : Weapon
 {
     [SerializeField] private ProjectileDataSO weaponData;
     [SerializeField] private GameObject projectilePrefab;

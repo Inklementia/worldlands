@@ -18,7 +18,7 @@ public class DamageState : State
     public override void DoChecks()
     {
         base.DoChecks();
-        IsPlayerInMinAgroRange = Entity.Core.CollisionSenses.CheckIfPlayerInMinAgroRange();
+        IsPlayerInMinAgroRange = Entity.Core.PlayerDetectionSenses.InMinAgroRange;
     }
 
     public override void Enter()
