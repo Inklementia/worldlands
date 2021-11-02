@@ -6,7 +6,7 @@ public class State
 {
     protected FiniteStateMashine StateMachine;
     protected Entity Entity;
-    protected Core Core;
+    protected EnemyCore Core;
 
     protected float StartTime;
 

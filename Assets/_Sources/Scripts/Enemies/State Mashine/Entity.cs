@@ -8,14 +8,14 @@ public class Entity : MonoBehaviour
 {
     public FiniteStateMashine StateMachine;
     public D_Entity EntityData;
-    public Core Core { get; private set; }
+    public EnemyCore Core { get; private set; }
     public Rigidbody2D Rb { get; private set; }
     public Animator Anim { get; private set; }
     public AnimationToStateMachine AnimationToStateMachine { get; private set; }
-    public GameObject Player { get; private set; }
+    public GameObject Target { get; private set; }
     public Vector2 StartingPos { get; private set; }
 
-    [SerializeField] private Tag playerTag;
+   
     [SerializeField] private HealthSystem healthSystem;
 
 
@@ -32,16 +32,17 @@ public class Entity : MonoBehaviour
         Anim = GetComponent<Animator>();
         Rb = GetComponent<Rigidbody2D>();
         AnimationToStateMachine = GetComponent<AnimationToStateMachine>();
-        Core = GetComponentInChildren<Core>();
+        Core = GetComponentInChildren<EnemyCore>();
 
-        Core.Movement.SetFacingDirection(-1);
         StartingPos = transform.position;
-
-        StateMachine = new FiniteStateMashine();
-
-        Player = gameObject.FindWithTag(playerTag);
+      
     }
-
+    public virtual void Start()
+    {
+        Core.Movement.SetFacingDirection(-1);
+        Target = Core.PlayerDetectionSenses.Player;
+        StateMachine = new FiniteStateMashine();
+    }
     public virtual void Update()
     {
         CheckKnockback();
@@ -62,9 +63,9 @@ public class Entity : MonoBehaviour
         }
     }
 
-    public virtual Vector2 GetPlayerPosition()
+    public virtual Vector2 GetTargetPosition()
     {
-        return Player.transform.position;
+        return Target.transform.position;
     }
 
     public virtual void GoTo(Vector2 point, float speed)

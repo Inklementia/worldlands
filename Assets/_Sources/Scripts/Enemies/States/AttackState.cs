@@ -19,7 +19,7 @@ public class AttackState : State
     {
         base.DoChecks();
 
-        IsPlayerInMinAgroRange = Entity.Core.CollisionSenses.CheckIfPlayerInMinAgroRange();
+        IsPlayerInMinAgroRange = Entity.Core.PlayerDetectionSenses.InMinAgroRange;
     }
 
     public override void Enter()
