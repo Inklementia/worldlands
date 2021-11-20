@@ -12,7 +12,6 @@ public class RotatableWeapon : MonoBehaviour, IWeaponFeature
     public float InitialRotateAngle { get; private set; }
 
     private Player _player;
-    //private Weapon _weapon;
     public WeaponTypeDataSO RotatableWeaponData { get => rotatableWeaponData; private set => rotatableWeaponData = value; }
 
     private void Awake()
@@ -21,6 +20,7 @@ public class RotatableWeapon : MonoBehaviour, IWeaponFeature
     }
     private void FixedUpdate()
     {
+        Debug.Log(InitialRotateAngle);
         if (_player != null)
         {
             if (rotateOnAttack && _player.InputHandler.IsAttackButtonPressed && _player.InputHandler.CkeckIfJoystickPressed())
@@ -41,11 +41,11 @@ public class RotatableWeapon : MonoBehaviour, IWeaponFeature
         if (RotateAngle < 0)
         {
             RotateAngle = -RotateAngle;
-            gameObject.transform.rotation = Quaternion.Euler(0, 180, -((RotateAngle - initialAngle) - 90));
+            gameObject.transform.rotation = Quaternion.Euler(0, 180, -(RotateAngle - initialAngle));
         }
         else
         {
-            gameObject.transform.rotation = Quaternion.Euler(0, 0, -((RotateAngle - initialAngle) - 90));
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, -(RotateAngle - initialAngle));
         }
     }
 
@@ -55,5 +55,9 @@ public class RotatableWeapon : MonoBehaviour, IWeaponFeature
         visitor.Visit(this);
 
         //_player.WeaponHandler.Weaponry.CurrentWeapon.Accept(rotatable)
+    }
+    public void UnsetPlayer()
+    { 
+        _player = null;
     }
 }

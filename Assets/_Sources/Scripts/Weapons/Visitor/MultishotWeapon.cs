@@ -6,6 +6,7 @@ namespace TestVisitor
 {
     public class MultishotWeapon : MonoBehaviour, IWeaponElement
     {
+        public string DonotUse;
         public void Accept(IVisitor visitor)
         {
             visitor.Visit(this);

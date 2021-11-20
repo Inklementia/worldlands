@@ -6,16 +6,19 @@ public class MultishotWeapon : MonoBehaviour, IWeaponFeature
 {
     [SerializeField] private WeaponTypeDataSO multishotWeaponData;
     [SerializeField] private Weapon _weapon;
-    [SerializeField] private Player _player;
+    
+    private Player _player;
 
-    private List<Vector2> _firePoints = new List<Vector2>();
-    private float RotateAngle;
+    public List<Vector2> FirePoints { get; private set; }
+
+    private float Angle;
     private bool _fullRound;
 
     public WeaponTypeDataSO MultishotWeaponData { get => multishotWeaponData; private set => multishotWeaponData = value; }
 
     private void Awake()
     {
+        FirePoints = new List<Vector2>();
         _weapon = GetComponent<Weapon>();
 
         //if (!IsRotatable)
@@ -24,28 +27,30 @@ public class MultishotWeapon : MonoBehaviour, IWeaponFeature
         //}
     }
 
-    private void AssignFirePoints()
+    public void AssignFirePoints()
     {
-        _firePoints.Clear();
+        //Debug.Log("Assigned" + RotateAngle);
+        FirePoints.Clear();
         if (_weapon.IsRotatable)
         {
-            RotateAngle = _weapon.RotatableWeapon.InitialRotateAngle;
+            Angle = _weapon.RotatableWeapon.InitialRotateAngle;
         }
         else
         {
-            RotateAngle = 90;
+            Angle = 90;
         }
 
         var halfAngle = Mathf.Ceil(multishotWeaponData.FireAngle / 2);
         var segments = multishotWeaponData.NumberOfProjectiles;
+
         if (multishotWeaponData.RemoveAdditionalSegmentAtEnd)
         {
             segments = multishotWeaponData.NumberOfProjectiles - 1;
         }
 
-        var startAngle = RotateAngle - halfAngle;
-        var endAngle = RotateAngle + halfAngle;
-
+        var startAngle = Angle - halfAngle;
+        var endAngle = Angle + halfAngle;
+       
         float angle = startAngle;
         float arcLength = endAngle - startAngle;
         for (int i = 0; i <= segments; i++)
@@ -53,7 +58,7 @@ public class MultishotWeapon : MonoBehaviour, IWeaponFeature
             float x = Mathf.Sin(Mathf.Deg2Rad * angle);
             float y = Mathf.Cos(Mathf.Deg2Rad * angle);
 
-            _firePoints.Add(new Vector2(x, y));
+            FirePoints.Add(new Vector2(x, y));
 
             angle += (arcLength / segments);
         }
@@ -74,18 +79,20 @@ public class MultishotWeapon : MonoBehaviour, IWeaponFeature
 
         if (_weapon.IsRotatable)
         {
-            RotateAngle = _weapon.RotatableWeapon.InitialRotateAngle;
+            Angle = _weapon.RotatableWeapon.InitialRotateAngle;
         }
         else
         {
-            RotateAngle = 90;
+            Angle = 90;
         }
 
         //var segments = numberOfBullets + 1;
 
-        var startAngle = RotateAngle - halfAngle;
-        var endAngle = RotateAngle + halfAngle;
+        var startAngle = Angle - halfAngle;
+        var endAngle = Angle + halfAngle;
+
         List<Vector2> arcPoints = new List<Vector2>();
+
         float angle = startAngle;
         float arcLength = endAngle - startAngle;
         for (int i = 0; i <= segments; i++)
@@ -104,7 +111,7 @@ public class MultishotWeapon : MonoBehaviour, IWeaponFeature
     }
     public void Accept(IVisitor visitor)
     {
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        _player = gameObject.FindWithTag(MultishotWeaponData.PlayerTag).GetComponent<Player>();
         AssignFirePoints();
 
         visitor.Visit(this); 
