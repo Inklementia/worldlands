@@ -37,6 +37,7 @@ public class PlayerWeaponHandler : MonoBehaviour
     }
     private void ManageSwitchingAndEquipingWeapons()
     {
+        // if more than 1 weapons
         if (Weaponry.CanSwitchWeapons)
         {
             InputHandler.EnableWeaponSwitch();
@@ -45,23 +46,24 @@ public class PlayerWeaponHandler : MonoBehaviour
         {
             InputHandler.DisableWeaponSwitch();
         }
-
+        // switching 
         if (InputHandler.IsSwitchWeaponButtonPressed)
         {
             Weaponry.SwitchWeapon();
         }
 
+        // if player is near weapon
         if (_encounteredWeapon.Weapon != null)
         {
+            // activate Action button
             InputHandler.ChangeActionModeOnPickUp();
 
+            // if Action button is pressed and Player can take 1 more weapon
             if (InputHandler.IsPickUpButtonPressed && Weaponry.CarriedWeapons.Count < weaponsNumberToCarry)
             {
                 Weaponry.EquipWeapon(_encounteredWeapon.Weapon);
                 //InputHandler.EnableWeaponSwitchButton();
                 _encounteredWeapon.Weapon = null;
-
-
             }
             else if (InputHandler.IsPickUpButtonPressed && Weaponry.CarriedWeapons.Count >= weaponsNumberToCarry)
             {
@@ -72,11 +74,13 @@ public class PlayerWeaponHandler : MonoBehaviour
         }
         else
         {
-            StartCoroutine(WaitAndChangeActionModeOnAttack());
+            //StartCoroutine(WaitAndChangeActionModeOnAttack());
+            InputHandler.ChangeActionModeOnAttack();
         }
     }
     private void ManageAttacking()
     {
+        // if player has weapon
         if (Weaponry.CurrentWeapon != null)
         {
             if(InputHandler.IsAttackButtonPressed && !Weaponry.CurrentWeapon.ShouldBeCharged)
@@ -98,15 +102,26 @@ public class PlayerWeaponHandler : MonoBehaviour
     //чтобы тут же, после поднятия оружия не срабатывала атака
     private IEnumerator WaitAndChangeActionModeOnAttack()
     {
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.5f);
         InputHandler.ChangeActionModeOnAttack();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.HasTag(WeaponTag))
+        bool once = true;
+        if (collision.HasTag(WeaponTag) && once)
         {
             _encounteredWeapon.Position = collision.transform;
             _encounteredWeapon.Weapon = collision.GetComponent<Weapon>();
+            once = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.HasTag(WeaponTag))
+        {
+            _encounteredWeapon.Weapon = null;
         }
     }
 }

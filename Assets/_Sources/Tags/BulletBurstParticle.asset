@@ -9,12 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dbf889b4b9dbf543a2f4a1b18f742ae, type: 3}
-  m_Name: HorsemanShotgun
+  m_Script: {fileID: 11500000, guid: 57f201bb4d924ea5831150a2e71c4a6e, type: 3}
+  m_Name: BulletBurstParticle
   m_EditorClassIdentifier: 
-  Name: 4th Horseman Shotgun
-  AttackCd: 1
-  ProjectileTravelDistance: 5
-  ProjectileLifeDuration: 6
-  ProjectileDragMultiplier: 0.5
-  ProjectileSpeed: 8

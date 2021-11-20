@@ -99,4 +99,9 @@ public class ChargeableWeapon : MonoBehaviour, IWeaponFeature
         //_weapon = GetComponent<Weapon>();
         visitor.Visit(this);
     }
+
+    public void UnsetPlayer()
+    {
+        _player = null;
+    }
 }

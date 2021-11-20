@@ -8,7 +8,7 @@
       "hash": "20a03a6aa3d5681db3babc958043a32b8ec2add1"
     },
     "com.unity.2d.animation": {
-      "version": "5.0.6",
+      "version": "5.0.9",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -80,7 +80,7 @@
       "dependencies": {}
     },
     "com.unity.cinemachine": {
-      "version": "2.6.10",
+      "version": "2.6.11",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -110,7 +110,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.11",
+      "version": "2.0.12",
       "depth": 0,
       "source": "registry",
       "dependencies": {

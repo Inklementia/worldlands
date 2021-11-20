@@ -6,7 +6,7 @@ namespace TestVisitor
 {
     public class RotatableWeapon : MonoBehaviour, IWeaponElement
     {
-
+        public string DoNotUse = "Do another script";
         public void Accept(IVisitor visitor)
         {
             visitor.Visit(this);

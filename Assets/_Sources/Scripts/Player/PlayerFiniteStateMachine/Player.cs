@@ -20,7 +20,6 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         Core = GetComponentInChildren<Core>();
-
         StateMachine = new PlayerStateMachine();
 
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
@@ -29,8 +28,12 @@ public class Player : MonoBehaviour
     }
     private void Start()
     {
+        // core initial funtions
+        
         Core.Movement.SetFacingDirection(1);
+        Core.HealthSystem.SetMaxHealth(playerData.MaxHealth);
 
+        //getting components
         Anim = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
         WeaponHandler = GetComponent<PlayerWeaponHandler>();

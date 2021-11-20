@@ -29,7 +29,7 @@ public class PlayerWeaponry : MonoBehaviour
     }
     public void EquipWeapon(Weapon newWeapon)
     {
-
+        // hide current weapon
         if (CarriedWeapons.Count > 0)
         {
             foreach (Weapon Weapon in CarriedWeapons)
@@ -37,11 +37,13 @@ public class PlayerWeaponry : MonoBehaviour
                 Weapon.UnEquip();
             }
         }
-       
+       // add new weapon 
         CurrentWeapon = newWeapon;
         CarriedWeapons.Add(CurrentWeapon);
         _totalWeapons++;
         _currentWeaponIndex++;
+
+        // if more than 2 weapons
         if (_totalWeapons > 1)
         {
             CanSwitchWeapons = true;
@@ -67,9 +69,11 @@ public class PlayerWeaponry : MonoBehaviour
     public void DropCurrentWeapon(Transform dropTransform)
     {
         CurrentWeapon.gameObject.transform.parent = null;
-       CurrentWeapon.gameObject.transform.position = dropTransform.position;
+        CurrentWeapon.gameObject.transform.position = dropTransform.position;
+        CurrentWeapon.gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         CarriedWeapons.Remove(CurrentWeapon);
         _totalWeapons--;
+        CurrentWeapon.RemovePlayerInteractions();
 
     }
     public void SwitchWeapon()
