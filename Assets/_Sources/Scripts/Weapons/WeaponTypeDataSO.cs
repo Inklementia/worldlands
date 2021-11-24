@@ -11,6 +11,8 @@ public class WeaponTypeDataSO : ScriptableObject, IVisitor
     [Header("Charging")]
     [Range(0, 5)]
     public float MaxCharge = 3f;
+    [Range(0, 5)]
+    public float MinCharge = .5f;
     public bool CanFireWithoutCharge = false;
 
     [Header("Multiple Direction Shooting")]

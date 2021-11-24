@@ -18,13 +18,18 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private Sprite[] actionButtonImages; //0 attack, 1 pick-up
     [SerializeField] private ActionInputMode actionButtonMode; //0 attack, 1 pick-up
     [SerializeField] private float pickUpButtonPressCd = .2f;
+    [SerializeField] private float attackButtonPressCd = .2f;
 
     public bool IsSwitchWeaponButtonPressed { get; private set; }
     public bool IsPickUpButtonPressed { get; private set; }
     public bool IsAttackButtonPressed { get; private set; }
 
     private float _pressSwitchButtonTimer;
+    private float _pressAttackButtonTimer;
     private float _pressPickUpButtonTimer;
+
+    private bool _attackButtonNeedToBeDelayed;
+
     private void Start()
     {
         ChangeActionModeOnPickUp();
@@ -59,7 +64,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (actionButtonMode == ActionInputMode.Attack)
         {
-            if (actionButton.Pressed)
+            if (actionButton.Pressed && !_attackButtonNeedToBeDelayed)
             {
                 IsAttackButtonPressed = true;
             }
@@ -69,6 +74,8 @@ public class PlayerInputHandler : MonoBehaviour
             }
         }
     }
+
+
     private void CheckIfSwitchWeaponButtonPressed()
     {
         IsSwitchWeaponButtonPressed = false;
@@ -82,9 +89,23 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void ChangeActionModeOnAttack()
     {
-        actionButtonMode = ActionInputMode.Attack;
-        actionButton.GetComponent<Image>().sprite = actionButtonImages[0];
+        // it fires instantly 
+        // hmm
+
+        StartCoroutine(WaitAndChangeActionModeOnAttack());
+        
     }
+
+    //чтобы тут же, после поднятия оружия не срабатывала атака
+    private IEnumerator WaitAndChangeActionModeOnAttack()
+    {
+        actionButton.GetComponent<Image>().sprite = actionButtonImages[0];
+        yield return new WaitForSeconds(.5f);
+        actionButtonMode = ActionInputMode.Attack;
+       
+    }
+
+
     public void ChangeActionModeOnPickUp()
     {
         actionButtonMode = ActionInputMode.PickUp;

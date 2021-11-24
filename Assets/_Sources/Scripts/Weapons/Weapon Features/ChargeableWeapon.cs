@@ -17,7 +17,7 @@ public class ChargeableWeapon : MonoBehaviour, IWeaponFeature
     private float _chargeValue;
 
     private Player _player;
-    private Weapon _weapon;
+    private ShootingWeapon _weapon;
     public WeaponTypeDataSO ChargeableWeaponData { get => chargeableWeaponData; private set => chargeableWeaponData = value; }
 
     public float ChargedProjectileSpeed { get; private set; }
@@ -31,7 +31,7 @@ public class ChargeableWeapon : MonoBehaviour, IWeaponFeature
         chargeSlider.value = 0f;
         chargeSlider.maxValue = ChargeableWeaponData.MaxCharge;
 
-        _weapon = GetComponent<Weapon>();
+        _weapon = GetComponent<ShootingWeapon>();
     }
     private void Update()
     {
@@ -62,13 +62,15 @@ public class ChargeableWeapon : MonoBehaviour, IWeaponFeature
         // show arrow and do bow animation
          Debug.Log("CHARGING");
 
+       
+
         _chargeValue += Time.deltaTime;
         chargeSlider.value = _chargeValue;
 
 
         if (!_canFireWithoutCharge)
         {
-            if (_chargeValue > .8f)
+            if (_chargeValue > chargeableWeaponData.MinCharge)
             {
                 _weapon.SetCharged();
             }

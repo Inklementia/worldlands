@@ -5,7 +5,7 @@ using UnityEngine;
 public class MultishotWeapon : MonoBehaviour, IWeaponFeature
 {
     [SerializeField] private WeaponTypeDataSO multishotWeaponData;
-    [SerializeField] private Weapon _weapon;
+    [SerializeField] private ShootingWeapon _weapon;
     
     private Player _player;
 
@@ -19,7 +19,7 @@ public class MultishotWeapon : MonoBehaviour, IWeaponFeature
     private void Awake()
     {
         FirePoints = new List<Vector2>();
-        _weapon = GetComponent<Weapon>();
+        _weapon = GetComponent<ShootingWeapon>();
 
         //if (!IsRotatable)
         //{
