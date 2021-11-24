@@ -55,7 +55,6 @@
   <ItemGroup>
     <Compile Include="Assets\_Sources\Scripts\Enemies\States\AttackState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Interfaces\IDamageable.cs" />
-    <Compile Include="Assets\_Sources\Scripts\Weapons\Decorator\WeaponConfig.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NtpSyncModule.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
@@ -67,9 +66,8 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
     <Compile Include="Assets\_Sources\Scripts\Weapons\Weapon Features\ChargeableWeapon.cs" />
-    <Compile Include="Assets\_Sources\Scripts\Weapons\Weapon.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Weapons\ShootingWeapon.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\States\MoveState.cs" />
-    <Compile Include="Assets\_Sources\Scripts\Weapons\Decorator\PlayerWeapon.cs" />
     <Compile Include="Assets\_Sources\Scripts\Weapons\Weapon Features\MultishotWeapon.cs" />
     <Compile Include="Assets\_Sources\Scripts\Structs\EncounteredWeapon.cs" />
     <Compile Include="Assets\_Sources\Scripts\Player\PlayerStates\PlayerAttackState.cs" />
@@ -102,7 +100,6 @@
     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetPacket.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\_Sources\Scripts\Weapons\Visitor\IVisitor.cs" />
-    <Compile Include="Assets\_Sources\Scripts\Weapons\ShootingWeapon.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_IdleState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Player\PlayerFiniteStateMachine\PlayerState.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
@@ -115,6 +112,7 @@
     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetPeer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\_Sources\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Weapons\Projectiles\Bullet.cs" />
     <Compile Include="Assets\Joystick Pack\Examples\JoystickPlayerExample.cs" />
     <Compile Include="Assets\_Sources\Scripts\Input\CustomFloatingJoystick.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\States\DeadState.cs" />
@@ -127,14 +125,11 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
-    <Compile Include="Assets\_Sources\Scripts\Weapons\Decorator\WeaponAttachment.cs" />
     <Compile Include="Assets\_Sources\Scripts\Input\FixedButton.cs" />
     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetThread.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
-    <Compile Include="Assets\_Sources\Scripts\Weapons\Decorator\ClientDecorator.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_MoveState.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
-    <Compile Include="Assets\_Sources\Scripts\Weapons\Decorator\BaseWeapon.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\States\MeleeAttackState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\States\DamageState.cs" />
@@ -187,7 +182,6 @@
     <Compile Include="Assets\_Sources\Scripts\Enemies\States\PlayerDetectedState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_DamageState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Core\EnemyCore.cs" />
-    <Compile Include="Assets\_Sources\Scripts\Weapons\Decorator\WeaponDecorator.cs" />
     <Compile Include="Assets\_Sources\Scripts\Structs\AttackDetails.cs" />
     <Compile Include="Assets\_Sources\Scripts\Weapons\WeaponTypeDataSO.cs" />
     <Compile Include="Assets\_Sources\Scripts\Core\Components\PlayerDetectionSenses.cs" />
@@ -204,8 +198,8 @@
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_MeleeAttackState.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_DeadState.cs" />
-    <Compile Include="Assets\_Sources\Scripts\Weapons\Decorator\IWeapon.cs" />
-    <Compile Include="Assets\_Sources\Scripts\Weapons\Projectiles\Bullet.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Weapons\Projectiles\Arrow.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Weapons\Projectiles\Rocket.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

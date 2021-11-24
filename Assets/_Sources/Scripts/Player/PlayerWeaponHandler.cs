@@ -112,7 +112,7 @@ public class PlayerWeaponHandler : MonoBehaviour
         if (collision.HasTag(WeaponTag) && once)
         {
             _encounteredWeapon.Position = collision.transform;
-            _encounteredWeapon.Weapon = collision.GetComponent<Weapon>();
+            _encounteredWeapon.Weapon = collision.GetComponent<ShootingWeapon>();
             once = false;
         }
     }
