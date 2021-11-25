@@ -108,6 +108,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetDataReader.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Weapons\Projectiles\Arrow.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy.cs" />
     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetPeer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_PlayerDetectedState.cs" />
     <Compile Include="Assets\_Sources\Scripts\Weapons\Projectiles\Projectile.cs" />
     <Compile Include="Assets\_Sources\Scripts\Weapons\Visitor\WeaponController.cs" />
+    <Compile Include="Assets\_Sources\Scripts\CheckIfObstacle.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\SequencedChannel.cs" />
     <Compile Include="Assets\_Sources\Scripts\SingletonClass.cs" />
@@ -154,6 +156,7 @@
     <Compile Include="Assets\ConsolePro\Remote\ConsoleProRemoteServer.cs" />
     <Compile Include="Assets\_Sources\Scripts\Weapons\Visitor\ClientVisitor.cs" />
     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetDebug.cs" />
+    <Compile Include="Assets\_Sources\Scripts\Weapons\Projectiles\Rocket.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Joystick Pack\Examples\JoystickSetterExample.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\States\ChargeState.cs" />
@@ -198,8 +201,7 @@
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_MeleeAttackState.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_DeadState.cs" />
-    <Compile Include="Assets\_Sources\Scripts\Weapons\Projectiles\Arrow.cs" />
-    <Compile Include="Assets\_Sources\Scripts\Weapons\Projectiles\Rocket.cs" />
+    <Compile Include="Assets\TestEnemy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -449,6 +451,9 @@
     </Reference>
     <Reference Include="Sirenix.OdinInspector.Attributes">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.Serialization.Config">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.dll</HintPath>
@@ -949,6 +954,10 @@
       <Project>{FEE5CF7E-D081-8EC1-4C5A-7B7C8BBF0329}</Project>
       <Name>Sirenix.OdinInspector.CompatibilityLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="PackageToolsEditor.csproj">
+      <Project>{3D7458F3-8486-E45E-4BF1-D3390C83400D}</Project>
+      <Name>PackageToolsEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.Modules.UnityMathematics.csproj">
       <Project>{5E91F9C5-7419-F050-E71B-3573F780DB41}</Project>
       <Name>Sirenix.OdinInspector.Modules.UnityMathematics</Name>
@@ -956,6 +965,14 @@
     <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj">
       <Project>{70E6657C-7F35-7859-92F3-0EB113AF0727}</Project>
       <Name>Sirenix.OdinInspector.CompatibilityLayer.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="AstarPathfindingProject.csproj">
+      <Project>{425306D5-F3A5-4EF2-2362-1E4DA378924F}</Project>
+      <Name>AstarPathfindingProject</Name>
+    </ProjectReference>
+    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
+      <Project>{D5B1AFB2-83B2-E099-79EE-751608AFE40D}</Project>
+      <Name>AstarPathfindingProjectEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,15 +12,24 @@ public class Entity : MonoBehaviour
     public EnemyCore Core { get; private set; }
     public Rigidbody2D Rb { get; private set; }
     public Animator Anim { get; private set; }
+  
     public AnimationToStateMachine AnimationToStateMachine { get; private set; }
     public GameObject Target { get; private set; }
     public Vector2 StartingPos { get; private set; }
 
-   
+    // Pathfinding variables // probably move to coreComponent
+    public Seeker Seeker { get; private set; }
+
+    public float NextWayPointDistance = 3f;
+    public Path _path;
+    public int _currentWayPoint = 0;
+    public bool _reachedEndOfPath = false;
+
+
     [SerializeField] private HealthSystem healthSystem;
 
 
-    //public Transform TestTarget;
+    public Transform MoveTarget;
 
     private float _knockbackStartTime;
 
@@ -34,14 +44,40 @@ public class Entity : MonoBehaviour
         AnimationToStateMachine = GetComponent<AnimationToStateMachine>();
         Core = GetComponentInChildren<EnemyCore>();
 
+        Seeker = GetComponent<Seeker>();
+       
         StartingPos = transform.position;
       
+    }
+
+    private void OnPathComplete(Path path)
+    {
+        if (!path.error)
+        {
+            _path = path;
+            _currentWayPoint = 0;
+            Debug.Log("We Have Path");
+        }
+    }
+
+    private void UpdatePath()
+    {
+        if (Seeker.IsDone())
+        {
+            Debug.Log("Update Path working");
+            Seeker.StartPath(Rb.position, MoveTarget.position, OnPathComplete);
+        }
     }
     public virtual void Start()
     {
         Core.Movement.SetFacingDirection(-1);
         Target = Core.PlayerDetectionSenses.Player;
         StateMachine = new FiniteStateMashine();
+
+        Seeker.StartPath(Rb.position, MoveTarget.position, OnPathComplete);
+        InvokeRepeating("UpdatePath", 0f, 2f);
+
+
     }
     public virtual void Update()
     {

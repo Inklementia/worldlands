@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6b298e751c1154f9fc121d1e50c603, type: 3}
   m_Name: MeleeEnemy_ChargeStateData
   m_EditorClassIdentifier: 
-  ChargeSpeed: 6
+  ChargeSpeed: 0
   ChargeTime: 2

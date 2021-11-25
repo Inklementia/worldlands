@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e6f590390af0e4f98569dc5550aee8, type: 3}
   m_Name: MeleeEnemy_PatrolStateData
   m_EditorClassIdentifier: 
-  MovementSpeed: 2
+  MovementSpeed: 3
   PatrolDistance: 6
