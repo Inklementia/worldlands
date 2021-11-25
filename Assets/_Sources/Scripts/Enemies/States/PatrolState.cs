@@ -7,7 +7,7 @@ public class PatrolState : State
     // state for patroling certain area
     protected D_PatrolState StateData;
 
-    protected Vector2 MovePos;
+    protected Vector3 MovePos;
     protected bool IsPlayerInMinAgroRange;
     protected bool IsPlayerInMaxAgroRange;
     protected bool IsDetectingWall;
@@ -50,10 +50,25 @@ public class PatrolState : State
 
     protected void ChangeMoveDirection()
     {
-        MovePos = new Vector2(
-                 Random.Range(Entity.StartingPos.x - StateData.PatrolDistance - 1, Entity.StartingPos.x + StateData.PatrolDistance - 1),
-                 Random.Range(Entity.StartingPos.y - StateData.PatrolDistance - 1, Entity.StartingPos.y + StateData.PatrolDistance - 1)
-                 );
+        //MovePos = new Vector3(
+        //         Random.Range(Entity.StartingPos.x - StateData.PatrolDistance - 1, Entity.StartingPos.x + StateData.PatrolDistance - 1),
+        //         Random.Range(Entity.StartingPos.y - StateData.PatrolDistance - 1, Entity.StartingPos.y + StateData.PatrolDistance - 1), 0f
+        //         );
+        //if (Entity.MoveTarget.GetComponent<CheckIfObstacle>().HasObstacleOnWay)
+        //{
+        //    ChangeMoveDirection();
+        //}
+        //else
+        //{
+        //    Entity.MoveTarget.position = MovePos;
+        //}
+
+        var point = Random.insideUnitSphere * 20;
+        //point.y = 0;
+        //point += ai.position;
+        Entity.MoveTarget.position = point;
+        //return point;
+
     }
 
     protected void HandleFlip()

@@ -40,6 +40,8 @@ public class MeleeEnemy : Entity
         DamageState = new MeleeEnemy_DamageState(this, StateMachine, "damage", damageStateData, this);
         DeadState = new MeleeEnemy_DeadState(this, StateMachine, "dead", deadStateData, this);
         StateMachine.Initialize(PatrolState);
+
+       
     }
 
     public override void Update()

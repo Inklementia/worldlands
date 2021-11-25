@@ -62,11 +62,11 @@ public class Movement : CoreComponent
     public void Flip180()
     {
         FacingDirection = 1;
-        transform.rotation = Quaternion.Euler(0, 180, 0);
+        Rb.transform.rotation = Quaternion.Euler(0, 180, 0);
     }
     public void Flip0()
     {
         FacingDirection = -1;
-        transform.rotation = Quaternion.Euler(0, 0, 0);
+        Rb.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 }
