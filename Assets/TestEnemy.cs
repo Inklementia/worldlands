@@ -7,8 +7,8 @@ public class TestEnemy : MonoBehaviour
 {
     public Seeker Seeker { get; private set; }
     [SerializeField] private Rigidbody2D Rb;
-
-    public float NextWayPointDistance = 3f;
+    [SerializeField] private float radius;
+    public float NextWayPointDistance = 2f;
 
 
     public Path _path;
@@ -37,6 +37,7 @@ public class TestEnemy : MonoBehaviour
         {
             //Debug.Log("Update Path working");
             Seeker.StartPath(Rb.position, MoveTarget.position, OnPathComplete);
+            //MoveTarget.position = PickRandomPoint();
         }
     }
 
@@ -59,11 +60,11 @@ public class TestEnemy : MonoBehaviour
             _reachedEndOfPath = false;
         }
         Vector2 direction = ((Vector2)_path.vectorPath[_currentWayPoint] - Rb.position).normalized;
-        Vector2 force = direction * 30 * Time.deltaTime;
+        Vector2 force = direction * 400 * Time.deltaTime;
 
-        //_Rb.velocity = direction * MovementSpeed * Time.deltaTime;
+        Rb.velocity = direction * 400 * Time.deltaTime;
 
-        Rb.AddForce(force);
+        //Rb.AddForce(force);
 
         float distance = Vector2.Distance(Rb.position, _path.vectorPath[_currentWayPoint]);
         //Debug.Log("Distance " + distance);
@@ -71,5 +72,13 @@ public class TestEnemy : MonoBehaviour
         {
             _currentWayPoint++;
         }
+    }
+    private Vector3 PickRandomPoint()
+    {
+        var point = Random.insideUnitSphere * radius;
+
+        point.y = 0;
+        point += transform.position;
+        return point;
     }
 }

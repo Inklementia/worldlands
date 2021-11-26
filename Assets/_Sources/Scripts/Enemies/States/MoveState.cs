@@ -9,7 +9,7 @@ public class MoveState : State
     protected Vector2 Direction;
 
     protected float SpendTime;
-    protected float TimeBeforeDetectingWall = 1f;
+    protected float TimeBeforeDetectingWall = .5f;
 
     protected bool IsPlayerInMinAgroRange;
     protected bool IsPlayerInMaxAgroRange;
@@ -28,6 +28,9 @@ public class MoveState : State
         IsDetectingWall = Entity.Core.CollisionSenses.Wall;
         IsPlayerInMinAgroRange = Entity.Core.PlayerDetectionSenses.InMinAgroRange;
         IsPlayerInMaxAgroRange = Entity.Core.PlayerDetectionSenses.InMaxAgroRange;
+        //Debug.Log("IsDetectingWall " + IsDetectingWall);
+        //Debug.Log("IsPlayerInMinAgroRange " + IsPlayerInMinAgroRange);
+        //Debug.Log("IsPlayerInMaxAgroRange " + IsPlayerInMaxAgroRange);
     }
 
     public override void Enter()
@@ -62,7 +65,7 @@ public class MoveState : State
         Direction = new Vector2(-Direction.x + Random.Range(-1f, 1f), -Direction.y + Random.Range(-1f, 1f));
         Direction.Normalize();
         //Direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-        //Debug.Log("Movement direction: " + Direction);
+        Debug.Log("Movement direction: " + Direction);
     }
 
     protected void HandleFlip()

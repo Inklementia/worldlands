@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeleeEnemy : Entity
 {
     public MeleeEnemy_IdleState IdleState { get; private set; }
-    public MeleeEnemy_PatrolState PatrolState { get; private set; }
+    public MeleeEnemy_MoveState MoveState { get; private set; }
     public MeleeEnemy_PlayerDetectedState PlayerDetectedState { get; private set; }
     public MeleeEnemy_ChargeState ChargeState { get; private set; }
     public MeleeEnemy_MeleeAttackState MeleeAttackState { get; private set; }
@@ -13,7 +13,7 @@ public class MeleeEnemy : Entity
     public MeleeEnemy_DeadState DeadState { get; private set; }
 
     [SerializeField] private D_IdleState idleStateData;
-    [SerializeField] private D_PatrolState patrolStateData;
+    [SerializeField] private D_MoveState moveStateData;
     [SerializeField] private D_PlayerDetectedState playerDetectedStateData;
     [SerializeField] private D_ChargeState chargeStateData;
     [SerializeField] private D_MeleeAttackState meleeAttackStateData;
@@ -33,15 +33,15 @@ public class MeleeEnemy : Entity
     {
         base.Start();
         IdleState = new MeleeEnemy_IdleState(this, StateMachine, "idle", idleStateData, this);
-        PatrolState = new MeleeEnemy_PatrolState(this, StateMachine, "move", patrolStateData, this);
+        MoveState = new MeleeEnemy_MoveState(this, StateMachine, "move", moveStateData, this);
         PlayerDetectedState = new MeleeEnemy_PlayerDetectedState(this, StateMachine, "playerDetected", playerDetectedStateData, this);
         ChargeState = new MeleeEnemy_ChargeState(this, StateMachine, "charge", chargeStateData, this);
         MeleeAttackState = new MeleeEnemy_MeleeAttackState(this, StateMachine, "meleeAttack", meleeAttackPosition, meleeAttackStateData, this);
         DamageState = new MeleeEnemy_DamageState(this, StateMachine, "damage", damageStateData, this);
         DeadState = new MeleeEnemy_DeadState(this, StateMachine, "dead", deadStateData, this);
-        StateMachine.Initialize(PatrolState);
+        StateMachine.Initialize(MoveState);
 
-       
+  
     }
 
     public override void Update()
@@ -54,7 +54,7 @@ public class MeleeEnemy : Entity
     public override void OnDrawGizmos()
     {
         base.OnDrawGizmos();
-        Gizmos.DrawWireSphere(StartingPos, patrolStateData.PatrolDistance);
+        //Gizmos.DrawWireSphere(StartingPos, patrolStateData.PatrolDistance);
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(meleeAttackPosition.position, meleeAttackStateData.AttackRadius);

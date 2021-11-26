@@ -31,21 +31,27 @@ public class MeleeEnemy_ChargeState : ChargeState
     {
         base.LogicUpdate();
 
+     
+
         if (PerformCloseRangeAction)
         {
             StateMachine.ChangeState(_enemy.MeleeAttackState);
         }
-        else if (IsDetectingWall)
-        {
-            StateMachine.ChangeState(_enemy.IdleState);
-        }
         else if (IsChargeTimeOver)
         {
-            if (IsPlayerInMinAgroRange)
+
+            if (IsPlayerInMaxAgroRange)
             {
                 StateMachine.ChangeState(_enemy.PlayerDetectedState);
             }
             else
+            {
+                StateMachine.ChangeState(_enemy.IdleState);
+            }
+        }
+        else if (!IsPlayerInMaxAgroRange)
+        {
+            if (IsDetectingWall)
             {
                 StateMachine.ChangeState(_enemy.IdleState);
             }

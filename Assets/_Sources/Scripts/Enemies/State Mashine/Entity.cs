@@ -20,16 +20,11 @@ public class Entity : MonoBehaviour
     // Pathfinding variables // probably move to coreComponent
     public Seeker Seeker { get; private set; }
 
-    public float NextWayPointDistance = 3f;
-    public Path _path;
-    public int _currentWayPoint = 0;
-    public bool _reachedEndOfPath = false;
-
 
     [SerializeField] private HealthSystem healthSystem;
 
 
-    public Transform MoveTarget;
+    //public Transform MoveTarget;
 
     private float _knockbackStartTime;
 
@@ -44,38 +39,21 @@ public class Entity : MonoBehaviour
         AnimationToStateMachine = GetComponent<AnimationToStateMachine>();
         Core = GetComponentInChildren<EnemyCore>();
 
-        Seeker = GetComponent<Seeker>();
+       Seeker = GetComponent<Seeker>();
        
         StartingPos = transform.position;
       
     }
 
-    private void OnPathComplete(Path path)
-    {
-        if (!path.error)
-        {
-            _path = path;
-            _currentWayPoint = 0;
-            Debug.Log("We Have Path");
-        }
-    }
 
-    private void UpdatePath()
-    {
-        if (Seeker.IsDone())
-        {
-            Debug.Log("Update Path working");
-            Seeker.StartPath(Rb.position, MoveTarget.position, OnPathComplete);
-        }
-    }
     public virtual void Start()
     {
         Core.Movement.SetFacingDirection(-1);
         Target = Core.PlayerDetectionSenses.Player;
         StateMachine = new FiniteStateMashine();
 
-        Seeker.StartPath(Rb.position, MoveTarget.position, OnPathComplete);
-        InvokeRepeating("UpdatePath", 0f, 2f);
+        //Seeker.StartPath(Rb.position, MoveTarget.position, OnPathComplete);
+        //InvokeRepeating("UpdatePath", 0f, 2f);
 
 
     }
