@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d67a989c6617442a60444afaa84ea9, type: 3}
-  m_Name: MeleeEnemy_PlayerDetectedStateData
+  m_Script: {fileID: 11500000, guid: 378301e5efae5fb4e9d746a170a0b91d, type: 3}
+  m_Name: MeleeEnemyMoveStateData
   m_EditorClassIdentifier: 
-  TimeBeforLongRangeAction: 1
+  MovementSpeed: 3

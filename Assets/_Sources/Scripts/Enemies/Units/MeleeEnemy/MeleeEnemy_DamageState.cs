@@ -43,7 +43,8 @@ public class MeleeEnemy_DamageState : DamageState
             }
             else
             {
-                StateMachine.ChangeState(_enemy.PatrolState);
+                //StateMachine.ChangeState(_enemy.PatrolState);
+                StateMachine.ChangeState(_enemy.MoveState);
             }
        }
     }

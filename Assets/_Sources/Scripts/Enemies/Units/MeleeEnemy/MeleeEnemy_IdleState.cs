@@ -36,8 +36,8 @@ public class MeleeEnemy_IdleState : IdleState
         }
         else if (IsIdleTimeOver)
         {
-            StateMachine.ChangeState(_enemy.PatrolState);
-            //StateMachine.ChangeState(_enemy.MoveState);
+            //StateMachine.ChangeState(_enemy.PatrolState);
+            StateMachine.ChangeState(_enemy.MoveState);
         }
     }
 

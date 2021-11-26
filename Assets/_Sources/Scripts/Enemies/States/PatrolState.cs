@@ -63,10 +63,10 @@ public class PatrolState : State
         //    Entity.MoveTarget.position = MovePos;
         //}
 
-        var point = Random.insideUnitSphere * 20;
+        //var point = Random.insideUnitSphere * 20;
         //point.y = 0;
         //point += ai.position;
-        Entity.MoveTarget.position = point;
+        //Entity.MoveTarget.position = point;
         //return point;
 
     }

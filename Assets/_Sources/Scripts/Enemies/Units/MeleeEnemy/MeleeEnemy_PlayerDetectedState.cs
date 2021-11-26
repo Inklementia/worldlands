@@ -33,20 +33,22 @@ public class MeleeEnemy_PlayerDetectedState : PlayerDetectedState
         {
             StateMachine.ChangeState(_enemy.MeleeAttackState);
         }
-        else if (PerformLongRangeAction)
+        else if (PerformLongRangeAction && Time.time >= StartTime + StateData.TimeBeforLongRangeAction)
         {
             StateMachine.ChangeState(_enemy.ChargeState);
         }
         else if (!IsPlayerInMaxAgroRange)
         {
-            StateMachine.ChangeState(_enemy.PatrolState);
+            //StateMachine.ChangeState(_enemy.PatrolState);
+            StateMachine.ChangeState(_enemy.MoveState);
 
         }
-        else if (IsDetectingWall)
-        {
-            // in idea:  flip and move, but...
-            StateMachine.ChangeState(_enemy.PatrolState);
-        }
+        //else if (IsDetectingWall)
+        //{
+        //    // in idea:  flip and move, but...
+        //    //StateMachine.ChangeState(_enemy.PatrolState);
+        //    StateMachine.ChangeState(_enemy.MoveState);
+        //}
     }
 
     public override void PhysicsUpdate()

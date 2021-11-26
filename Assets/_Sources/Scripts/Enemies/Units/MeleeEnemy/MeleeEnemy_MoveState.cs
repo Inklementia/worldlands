@@ -15,7 +15,9 @@ public class MeleeEnemy_MoveState : MoveState
     public override void Enter()
     {
         base.Enter();
-        _enemy.Core.Movement.SetVelocity(Direction, StateData.MovementSpeed);
+        //_enemy.Core.Movement.SetVelocity(Direction, StateData.MovementSpeed);
+      
+        //bug.Log(Direction + " * " + StateData.MovementSpeed);
     }
 
     public override void Exit()
@@ -27,7 +29,14 @@ public class MeleeEnemy_MoveState : MoveState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (IsDetectingWall)
+
+        _enemy.Core.Movement.SetVelocity(Direction, StateData.MovementSpeed);
+
+        if (IsPlayerInMinAgroRange)
+        {
+            StateMachine.ChangeState(_enemy.PlayerDetectedState);
+        }
+        else if (IsDetectingWall)
         {
             SpendTime += Time.deltaTime;
             if (SpendTime >= TimeBeforeDetectingWall || Direction == Vector2.zero)
@@ -36,6 +45,9 @@ public class MeleeEnemy_MoveState : MoveState
             }
 
         }
+
+
+
     }
 
     public override void PhysicsUpdate()
