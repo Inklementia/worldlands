@@ -65,7 +65,7 @@ public class MoveState : State
         Direction = new Vector2(-Direction.x + Random.Range(-1f, 1f), -Direction.y + Random.Range(-1f, 1f));
         Direction.Normalize();
         //Direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-        Debug.Log("Movement direction: " + Direction);
+        //Debug.Log("Movement direction: " + Direction);
     }
 
     protected void HandleFlip()

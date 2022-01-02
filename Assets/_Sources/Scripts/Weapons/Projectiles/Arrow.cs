@@ -29,7 +29,7 @@ public class Arrow : Projectile
             Rb.velocity = Vector2.zero;
             Rb.gravityScale = 0;
            // transform.Rotate(0f, 0f, 0f);
-            transform.localRotation = Quaternion.Euler(0f, 0f, 0f); 
+            //transform.localRotation = Quaternion.Euler(0f, 0f, 0f); 
             //transform.rotation = Quaternion.identity;
         }
        

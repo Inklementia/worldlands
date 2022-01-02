@@ -67,6 +67,9 @@ public class Rocket : Projectile
         _speed = speed;
         _rotationSpeed = rotationSpeed;
         _rotateAngleDeviation = rotationAngleDeviation;
+        
+        AttackDetails.DamageAmount = damage;
+        AttackDetails.Position = transform.position;
     }
 }
 

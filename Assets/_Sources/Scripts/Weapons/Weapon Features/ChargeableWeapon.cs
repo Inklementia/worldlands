@@ -6,10 +6,9 @@ using UnityEngine.UI;
 public class ChargeableWeapon : MonoBehaviour, IWeaponFeature
 {
     [SerializeField] private WeaponTypeDataSO chargeableWeaponData;
-
-    [SerializeField] private Slider chargeSlider;
+    [SerializeField] private Tag chargeSliderTag;
+    private Slider _chargeSlider;
     [SerializeField] private Animator anim;
-    [SerializeField] private ProjectileDataSO projectileData;
 
     private bool _canFireWithoutCharge;
 
@@ -28,8 +27,7 @@ public class ChargeableWeapon : MonoBehaviour, IWeaponFeature
         _canFireWithoutCharge = ChargeableWeaponData.CanFireWithoutCharge;
         _maxChargeValue = ChargeableWeaponData.MaxCharge;
 
-        chargeSlider.value = 0f;
-        chargeSlider.maxValue = ChargeableWeaponData.MaxCharge;
+       
 
         _weapon = GetComponent<ShootingWeapon>();
     }
@@ -44,7 +42,7 @@ public class ChargeableWeapon : MonoBehaviour, IWeaponFeature
                 if (_chargeValue > 0f)
                 {
                     _chargeValue -= 2f * Time.deltaTime;
-                    chargeSlider.value = _chargeValue;
+                    _chargeSlider.value = _chargeValue;
                 }
                 else
                 {
@@ -65,7 +63,7 @@ public class ChargeableWeapon : MonoBehaviour, IWeaponFeature
        
 
         _chargeValue += Time.deltaTime;
-        chargeSlider.value = _chargeValue;
+        _chargeSlider.value = _chargeValue;
 
 
         if (!_canFireWithoutCharge)
@@ -85,19 +83,23 @@ public class ChargeableWeapon : MonoBehaviour, IWeaponFeature
         if (_chargeValue > _maxChargeValue)
         {
             _chargeValue = _maxChargeValue;
-            chargeSlider.value = _maxChargeValue;
+            _chargeSlider.value = _maxChargeValue;
         }
         ApplyChargedPower();
     }
 
     private void ApplyChargedPower()
     {
-        ChargedProjectileSpeed = _chargeValue + projectileData.ProjectileSpeed;
+        ChargedProjectileSpeed = _chargeValue + _weapon.baseWeaponData.ProjectileSpeed;
     }
 
     public void Accept(IVisitor visitor)
     {
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        _chargeSlider = gameObject.FindWithTag(chargeSliderTag).GetComponent<Slider>();
+        _chargeSlider.value = 0f;
+        _chargeSlider.maxValue = ChargeableWeaponData.MaxCharge;
         //_weapon = GetComponent<Weapon>();
         visitor.Visit(this);
     }

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbf889b4b9dbf543a2f4a1b18f742ae, type: 3}
   m_Name: MountainTopBase
   m_EditorClassIdentifier: 
-  Name: 
-  Damage: 10
+  Name: Mountain Top
+  Damage: 30
   EnergyCostPerAttack: 1
   AttackCd: 0.2
   NumberOfProjectilesPerRound: 1
@@ -23,4 +23,4 @@ MonoBehaviour:
   ProjectileDragMultiplier: 0.5
   ProjectileSpeed: 8
   ProjectileRotationSpeed: 200
-  ProjectileRotateAngleDeviation: 0.5
+  ProjectileRotateAngleDeviation: 0.2

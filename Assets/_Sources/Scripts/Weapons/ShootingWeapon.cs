@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ShootingWeapon : MonoBehaviour
 {
-    [SerializeField] private BaseWeaponDataSO baseWeaponData;
+     public BaseWeaponDataSO baseWeaponData;
+     
     [SerializeField] private Transform attackPosition;
     [SerializeField] private Tag projectileTag;
     [SerializeField] private Tag shootPartcilesTag;
@@ -29,7 +30,7 @@ public class ShootingWeapon : MonoBehaviour
     private float _projectileSpeed;
     private float _randomAngleDeviation;
     private float _randomProjectileSpeedDeviation;
-
+    private ObjectPooler _pooler;
 
     void Awake()
     {
@@ -45,10 +46,13 @@ public class ShootingWeapon : MonoBehaviour
         ShouldBeCharged = ChargeableWeapon != null ? true : false;
         IsRotatable = RotatableWeapon != null ? true : false;
         IsMultishoot = MultishotWeapon != null ? true : false;
+
+        
     }
 
     private void Start()
     {
+        _pooler = ObjectPooler.Instance;
         _projectileSpeed = baseWeaponData.ProjectileSpeed;
 
         if (!IsRotatable)
@@ -251,7 +255,6 @@ public class ShootingWeapon : MonoBehaviour
             }
             else
             {
-               
                 SpawnProjectile(
                     attackPosition.position,
                     Quaternion.AngleAxis(90 - angle, Vector3.forward),
@@ -292,11 +295,10 @@ public class ShootingWeapon : MonoBehaviour
         float projectileSpeed, float projectileDamage, float projectileRotationSpeed, float projectileRotationAngleDeviation)
     {
         // SPAWN PARTICLES
-
-        ObjectPooler.Instance.SpawnFromPool(shootPartcilesTag, position, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
-        GameObject projectileGO = ObjectPooler.Instance.SpawnFromPool(projectileTag, position, rotation);
         
-        Projectile projectile = projectileGO.GetComponent<Projectile>();
+        GameObject projectileGo = _pooler.SpawnFromPool(projectileTag, position, rotation);
+        
+        Projectile projectile = projectileGo.GetComponent<Projectile>();
 
         projectile.FireProjectile(
             projectileDamage,

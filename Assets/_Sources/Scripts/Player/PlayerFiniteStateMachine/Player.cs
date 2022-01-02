@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -52,6 +53,29 @@ public class Player : MonoBehaviour
         StateMachine.CurrentState.PhysicsUpdate();
     }
 
+    public virtual void Damage(AttackDetails attackDetails)
+    {
+        Debug.Log("damaged " + attackDetails.DamageAmount);
+        Core.HealthSystem.DecreaseHealth(attackDetails.DamageAmount);
+        
 
+        if(attackDetails.Position.x > transform.position.x)
+        {
+           // _lastDamageDirection = -1;
+        }
+        else
+        {
+            //_lastDamageDirection = 1;
+        }
+
+        //_knockbackStartTime = Time.time;
+
+        //Core.Movement.SetVelocity(EntityData.KnockBackAngle, EntityData.KnockBackSpeed, _lastDamageDirection);
+
+        if(Core.HealthSystem.GetCurrentHealth() <= 0)
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }
   

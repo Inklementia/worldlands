@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4243783864849284139}
   - component: {fileID: 6633290551892475987}
   - component: {fileID: 468402403591721285}
+  - component: {fileID: 1015592811}
   m_Layer: 0
   m_Name: TestWeapon
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577411691873417331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.447908, y: 0.45668018, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5440172037065526656}
@@ -135,6 +136,20 @@ CircleCollider2D:
   m_Offset: {x: 0.26741993, y: 0.13935968}
   serializedVersion: 2
   m_Radius: 0.725
+--- !u!114 &1015592811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577411691873417331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228569bddf6523d4ab9885c54b7a6c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - {fileID: 11400000, guid: f8ec1ccf4210661448a6e8317b7f8fd1, type: 2}
 --- !u!1 &2373280873717491507
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ public class HealthSystem : CoreComponent
 {
     public float Health { get; private set; }
     public float MaxHealth { get; private set; }
+    
+    
 
     protected override void Awake()
     {

@@ -22,7 +22,7 @@ public class ChargeState : State
     protected int CurrentWayPoint = 0;
     protected bool ReachedEndOfPath = false;
 
-    public ChargeState(Entity etity, FiniteStateMashine stateMachine, string animBoolName, D_ChargeState stateData) : base(etity, stateMachine, animBoolName)
+    public ChargeState(Entity entity, FiniteStateMashine stateMachine, string animBoolName, D_ChargeState stateData) : base(entity, stateMachine, animBoolName)
     {
         StateData = stateData;
     }

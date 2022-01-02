@@ -13,7 +13,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Floor
   - Wall
   - Enemy
   - Player
@@ -59,4 +59,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 3215441047
+    locked: 0
+  - name: UI
+    uniqueID: 1426700563
     locked: 0
