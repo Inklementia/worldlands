@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerTag: {fileID: 11400000, guid: 179e93f8c5d4574478cd4f2f2deddede, type: 2}
   MaxCharge: 0
+  MinCharge: 0.5
   CanFireWithoutCharge: 0
   FireAngle: 60
   NumberOfProjectiles: 3
-  AngleDeviation: 0.49
-  ProjectileSpeedDeviation: 0.43
+  AngleDeviation: 0.2
+  ProjectileSpeedDeviation: 0.1
   RemoveAdditionalSegmentAtEnd: 0

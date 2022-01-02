@@ -6,8 +6,8 @@ public class MeleeEnemy_MeleeAttackState : MeleeAttackState
 {
     private MeleeEnemy _enemy;
 
-    public MeleeEnemy_MeleeAttackState(Entity etity, FiniteStateMashine stateMachine, string animBoolName, Transform attackPosition, D_MeleeAttackState stateData, MeleeEnemy enemy) : 
-        base(etity, stateMachine, animBoolName, attackPosition, stateData)
+    public MeleeEnemy_MeleeAttackState(Entity entity, FiniteStateMashine stateMachine, string animBoolName, Transform attackPosition, D_MeleeAttackState stateData, MeleeEnemy enemy) : 
+        base(entity, stateMachine, animBoolName, attackPosition, stateData)
     {
          _enemy = enemy;
     }

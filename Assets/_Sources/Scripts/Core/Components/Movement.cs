@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Movement : CoreComponent
 {
+   
     public Rigidbody2D Rb { get; private set; }
 
     //public Vector2 CurrentVelocity { get; private set; }
@@ -17,10 +18,7 @@ public class Movement : CoreComponent
         base.Awake();
         Rb = GetComponentInParent<Rigidbody2D>();
     }
-    //public void LogicUdpate()
-    //{
-    //    CurrentVelocity = Rb.velocity;
-    //}
+
 
     public void SetVelocity(float velocityX, float velocityY)
     {
@@ -57,16 +55,19 @@ public class Movement : CoreComponent
     {
         FacingDirection *= -1;
         Rb.transform.Rotate(0, 180, 0);
+       
     }
 
     public void Flip180()
     {
         FacingDirection = 1;
         Rb.transform.rotation = Quaternion.Euler(0, 180, 0);
+        
     }
     public void Flip0()
     {
         FacingDirection = -1;
         Rb.transform.rotation = Quaternion.Euler(0, 0, 0);
+       
     }
 }

@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2309494018779637018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -149,6 +149,7 @@ MonoBehaviour:
   Rb: {fileID: 2309494018779637016}
   PartcilesTag: {fileID: 11400000, guid: 689f604c7303d5b488bf86067ceed40d, type: 2}
   TargetTag: {fileID: 11400000, guid: 39cbccd36e550ae47a281b694f925d61, type: 2}
+  DestroyOnto: {fileID: 11400000, guid: 267e3742509d87b4dafda05c7d829f8c, type: 2}
 --- !u!114 &-5059358090216208409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,4 +163,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags:
-  - {fileID: 11400000, guid: ce6b76a81897de44eacfa50efd1c6813, type: 2}
+  - {fileID: 11400000, guid: c5568bbdfff5930449fb6ca78f6b67e6, type: 2}

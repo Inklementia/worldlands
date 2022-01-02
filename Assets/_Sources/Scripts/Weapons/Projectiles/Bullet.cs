@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Bullet : Projectile
 {
+    [SerializeField] private Tag DestroyOnto;
     private Vector2 _direction;
 
     private float _travelDistance;
@@ -66,6 +69,9 @@ public class Bullet : Projectile
     {
         DamageAmount = damage;
 
+        AttackDetails.DamageAmount = damage;
+        AttackDetails.Position = transform.position;
+        
         _speed = speed;
         _direction = direction;
         _travelDistance = travelDistance;
@@ -89,6 +95,16 @@ public class Bullet : Projectile
         Rb.drag = 0;
     }
 
- 
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+        if (collision.HasTag(DestroyOnto))
+        {
+            // TODO: instantiate particles
+            //objectPooler.SpawnFromPool(PartcilesTag, transform.position, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
+            gameObject.SetActive(false);
+
+        }
+    }
 }
 

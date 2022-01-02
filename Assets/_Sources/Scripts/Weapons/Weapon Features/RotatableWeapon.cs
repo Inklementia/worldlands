@@ -20,7 +20,7 @@ public class RotatableWeapon : MonoBehaviour, IWeaponFeature
     }
     private void FixedUpdate()
     {
-        Debug.Log(InitialRotateAngle);
+        //Debug.Log(InitialRotateAngle);
         if (_player != null)
         {
             if (rotateOnAttack && _player.InputHandler.IsAttackButtonPressed && _player.InputHandler.CkeckIfJoystickPressed())

@@ -6,8 +6,8 @@ public class MeleeEnemy_ChargeState : ChargeState
 {
     private MeleeEnemy _enemy;
 
-    public MeleeEnemy_ChargeState(Entity etity, FiniteStateMashine stateMachine, string animBoolName, D_ChargeState stateData, MeleeEnemy enemy) : 
-        base(etity, stateMachine, animBoolName, stateData)
+    public MeleeEnemy_ChargeState(Entity entity, FiniteStateMashine stateMachine, string animBoolName, D_ChargeState stateData, MeleeEnemy enemy) : 
+        base(entity, stateMachine, animBoolName, stateData)
     {
         _enemy = enemy;
     }

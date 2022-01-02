@@ -99,7 +99,7 @@ public class PlayerWeaponHandler : MonoBehaviour
         }
 
     }
-    //чтобы тут же, после поднятия оружия не срабатывала атака
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     private IEnumerator WaitAndChangeActionModeOnAttack()
     {
         yield return new WaitForSeconds(.5f);
@@ -116,7 +116,16 @@ public class PlayerWeaponHandler : MonoBehaviour
             once = false;
         }
     }
-
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        bool once = true;
+        if (collision.HasTag(WeaponTag) && once)
+        {
+            _encounteredWeapon.Position = collision.transform;
+            _encounteredWeapon.Weapon = collision.GetComponent<ShootingWeapon>();
+            once = false;
+        }
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.HasTag(WeaponTag))

@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(HealthSystem))]
 public class Entity : MonoBehaviour
 {
     public FiniteStateMashine StateMachine;
@@ -19,10 +18,10 @@ public class Entity : MonoBehaviour
 
     // Pathfinding variables // probably move to coreComponent
     public Seeker Seeker { get; private set; }
+ 
 
-
-    [SerializeField] private HealthSystem healthSystem;
-
+    [SerializeField] private HealthBar healthBar;
+  
 
     //public Transform MoveTarget;
 
@@ -39,7 +38,7 @@ public class Entity : MonoBehaviour
         AnimationToStateMachine = GetComponent<AnimationToStateMachine>();
         Core = GetComponentInChildren<EnemyCore>();
 
-       Seeker = GetComponent<Seeker>();
+        Seeker = GetComponent<Seeker>();
        
         StartingPos = transform.position;
       
@@ -54,8 +53,9 @@ public class Entity : MonoBehaviour
 
         //Seeker.StartPath(Rb.position, MoveTarget.position, OnPathComplete);
         //InvokeRepeating("UpdatePath", 0f, 2f);
-
-
+        Core.HealthSystem.SetMaxHealth(EntityData.MaxHealth);
+        healthBar.SetMaxHealth(Core.HealthSystem.MaxHealth);
+        healthBar.SetHealth(Core.HealthSystem.Health);
     }
     public virtual void Update()
     {
@@ -97,7 +97,9 @@ public class Entity : MonoBehaviour
     // DAMAGE 
     public virtual void Damage(AttackDetails attackDetails)
     {
-        healthSystem.DecreaseHealth(attackDetails.DamageAmount);
+        Debug.Log("damaged " + attackDetails.DamageAmount);
+        Core.HealthSystem.DecreaseHealth(attackDetails.DamageAmount);
+        healthBar.SetHealth(Core.HealthSystem.Health);
 
         if(attackDetails.Position.x > transform.position.x)
         {
@@ -112,7 +114,7 @@ public class Entity : MonoBehaviour
 
         Core.Movement.SetVelocity(EntityData.KnockBackAngle, EntityData.KnockBackSpeed, _lastDamageDirection);
 
-        if(healthSystem.GetCurrentHealth() <= 0)
+        if(Core.HealthSystem.GetCurrentHealth() <= 0)
         {
             IsDead = true;
         }

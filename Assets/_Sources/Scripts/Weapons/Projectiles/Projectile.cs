@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public abstract class Projectile : MonoBehaviour
 {
@@ -10,6 +12,14 @@ public abstract class Projectile : MonoBehaviour
 
     protected GameObject[] Targets;
     protected float DamageAmount;
+    protected AttackDetails AttackDetails;
+
+    //protected ObjectPooler objectPooler;
+
+    private void Awake()
+    {
+        //objectPooler = ObjectPooler.Instance;
+    }
 
     // upon firing a projectile assign all needed info about its behaviur
     public virtual void FireProjectile(
@@ -24,16 +34,18 @@ public abstract class Projectile : MonoBehaviour
         )
     {
         DamageAmount = damageAmount;
+        AttackDetails.DamageAmount = damageAmount;
+        AttackDetails.Position = transform.position;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.HasTag(TargetTag))
         {
-            // TODO: instaciate particles
-            ObjectPooler.Instance.SpawnFromPool(PartcilesTag, transform.position, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
-            // decsreasing health if projectile health target, and Tag matches target Tag
-            collision.gameObject.GetComponentInParent<HealthSystem>().DecreaseHealth(DamageAmount);
+            // TODO: instantiate particles
+            //objectPooler.SpawnFromPool(PartcilesTag, transform.position, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
+            // decreasing health if projectile health target, and Tag matches target Tag
+            collision.gameObject.SendMessage("Damage", AttackDetails);
             // turn off projectile
             gameObject.SetActive(false);
 
