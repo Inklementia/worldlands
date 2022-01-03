@@ -186,6 +186,7 @@
      <Compile Include="Assets\_Sources\Scripts\Core\Components\CoreComponent.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonManager.cs" />
      <Compile Include="Assets\_Sources\Scripts\Player\PlayerStates\PlayerIdleState.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Dungeon\ExitDoor.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\Visitor\MultishotWeapon.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\PlayerDetectedState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_DamageState.cs" />
@@ -206,7 +207,6 @@
      <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_MeleeAttackState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_DeadState.cs" />
-     <Compile Include="Assets\_Sources\Scripts\Dungeon\ExitDoor.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

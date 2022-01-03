@@ -9,15 +9,20 @@ namespace Dungeon
 {
     public class DungeonManager : MonoBehaviour
     {
-       
+        [SerializeField] private GameObject[] randomItems;
         [SerializeField] protected internal GameObject wallPrefab;
         [SerializeField] protected internal GameObject floorPrefab;
         [SerializeField] protected internal GameObject tilePrefab;
         [SerializeField] protected internal GameObject exitDoorPrefab;
+        [SerializeField] private LayerMask whatIsFloor;
+        [SerializeField] private LayerMask whatIsWall;
         
+        [Range(50, 5000)]
         [SerializeField] private int totalFloorCount;
+        [Range(1, 100)]
+        [SerializeField] private int itemSpawnPercent;
         
-        protected internal float MinX, MaxX, MinY, MaxY;
+        [SerializeField] protected internal float MinX, MaxX, MinY, MaxY;
         
         
 
@@ -80,11 +85,9 @@ namespace Dungeon
                 tileGo.name = tilePrefab.name;
                 tileGo.transform.SetParent(transform);
             }
-
-            if (_floorList.Count == totalFloorCount)
-            {
-                SetExitDoor();
-            }
+            
+            StartCoroutine(DelayedProgress());
+           
             
         }
 
@@ -95,6 +98,63 @@ namespace Dungeon
             GameObject doorGo = Instantiate(exitDoorPrefab, doorPos, Quaternion.identity);
             doorGo.name = exitDoorPrefab.name;
             doorGo.transform.SetParent(transform);
+        }
+
+        private void CheckgeneratedDungeon ()
+        {
+            Vector2 hitSize = Vector2.one * 0.8f;
+            for (int x = (int)MinX - 2; x< (int)MaxX + 2; x++)
+            {
+                for (int y = (int)MinY - 2; y< (int)MaxY + 2; y++)
+                {
+                    Collider2D hitFloor = Physics2D.OverlapBox(new Vector2(x, y), hitSize , 0, whatIsFloor);
+                    if (hitFloor)
+                    {
+                     
+                        // if not last generated tile
+                        if (!Vector2.Equals(hitFloor.transform.position, _floorList[_floorList.Count - 1]))
+                        {
+                          
+                            Collider2D hitTop = Physics2D.OverlapBox(new Vector2(x, y + 1), hitSize , 0, whatIsWall);
+                            Collider2D hitRight = Physics2D.OverlapBox(new Vector2(x + 1, y), hitSize , 0, whatIsWall);
+                            Collider2D hitBottom = Physics2D.OverlapBox(new Vector2(x, y - 1), hitSize , 0, whatIsWall);
+                            Collider2D hitLeft = Physics2D.OverlapBox(new Vector2(x - 1, y), hitSize, 0, whatIsWall);
+
+                            SetRandomItems( hitFloor, hitTop,  hitRight,  hitBottom, hitLeft);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void SetRandomItems( Collider2D hitFloor, Collider2D hitTop,  Collider2D hitRight,  Collider2D hitBottom,  Collider2D hitLeft)
+        {
+            if ((hitTop || hitRight || hitBottom || hitLeft)
+                && !(hitTop && hitBottom)
+                && !(hitRight && hitLeft))
+            {
+                            
+                int roll = Random.Range(0, 101);
+                if (roll <= itemSpawnPercent)
+                {
+                    int itemIndex = Random.Range(0, randomItems.Length);
+                    GameObject itemGo = Instantiate(randomItems[itemIndex], hitFloor.transform.position,
+                        Quaternion.identity);
+                    itemGo.name = randomItems[itemIndex].name;
+                    itemGo.transform.SetParent(hitFloor.transform);
+                }
+                               
+            }
+        }
+        private IEnumerator DelayedProgress()
+        {
+            if (FindObjectsOfType<TileSpawner>().Length > 0)
+            {
+                yield return null;
+            }
+            SetExitDoor();
+            CheckgeneratedDungeon();
+            
         }
     }
 }
