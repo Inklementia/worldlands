@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7581585870377698193}
   - component: {fileID: 7581585870377698194}
+  - component: {fileID: 7264402565506213823}
   m_Layer: 0
   m_Name: TileSpawner
   m_TagString: Untagged
@@ -43,4 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1588a8078522492490bff0d7737cb194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dungeonManagerTag: {fileID: 11400000, guid: a318c4859b18d4a4ba3829be48085a54, type: 2}
+--- !u!114 &7264402565506213823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7581585870377698195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228569bddf6523d4ab9885c54b7a6c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - {fileID: 11400000, guid: bb88556f197eb8a4197d56e53ca4de4c, type: 2}
