@@ -626,6 +626,9 @@ MonoBehaviour:
   - {fileID: 7364144636330994141, guid: cb62fd4cb1d33db428fb188a0a272f98, type: 3}
   - {fileID: 4819683148026561715, guid: 1542638351d95cc49b27764dc5d46414, type: 3}
   - {fileID: 4046876713617724702, guid: 4c3946cf46677d142a770a1d3282a4de, type: 3}
+  randomEnemies: []
+  boss: {fileID: 7056127141168516889, guid: d813a42b104474d418ed106288c08a31, type: 3}
+  dungeonType: 2
   wallPrefab: {fileID: 8727464033627114470, guid: acc9bbe8095489f448817c5b46d8dec7,
     type: 3}
   floorPrefab: {fileID: 2617136260556317186, guid: cea550da4a7135c4aa27787044e7870d,
@@ -640,12 +643,32 @@ MonoBehaviour:
   whatIsWall:
     serializedVersion: 2
     m_Bits: 256
-  totalFloorCount: 100
-  itemSpawnPercent: 10
-  MinX: 0
-  MaxX: 0
-  MinY: 0
-  MaxY: 0
+  tileSpawnerTag: {fileID: 11400000, guid: bb88556f197eb8a4197d56e53ca4de4c, type: 2}
+  totalFloorCount: 500
+  itemSpawnPercent: 0
+  useRoundedEdges: 1
+  roundedEdges:
+  - {fileID: 8028479314072827838, guid: 26ec41cd1467c514d94067db757b03ac, type: 3}
+  - {fileID: 7413458265751510376, guid: b0217e46580d08648bde2dec8c422730, type: 3}
+  - {fileID: 6734749703639748043, guid: e9d31beda1f26e84bb16859701d92877, type: 3}
+  - {fileID: 2992886654215807805, guid: 3d8e91b2fbaabe34c984dc71840bf5b3, type: 3}
+  - {fileID: 2419213049186155929, guid: 24e55ab451268c6458ea393a95db7fbf, type: 3}
+  - {fileID: 372325851840087671, guid: 3330d25c615c6954f9ae847c6e48f41a, type: 3}
+  - {fileID: 3270762742308835805, guid: ef195c72f22a4cd4ebf1ae78e677b0a8, type: 3}
+  - {fileID: 2277530989062907952, guid: 8dc8cf9607595eb49915079b5a3706fa, type: 3}
+  - {fileID: 6654132734575473338, guid: 1ffb50a520442cf46b967bbefec5e9c5, type: 3}
+  - {fileID: 6733970420582503550, guid: 62ef357d77ba6ff4dbb62e731330e33e, type: 3}
+  - {fileID: 3140984432117277777, guid: 33781e41d5085b1479eda18b5490aa2e, type: 3}
+  - {fileID: 2676806411053937430, guid: 99c747cd091b2f94ab07f24038b3ffe7, type: 3}
+  - {fileID: 5725330298575177487, guid: e0c372ea7bd61eb499d1da224f995a43, type: 3}
+  - {fileID: 4912068396526451324, guid: e1b32950610a991459dda43538bc2b72, type: 3}
+  - {fileID: 6816161273946970552, guid: 771cb7e806f732d43ab0f40bac8f53dd, type: 3}
+  - {fileID: 4140971366614451132, guid: 3fd3188cb03e7684c8b6b3ffcf97baf9, type: 3}
+  hallsFrequency: 40
+  minHallLength: 9
+  maxHallLength: 18
+  maxRoomSize: 9
+  _roomCentresList: []
 --- !u!4 &854892344
 Transform:
   m_ObjectHideFlags: 0
