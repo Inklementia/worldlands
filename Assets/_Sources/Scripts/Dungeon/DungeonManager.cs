@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Pathfinding;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -224,6 +225,10 @@ namespace Dungeon
             //SetBoss();
             SetExitDoor();
             CheckGeneratedDungeon();
+  
+            // Recalculate only the first grid graph
+            var graphToScan = AstarPath.active.data.gridGraph;
+            AstarPath.active.Scan(graphToScan);
         }
 
         private void GenerateFloorTiles()

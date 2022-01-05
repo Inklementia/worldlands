@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6b298e751c1154f9fc121d1e50c603, type: 3}
   m_Name: SpiderChargeStateData
   m_EditorClassIdentifier: 
-  ChargeSpeed: 8
+  ChargeSpeed: 5
   ChargeTime: 0.3

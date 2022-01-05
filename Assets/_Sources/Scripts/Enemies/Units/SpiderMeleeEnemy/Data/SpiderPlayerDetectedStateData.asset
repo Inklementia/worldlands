@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d67a989c6617442a60444afaa84ea9, type: 3}
   m_Name: SpiderPlayerDetectedStateData
   m_EditorClassIdentifier: 
-  TimeBeforLongRangeAction: 1
+  TimeBeforLongRangeAction: 0.5
