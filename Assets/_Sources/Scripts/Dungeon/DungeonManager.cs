@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Pathfinding;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
 namespace Dungeon
@@ -12,12 +13,34 @@ namespace Dungeon
     {
         [SerializeField] private GameObject[] randomItems;
         [SerializeField] private GameObject[] randomEnemies;
+        [SerializeField] private GameObject[] randomTraps;
+        [SerializeField] private bool finalDungeonInWorld;
         [SerializeField] private GameObject boss;
         
         [SerializeField] private DungeonType dungeonType;
-        
+
+       
         [SerializeField] protected internal GameObject wallPrefab;
-        [SerializeField] protected internal GameObject floorPrefab;
+        [SerializeField] protected internal GameObject mainFloorTile;
+    //    [SerializeField] private GameObject[] horizontalWallPrefabs;
+        //[SerializeField] protected internal GameObject[] mainFloorTiles;
+       //[SerializeField] protected internal ItemFrequency[] otherFloorTiles;
+
+        [SerializeField] protected internal Sprite[] floorTiles;
+        
+        [SerializeField] private bool useComplexWallTiles;
+        [SerializeField] private GameObject[] wallTiles;
+        
+       // [SerializeField] private bool useHorizontalWalls;
+      //  [SerializeField] private Sprite verticalWallSprite;
+      //  [SerializeField] private Sprite horizontalWallSpriteSingleUnit;
+      //  [SerializeField] private Sprite horizontalWallSpriteSingle;
+     //  [SerializeField] private Sprite horizontalWallSpriteMultiple;
+      //  [SerializeField] private Sprite horizontalWallSpriteAngleRight;
+      //  [SerializeField] private Sprite horizontalWallSpriteAngleLeft;
+      //  [SerializeField] private Sprite horizontalWallSpriteAngleRightEnd;
+      //  [SerializeField] private Sprite horizontalWallSpriteAngleLeftEnd;
+        
         [SerializeField] private GameObject tilePrefab;
         [SerializeField] private GameObject exitDoorPrefab;
         
@@ -25,7 +48,7 @@ namespace Dungeon
         [SerializeField] private LayerMask whatIsWall;
         [SerializeField] private Tag tileSpawnerTag;
         
-        [Range(50, 5000)]
+        [Range(10, 5000)]
         [SerializeField] private int totalFloorCount;
         [Range(0, 100)]
         [SerializeField] private int itemSpawnPercent;
@@ -44,26 +67,31 @@ namespace Dungeon
         [SerializeField] private int maxRoomSize = 9;
 
         protected internal float MinX, MaxX, MinY, MaxY;
+        protected internal List<GameObject> _walls = new List<GameObject>();
+
+        private bool _bgGenerated;
 
         private List<Vector3> _floorList = new List<Vector3>();
         private List<Vector3> _roomCentresList = new List<Vector3>();
         private Vector2 _hitSize;
+       
 
         private void Start()
         {
             _hitSize = Vector2.one * 0.8f;
-            
-            // initiating dungeon generation
+          //  GenerateField();
             switch (dungeonType)
             {
-                case DungeonType.Caverns: StartRandomWalker();
+                case DungeonType.Caverns:
+                    StartRandomWalker();
                     break;
-                case DungeonType.Rooms: StartRoomWalker();
+                case DungeonType.Rooms:
+                    StartRoomWalker();
                     break;
-                case DungeonType.Winding: StartWindingWalker();
+                case DungeonType.Winding:
+                    StartWindingWalker();
                     break;
             }
-            
         }
 
         private void Update()
@@ -74,7 +102,22 @@ namespace Dungeon
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
-
+/*
+        private void GenerateField()
+        {
+            _bgGenerated = false;
+            for (int x = -totalFloorCount; x < totalFloorCount; x++)
+            {
+                for (int y = -totalFloorCount; y < totalFloorCount; y++)
+                {
+                    ObjectPooler.Instance.SpawnFromPool(bgTileTag, new Vector2(x,y),
+                        Quaternion.identity);
+                    
+                }
+            }
+   
+            
+        }*/
         // for cavern type dungeon
         private void StartRandomWalker()
         {
@@ -225,7 +268,9 @@ namespace Dungeon
             //SetBoss();
             SetExitDoor();
             CheckGeneratedDungeon();
-  
+            
+            
+
             // Recalculate only the first grid graph
             var graphToScan = AstarPath.active.data.gridGraph;
             AstarPath.active.Scan(graphToScan);
@@ -236,6 +281,9 @@ namespace Dungeon
             // generating tiles (they change to floor)
             for (int i = 0; i < _floorList.Count; i++)
             {
+                //Vector2Int targetTilePos = new Vector2Int((int)_floorList[i].x, (int)_floorList[i].y);
+                //floorTilemap.SetTile((Vector3Int)targetTilePos, floorTile);
+                
                 GameObject tileGo = Instantiate(tilePrefab, _floorList[i], Quaternion.identity);
                 tileGo.name = tilePrefab.name;
                 tileGo.transform.SetParent(transform);
@@ -291,6 +339,8 @@ namespace Dungeon
             {
                 for (int y = (int)MinY - 2; y< (int)MaxY + 2; y++)
                 {
+                    SetWallTiles(x, y);
+                    
                     Collider2D hitFloor = Physics2D.OverlapBox(new Vector2(x, y), _hitSize , 0, whatIsFloor);
                     if (hitFloor)
                     {
@@ -306,11 +356,117 @@ namespace Dungeon
                             SetRandomItems( hitFloor, hitTop,  hitRight,  hitBottom, hitLeft);
                         }
                     }
+                   
+                   // SetHorizontalWalls();
                     GenerateRoundedEdgesForWalls(x, y);
+                   
+                }
+            }
+
+           
+        }
+
+        public void SetHorizontalWalls()
+        {
+           // if (useHorizontalWalls)
+          //  {
+               
+ 
+                for (int i = 0; i < _walls.Count; i++)
+                {
+                    
+                    
+                   
+                    // }
+                     /*
+                    Collider2D hitTop = Physics2D.OverlapBox(new Vector2(_walls[i].transform.position.x, _walls[i].transform.position.y + 1), _hitSize , 0, whatIsWall);
+                    Collider2D hitRight = Physics2D.OverlapBox(new Vector2(_walls[i].transform.position.x+ 1, _walls[i].transform.position.y), _hitSize , 0, whatIsWall);
+                    Collider2D hitBottom = Physics2D.OverlapBox(new Vector2(_walls[i].transform.position.x, _walls[i].transform.position.y - 1), _hitSize , 0, whatIsWall);
+                    Collider2D hitLeft = Physics2D.OverlapBox(new Vector2(_walls[i].transform.position.x - 1, _walls[i].transform.position.y), _hitSize, 0, whatIsWall);
+                        
+                    if ((!hitRight && !hitLeft && !hitTop && !hitBottom) ||
+                        (hitTop && !hitBottom && (hitLeft || hitRight)) ||
+                        (!hitTop && !hitBottom && (hitLeft || hitRight))
+                       )
+                    {
+
+                        //_walls[i].GetComponent<SpriteRenderer>().sprite = horizontalWallPrefabs[randomIndex];
+                    }
+                       
+                    if (hitTop && hitBottom && !hitLeft && !hitRight)
+                    {
+                        _walls[i].GetComponent<SpriteRenderer>().sprite = verticalWallSprite;
+                    }
+                    else if ((hitTop && hitLeft && hitRight && !hitBottom) || (!hitTop && hitLeft && hitRight && !hitBottom) )
+                    {
+                        _walls[i].GetComponent<SpriteRenderer>().sprite = horizontalWallSpriteMultiple;
+                    }
+                    else if (hitTop && !hitLeft && !hitRight && !hitBottom)
+                    {
+                        _walls[i].GetComponent<SpriteRenderer>().sprite = horizontalWallSpriteSingle;
+                    }
+                    else if (!hitRight && !hitLeft && !hitTop && !hitBottom)
+                    {
+                        _walls[i].GetComponent<SpriteRenderer>().sprite = horizontalWallSpriteSingleUnit;
+                    }
+                    else if (!hitLeft && !hitBottom && hitTop && hitRight)
+                    {
+                        _walls[i].GetComponent<SpriteRenderer>().sprite = horizontalWallSpriteAngleRight;
+                    }
+                    else if (hitLeft && !hitBottom && !hitTop && !hitRight)
+                    {
+                        _walls[i].GetComponent<SpriteRenderer>().sprite = horizontalWallSpriteAngleRightEnd;
+                    }
+                    else if (hitLeft && !hitBottom && hitTop && !hitRight)
+                    {
+                        _walls[i].GetComponent<SpriteRenderer>().sprite = horizontalWallSpriteAngleLeft;
+                    }
+                    else if (!hitLeft && !hitBottom && !hitTop && hitRight)
+                    {
+                        _walls[i].GetComponent<SpriteRenderer>().sprite = horizontalWallSpriteAngleLeftEnd;
+                    }*/
+                }
+          //  }
+        }
+
+        public void SetWallTiles(int x, int y)
+        {
+            if (useComplexWallTiles)
+            {
+                Collider2D hitWall = Physics2D.OverlapBox(new Vector2(x, y), _hitSize, 0, whatIsWall);
+                if (hitWall)
+                {
+                    // checking if there is any wall tiles around current tile
+                    Collider2D hitTop = Physics2D.OverlapBox(new Vector2(x, y + 1), _hitSize , 0, whatIsWall);
+                    Collider2D hitRight = Physics2D.OverlapBox(new Vector2(x + 1, y), _hitSize , 0, whatIsWall);
+                    Collider2D hitBottom = Physics2D.OverlapBox(new Vector2(x, y - 1), _hitSize , 0, whatIsWall);
+                    Collider2D hitLeft = Physics2D.OverlapBox(new Vector2(x - 1, y), _hitSize, 0, whatIsWall);
+                    
+                    Collider2D hitTopFloor = Physics2D.OverlapBox(new Vector2(x, y + 1), _hitSize , 0, whatIsFloor);
+                    Collider2D hitRightFloor = Physics2D.OverlapBox(new Vector2(x + 1, y), _hitSize , 0, whatIsFloor);
+                    Collider2D hitBottomFloor = Physics2D.OverlapBox(new Vector2(x, y - 1), _hitSize , 0, whatIsFloor);
+                    Collider2D hitLeftFloor = Physics2D.OverlapBox(new Vector2(x - 1, y), _hitSize, 0, whatIsFloor);
+
+                    // assigning bit value if there is any wall tiles around current one
+                    int bitValue = 0;
+                    if (!hitTop && hitTopFloor) { bitValue += 1; }
+                    if (!hitRight && hitRightFloor) { bitValue += 2; }
+                    if (!hitBottom && hitBottomFloor) { bitValue += 4; }
+                    if (!hitLeft && hitLeftFloor) { bitValue += 8; }
+
+                    //if (bitValue > 0)
+                   // {
+                        // setting correct edge
+                        GameObject wallGo =
+                            Instantiate(wallTiles[bitValue], new Vector2(x, y), Quaternion.identity);
+                        wallGo.name = wallTiles[bitValue].name;
+                        wallGo.transform.SetParent(hitWall.transform);
+                   // }
+                    Debug.Log(bitValue);
                 }
             }
         }
-
+        
         private void SetRandomItems( Collider2D hitFloor, Collider2D hitTop,  Collider2D hitRight,  Collider2D hitBottom,  Collider2D hitLeft)
         {
             if ((hitTop || hitRight || hitBottom || hitLeft)
@@ -359,6 +515,11 @@ namespace Dungeon
                     }
                 }
             }
+        }
+
+        private void SetOuterTiles()
+        {
+            
         }
     }
 }

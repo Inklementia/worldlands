@@ -54,8 +54,13 @@
   <ItemGroup>
      <Compile Include="Assets\Joystick Pack\Scripts\Editor\VariableJoystickEditor.cs" />
      <Compile Include="Assets\Joystick Pack\Scripts\Editor\DynamicJoystickEditor.cs" />
+     <Compile Include="Assets\AllIn1SpriteShader\Editor\AllIn1ShaderGradientDrawer.cs" />
      <Compile Include="Assets\Joystick Pack\Scripts\Editor\FloatingJoystickEditor.cs" />
+     <Compile Include="Assets\AllIn1SpriteShader\Editor\AllIn1SpriteShaderStencil.cs" />
      <Compile Include="Assets\Joystick Pack\Scripts\Editor\JoystickEditor.cs" />
+     <Compile Include="Assets\AllIn1SpriteShader\Editor\AllIn1ShaderScriptEditor.cs" />
+     <Compile Include="Assets\AllIn1SpriteShader\Editor\AllIn1UrpShader.cs" />
+     <Compile Include="Assets\AllIn1SpriteShader\Editor\AllIn1SpriteShader.cs" />
  <Reference Include="UnityEngine">
  <HintPath>D:/Programms/Unity/2020.3.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
