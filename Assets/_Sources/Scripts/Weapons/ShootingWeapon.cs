@@ -8,7 +8,7 @@ public class ShootingWeapon : MonoBehaviour
      
     [SerializeField] private Transform attackPosition;
     [SerializeField] private Tag projectileTag;
-    [SerializeField] private Tag shootPartcilesTag;
+    //[SerializeField] private Tag shootPartcilesTag;
 
     //[Header("Additional weapon features")]
     public Transform AttackPosition { get => attackPosition; private set => attackPosition = value; }
@@ -55,7 +55,7 @@ public class ShootingWeapon : MonoBehaviour
         _pooler = ObjectPooler.Instance;
         _projectileSpeed = baseWeaponData.ProjectileSpeed;
 
-        if (!IsRotatable)
+        if (!IsRotatable && MultishotWeapon != null)
         {
             MultishotWeapon.AssignFirePoints();
         }
