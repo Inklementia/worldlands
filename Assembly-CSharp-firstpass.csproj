@@ -27,7 +27,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_2020_3_20;UNITY_2020_3;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;ODIN_INSPECTOR;ODIN_INSPECTOR_3;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_2020_3_20;UNITY_2020_3;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;ODIN_INSPECTOR;ODIN_INSPECTOR_3;MOREMOUNTAINS_FEEDBACKS;MOREMOUNTAINS_NICEVIBRATIONS;MOREMOUNTAINS_TOOLS;MOREMOUNTAINS_CINEMACHINE_INSTALLED;MOREMOUNTAINS_TOOLS_FOR_MMFEEDBACKS;MOREMOUNTAINS_TEXTMESHPRO_INSTALLED;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn></NoWarn>
@@ -651,9 +651,6 @@
  <Reference Include="System.Xml.Serialization">
  <HintPath>D:/Programms/Unity/2020.3.20f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
  </Reference>
- <Reference Include="Unity.2D.Animation.Editor">
- <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
- </Reference>
  <Reference Include="Unity.InternalAPIEngineBridge.001">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
  </Reference>
@@ -666,26 +663,11 @@
  <Reference Include="Unity.RenderPipelines.Universal.Shaders">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
  </Reference>
- <Reference Include="Unity.RenderPipelines.Universal.Runtime">
- <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
- </Reference>
  <Reference Include="PsdPlugin">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
  </Reference>
- <Reference Include="Unity.2D.Tilemap.Editor">
- <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
- </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VisualStudio.Editor">
- <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Timeline">
- <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Searcher.Editor">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
@@ -693,23 +675,11 @@
  <Reference Include="Unity.2D.IK.Editor">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
  </Reference>
- <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Psdimporter.Editor">
- <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
- </Reference>
  <Reference Include="Unity.2D.Path.Editor">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
  </Reference>
- <Reference Include="Unity.RenderPipelines.Core.Runtime">
- <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
- </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.PlasticSCM.Editor">
- <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
@@ -719,12 +689,6 @@
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.InternalAPIEditorBridge.001">
- <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Mathematics">
- <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.IK.Runtime">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
@@ -738,23 +702,62 @@
  <Reference Include="com.unity.cinemachine.editor">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
  </Reference>
- <Reference Include="Unity.RenderPipelines.Universal.Editor">
- <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
- </Reference>
  <Reference Include="Unity.2D.Animation.Triangle.Runtime">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+ <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Mathematics.Editor">
+ <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Common.Editor">
+ <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Animation.Editor">
+ <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Tilemap.Editor">
+ <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+ <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.VisualStudio.Editor">
+ <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Timeline">
+ <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro">
+ <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Sprite.Editor">
+ <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Psdimporter.Editor">
+ <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.InternalAPIEditorBridge.001">
+ <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.PlasticSCM.Editor">
+ <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Core.Runtime">
+ <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Mathematics">
+ <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Universal.Editor">
+ <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Animation.Runtime">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.PixelPerfect.Editor">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
- <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
- <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
@@ -765,17 +768,14 @@
  <Reference Include="AV.Tags">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/AV.Tags.dll</HintPath>
  </Reference>
- <Reference Include="Unity.Mathematics.Editor">
- <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+ <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
+ <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Common.Runtime">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.SpriteShape.Editor">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Common.Editor">
- <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.Editor">
  <HintPath>D:/unity_files/roguelike/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
@@ -785,13 +785,21 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.csproj">
-      <Project>{7ecfe5fe-81d0-c18e-4c5a-7b7c8bbf0329}</Project>
-      <Name>Sirenix.OdinInspector.CompatibilityLayer</Name>
+    <ProjectReference Include="MoreMountains.Tools.Editor.csproj">
+      <Project>{3cd7bdb5-8c30-73af-04cd-b8952b705b74}</Project>
+      <Name>MoreMountains.Tools.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="PackageToolsEditor.csproj">
       <Project>{f358743d-8684-5ee4-4bf1-d3390c83400d}</Project>
       <Name>PackageToolsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.NiceVibrations.csproj">
+      <Project>{ce36a7ca-ec7f-a0ef-910b-8249dc5dfea6}</Project>
+      <Name>MoreMountains.NiceVibrations</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.csproj">
+      <Project>{d43405df-638b-bcb9-e4ab-e59d438a23f2}</Project>
+      <Name>MoreMountains.Feedbacks</Name>
     </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.Modules.UnityMathematics.csproj">
       <Project>{c5f9915e-1974-50f0-e71b-3573f780db41}</Project>
@@ -801,13 +809,85 @@
       <Project>{7c65e670-357f-5978-92f3-0eb113af0727}</Project>
       <Name>Sirenix.OdinInspector.CompatibilityLayer.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="AstarPathfindingProject.csproj">
-      <Project>{d5065342-a5f3-f24e-2362-1e4da378924f}</Project>
-      <Name>AstarPathfindingProject</Name>
+    <ProjectReference Include="MoreMountains.NiceVibrations.Demos.csproj">
+      <Project>{10b34cbc-7fd5-d53e-4d9d-d58784a5ec21}</Project>
+      <Name>MoreMountains.NiceVibrations.Demos</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.NiceVibrations.csproj">
+      <Project>{4d6d164a-9f57-d26d-7306-4ed86719036c}</Project>
+      <Name>MoreMountains.Feedbacks.NiceVibrations</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.TextMeshPro.csproj">
+      <Project>{608746ac-ecf4-9639-b441-f6e64ef5bfad}</Project>
+      <Name>MoreMountains.Tools.TextMeshPro</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feel.Demos.HDRP.csproj">
+      <Project>{57d816f8-a786-de09-fd6a-ac3007e9e6b5}</Project>
+      <Name>MoreMountains.Feel.Demos.HDRP</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.NiceVibrations.Editor.csproj">
+      <Project>{5656e97e-4a30-587b-81a8-7e7d31e008a3}</Project>
+      <Name>MoreMountains.NiceVibrations.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
       <Project>{b2afb1d5-b283-99e0-79ee-751608afe40d}</Project>
       <Name>AstarPathfindingProjectEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.MMTools.csproj">
+      <Project>{46ca0a53-f013-28f9-ce1b-a0f154d402b1}</Project>
+      <Name>MoreMountains.Feedbacks.MMTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.TextMeshPro.csproj">
+      <Project>{49a7fc9b-a0ed-d18d-0e0f-58e79a6426dc}</Project>
+      <Name>MoreMountains.Feedbacks.TextMeshPro</Name>
+    </ProjectReference>
+    <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.csproj">
+      <Project>{7ecfe5fe-81d0-c18e-4c5a-7b7c8bbf0329}</Project>
+      <Name>Sirenix.OdinInspector.CompatibilityLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.URP.csproj">
+      <Project>{d0729135-90eb-960a-fb65-6bc616ba1253}</Project>
+      <Name>MoreMountains.Feedbacks.URP</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.Editor.csproj">
+      <Project>{944ddc58-798b-f0ed-79ea-85ff0eec5c26}</Project>
+      <Name>MoreMountains.Feedbacks.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.NiceVibrations.Haptics.csproj">
+      <Project>{ef6a0953-8966-5bae-de9e-d73a0435b2f8}</Project>
+      <Name>MoreMountains.NiceVibrations.Haptics</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feel.Demos.csproj">
+      <Project>{5c3c0c45-e9ce-0e2c-eb6e-048573de6f2d}</Project>
+      <Name>MoreMountains.Feel.Demos</Name>
+    </ProjectReference>
+    <ProjectReference Include="AstarPathfindingProject.csproj">
+      <Project>{d5065342-a5f3-f24e-2362-1e4da378924f}</Project>
+      <Name>AstarPathfindingProject</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.Feedbacks.csproj">
+      <Project>{c0be2292-faad-83ec-d584-aeaa6ca12e96}</Project>
+      <Name>MoreMountains.Tools.Feedbacks</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.Feedbacks.Editor.csproj">
+      <Project>{c32b0d00-2ecf-1104-1a77-2d18186b086b}</Project>
+      <Name>MoreMountains.Tools.Feedbacks.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feel.Demos.URP.csproj">
+      <Project>{a3664659-5327-6c35-0f5c-6090ec6a3b5e}</Project>
+      <Name>MoreMountains.Feel.Demos.URP</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.Cinemachine.csproj">
+      <Project>{382b5796-a6a1-54be-5e1c-d624c0269530}</Project>
+      <Name>MoreMountains.Tools.Cinemachine</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.Cinemachine.csproj">
+      <Project>{d2fd1f64-cade-7744-c608-cc999b95d54b}</Project>
+      <Name>MoreMountains.Feedbacks.Cinemachine</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.csproj">
+      <Project>{1c3a6700-e94b-76e1-0980-26c6348d4ad7}</Project>
+      <Name>MoreMountains.Tools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
