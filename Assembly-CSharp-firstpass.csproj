@@ -865,6 +865,10 @@
       <Project>{d5065342-a5f3-f24e-2362-1e4da378924f}</Project>
       <Name>AstarPathfindingProject</Name>
     </ProjectReference>
+    <ProjectReference Include="SimpleInput.Runtime.csproj">
+      <Project>{e94e485d-7beb-3a55-7fe3-71c4657b691e}</Project>
+      <Name>SimpleInput.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="MoreMountains.Tools.Feedbacks.csproj">
       <Project>{c0be2292-faad-83ec-d584-aeaa6ca12e96}</Project>
       <Name>MoreMountains.Tools.Feedbacks</Name>
@@ -884,6 +888,10 @@
     <ProjectReference Include="MoreMountains.Feedbacks.Cinemachine.csproj">
       <Project>{d2fd1f64-cade-7744-c608-cc999b95d54b}</Project>
       <Name>MoreMountains.Feedbacks.Cinemachine</Name>
+    </ProjectReference>
+    <ProjectReference Include="SimpleInput.Editor.csproj">
+      <Project>{e852d6f4-31db-bfd8-e748-80be2ffd0ae7}</Project>
+      <Name>SimpleInput.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.Tools.csproj">
       <Project>{1c3a6700-e94b-76e1-0980-26c6348d4ad7}</Project>

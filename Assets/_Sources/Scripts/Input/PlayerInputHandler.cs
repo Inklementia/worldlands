@@ -1,92 +1,124 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Sources.Scripts;
+using _Sources.Scripts.Infrastructure;
+using _Sources.Scripts.Services.Input;
+using SimpleInputNamespace;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerInputHandler : MonoBehaviour
 {
-    [SerializeField] private Joystick joystick;
-
+    //[SerializeField] private Joystick joystick;
+    private IInputService _inputService;
     public float MovementPosX { get; private set; }
     public float MovementPosY { get; private set; }
 
-    [SerializeField] private FixedButton switchWeaponButton;
-    [SerializeField] private float switchButtonPressCd = .2f;
+    [SerializeField] private ButtonInputUI switchWeaponButton;
+    //[SerializeField] private float switchButtonPressCd = .2f;
 
     [Header("Action Button")]
-    [SerializeField] private FixedButton actionButton;
+    [SerializeField] private ButtonInputUI actionButton;
     [SerializeField] private Sprite[] actionButtonImages; //0 attack, 1 pick-up
     [SerializeField] private ActionInputMode actionButtonMode; //0 attack, 1 pick-up
-    [SerializeField] private float pickUpButtonPressCd = .2f;
-    [SerializeField] private float attackButtonPressCd = .2f;
+    //[SerializeField] private float pickUpButtonPressCd = .2f;
+    //[SerializeField] private float attackButtonPressCd = .2f;
 
     public bool IsSwitchWeaponButtonPressed { get; private set; }
     public bool IsPickUpButtonPressed { get; private set; }
-    public bool IsAttackButtonPressed { get; private set; }
+    public bool IsAttackButtonPressedUp { get; private set; }
+    public bool IsAttackButtonPressedDown { get; private set; }
+    //private float _pressSwitchButtonTimer;
+    //private float _pressAttackButtonTimer;
+    //private float _pressPickUpButtonTimer;
 
-    private float _pressSwitchButtonTimer;
-    private float _pressAttackButtonTimer;
-    private float _pressPickUpButtonTimer;
+    //private bool _attackButtonNeedToBeDelayed;
 
-    private bool _attackButtonNeedToBeDelayed;
+    private void Awake()
+    {
+      
+    }
 
     private void Start()
     {
+        _inputService = Game.InputService;
         ChangeActionModeOnPickUp();
     }
 
     private void Update()
     {
-        MovementPosX = joystick.Horizontal;
-        MovementPosY = joystick.Vertical;
+        if (_inputService.Axis.sqrMagnitude > Constants.Epsilon)
+        {
+            MovementPosX = _inputService.Axis.x;
+            MovementPosY = _inputService.Axis.y;
+        }
+        
 
         CheckIfSwitchWeaponButtonPressed();
         CheckIfPickUpButtonPressed();
-        CheckIfAttckButtonPressed();
+        CheckIfAttackButtonPressedUp();
+        CheckIfAttackButtonPressedDown();
         CkeckIfJoystickPressed();
     }
     public bool CkeckIfJoystickPressed()
     {
-       return MovementPosX != 0.0f && MovementPosY != 0.0f;
+        return _inputService.Axis.sqrMagnitude > Constants.Epsilon;
     }
     private void CheckIfPickUpButtonPressed()
     {
-        IsPickUpButtonPressed = false;
+        if (actionButtonMode == ActionInputMode.PickUp)
+        {
+            IsPickUpButtonPressed = _inputService.IsActionButtonUp();
+        }
+
+       
+        /*IsPickUpButtonPressed = false;
         _pressPickUpButtonTimer += Time.deltaTime;
         if (actionButton.Pressed && _pressPickUpButtonTimer >= pickUpButtonPressCd)
         {
             IsPickUpButtonPressed = true;
             _pressPickUpButtonTimer = 0f;
-        }
+        }*/
     }
 
-    private void CheckIfAttckButtonPressed()
+    private void CheckIfAttackButtonPressedDown()
     {
         if (actionButtonMode == ActionInputMode.Attack)
         {
-            if (actionButton.Pressed && !_attackButtonNeedToBeDelayed)
-            {
-                IsAttackButtonPressed = true;
-            }
-            else
-            {
-                IsAttackButtonPressed = false;
-            }
+           IsAttackButtonPressedDown =  _inputService.IsActionButtonDown();
+            /* if (actionButton.Pressed && !_attackButtonNeedToBeDelayed)
+             {
+                 IsAttackButtonPressed = true;
+             }
+             else
+             {
+                 IsAttackButtonPressed = false;
+             }*/
+        }
+    }
+    private void CheckIfAttackButtonPressedUp()
+    {
+        if (actionButtonMode == ActionInputMode.Attack)
+        {
+           IsAttackButtonPressedUp =  _inputService.IsActionButtonUp();
         }
     }
 
 
     private void CheckIfSwitchWeaponButtonPressed()
     {
-        IsSwitchWeaponButtonPressed = false;
+        /*IsSwitchWeaponButtonPressed = false;
         _pressSwitchButtonTimer += Time.deltaTime;
         if (switchWeaponButton.Pressed && _pressSwitchButtonTimer >= switchButtonPressCd)
         {
             IsSwitchWeaponButtonPressed = true;
             _pressSwitchButtonTimer = 0f;
-        }
+        }*/
+        IsSwitchWeaponButtonPressed = _inputService.IsSwitchWeaponButtonPressed();
     }
 
+    
     public void ChangeActionModeOnAttack()
     {
         // it fires instantly 
@@ -96,7 +128,7 @@ public class PlayerInputHandler : MonoBehaviour
         
     }
 
-    //чтобы тут же, после поднятия оружия не срабатывала атака
+ 
     private IEnumerator WaitAndChangeActionModeOnAttack()
     {
         actionButton.GetComponent<Image>().sprite = actionButtonImages[0];

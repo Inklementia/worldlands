@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Sources.Scripts;
 using UnityEngine;
 
 public class PlayerCanCombatState : PlayerState
@@ -29,8 +30,16 @@ public class PlayerCanCombatState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        Input.x = Player.InputHandler.MovementPosX;
-        Input.y = Player.InputHandler.MovementPosY;
+        if (Player.InputHandler.CkeckIfJoystickPressed())
+        {
+            Input.x = Player.InputHandler.MovementPosX;
+            Input.y = Player.InputHandler.MovementPosY;
+        }
+        else
+        {
+            Input.x = 0;
+            Input.y = 0;
+        }
 
         // if health < 0  -> DeathState
     }

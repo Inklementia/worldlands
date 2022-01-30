@@ -55,6 +55,7 @@
      <Compile Include="Assets\_Sources\Scripts\Dungeon\HitWallsSFX.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\AttackState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Interfaces\IDamageable.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Services\Input\MobileInputService.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
      <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\DemoRepositionExpositor.cs" />
      <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NtpSyncModule.cs" />
@@ -79,6 +80,7 @@
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_ChargeState.cs" />
      <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetEndPoint.cs" />
      <Compile Include="Assets\_Sources\Scripts\Input\FixedTouchField.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Constants.cs" />
      <Compile Include="Assets\_Sources\Scripts\Interfaces\ICollectable.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\IVisitor.cs" />
@@ -114,6 +116,7 @@
      <Compile Include="Assets\_Sources\Scripts\Player\PlayerFiniteStateMachine\PlayerState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
      <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NatPunchModule.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Infrastructure\GameBootStrapper.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_DamageState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
@@ -138,6 +141,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
      <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\DemoItem.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\State Mashine\Entity.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Services\Input\InputService.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\ItemFrequency.cs" />
@@ -159,6 +163,7 @@
      <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\Node.cs" />
+     <Compile Include="Assets\_Sources\Scripts\FadeOutSFX.cs" />
      <Compile Include="Assets\AllIn1SpriteShader\Scripts\All1CreateUnifiedOutline.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\Visitor\IWeaponElement.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
@@ -188,6 +193,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
      <Compile Include="Assets\Joystick Pack\Examples\JoystickSetterExample.cs" />
      <Compile Include="Assets\_Sources\Scripts\TestDungeonGenerator.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Services\Input\IInputService.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\ChargeState.cs" />
      <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetManager.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\Core.cs" />
@@ -217,6 +223,7 @@
      <Compile Include="Assets\_Sources\Scripts\Weapons\Visitor\MultishotWeapon.cs" />
      <Compile Include="Assets\AllIn1SpriteShader\Scripts\RandomSeed.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\PlayerDetectedState.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Infrastructure\Game.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_DamageState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\EnemyCore.cs" />
      <Compile Include="Assets\Feel\MMFeedbacks\Demos\MMFeedbacksDemo\Scripts\DemoGhost.cs" />
@@ -233,12 +240,12 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
      <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\DemoCircleExpositor.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Services\Input\StandaloneInputService.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\Weapon Features\RotatableWeapon.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_MeleeAttackState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_DeadState.cs" />
      <Compile Include="Assets\AllIn1SpriteShader\Scripts\SetGlobalTime.cs" />
-     <Compile Include="Assets\_Sources\Scripts\FadeOutSFX.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -1076,6 +1083,10 @@
       <Project>{d5065342-a5f3-f24e-2362-1e4da378924f}</Project>
       <Name>AstarPathfindingProject</Name>
     </ProjectReference>
+    <ProjectReference Include="SimpleInput.Runtime.csproj">
+      <Project>{e94e485d-7beb-3a55-7fe3-71c4657b691e}</Project>
+      <Name>SimpleInput.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="MoreMountains.Tools.Feedbacks.csproj">
       <Project>{c0be2292-faad-83ec-d584-aeaa6ca12e96}</Project>
       <Name>MoreMountains.Tools.Feedbacks</Name>
@@ -1095,6 +1106,10 @@
     <ProjectReference Include="MoreMountains.Feedbacks.Cinemachine.csproj">
       <Project>{d2fd1f64-cade-7744-c608-cc999b95d54b}</Project>
       <Name>MoreMountains.Feedbacks.Cinemachine</Name>
+    </ProjectReference>
+    <ProjectReference Include="SimpleInput.Editor.csproj">
+      <Project>{e852d6f4-31db-bfd8-e748-80be2ffd0ae7}</Project>
+      <Name>SimpleInput.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.Tools.csproj">
       <Project>{1c3a6700-e94b-76e1-0980-26c6348d4ad7}</Project>

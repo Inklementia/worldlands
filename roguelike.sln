@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Feedbacks.URP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Feedbacks.Cinemachine", "MoreMountains.Feedbacks.Cinemachine.csproj", "{d2fd1f64-cade-7744-c608-cc999b95d54b}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleInput.Runtime", "SimpleInput.Runtime.csproj", "{e94e485d-7beb-3a55-7fe3-71c4657b691e}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Tools.Feedbacks", "MoreMountains.Tools.Feedbacks.csproj", "{c0be2292-faad-83ec-d584-aeaa6ca12e96}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Feel.Demos.URP", "MoreMountains.Feel.Demos.URP.csproj", "{a3664659-5327-6c35-0f5c-6090ec6a3b5e}"
@@ -50,6 +52,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Feedbacks.Editor", "MoreMountains.Feedbacks.Editor.csproj", "{944ddc58-798b-f0ed-79ea-85ff0eec5c26}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstarPathfindingProjectEditor", "AstarPathfindingProjectEditor.csproj", "{b2afb1d5-b283-99e0-79ee-751608afe40d}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleInput.Editor", "SimpleInput.Editor.csproj", "{e852d6f4-31db-bfd8-e748-80be2ffd0ae7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Tools.Feedbacks.Editor", "MoreMountains.Tools.Feedbacks.Editor.csproj", "{c32b0d00-2ecf-1104-1a77-2d18186b086b}"
 EndProject
@@ -109,6 +113,10 @@ Global
 		{d2fd1f64-cade-7744-c608-cc999b95d54b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{d2fd1f64-cade-7744-c608-cc999b95d54b}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{d2fd1f64-cade-7744-c608-cc999b95d54b}.Release|Any CPU.Build.0 = Release|Any CPU
+		{e94e485d-7beb-3a55-7fe3-71c4657b691e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{e94e485d-7beb-3a55-7fe3-71c4657b691e}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{e94e485d-7beb-3a55-7fe3-71c4657b691e}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{e94e485d-7beb-3a55-7fe3-71c4657b691e}.Release|Any CPU.Build.0 = Release|Any CPU
 		{c0be2292-faad-83ec-d584-aeaa6ca12e96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{c0be2292-faad-83ec-d584-aeaa6ca12e96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{c0be2292-faad-83ec-d584-aeaa6ca12e96}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -165,6 +173,10 @@ Global
 		{b2afb1d5-b283-99e0-79ee-751608afe40d}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{b2afb1d5-b283-99e0-79ee-751608afe40d}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{b2afb1d5-b283-99e0-79ee-751608afe40d}.Release|Any CPU.Build.0 = Release|Any CPU
+		{e852d6f4-31db-bfd8-e748-80be2ffd0ae7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{e852d6f4-31db-bfd8-e748-80be2ffd0ae7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{e852d6f4-31db-bfd8-e748-80be2ffd0ae7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{e852d6f4-31db-bfd8-e748-80be2ffd0ae7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{c32b0d00-2ecf-1104-1a77-2d18186b086b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{c32b0d00-2ecf-1104-1a77-2d18186b086b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{c32b0d00-2ecf-1104-1a77-2d18186b086b}.Release|Any CPU.ActiveCfg = Release|Any CPU

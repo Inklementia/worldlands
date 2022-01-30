@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Sources.Scripts;
 using UnityEngine;
 
 public class RotatableWeapon : MonoBehaviour, IWeaponFeature
@@ -23,7 +24,7 @@ public class RotatableWeapon : MonoBehaviour, IWeaponFeature
         //Debug.Log(InitialRotateAngle);
         if (_player != null)
         {
-            if (rotateOnAttack && _player.InputHandler.IsAttackButtonPressed && _player.InputHandler.CkeckIfJoystickPressed())
+            if (rotateOnAttack && _player.InputHandler.IsAttackButtonPressedDown && _player.InputHandler.CkeckIfJoystickPressed())
             {
                 RotateWeapon();
             }

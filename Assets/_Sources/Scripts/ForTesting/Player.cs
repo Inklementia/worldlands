@@ -15,8 +15,8 @@ namespace _Sources.Scripts.ForTesting
         private void Update()
     {
 
-        _movementPos.x = Input.GetAxisRaw("Horizontal");
-        _movementPos.y = Input.GetAxisRaw("Vertical");
+      //  _movementPos.x = Input.GetAxisRaw("Horizontal");
+       // _movementPos.y = Input.GetAxisRaw("Vertical");
 
         //Debug.Log(touchField.TouchDist+", ("+gameObject.transform.position.x+", "+ gameObject.transform.position.y+")") ;
 
