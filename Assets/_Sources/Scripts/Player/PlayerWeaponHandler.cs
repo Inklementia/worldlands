@@ -83,23 +83,23 @@ public class PlayerWeaponHandler : MonoBehaviour
         // if player has weapon
         if (Weaponry.CurrentWeapon != null)
         {
-            if(InputHandler.IsAttackButtonPressed && !Weaponry.CurrentWeapon.ShouldBeCharged)
+            if(InputHandler.IsAttackButtonPressedUp && !Weaponry.CurrentWeapon.ShouldBeCharged)
             {
                 Weaponry.CurrentWeapon.Attack();
             }
-            else if (InputHandler.IsAttackButtonPressed && Weaponry.CurrentWeapon.ShouldBeCharged)
+            else if (InputHandler.IsAttackButtonPressedDown && Weaponry.CurrentWeapon.ShouldBeCharged)
             {
                 // charging
                 Weaponry.CurrentWeapon.ChargeableWeapon.Charge();
             }
-            else if(!InputHandler.IsAttackButtonPressed && (Weaponry.CurrentWeapon.ShouldBeCharged && Weaponry.CurrentWeapon.Charged))
+            else if(!InputHandler.IsAttackButtonPressedUp && (Weaponry.CurrentWeapon.ShouldBeCharged && Weaponry.CurrentWeapon.Charged))
             {
                 Weaponry.CurrentWeapon.Attack();
             }
         }
 
     }
-    //����� ��� ��, ����� �������� ������ �� ����������� �����
+    //
     private IEnumerator WaitAndChangeActionModeOnAttack()
     {
         yield return new WaitForSeconds(.5f);

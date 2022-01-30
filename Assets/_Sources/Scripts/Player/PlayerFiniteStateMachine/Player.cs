@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Sources.Scripts.Infrastructure;
+using _Sources.Scripts.Services.Input;
 using UnityEditor;
 using UnityEngine;
 
@@ -15,11 +17,14 @@ public class Player : MonoBehaviour
 
     public Animator Anim { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; } 
-   
+    
+    
+    
     [SerializeField] private PlayerDataSO playerData;
 
     private void Awake()
     {
+        
         Core = GetComponentInChildren<Core>();
         StateMachine = new PlayerStateMachine();
 

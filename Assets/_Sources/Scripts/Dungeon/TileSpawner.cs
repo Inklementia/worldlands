@@ -77,7 +77,7 @@ namespace Dungeon
             */
             int randomIndex = Random.Range(0, _dungeonManager.floorTiles.Length);
             int rotateOrNotRotate = Random.Range(0, 2);
-            Debug.Log(rotateOrNotRotate);
+            //Debug.Log(rotateOrNotRotate);
            
             Quaternion rot;
             if (rotateOrNotRotate == 1)

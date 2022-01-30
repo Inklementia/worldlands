@@ -35,9 +35,9 @@ public class ChargeableWeapon : MonoBehaviour, IWeaponFeature
     {
         if(_player != null)
         {
-            anim.SetBool("charge", _player.InputHandler.IsAttackButtonPressed);
+            anim.SetBool("charge", _player.InputHandler.IsAttackButtonPressedDown);
 
-            if (!_player.InputHandler.IsAttackButtonPressed)
+            if (!_player.InputHandler.IsAttackButtonPressedUp)
             {
                 if (_chargeValue > 0f)
                 {

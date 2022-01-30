@@ -420,7 +420,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4443725827962269618}
-  - component: {fileID: 4443725827962269615}
+  - component: {fileID: 6538895177417530552}
   - component: {fileID: 4443725827962269608}
   - component: {fileID: 4443725827962269613}
   - component: {fileID: 4443725827962269619}
@@ -454,7 +454,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4443725827962269615
+--- !u!114 &6538895177417530552
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -466,16 +466,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a493408f037b79448025bc6326a4bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystick: {fileID: 0}
   switchWeaponButton: {fileID: 0}
-  switchButtonPressCd: 0.3
   actionButton: {fileID: 0}
   actionButtonImages:
   - {fileID: -2413806693520163455, guid: f1b849319f37a9a4fa4c5b058c47883d, type: 3}
   - {fileID: 7482667652216324306, guid: 6943c8b53afdaaa4c913e19244a5b28f, type: 3}
   actionButtonMode: 1
-  pickUpButtonPressCd: 0.3
-  attackButtonPressCd: 0.2
 --- !u!114 &4443725827962269608
 MonoBehaviour:
   m_ObjectHideFlags: 0
