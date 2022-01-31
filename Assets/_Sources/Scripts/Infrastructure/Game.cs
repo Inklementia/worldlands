@@ -6,17 +6,13 @@ namespace _Sources.Scripts.Infrastructure
     public class Game
     {
         public static IInputService InputService;
+        public GameStateMachine StateMachine;
 
-        public Game()
+        public Game(ICoroutineRunner coroutineRunner)
         {
-            if (Application.isEditor)
-            {
-                InputService = new StandaloneInputService();
-            }
-            else
-            {
-                InputService = new MobileInputService();
-            }
+            StateMachine = new GameStateMachine(new SceneLoader(coroutineRunner));
         }
+
+
     }
 }
