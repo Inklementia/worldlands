@@ -305,17 +305,11 @@
  <Reference Include="Sirenix.OdinInspector.Editor">
  <HintPath>D:/unity_files/roguelike/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
  </Reference>
- <Reference Include="ConsolePro.Editor">
- <HintPath>D:/unity_files/roguelike/Assets/ConsolePro/Editor/ConsolePro.Editor.dll</HintPath>
- </Reference>
  <Reference Include="DOTweenEditor">
  <HintPath>D:/unity_files/roguelike/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.OdinInspector.Attributes">
  <HintPath>D:/unity_files/roguelike/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
- </Reference>
- <Reference Include="Pathfinding.Ionic.Zip.Reduced">
- <HintPath>D:/unity_files/roguelike/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
  </Reference>
  <Reference Include="log4netPlastic">
  <HintPath>D:/unity_files/roguelike/Library/PackageCache/com.unity.collab-proxy@1.11.2/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
@@ -337,6 +331,12 @@
  </Reference>
  <Reference Include="unityplastic">
  <HintPath>D:/unity_files/roguelike/Library/PackageCache/com.unity.collab-proxy@1.11.2/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
+ </Reference>
+ <Reference Include="ConsolePro.Editor">
+ <HintPath>D:/unity_files/roguelike/Assets/Plugins/ConsolePro/Editor/ConsolePro.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+ <HintPath>D:/unity_files/roguelike/Assets/Plugins/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
  <HintPath>D:/unity_files/roguelike/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
