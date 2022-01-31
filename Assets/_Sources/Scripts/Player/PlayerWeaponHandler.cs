@@ -11,6 +11,7 @@ public class PlayerWeaponHandler : MonoBehaviour
     [SerializeField] private Tag WeaponTag;
 
     private EncounteredWeapon _encounteredWeapon;
+    private bool once;
 
     private void Awake()
     {
@@ -20,7 +21,7 @@ public class PlayerWeaponHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InputHandler.ChangeActionModeOnPickUp();
+        InputHandler.EnablePickUpButton();
     }
 
     // Update is called once per frame
@@ -52,12 +53,14 @@ public class PlayerWeaponHandler : MonoBehaviour
             Weaponry.SwitchWeapon();
         }
 
+    
         // if player is near weapon
-        if (_encounteredWeapon.Weapon != null)
+        if (_encounteredWeapon.Weapon != null )
         {
+         
             // activate Action button
-            InputHandler.ChangeActionModeOnPickUp();
-
+            InputHandler.EnablePickUpButton();
+         
             // if Action button is pressed and Player can take 1 more weapon
             if (InputHandler.IsPickUpButtonPressed && Weaponry.CarriedWeapons.Count < weaponsNumberToCarry)
             {
@@ -75,7 +78,7 @@ public class PlayerWeaponHandler : MonoBehaviour
         else
         {
             //StartCoroutine(WaitAndChangeActionModeOnAttack());
-            InputHandler.ChangeActionModeOnAttack();
+            InputHandler.EnableAttackButton();
         }
     }
     private void ManageAttacking()
@@ -100,22 +103,22 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     }
     //
-    private IEnumerator WaitAndChangeActionModeOnAttack()
-    {
-        yield return new WaitForSeconds(.5f);
-        InputHandler.ChangeActionModeOnAttack();
-    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        bool once = true;
-        if (collision.HasTag(WeaponTag) && once)
+      
+        if (collision.HasTag(WeaponTag))
         {
+         
+
             _encounteredWeapon.Position = collision.transform;
             _encounteredWeapon.Weapon = collision.GetComponent<ShootingWeapon>();
-            once = false;
+            Debug.Log("Encountered weapon: "+ _encounteredWeapon.Weapon.baseWeaponData.Name);
+          
         }
     }
+    /*
     private void OnTriggerStay2D(Collider2D collision)
     {
         bool once = true;
@@ -125,7 +128,7 @@ public class PlayerWeaponHandler : MonoBehaviour
             _encounteredWeapon.Weapon = collision.GetComponent<ShootingWeapon>();
             once = false;
         }
-    }
+    }*/
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.HasTag(WeaponTag))

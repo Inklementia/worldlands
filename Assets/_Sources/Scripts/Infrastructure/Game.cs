@@ -1,4 +1,5 @@
 using _Sources.Scripts.Services.Input;
+using _Sources.Scripts.UI;
 using UnityEngine;
 
 namespace _Sources.Scripts.Infrastructure
@@ -8,9 +9,9 @@ namespace _Sources.Scripts.Infrastructure
         public static IInputService InputService;
         public GameStateMachine StateMachine;
 
-        public Game(ICoroutineRunner coroutineRunner)
+        public Game(ICoroutineRunner coroutineRunner, LoadingScreen loadingScreen)
         {
-            StateMachine = new GameStateMachine(new SceneLoader(coroutineRunner));
+            StateMachine = new GameStateMachine(new SceneLoader(coroutineRunner), loadingScreen);
         }
 
 

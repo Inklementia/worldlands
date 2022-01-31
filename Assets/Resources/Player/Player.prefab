@@ -425,11 +425,10 @@ GameObject:
   - component: {fileID: 4443725827962269613}
   - component: {fileID: 4443725827962269619}
   - component: {fileID: 4443725827962269614}
-  - component: {fileID: 4443725827962269617}
+  - component: {fileID: -3439350125802567981}
   - component: {fileID: 4443725827962269612}
   - component: {fileID: 4443725827962269616}
   - component: {fileID: 4443725827962269623}
-  - component: {fileID: 1410389827}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -445,7 +444,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4443725827962269622}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.56, y: 6.77, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4443725827836616931}
@@ -466,12 +465,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a493408f037b79448025bc6326a4bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchWeaponButton: {fileID: 0}
-  actionButton: {fileID: 0}
-  actionButtonImages:
-  - {fileID: -2413806693520163455, guid: f1b849319f37a9a4fa4c5b058c47883d, type: 3}
-  - {fileID: 7482667652216324306, guid: 6943c8b53afdaaa4c913e19244a5b28f, type: 3}
-  actionButtonMode: 1
+  switchWeaponButton: {fileID: 1379215970752930771, guid: 91d210a8bc5b46c44af0a554b20e7093,
+    type: 3}
+  attackButtonGOTag: {fileID: 11400000, guid: f6b20463111e1684a98d6875ec848fbf, type: 2}
+  pickUpButtonGOTag: {fileID: 11400000, guid: dca3851e26440cc45b7bf3f897ae2b63, type: 2}
 --- !u!114 &4443725827962269608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,7 +522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - {fileID: 11400000, guid: 179e93f8c5d4574478cd4f2f2deddede, type: 2}
---- !u!212 &4443725827962269617
+--- !u!212 &-3439350125802567981
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -544,7 +541,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -571,7 +568,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.6, y: 1.6}
+  m_Size: {x: 0.8, y: 0.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -635,7 +632,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.8, y: 0.8}
-    newSize: {x: 1.6, y: 1.6}
+    newSize: {x: 0.8, y: 0.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -643,22 +640,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.35588676, y: 0.39966154}
   m_EdgeRadius: 0
---- !u!114 &1410389827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4443725827962269622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shaderTypes: 0
-  normalStrenght: 5
-  normalSmoothing: 1
-  computingNormal: 0
 --- !u!1 &4443725828127418403
 GameObject:
   m_ObjectHideFlags: 0

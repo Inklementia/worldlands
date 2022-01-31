@@ -6,7 +6,9 @@ namespace _Sources.Scripts.Services.Input
     {
         Vector2 Axis { get; }
         bool IsSwitchWeaponButtonPressed();
-        bool IsActionButtonUp();
-        bool IsActionButtonDown();
+        bool IsAttackButtonUp();
+        bool IsAttackButtonDown();
+        bool IsPickUpButtonUp();
+ 
     }
 }

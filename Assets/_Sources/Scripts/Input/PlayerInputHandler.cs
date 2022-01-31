@@ -16,34 +16,26 @@ public class PlayerInputHandler : MonoBehaviour
     public float MovementPosY { get; private set; }
 
     [SerializeField] private ButtonInputUI switchWeaponButton;
-    //[SerializeField] private float switchButtonPressCd = .2f;
 
-    [Header("Action Button")]
-    [SerializeField] private ButtonInputUI actionButton;
-    [SerializeField] private Sprite[] actionButtonImages; //0 attack, 1 pick-up
-    [SerializeField] private ActionInputMode actionButtonMode; //0 attack, 1 pick-up
-    //[SerializeField] private float pickUpButtonPressCd = .2f;
-    //[SerializeField] private float attackButtonPressCd = .2f;
-
+    [Header("Buttons")]
+    [SerializeField] private Tag attackButtonGOTag;
+    [SerializeField] private Tag pickUpButtonGOTag;
+    
     public bool IsSwitchWeaponButtonPressed { get; private set; }
     public bool IsPickUpButtonPressed { get; private set; }
     public bool IsAttackButtonPressedUp { get; private set; }
     public bool IsAttackButtonPressedDown { get; private set; }
-    //private float _pressSwitchButtonTimer;
-    //private float _pressAttackButtonTimer;
-    //private float _pressPickUpButtonTimer;
-
-    //private bool _attackButtonNeedToBeDelayed;
-
+    
+    private GameObject attackButtonGO;
+    private GameObject pickUpButtonGO;
+    
     private void Awake()
     {
-      
-    }
-
-    private void Start()
-    {
         _inputService = Game.InputService;
-        ChangeActionModeOnPickUp();
+     
+        //ChangeActionModeOnPickUp();
+        attackButtonGO = gameObject.FindWithTag(attackButtonGOTag);
+        pickUpButtonGO = gameObject.FindWithTag(pickUpButtonGOTag);
     }
 
     private void Update()
@@ -54,94 +46,45 @@ public class PlayerInputHandler : MonoBehaviour
             MovementPosY = _inputService.Axis.y;
         }
         
-
-        CheckIfSwitchWeaponButtonPressed();
-        CheckIfPickUpButtonPressed();
-        CheckIfAttackButtonPressedUp();
-        CheckIfAttackButtonPressedDown();
+        IsPickUpButtonPressed = _inputService.IsPickUpButtonUp();
+        IsAttackButtonPressedDown =  _inputService.IsAttackButtonDown();
+        IsAttackButtonPressedUp =  _inputService.IsAttackButtonUp();
+        IsSwitchWeaponButtonPressed = _inputService.IsSwitchWeaponButtonPressed();
+ 
         CkeckIfJoystickPressed();
     }
     public bool CkeckIfJoystickPressed()
     {
         return _inputService.Axis.sqrMagnitude > Constants.Epsilon;
     }
-    private void CheckIfPickUpButtonPressed()
+
+    public void EnableAttackButton()
     {
-        if (actionButtonMode == ActionInputMode.PickUp)
-        {
-            IsPickUpButtonPressed = _inputService.IsActionButtonUp();
-        }
-
-       
-        /*IsPickUpButtonPressed = false;
-        _pressPickUpButtonTimer += Time.deltaTime;
-        if (actionButton.Pressed && _pressPickUpButtonTimer >= pickUpButtonPressCd)
-        {
-            IsPickUpButtonPressed = true;
-            _pressPickUpButtonTimer = 0f;
-        }*/
-    }
-
-    private void CheckIfAttackButtonPressedDown()
-    {
-        if (actionButtonMode == ActionInputMode.Attack)
-        {
-           IsAttackButtonPressedDown =  _inputService.IsActionButtonDown();
-            /* if (actionButton.Pressed && !_attackButtonNeedToBeDelayed)
-             {
-                 IsAttackButtonPressed = true;
-             }
-             else
-             {
-                 IsAttackButtonPressed = false;
-             }*/
-        }
-    }
-    private void CheckIfAttackButtonPressedUp()
-    {
-        if (actionButtonMode == ActionInputMode.Attack)
-        {
-           IsAttackButtonPressedUp =  _inputService.IsActionButtonUp();
-        }
-    }
-
-
-    private void CheckIfSwitchWeaponButtonPressed()
-    {
-        /*IsSwitchWeaponButtonPressed = false;
-        _pressSwitchButtonTimer += Time.deltaTime;
-        if (switchWeaponButton.Pressed && _pressSwitchButtonTimer >= switchButtonPressCd)
-        {
-            IsSwitchWeaponButtonPressed = true;
-            _pressSwitchButtonTimer = 0f;
-        }*/
-        IsSwitchWeaponButtonPressed = _inputService.IsSwitchWeaponButtonPressed();
-    }
-
-    
-    public void ChangeActionModeOnAttack()
-    {
-        // it fires instantly 
-        // hmm
-
-        StartCoroutine(WaitAndChangeActionModeOnAttack());
-        
+       // StartCoroutine(WaitAndChangeActionButtonOnAttack());
+       pickUpButtonGO.SetActive(false);
+       attackButtonGO.SetActive(true);
+ 
     }
 
  
-    private IEnumerator WaitAndChangeActionModeOnAttack()
+    private IEnumerator WaitAndChangeActionButtonOnAttack()
     {
-        actionButton.GetComponent<Image>().sprite = actionButtonImages[0];
+       // actionButton.GetComponent<Image>().sprite = actionButtonImages[0];
         yield return new WaitForSeconds(.5f);
-        actionButtonMode = ActionInputMode.Attack;
+        //actionButtonMode = ActionInputMode.Attack;
        
     }
 
 
-    public void ChangeActionModeOnPickUp()
+    public void EnablePickUpButton()
     {
-        actionButtonMode = ActionInputMode.PickUp;
-        actionButton.GetComponent<Image>().sprite = actionButtonImages[1];
+        //actionButtonMode = ActionInputMode.PickUp;
+        //actionButton.GetComponent<Image>().sprite = actionButtonImages[1];
+        
+       attackButtonGO.SetActive(false);
+       pickUpButtonGO.SetActive(true);
+        //Debug.Log( actionButton.GetComponent<Image>().sprite.name);
+       
     }
 
     public void EnableWeaponSwitch()

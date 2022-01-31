@@ -306,7 +306,7 @@ namespace Dungeon
           
             if (path >= corridorLengthToBoss)
             {
-                Debug.Log(CheckAvailableSpaceForBossRoom(currentPos, bossRoomSize));
+                //Debug.Log(CheckAvailableSpaceForBossRoom(currentPos, bossRoomSize));
                 GenerateRoom(currentPos, bossRoomSize, false);
                 
                 
@@ -328,7 +328,7 @@ namespace Dungeon
         {
             int roomWidth = Mathf.CeilToInt((roomSize.x + 2) / 2f); 
             int roomHeight = Mathf.CeilToInt((roomSize.y + 2) / 2f);
-            Debug.Log(roomWidth);
+           // Debug.Log(roomWidth);
 
             for (int w = -roomWidth; w <= roomWidth; w++)
             {
