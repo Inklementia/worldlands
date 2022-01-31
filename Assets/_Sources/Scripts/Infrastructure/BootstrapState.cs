@@ -25,7 +25,7 @@ namespace _Sources.Scripts.Infrastructure
         private void EnterLoadLevel()
         {
             // load main level
-            _stateMachine.Enter<LoadLevelState>();
+            _stateMachine.Enter<LoadLevelState, string>("Main");
         }
 
         private void RegisterServices()

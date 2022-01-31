@@ -358,6 +358,9 @@
  <Reference Include="Sirenix.OdinInspector.Attributes">
  <HintPath>D:/unity_files/roguelike/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
  </Reference>
+ <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+ <HintPath>D:/unity_files/roguelike/Assets/Plugins/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+ </Reference>
  <Reference Include="Sirenix.Serialization.Config">
  <HintPath>D:/unity_files/roguelike/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
  </Reference>
@@ -369,9 +372,6 @@
  </Reference>
  <Reference Include="Sirenix.Serialization">
  <HintPath>D:/unity_files/roguelike/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.dll</HintPath>
- </Reference>
- <Reference Include="Pathfinding.Ionic.Zip.Reduced">
- <HintPath>D:/unity_files/roguelike/Assets/Plugins/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>D:/Programms/Unity/2020.3.20f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -852,6 +852,22 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="MoreMountains.Tools.Editor.csproj">
+      <Project>{3cd7bdb5-8c30-73af-04cd-b8952b705b74}</Project>
+      <Name>MoreMountains.Tools.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="PackageToolsEditor.csproj">
+      <Project>{f358743d-8684-5ee4-4bf1-d3390c83400d}</Project>
+      <Name>PackageToolsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.NiceVibrations.csproj">
+      <Project>{ce36a7ca-ec7f-a0ef-910b-8249dc5dfea6}</Project>
+      <Name>MoreMountains.NiceVibrations</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.csproj">
+      <Project>{d43405df-638b-bcb9-e4ab-e59d438a23f2}</Project>
+      <Name>MoreMountains.Feedbacks</Name>
+    </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.Modules.UnityMathematics.csproj">
       <Project>{c5f9915e-1974-50f0-e71b-3573f780db41}</Project>
       <Name>Sirenix.OdinInspector.Modules.UnityMathematics</Name>
@@ -860,89 +876,17 @@
       <Project>{7c65e670-357f-5978-92f3-0eb113af0727}</Project>
       <Name>Sirenix.OdinInspector.CompatibilityLayer.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.csproj">
-      <Project>{7ecfe5fe-81d0-c18e-4c5a-7b7c8bbf0329}</Project>
-      <Name>Sirenix.OdinInspector.CompatibilityLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="SimpleInput.Runtime.csproj">
-      <Project>{e94e485d-7beb-3a55-7fe3-71c4657b691e}</Project>
-      <Name>SimpleInput.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="SimpleInput.Editor.csproj">
-      <Project>{e852d6f4-31db-bfd8-e748-80be2ffd0ae7}</Project>
-      <Name>SimpleInput.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Tools.Cinemachine.csproj">
-      <Project>{382b5796-a6a1-54be-5e1c-d624c0269530}</Project>
-      <Name>MoreMountains.Tools.Cinemachine</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Tools.Feedbacks.Editor.csproj">
-      <Project>{c32b0d00-2ecf-1104-1a77-2d18186b086b}</Project>
-      <Name>MoreMountains.Tools.Feedbacks.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.MMTools.csproj">
-      <Project>{46ca0a53-f013-28f9-ce1b-a0f154d402b1}</Project>
-      <Name>MoreMountains.Feedbacks.MMTools</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Tools.Editor.csproj">
-      <Project>{3cd7bdb5-8c30-73af-04cd-b8952b705b74}</Project>
-      <Name>MoreMountains.Tools.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.TextMeshPro.csproj">
-      <Project>{49a7fc9b-a0ed-d18d-0e0f-58e79a6426dc}</Project>
-      <Name>MoreMountains.Feedbacks.TextMeshPro</Name>
-    </ProjectReference>
-    <ProjectReference Include="AstarPathfindingProject.csproj">
-      <Project>{d5065342-a5f3-f24e-2362-1e4da378924f}</Project>
-      <Name>AstarPathfindingProject</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.URP.csproj">
-      <Project>{d0729135-90eb-960a-fb65-6bc616ba1253}</Project>
-      <Name>MoreMountains.Feedbacks.URP</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feel.Demos.csproj">
-      <Project>{5c3c0c45-e9ce-0e2c-eb6e-048573de6f2d}</Project>
-      <Name>MoreMountains.Feel.Demos</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Tools.TextMeshPro.csproj">
-      <Project>{608746ac-ecf4-9639-b441-f6e64ef5bfad}</Project>
-      <Name>MoreMountains.Tools.TextMeshPro</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Tools.Feedbacks.csproj">
-      <Project>{c0be2292-faad-83ec-d584-aeaa6ca12e96}</Project>
-      <Name>MoreMountains.Tools.Feedbacks</Name>
-    </ProjectReference>
-    <ProjectReference Include="PackageToolsEditor.csproj">
-      <Project>{f358743d-8684-5ee4-4bf1-d3390c83400d}</Project>
-      <Name>PackageToolsEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.csproj">
-      <Project>{d43405df-638b-bcb9-e4ab-e59d438a23f2}</Project>
-      <Name>MoreMountains.Feedbacks</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.Editor.csproj">
-      <Project>{944ddc58-798b-f0ed-79ea-85ff0eec5c26}</Project>
-      <Name>MoreMountains.Feedbacks.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.NiceVibrations.Haptics.csproj">
-      <Project>{ef6a0953-8966-5bae-de9e-d73a0435b2f8}</Project>
-      <Name>MoreMountains.NiceVibrations.Haptics</Name>
-    </ProjectReference>
-    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
-      <Project>{b2afb1d5-b283-99e0-79ee-751608afe40d}</Project>
-      <Name>AstarPathfindingProjectEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Tools.csproj">
-      <Project>{1c3a6700-e94b-76e1-0980-26c6348d4ad7}</Project>
-      <Name>MoreMountains.Tools</Name>
+    <ProjectReference Include="MoreMountains.NiceVibrations.Demos.csproj">
+      <Project>{10b34cbc-7fd5-d53e-4d9d-d58784a5ec21}</Project>
+      <Name>MoreMountains.NiceVibrations.Demos</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.Feedbacks.NiceVibrations.csproj">
       <Project>{4d6d164a-9f57-d26d-7306-4ed86719036c}</Project>
       <Name>MoreMountains.Feedbacks.NiceVibrations</Name>
     </ProjectReference>
-    <ProjectReference Include="MoreMountains.NiceVibrations.csproj">
-      <Project>{ce36a7ca-ec7f-a0ef-910b-8249dc5dfea6}</Project>
-      <Name>MoreMountains.NiceVibrations</Name>
+    <ProjectReference Include="MoreMountains.Tools.TextMeshPro.csproj">
+      <Project>{608746ac-ecf4-9639-b441-f6e64ef5bfad}</Project>
+      <Name>MoreMountains.Tools.TextMeshPro</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.Feel.Demos.HDRP.csproj">
       <Project>{57d816f8-a786-de09-fd6a-ac3007e9e6b5}</Project>
@@ -952,17 +896,73 @@
       <Project>{5656e97e-4a30-587b-81a8-7e7d31e008a3}</Project>
       <Name>MoreMountains.NiceVibrations.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="MoreMountains.NiceVibrations.Demos.csproj">
-      <Project>{10b34cbc-7fd5-d53e-4d9d-d58784a5ec21}</Project>
-      <Name>MoreMountains.NiceVibrations.Demos</Name>
+    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
+      <Project>{b2afb1d5-b283-99e0-79ee-751608afe40d}</Project>
+      <Name>AstarPathfindingProjectEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.MMTools.csproj">
+      <Project>{46ca0a53-f013-28f9-ce1b-a0f154d402b1}</Project>
+      <Name>MoreMountains.Feedbacks.MMTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.TextMeshPro.csproj">
+      <Project>{49a7fc9b-a0ed-d18d-0e0f-58e79a6426dc}</Project>
+      <Name>MoreMountains.Feedbacks.TextMeshPro</Name>
+    </ProjectReference>
+    <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.csproj">
+      <Project>{7ecfe5fe-81d0-c18e-4c5a-7b7c8bbf0329}</Project>
+      <Name>Sirenix.OdinInspector.CompatibilityLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.URP.csproj">
+      <Project>{d0729135-90eb-960a-fb65-6bc616ba1253}</Project>
+      <Name>MoreMountains.Feedbacks.URP</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.Editor.csproj">
+      <Project>{944ddc58-798b-f0ed-79ea-85ff0eec5c26}</Project>
+      <Name>MoreMountains.Feedbacks.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.NiceVibrations.Haptics.csproj">
+      <Project>{ef6a0953-8966-5bae-de9e-d73a0435b2f8}</Project>
+      <Name>MoreMountains.NiceVibrations.Haptics</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feel.Demos.csproj">
+      <Project>{5c3c0c45-e9ce-0e2c-eb6e-048573de6f2d}</Project>
+      <Name>MoreMountains.Feel.Demos</Name>
+    </ProjectReference>
+    <ProjectReference Include="AstarPathfindingProject.csproj">
+      <Project>{d5065342-a5f3-f24e-2362-1e4da378924f}</Project>
+      <Name>AstarPathfindingProject</Name>
+    </ProjectReference>
+    <ProjectReference Include="SimpleInput.Runtime.csproj">
+      <Project>{e94e485d-7beb-3a55-7fe3-71c4657b691e}</Project>
+      <Name>SimpleInput.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.Feedbacks.csproj">
+      <Project>{c0be2292-faad-83ec-d584-aeaa6ca12e96}</Project>
+      <Name>MoreMountains.Tools.Feedbacks</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.Feedbacks.Editor.csproj">
+      <Project>{c32b0d00-2ecf-1104-1a77-2d18186b086b}</Project>
+      <Name>MoreMountains.Tools.Feedbacks.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feel.Demos.URP.csproj">
+      <Project>{a3664659-5327-6c35-0f5c-6090ec6a3b5e}</Project>
+      <Name>MoreMountains.Feel.Demos.URP</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.Cinemachine.csproj">
+      <Project>{382b5796-a6a1-54be-5e1c-d624c0269530}</Project>
+      <Name>MoreMountains.Tools.Cinemachine</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.Feedbacks.Cinemachine.csproj">
       <Project>{d2fd1f64-cade-7744-c608-cc999b95d54b}</Project>
       <Name>MoreMountains.Feedbacks.Cinemachine</Name>
     </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feel.Demos.URP.csproj">
-      <Project>{a3664659-5327-6c35-0f5c-6090ec6a3b5e}</Project>
-      <Name>MoreMountains.Feel.Demos.URP</Name>
+    <ProjectReference Include="SimpleInput.Editor.csproj">
+      <Project>{e852d6f4-31db-bfd8-e748-80be2ffd0ae7}</Project>
+      <Name>SimpleInput.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.csproj">
+      <Project>{1c3a6700-e94b-76e1-0980-26c6348d4ad7}</Project>
+      <Name>MoreMountains.Tools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

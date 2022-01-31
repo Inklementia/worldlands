@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbf889b4b9dbf543a2f4a1b18f742ae, type: 3}
   m_Name: OrangePistol_BaseData
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Orange Pistol
   Damage: 10
   EnergyCostPerAttack: 1
   AttackCd: 0.2

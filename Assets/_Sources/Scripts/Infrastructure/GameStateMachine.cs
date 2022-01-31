@@ -1,33 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
+using _Sources.Scripts.UI;
 
 namespace _Sources.Scripts.Infrastructure
 {
     
     public class GameStateMachine
     {
-        private readonly Dictionary<Type, IState> _states;
-        private IState _activeState;
-        public GameStateMachine(SceneLoader sceneLoader)
+        private readonly Dictionary<Type, IExitableState> _states;
+        private IExitableState _activeState;
+        public GameStateMachine(SceneLoader sceneLoader, LoadingScreen loadingScreen)
         {
   
-            _states = new Dictionary<Type, IState>()
+            _states = new Dictionary<Type, IExitableState>()
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader),
-                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader),
+                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, loadingScreen),
+                [typeof(GameLoopState)] = new GameLoopState(this),
             };
         }
 
-        public void Enter<TState>() where TState : IState
+        public void Enter<TState>() where TState : class, IState
         {
-            _activeState?.Exit();
-            IState state = _states[typeof(TState)];
-            _activeState = state;
+            IState state = ChangeState<TState>();
             state.Enter();
             
         }
 
-       
-  
+        //payload smth like useful overload for method, additional parameter
+        public void Enter<TState, TPayload>(TPayload payload) where TState : class, IPayloadedState<TPayload>
+        {
+            TState state = ChangeState<TState>();
+            state.Enter(payload);
+            
+        }
+
+        private TState ChangeState<TState>() where TState : class, IExitableState
+        {
+            _activeState?.Exit();
+            
+            TState state = GetState<TState>();
+            _activeState = state;
+            
+            return state;
+        }
+
+        //downcast
+        private TState GetState<TState>() where TState : class, IExitableState
+        {
+            return _states[typeof(TState)] as TState;
+        }
     }
 }
