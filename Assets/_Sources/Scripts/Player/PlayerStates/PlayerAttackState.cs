@@ -1,40 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using _Sources.Scripts.Player.PlayerFiniteStateMachine;
+using _Sources.Scripts.Weapons;
 
-public class PlayerAttackState : PlayerState
+namespace _Sources.Scripts.Player.PlayerStates
 {
-    private ShootingWeapon _weapon;
-
-    public PlayerAttackState(Player player, PlayerStateMachine stateMachine, PlayerDataSO playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
+    public class PlayerAttackState : PlayerState
     {
-    }
+        private ShootingWeapon _weapon;
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
+        public PlayerAttackState(PlayerEntity playerEntity, PlayerStateMachine stateMachine, PlayerDataSO playerData, string animBoolName) : base(playerEntity, stateMachine, playerData, animBoolName)
+        {
+        }
 
-    public override void Enter()
-    {
-        base.Enter();
+        public override void DoChecks()
+        {
+            base.DoChecks();
+        }
+
+        public override void Enter()
+        {
+            base.Enter();
        
-    }
+        }
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
+        public override void Exit()
+        {
+            base.Exit();
+        }
 
-    public override void LogicUpdate()
-    {
-        base.LogicUpdate();
+        public override void LogicUpdate()
+        {
+            base.LogicUpdate();
 
 
-    }
+        }
 
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
+        public override void PhysicsUpdate()
+        {
+            base.PhysicsUpdate();
+        }
     }
 }

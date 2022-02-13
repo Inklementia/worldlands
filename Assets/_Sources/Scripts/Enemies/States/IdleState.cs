@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Sources.Scripts.Enemies.State_Mashine;
 using UnityEngine;
 
 public class IdleState : State
@@ -22,8 +23,8 @@ public class IdleState : State
     {
         base.DoChecks();
 
-        IsDetectingWall = Entity.Core.CollisionSenses.Wall;
-        IsPlayerInMinAgroRange = Entity.Core.PlayerDetectionSenses.InMinAgroRange;
+        IsDetectingWall = Core.CollisionSenses.Wall;
+        IsPlayerInMinAgroRange = Core.PlayerDetectionSenses.InMinAgroRange;
     }
 
     public override void Enter()

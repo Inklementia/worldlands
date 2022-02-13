@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using _Sources.Scripts.Enemies.State_Mashine;
 using UnityEngine;
 
 public class MeleeEnemy_DamageState : DamageState
@@ -21,6 +22,8 @@ public class MeleeEnemy_DamageState : DamageState
         base.Enter();
 
         _enemy.StopMovement();
+        
+
     }
 
     public override void Exit()
@@ -32,21 +35,21 @@ public class MeleeEnemy_DamageState : DamageState
     {
         base.LogicUpdate();
 
-       if (IsDamageTimeOver)
-       {
-            //StateMachine.ChangeState(_enemy.PatrolState);
-            //StateMachine.ChangeState(_enemy.MoveState);
-
-            if (IsPlayerInMinAgroRange)
-            {
-                StateMachine.ChangeState(_enemy.PlayerDetectedState);
-            }
-            else
-            {
+           if (IsDamageTimeOver)
+           {
                 //StateMachine.ChangeState(_enemy.PatrolState);
-                StateMachine.ChangeState(_enemy.MoveState);
-            }
-       }
+                //StateMachine.ChangeState(_enemy.MoveState);
+
+                if (IsPlayerInMinAgroRange)
+                {
+                    StateMachine.ChangeState(_enemy.PlayerDetectedState);
+                }
+                else
+                {
+                    //StateMachine.ChangeState(_enemy.PatrolState);
+                    StateMachine.ChangeState(_enemy.MoveState);
+                }
+           }
     }
 
     public override void PhysicsUpdate()

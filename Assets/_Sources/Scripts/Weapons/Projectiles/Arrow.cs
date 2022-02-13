@@ -1,36 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Sources.Scripts.Weapons.Projectiles;
 using UnityEngine;
 
-public class Arrow : Projectile
+public class Arrow : BaseProjectile
 {
     [SerializeField] private Tag StickTo;
     private Vector2 _direction;
     private float _speed;
 
-    private void Start()
+
+    private void OnEnable()
     {
         Rb.velocity = _direction * _speed;
+        Rb.gravityScale = 1;
     }
 
-
-    private void FixedUpdate()
+    private void Awake()
     {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+        Rb.velocity = _direction * _speed;
+        Rb.gravityScale = 1;
+    }      
+    
+    public override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.HasTag(StickTo))
         {
             transform.parent = collision.gameObject.transform;
-          
-           // transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+
             Rb.velocity = Vector2.zero;
             Rb.gravityScale = 0;
-           // transform.Rotate(0f, 0f, 0f);
-            //transform.localRotation = Quaternion.Euler(0f, 0f, 0f); 
-            //transform.rotation = Quaternion.identity;
+     
         }
        
     }

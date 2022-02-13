@@ -1,51 +1,53 @@
-using System.Collections;
-using System.Collections.Generic;
+using _Sources.Scripts.Core;
 using UnityEngine;
 
-public class State
+namespace _Sources.Scripts.Enemies.State_Mashine
 {
-    protected FiniteStateMashine StateMachine;
-    protected Entity Entity;
-    protected EnemyCore Core;
-
-    protected float StartTime;
-
-    protected string AnimBoolName;
-
-    public State(Entity entity, FiniteStateMashine stateMachine, string animBoolName)
+    public class State
     {
-        Entity = entity;
-        StateMachine = stateMachine;
-        AnimBoolName = animBoolName;
-        Core = entity.Core;
-    }
+        protected FiniteStateMashine StateMachine;
+        protected Entity Entity;
+        protected EnemyCore Core;
 
-    public virtual void Enter()
-    {
-        StartTime = Time.time;
-        Entity.Anim.SetBool(AnimBoolName, true);
-        Debug.Log(AnimBoolName);
-        DoChecks();
-    }
+        protected float StartTime;
 
-    public virtual void Exit()
-    {
-        Entity.Anim.SetBool(AnimBoolName, false);
+        protected string AnimBoolName;
 
-    }
+        public State(Entity entity, FiniteStateMashine stateMachine, string animBoolName)
+        {
+            Entity = entity;
+            StateMachine = stateMachine;
+            AnimBoolName = animBoolName;
+            Core = entity.Core;
+        }
 
-    public virtual void LogicUpdate()
-    {
+        public virtual void Enter()
+        {
+            StartTime = Time.time;
+            Entity.Anim.SetBool(AnimBoolName, true);
+            Debug.Log(AnimBoolName);
+            DoChecks();
+        }
 
-    }
+        public virtual void Exit()
+        {
+            Entity.Anim.SetBool(AnimBoolName, false);
 
-    public virtual void PhysicsUpdate()
-    {
-        DoChecks();
-    }
+        }
 
-    public virtual void DoChecks()
-    {
+        public virtual void LogicUpdate()
+        {
 
+        }
+
+        public virtual void PhysicsUpdate()
+        {
+            DoChecks();
+        }
+
+        public virtual void DoChecks()
+        {
+
+        }
     }
 }

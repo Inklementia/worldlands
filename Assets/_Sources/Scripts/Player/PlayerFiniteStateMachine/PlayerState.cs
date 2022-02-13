@@ -1,48 +1,50 @@
-using System.Collections;
-using System.Collections.Generic;
+using _Sources.Scripts.Core;
 using UnityEngine;
 
-public class PlayerState
+namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
 {
-    protected Core Core;
+    public class PlayerState
+    {
+        protected PlayerCore Core;
 
-    protected Player Player;
-    protected PlayerStateMachine StateMachine;
-    protected PlayerDataSO PlayerData;
+        protected PlayerEntity PlayerEntity;
+        protected PlayerStateMachine StateMachine;
+        protected PlayerDataSO PlayerData;
 
-    protected float StartTime;
+        protected float StartTime;
   
-    private string _animBoolName;
+        private string _animBoolName;
 
-    public PlayerState(Player player, PlayerStateMachine stateMachine, PlayerDataSO playerData, string animBoolName)
-    {
-        Player = player;
-        StateMachine = stateMachine;
-        PlayerData = playerData;
-        _animBoolName = animBoolName;
-        Core = player.Core;
-    }
+        public PlayerState(PlayerEntity playerEntity, PlayerStateMachine stateMachine, PlayerDataSO playerData, string animBoolName)
+        {
+            PlayerEntity = playerEntity;
+            StateMachine = stateMachine;
+            PlayerData = playerData;
+            _animBoolName = animBoolName;
+            Core = playerEntity.Core;
+        }
 
-    public virtual void Enter()
-    {
-        DoChecks();
-        StartTime = Time.time;
-        Player.Anim.SetBool(_animBoolName, true);
-    }
-    public virtual void Exit()
-    {
-        Player.Anim.SetBool(_animBoolName, false);
-    }
-    public virtual void LogicUpdate()
-    {
+        public virtual void Enter()
+        {
+            DoChecks();
+            StartTime = Time.time;
+            PlayerEntity.Anim.SetBool(_animBoolName, true);
+        }
+        public virtual void Exit()
+        {
+            PlayerEntity.Anim.SetBool(_animBoolName, false);
+        }
+        public virtual void LogicUpdate()
+        {
  
-    }
-    public virtual void PhysicsUpdate()
-    {
-        DoChecks();
-    }
-    public virtual void DoChecks()
-    {
+        }
+        public virtual void PhysicsUpdate()
+        {
+            DoChecks();
+        }
+        public virtual void DoChecks()
+        {
 
+        }
     }
 }

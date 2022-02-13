@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe2d676f4c10fa04eb6570c8b3758ff5, type: 3}
   m_Name: MeleeEnemy_DeadStateData
   m_EditorClassIdentifier: 
-  DeathBloodParticlesTag: {fileID: 11400000, guid: 59ccbf6ff0e86704ea461bef132518ed,
+  DeathBloodParticlesTag: {fileID: 11400000, guid: 646ac34033d42ef48964909cba5fe2e1,
     type: 2}
-  DeathChunkParticlesTag: {fileID: 11400000, guid: d3a5f3c1ea2a77042b4a691f76289ed8,
+  DeathChunkParticlesTag: {fileID: 11400000, guid: ebc378c285af1734ea040bf54dd4b0ff,
     type: 2}

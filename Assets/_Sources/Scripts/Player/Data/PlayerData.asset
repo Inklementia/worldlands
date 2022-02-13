@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6c748d8e8194749bf3e5bf000a2c10, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
+  MaxHealth: 200
+  MaxEnergy: 100
+  MovementVelocity: 4
+  DamageTime: 0.2
+  HitParticlesTag: {fileID: 11400000, guid: 095e40cea26ceec428b20894b11b099a, type: 2}

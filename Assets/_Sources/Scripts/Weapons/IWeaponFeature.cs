@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IWeaponFeature
+namespace _Sources.Scripts.Weapons
 {
-    void Accept(IVisitor visitor);
+    public interface IWeaponFeature
+    {
+        void Accept(IVisitor visitor);
+    }
 }

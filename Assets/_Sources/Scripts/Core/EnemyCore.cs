@@ -1,23 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
+using _Sources.Scripts.Core.Components;
 using UnityEngine;
 
-public class EnemyCore : Core
+namespace _Sources.Scripts.Core
 {
-    public CollisionSenses CollisionSenses { get; private set; }
-    public PlayerDetectionSenses PlayerDetectionSenses { get; private set; }
-
-    protected override void Awake()
+    public class EnemyCore : global::_Sources.Scripts.Core.Core
     {
-        base.Awake();
+        public CollisionSenses CollisionSenses { get; private set; }
+        public PlayerDetectionSenses PlayerDetectionSenses { get; private set; }
 
-        CollisionSenses = GetComponentInChildren<CollisionSenses>();
-        PlayerDetectionSenses = GetComponentInChildren<PlayerDetectionSenses>();
-
-        if (!CollisionSenses || !PlayerDetectionSenses)
+        protected override void Awake()
         {
-            Debug.LogError("Missing Senses Component");
-        }
+            base.Awake();
 
+            CollisionSenses = GetComponentInChildren<CollisionSenses>();
+            PlayerDetectionSenses = GetComponentInChildren<PlayerDetectionSenses>();
+
+            if (!CollisionSenses || !PlayerDetectionSenses)
+            {
+                Debug.LogError("Missing Senses Component");
+            }
+
+        }
     }
 }

@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using _Sources.Scripts.Enemies.State_Mashine;
+using _Sources.Scripts.Weapons.Projectiles;
+using MoreMountains.Feedbacks;
 using UnityEngine;
 
-public class Rocket : Projectile
+public class Rocket : BaseProjectile
 {
     private Transform _target;
     protected GameObject[] _targets;
+    //[SerializeField] protected MMFeedback destroyParticlesFeedback;
+    [SerializeField] private Tag DestroyOnto;
+    //[SerializeField] private Tag splashTag;
+    //[SerializeField] protected MMFeedback destroyParticlesFeedback;
 
     private float _speed;
     private float _rotationSpeed;
@@ -35,11 +42,13 @@ public class Rocket : Projectile
 
     private Transform GetClosestTarget(GameObject[] enemies)
     {
+        
         Transform bestTarget = null;
         float closestDistanceSqr = Mathf.Infinity;
         Vector3 currentPosition = transform.position;
         foreach (var potentialTarget in enemies)
         {
+       
             Vector3 directionToTarget = potentialTarget.transform.position - currentPosition;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
             if (dSqrToTarget < closestDistanceSqr)
@@ -70,6 +79,30 @@ public class Rocket : Projectile
         
         AttackDetails.DamageAmount = damage;
         AttackDetails.Position = transform.position;
+    }
+
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+        if (collision.HasTag(DestroyOnto))
+        {
+            // TODO: instantiate particles
+            var position = transform.position;
+           // destroyParticlesFeedback.Play(position, 1);
+
+            
+            if (collision.HasTag(TargetTag) && collision.gameObject.GetComponent<Entity>().IsDead)
+            {
+                _targets.ToList().Remove(collision.gameObject);
+            }
+            _target = GetClosestTarget(_targets);
+            
+            //objectPooler.SpawnFromPool(splashTag, position, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
+            gameObject.SetActive(false);
+
+        }
+    
+        
     }
 }
 

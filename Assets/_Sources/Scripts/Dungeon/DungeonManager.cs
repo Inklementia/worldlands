@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Sources.Scripts;
 using Pathfinding;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,8 +12,11 @@ namespace Dungeon
 {
     public class DungeonManager : MonoBehaviour
     {
-        [SerializeField] private GameObject[] randomItems;
         [SerializeField] private GameObject[] randomEnemies;
+        [Range(0, 100)]
+        [SerializeField] private int enemiesSpawnPercent;
+
+        [SerializeField] private GameObject[] randomItems;
         [SerializeField] private GameObject[] randomTraps;
 
         [SerializeField] private DungeonType dungeonType;
@@ -36,9 +40,7 @@ namespace Dungeon
         
         [Range(10, 5000)]
         [SerializeField] private int totalFloorCount;
-        [Range(0, 100)]
-        [SerializeField] private int itemSpawnPercent;
-
+     
         [SerializeField] private bool useRoundedEdges;
         [SerializeField] private GameObject[] roundedEdges;
 
@@ -61,14 +63,18 @@ namespace Dungeon
 
         protected internal float MinX, MaxX, MinY, MaxY;
         protected internal List<GameObject> _walls = new List<GameObject>();
+        
+        public List<GameObject> SpawnedEnemies { get; private set; }
 
         private List<Vector3> _floorList = new List<Vector3>();
         //private List<Vector3> _roomCentresList = new List<Vector3>();
         private Vector2 _hitSize;
-       
+
+      
 
         private void Start()
         {
+            SpawnedEnemies = new List<GameObject>();
             _hitSize = Vector2.one * 0.8f;
           //  GenerateField();
             switch (dungeonType)
@@ -248,6 +254,7 @@ namespace Dungeon
             // Recalculate only the first grid graph
             var graphToScan = AstarPath.active.data.gridGraph;
             AstarPath.active.Scan(graphToScan);
+            
         }
 
         private void GenerateFloorTiles()
@@ -430,11 +437,13 @@ namespace Dungeon
                             
                     
 
-                            SetRandomItems( hitFloor, hitTop,  hitRight,  hitBottom, hitLeft);
+                            SetRandomEnemies( hitFloor, hitTop,  hitRight,  hitBottom, hitLeft);
                         }
                     }
                 }
             }
+            
+            
         }
 
         public void SetWallTiles(int x, int y)
@@ -488,22 +497,28 @@ namespace Dungeon
             }
         }
         
-        private void SetRandomItems( Collider2D hitFloor, Collider2D hitTop,  Collider2D hitRight,  Collider2D hitBottom,  Collider2D hitLeft)
+        private void SetRandomEnemies( Collider2D hitFloor, Collider2D hitTop,  Collider2D hitRight,  Collider2D hitBottom,  Collider2D hitLeft)
         {
-            if ((hitTop || hitRight || hitBottom || hitLeft)
-                && !(hitTop && hitBottom)
-                && !(hitRight && hitLeft)){
+            if (randomEnemies.Length > 0)
+            {
+                if ((hitTop || hitRight || hitBottom || hitLeft)
+                    && !(hitTop && hitBottom)
+                    && !(hitRight && hitLeft)){
                             
-                int roll = Random.Range(1, 101);
-                if (roll <= itemSpawnPercent)
-                {
-                    int itemIndex = Random.Range(0, randomItems.Length);
-                    GameObject itemGo = Instantiate(randomItems[itemIndex], hitFloor.transform.position,
-                        Quaternion.identity);
-                    itemGo.name = randomItems[itemIndex].name;
-                    itemGo.transform.SetParent(hitFloor.transform);
+                    int roll = Random.Range(1, 101);
+                    if (roll <= enemiesSpawnPercent)
+                    {
+                        int itemIndex = Random.Range(0, randomEnemies.Length);
+                        GameObject itemGo = Instantiate(randomEnemies[itemIndex], hitFloor.transform.position,
+                            Quaternion.identity);
+                        SpawnedEnemies.Add(itemGo);
+                        itemGo.name = randomEnemies[itemIndex].name;
+                        itemGo.transform.SetParent(hitFloor.transform);
+                    }
                 }
             }
+            //GameEventSystem.current.DungeonGenerated();
+            
         }
         
        

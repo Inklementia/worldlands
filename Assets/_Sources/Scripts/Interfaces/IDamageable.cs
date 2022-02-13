@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IDamageable
+namespace _Sources.Scripts.Interfaces
 {
-    
+    public interface IDamageable
+    {
+        void TakeDamage(AttackDetails attackDetails);
+    }
 }

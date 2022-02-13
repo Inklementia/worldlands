@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using _Sources.Scripts.Enemies.State_Mashine;
 using UnityEngine;
 
 public class MeleeAttackState : AttackState
@@ -21,6 +22,7 @@ public class MeleeAttackState : AttackState
         base.DoChecks();
 
         PerformCloseRangeAction = Entity.Core.PlayerDetectionSenses.InCloseRangeAction;
+       
     }
 
     public override void Enter()
