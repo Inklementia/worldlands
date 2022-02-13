@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Sources.Scripts.Weapons;
 using UnityEngine;
 
 public class PlayerWeaponHandler : MonoBehaviour
@@ -7,11 +8,10 @@ public class PlayerWeaponHandler : MonoBehaviour
     public PlayerInputHandler InputHandler { get; private set; }
     public PlayerWeaponry Weaponry { get; private set; }
 
-    [SerializeField] private float weaponsNumberToCarry = 2;
-    [SerializeField] private Tag WeaponTag;
+    [SerializeField] private int weaponsNumberToCarry = 2;
+    [SerializeField] private Tag weaponTag;
 
     private EncounteredWeapon _encounteredWeapon;
-    private bool once;
 
     private void Awake()
     {
@@ -90,12 +90,12 @@ public class PlayerWeaponHandler : MonoBehaviour
             {
                 Weaponry.CurrentWeapon.Attack();
             }
-            else if (InputHandler.IsAttackButtonPressedDown && Weaponry.CurrentWeapon.ShouldBeCharged)
+            else if (InputHandler.IsAttackButtonPressed && Weaponry.CurrentWeapon.ShouldBeCharged)
             {
                 // charging
                 Weaponry.CurrentWeapon.ChargeableWeapon.Charge();
             }
-            else if(!InputHandler.IsAttackButtonPressedUp && (Weaponry.CurrentWeapon.ShouldBeCharged && Weaponry.CurrentWeapon.Charged))
+            else if(InputHandler.IsAttackButtonPressedUp && (Weaponry.CurrentWeapon.ShouldBeCharged && Weaponry.CurrentWeapon.Charged))
             {
                 Weaponry.CurrentWeapon.Attack();
             }
@@ -108,13 +108,13 @@ public class PlayerWeaponHandler : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
       
-        if (collision.HasTag(WeaponTag))
+        if (collision.HasTag(weaponTag))
         {
          
 
             _encounteredWeapon.Position = collision.transform;
             _encounteredWeapon.Weapon = collision.GetComponent<ShootingWeapon>();
-            Debug.Log("Encountered weapon: "+ _encounteredWeapon.Weapon.baseWeaponData.Name);
+            Debug.Log("Encountered weapon: "+ _encounteredWeapon.Weapon.BaseWeaponData.Name);
           
         }
     }
@@ -131,7 +131,7 @@ public class PlayerWeaponHandler : MonoBehaviour
     }*/
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.HasTag(WeaponTag))
+        if (collision.HasTag(weaponTag))
         {
             _encounteredWeapon.Weapon = null;
         }

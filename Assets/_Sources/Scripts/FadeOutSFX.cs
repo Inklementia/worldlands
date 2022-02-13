@@ -12,18 +12,24 @@ namespace _Sources.Scripts
         [SerializeField] private SpriteRenderer _spriteRenderer;
 
         [SerializeField] private bool _destroy = true;
+        private Color _originalColor;
+
+        private void Awake()
+        {
+            _originalColor  = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, 1);
+        }
 
         private void OnEnable()
         {
-            Color originalColor = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, 1);
-            _spriteRenderer.color = originalColor;
+           
+            _spriteRenderer.color = _originalColor;
         }
 
         private void Start()
         {
             
-            
-            StartCoroutine(FadeTo(_aliphaValue, _fadeDelay, _delay));
+            _spriteRenderer.color = _originalColor;
+           // StartCoroutine(FadeTo(_aliphaValue, _fadeDelay, _delay));
         }
 
         private IEnumerator FadeTo(float alphaValue, float fadeDelay, float delay)

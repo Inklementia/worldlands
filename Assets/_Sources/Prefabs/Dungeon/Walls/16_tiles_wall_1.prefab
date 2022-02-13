@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - {fileID: 11400000, guid: 267e3742509d87b4dafda05c7d829f8c, type: 2}
+  - {fileID: 11400000, guid: b5e712fa9f7027f4381aead63e6c02d1, type: 2}
 --- !u!331 &7108943057960733631
 SpriteMask:
   m_ObjectHideFlags: 0

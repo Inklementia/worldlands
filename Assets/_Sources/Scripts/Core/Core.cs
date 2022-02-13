@@ -1,29 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
+using _Sources.Scripts.Core.Components;
 using UnityEngine;
 
-public class Core : MonoBehaviour
+namespace _Sources.Scripts.Core
 {
-    public Movement Movement { get; private set; }
-    public HealthSystem HealthSystem { get; private set; }
-
-    protected virtual void Awake()
+    public abstract class Core : MonoBehaviour
     {
-        Movement = GetComponentInChildren<Movement>();
-        HealthSystem = GetComponentInChildren<HealthSystem>();
+        public Movement Movement { get; private set; }
+        public HealthSystem HealthSystem { get; private set; }
 
-        if (!Movement)
+        protected virtual void Awake()
         {
-            Debug.LogError("Missing Movement Component");
+            Movement = GetComponentInChildren<Movement>();
+            HealthSystem = GetComponentInChildren<HealthSystem>();
+
+            if (!Movement)
+            {
+                Debug.LogError("Missing Movement Component");
+            }
+            if (!HealthSystem)
+            {
+                Debug.LogError("Missing HealthSystem Component");
+            }
         }
-        if (!HealthSystem)
-        {
-            Debug.LogError("Missing HealthSystem Component");
-        }
+
+        //public void LogicUpdate()
+        //{
+        //    Movement.LogicUpdate();
+        //}
     }
-
-    //public void LogicUpdate()
-    //{
-    //    Movement.LogicUpdate();
-    //}
 }

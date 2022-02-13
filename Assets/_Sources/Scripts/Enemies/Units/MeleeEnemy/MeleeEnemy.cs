@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Sources.Scripts;
+using _Sources.Scripts.Enemies.State_Mashine;
 using UnityEngine;
 
 public class MeleeEnemy : Entity
@@ -19,9 +21,12 @@ public class MeleeEnemy : Entity
     [SerializeField] private D_MeleeAttackState meleeAttackStateData;
     [SerializeField] private D_DamageState damageStateData;
     [SerializeField] private D_DeadState deadStateData;
-
+ 
     [SerializeField] private Transform meleeAttackPosition;
+   
+    public delegate void DropAction();
 
+    public static event DropAction OnDrop;
     public override void Awake()
     {
         base.Awake();
@@ -61,14 +66,26 @@ public class MeleeEnemy : Entity
         //Gizmos.DrawLine(AliveGO.transform.position, new Vector2(AliveGO.transform.position.x + MoveState.Direction.x, AliveGO.transform.position.y + MoveState.Direction.y));
     }
 
-    public override void Damage(AttackDetails attackDetails)
+    public override void TakeDamage(AttackDetails attackDetails)
     {
-        base.Damage(attackDetails);
-        StateMachine.ChangeState(DamageState);
-
-        if (IsDead)
+        base.TakeDamage(attackDetails);
+        Core.HealthSystem.DecreaseHealth(attackDetails.DamageAmount);
+               
+        if(Core.HealthSystem.GetCurrentHealth() <= 0)
         {
             StateMachine.ChangeState(DeadState);
+                   
+            //_weaponGenerator.DropWeapon(transform);
         }
+        else
+        {
+            StateMachine.ChangeState(DamageState);
+        }
+            
+
+   
+       
+
+      
     }
 }

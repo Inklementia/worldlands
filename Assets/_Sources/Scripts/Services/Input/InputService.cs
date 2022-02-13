@@ -10,7 +10,8 @@ namespace _Sources.Scripts.Services.Input
         protected const string Attack = "Attack";
         protected const string PickUp = "PickUp";
 
-        
+        public abstract Vector2 Axis { get; }
+
         public bool IsSwitchWeaponButtonPressed() =>
             SimpleInput.GetButtonUp(SwitchWeapon);
         
@@ -19,11 +20,13 @@ namespace _Sources.Scripts.Services.Input
         
         public bool IsAttackButtonDown() =>
             SimpleInput.GetButtonDown(Attack);
+        
+        public bool IsAttackButtonPressed() =>
+            SimpleInput.GetButton(Attack);
         public bool IsPickUpButtonUp() =>
             SimpleInput.GetButtonUp(PickUp);
 
-        public abstract Vector2 Axis { get; }
-
+      
         protected static Vector2 SimpleInputAxis() =>
             new Vector2(SimpleInput.GetAxis(Horizontal), SimpleInput.GetAxis(Vertical));
 

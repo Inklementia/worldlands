@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using _Sources.Scripts.Enemies.State_Mashine;
 using UnityEngine;
 
 public class MoveState : State
@@ -72,11 +73,11 @@ public class MoveState : State
     {
         if (Direction.x > 0)
         {
-            Entity.Core.Movement.Flip180();
+            Core.Movement.Flip180();
         }
         else if (Direction.x < 0)
         {
-            Entity.Core.Movement.Flip0();
+            Core.Movement.Flip0();
         }
 
     }

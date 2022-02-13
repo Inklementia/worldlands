@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using _Sources.Scripts;
+using _Sources.Scripts.Enemies.State_Mashine;
 using UnityEngine;
 
 public class MeleeEnemy_DeadState : DeadState
@@ -20,6 +22,7 @@ public class MeleeEnemy_DeadState : DeadState
     public override void Enter()
     {
         base.Enter();
+       
     }
 
     public override void Exit()

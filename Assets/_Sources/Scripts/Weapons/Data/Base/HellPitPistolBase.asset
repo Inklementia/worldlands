@@ -21,6 +21,6 @@ MonoBehaviour:
   ProjectileTravelDistance: 5
   ProjectileLifeDuration: 6
   ProjectileDragMultiplier: 0.5
-  ProjectileSpeed: 10
+  ProjectileSpeed: 12
   ProjectileRotationSpeed: 200
   ProjectileRotateAngleDeviation: 0

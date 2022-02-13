@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using _Sources.Scripts.Weapons.Weapon_Features;
 
-public interface IVisitor
+namespace _Sources.Scripts.Weapons
 {
-    void Visit(RotatableWeapon rotatableWeapon);
-    void Visit(ChargeableWeapon chargeableWeapon);
-    void Visit(MultishotWeapon multishotWeapon);
+    public interface IVisitor
+    {
+        void Visit(IWeaponFeature weapon);
+
+    }
 }

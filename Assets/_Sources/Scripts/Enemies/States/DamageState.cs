@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using _Sources.Scripts.Enemies.State_Mashine;
 using UnityEngine;
 
 public class DamageState : State
@@ -28,6 +29,8 @@ public class DamageState : State
 
         ObjectPooler.Instance.SpawnFromPool(StateData.HitParticles, Entity.transform.position,
               Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
+
+      
     }
 
     public override void Exit()

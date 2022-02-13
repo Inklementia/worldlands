@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using _Sources.Scripts;
 using _Sources.Scripts.Infrastructure;
+using _Sources.Scripts.Infrastructure.Services;
 using _Sources.Scripts.Services.Input;
 using SimpleInputNamespace;
 using UnityEngine;
@@ -12,8 +13,8 @@ public class PlayerInputHandler : MonoBehaviour
 {
     //[SerializeField] private Joystick joystick;
     private IInputService _inputService;
-    public float MovementPosX { get; private set; }
-    public float MovementPosY { get; private set; }
+    public Vector2 MovementPos { get; private set; }
+   //public float MovementPosY { get; private set; }
 
     [SerializeField] private ButtonInputUI switchWeaponButton;
 
@@ -24,34 +25,46 @@ public class PlayerInputHandler : MonoBehaviour
     public bool IsSwitchWeaponButtonPressed { get; private set; }
     public bool IsPickUpButtonPressed { get; private set; }
     public bool IsAttackButtonPressedUp { get; private set; }
+    public bool IsAttackButtonPressed { get; private set; }
     public bool IsAttackButtonPressedDown { get; private set; }
     
-    private GameObject attackButtonGO;
-    private GameObject pickUpButtonGO;
+    private GameObject _attackButtonGo;
+    private GameObject _pickUpButtonGo;
     
     private void Awake()
     {
-        _inputService = Game.InputService;
+        _inputService = AllServices.Container.Single<IInputService>();
      
         //ChangeActionModeOnPickUp();
-        attackButtonGO = gameObject.FindWithTag(attackButtonGOTag);
-        pickUpButtonGO = gameObject.FindWithTag(pickUpButtonGOTag);
+        _attackButtonGo = gameObject.FindWithTag(attackButtonGOTag);
+        _pickUpButtonGo = gameObject.FindWithTag(pickUpButtonGOTag);
+
+        MovementPos = new Vector2(0,0);
+
+    }
+
+    private void Start()
+    {
+       
     }
 
     private void Update()
     {
         if (_inputService.Axis.sqrMagnitude > Constants.Epsilon)
         {
-            MovementPosX = _inputService.Axis.x;
-            MovementPosY = _inputService.Axis.y;
+            MovementPos = new Vector2(_inputService.Axis.x,_inputService.Axis.y);
+           
         }
         
         IsPickUpButtonPressed = _inputService.IsPickUpButtonUp();
         IsAttackButtonPressedDown =  _inputService.IsAttackButtonDown();
         IsAttackButtonPressedUp =  _inputService.IsAttackButtonUp();
         IsSwitchWeaponButtonPressed = _inputService.IsSwitchWeaponButtonPressed();
- 
+        IsAttackButtonPressed = _inputService.IsAttackButtonPressed();
         CkeckIfJoystickPressed();
+        
+       Debug.Log("Attck  "+IsAttackButtonPressed);
+        //Debug.Log("Attck Up "+IsAttackButtonPressedUp);
     }
     public bool CkeckIfJoystickPressed()
     {
@@ -61,8 +74,8 @@ public class PlayerInputHandler : MonoBehaviour
     public void EnableAttackButton()
     {
        // StartCoroutine(WaitAndChangeActionButtonOnAttack());
-       pickUpButtonGO.SetActive(false);
-       attackButtonGO.SetActive(true);
+       _pickUpButtonGo.SetActive(false);
+       _attackButtonGo.SetActive(true);
  
     }
 
@@ -81,8 +94,8 @@ public class PlayerInputHandler : MonoBehaviour
         //actionButtonMode = ActionInputMode.PickUp;
         //actionButton.GetComponent<Image>().sprite = actionButtonImages[1];
         
-       attackButtonGO.SetActive(false);
-       pickUpButtonGO.SetActive(true);
+       _attackButtonGo.SetActive(false);
+       _pickUpButtonGo.SetActive(true);
         //Debug.Log( actionButton.GetComponent<Image>().sprite.name);
        
     }

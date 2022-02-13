@@ -6,10 +6,16 @@ using UnityEngine;
 public class PlayerDataSO : ScriptableObject
 {
     public float MaxHealth = 100;
+    public float MaxEnergy = 100;
 
     [Header("Move State")]
     public float MovementVelocity = 4f;
 
- 
+    [Header("Damage State")]
+    public float DamageTime = .5f;
+
+    public Tag HitParticlesTag;
+    
+
 
 }

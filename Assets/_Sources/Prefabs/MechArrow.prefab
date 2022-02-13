@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6335723568674138385}
   - component: {fileID: 935978911989016683}
   - component: {fileID: 4113596838351217749}
+  - component: {fileID: 8174857473773387471}
   m_Layer: 0
   m_Name: MechArrow
   m_TagString: Untagged
@@ -54,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 478a4c1b1647143469950aadcd9a74c2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1925609593
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -2938970880757876879, guid: bc9841140de23064eb16f78394f04906,
     type: 3}
@@ -101,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - {fileID: 11400000, guid: 6f3b295f4c77fbd40a4c83b5e336167c, type: 2}
+  - {fileID: 11400000, guid: ce6b76a81897de44eacfa50efd1c6813, type: 2}
 --- !u!50 &6335723568674138385
 Rigidbody2D:
   serializedVersion: 4
@@ -139,7 +141,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.1, y: 0.5}
-    oldSize: {x: 0.91, y: 0.1}
+    oldSize: {x: 1, y: 0.16}
     newSize: {x: 0.91, y: 0.1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -161,6 +163,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rb: {fileID: 6335723568674138385}
-  PartcilesTag: {fileID: 11400000, guid: 689f604c7303d5b488bf86067ceed40d, type: 2}
   TargetTag: {fileID: 11400000, guid: 39cbccd36e550ae47a281b694f925d61, type: 2}
   StickTo: {fileID: 11400000, guid: b5e712fa9f7027f4381aead63e6c02d1, type: 2}
+--- !u!114 &8174857473773387471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6546973283597491470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4d9f9b5cea4a0cba92dfb05c03ad4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _delay: 2
+  _fadeDelay: 1
+  _aliphaValue: 0
+  _spriteRenderer: {fileID: 6546973283597491465}
+  _destroy: 1

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe2d676f4c10fa04eb6570c8b3758ff5, type: 3}
   m_Name: SpiderDeadStateData
   m_EditorClassIdentifier: 
-  DeathBloodParticlesTag: {fileID: 11400000, guid: 689f604c7303d5b488bf86067ceed40d,
+  DeathBloodParticlesTag: {fileID: 11400000, guid: 646ac34033d42ef48964909cba5fe2e1,
     type: 2}
   DeathChunkParticlesTag: {fileID: 11400000, guid: 689f604c7303d5b488bf86067ceed40d,
     type: 2}

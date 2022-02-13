@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: GlowProjectile
   m_Shader: {fileID: 4800000, guid: a36b7719ff0465b42ab1407d67672c5f, type: 3}
-  m_ShaderKeywords: DOODLE_ON GLITCH_ON GLOW_ON OUTDIST_ON RADIALGRADIENT_ON _GLOWAFFECTLIGHT_ON
-    _GRADISRADIAL_ON _OUTLINEDISTORTTOGGLE_ON
+  m_ShaderKeywords: DOODLE_ON GLITCH_ON GLOW_ON OUTBASE_ON OUTDIST_ON RADIALGRADIENT_ON
+    _GLOWAFFECTLIGHT_ON _GRADISRADIAL_ON _OUTLINEDISTORTTOGGLE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -122,7 +122,7 @@ Material:
     - _GhostTransparency: 0
     - _GlitchAmount: 17.58
     - _GlitchSize: 1
-    - _Glow: 19.7
+    - _Glow: 18.1
     - _GlowAffectLight: 1
     - _GlowTexUsed: 0
     - _GradBlend: 1
@@ -169,7 +169,7 @@ Material:
     - _OnlyInnerOutline: 0
     - _OnlyOutline: 0
     - _Outline8Directions: 0
-    - _OutlineAlpha: 0.067
+    - _OutlineAlpha: 1
     - _OutlineDistortAmount: 0.5
     - _OutlineDistortTexXSpeed: 5
     - _OutlineDistortTexYSpeed: 5
@@ -231,7 +231,7 @@ Material:
     - _ColorSwapGreen: {r: 1, g: 1, b: 1, a: 1}
     - _ColorSwapRed: {r: 1, g: 1, b: 1, a: 1}
     - _FadeBurnColor: {r: 1, g: 1, b: 0, a: 1}
-    - _GlowColor: {r: 1, g: 0.8741454, b: 0, a: 1}
+    - _GlowColor: {r: 1, g: 0.606006, b: 0, a: 1}
     - _GradBotLeftCol: {r: 1, g: 1, b: 1, a: 1}
     - _GradBotRightCol: {r: 0, g: 0, b: 1, a: 1}
     - _GradTopLeftCol: {r: 1, g: 0.67876756, b: 0, a: 1}

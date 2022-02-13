@@ -1,45 +1,46 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using _Sources.Scripts.Player.PlayerFiniteStateMachine;
 
-public class PlayerIdleState : PlayerCanCombatState
+namespace _Sources.Scripts.Player.PlayerStates
 {
-    public PlayerIdleState(Player player, PlayerStateMachine stateMachine, PlayerDataSO playerData, string animBoolName) :
-        base(player, stateMachine, playerData, animBoolName)
+    public class PlayerIdleState : PlayerCanCombatState
     {
-    }
-
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
-
-    public override void Enter()
-    {
-        base.Enter();
-
-        Core.Movement.SetVelocityZero();
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-      
-    }
-
-    public override void LogicUpdate()
-    {
-        base.LogicUpdate();
-
-        if(Input.x != 0f && Input.y != 0f)
+        public PlayerIdleState(PlayerEntity playerEntity, PlayerStateMachine stateMachine, PlayerDataSO playerData, string animBoolName) :
+            base(playerEntity, stateMachine, playerData, animBoolName)
         {
-            StateMachine.ChangeState(Player.MoveState);
         }
-     
-    }
 
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
+        public override void DoChecks()
+        {
+            base.DoChecks();
+        }
+
+        public override void Enter()
+        {
+            base.Enter();
+
+            Core.Movement.SetVelocityZero();
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+      
+        }
+
+        public override void LogicUpdate()
+        {
+            base.LogicUpdate();
+
+            if(Input.x != 0f && Input.y != 0f)
+            {
+                StateMachine.ChangeState(PlayerEntity.MoveState);
+            }
+     
+        }
+
+        public override void PhysicsUpdate()
+        {
+            base.PhysicsUpdate();
+        }
     }
 }

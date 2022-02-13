@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6375936190097245327}
   - component: {fileID: 467367881757041632}
   - component: {fileID: 7415857943224447009}
+  - component: {fileID: 6347492377833062018}
+  - component: {fileID: 9159641553821235799}
   m_Layer: 0
   m_Name: HitParticle
   m_TagString: Untagged
@@ -53,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4021a30f45ac28246823b448eedbe88a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -131,3 +133,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - {fileID: 11400000, guid: 095e40cea26ceec428b20894b11b099a, type: 2}
+--- !u!114 &6347492377833062018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082839487117029250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264cca4d0f5bbb54eb9de18ca54d1506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMaterial: {fileID: 0}
+  outlineParentTransform: {fileID: 0}
+  duplicateOrderInLayer: -100
+  duplicateSortingLayer: Default
+  createUnifiedOutline: 0
+--- !u!114 &9159641553821235799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082839487117029250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 0
+  normalStrenght: 5
+  normalSmoothing: 1
+  computingNormal: 0

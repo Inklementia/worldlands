@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 1478950349369982776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 208727217330320106}
   m_Father: {fileID: 0}
@@ -154,9 +154,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rb: {fileID: 7494328449742738030}
   TargetTag: {fileID: 11400000, guid: 39cbccd36e550ae47a281b694f925d61, type: 2}
-  destroyParticlesFeedback: {fileID: 2138580964}
   DestroyOnto: {fileID: 11400000, guid: 267e3742509d87b4dafda05c7d829f8c, type: 2}
   splashTag: {fileID: 11400000, guid: ebc378c285af1734ea040bf54dd4b0ff, type: 2}
+  destroyParticlesFeedback: {fileID: 2138580964}
 --- !u!114 &1478950349369982777
 MonoBehaviour:
   m_ObjectHideFlags: 0
