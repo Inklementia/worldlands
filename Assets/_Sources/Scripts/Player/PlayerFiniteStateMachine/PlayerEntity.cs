@@ -1,10 +1,14 @@
+using System;
+using System.Collections.Generic;
 using _Sources.Scripts.Core;
+using _Sources.Scripts.Data;
+using _Sources.Scripts.Infrastructure.Services.PersistentProgress;
 using _Sources.Scripts.Player.PlayerStates;
 using UnityEngine;
 
 namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
 {
-    public class PlayerEntity : MonoBehaviour
+    public class PlayerEntity : MonoBehaviour, ISavedProgress
     {
         #region States
         public PlayerCore Core { get; private set; }
@@ -20,7 +24,9 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
         public PlayerInputHandler InputHandler { get; private set; }
 
         [SerializeField] private PlayerDataSO playerData;
-   
+
+        private List<Vector3> _currentMap;
+
         private void Awake()
         {
         
@@ -49,6 +55,17 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
 
             //RightInputHandler.DisableWeaponSwitchButton();
         }
+
+        private void OnEnable()
+        {
+            GameActions.Current.OnDungeonGeneratedToSaveMap += SaveCurrentMap;
+        }
+
+        private void OnDisable()
+        {
+            GameActions.Current.OnDungeonGeneratedToSaveMap -= SaveCurrentMap;
+        }
+
         private void Update()
         {
             StateMachine.CurrentState.LogicUpdate();  
@@ -83,8 +100,22 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
                 StateMachine.ChangeState(DeadState);
             }
         }
-        
-     
+
+
+        public void LoadProgress(PlayerProgress progress)
+        {
+            //progress.WorldData.PositionOnLevel = new PositionOnLevel(1,1,transform.position.AsVectorData(),)
+        }
+
+        public void UpdateProgress(PlayerProgress progress)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void SaveCurrentMap(List<Vector3> tiles)
+        {
+            _currentMap = tiles;
+        }
     }
 }
   

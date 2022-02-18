@@ -1,6 +1,7 @@
 ﻿using _Sources.Scripts.Infrastructure.Factory;
 using _Sources.Scripts.Infrastructure.Services;
-using _Sources.Scripts.Services.Input;
+using _Sources.Scripts.Infrastructure.Services.Input;
+using _Sources.Scripts.Infrastructure.Services.PersistentProgress;
 using UnityEngine;
 
 namespace _Sources.Scripts.Infrastructure.GameStates
@@ -39,6 +40,7 @@ namespace _Sources.Scripts.Infrastructure.GameStates
 
             _allServices.RegisterSingle<IInputService>(InputService());
             _allServices.RegisterSingle<IAssetProvider>(new AssetProvider());
+            _allServices.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
             _allServices.RegisterSingle<IGameFactory>(new GameFactory(_allServices.Single<IAssetProvider>()));
         }
 

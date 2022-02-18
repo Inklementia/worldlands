@@ -1,6 +1,5 @@
 using _Sources.Scripts.Infrastructure.GameStates;
 using _Sources.Scripts.Infrastructure.Services;
-using _Sources.Scripts.Services.Input;
 using _Sources.Scripts.UI;
 using UnityEngine;
 

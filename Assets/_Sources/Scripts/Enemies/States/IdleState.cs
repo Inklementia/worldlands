@@ -1,67 +1,70 @@
-using System.Collections;
-using System.Collections.Generic;
 using _Sources.Scripts.Enemies.State_Mashine;
 using UnityEngine;
 
-public class IdleState : State
+namespace _Sources.Scripts.Enemies.States
 {
-    protected D_IdleState StateData;
-
-    protected float IdleTime;
-    protected bool IsIdleTimeOver;
-
-    protected bool IsDetectingWall;
-    protected bool IsPlayerInMinAgroRange;
-
-    public IdleState(Entity entity, FiniteStateMashine stateMachine, string animBoolName, D_IdleState stateData) : 
-        base(entity, stateMachine, animBoolName)
+    public class IdleState : State
     {
-        StateData = stateData;
-    }
+        protected D_IdleState StateData;
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
+        protected float IdleTime;
+        protected bool IsIdleTimeOver;
 
-        IsDetectingWall = Core.CollisionSenses.Wall;
-        IsPlayerInMinAgroRange = Core.PlayerDetectionSenses.InMinAgroRange;
-    }
+        protected bool IsDetectingWall;
+        protected bool IsPlayerInMinAgroRange;
+        protected bool IsPlayerInMaxAgroRange;
 
-    public override void Enter()
-    {
-        base.Enter();
-        IsIdleTimeOver = false;
-
-        SetRandomIdleTime();
-       
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-
-        //flip after idle
-    }
-
-    public override void LogicUpdate()
-    {
-        base.LogicUpdate();
-
-        if(Time.time >= StartTime + IdleTime)
+        public IdleState(Entity entity, FiniteStateMashine stateMachine, string animBoolName, D_IdleState stateData) : 
+            base(entity, stateMachine, animBoolName)
         {
-            IsIdleTimeOver = true;
+            StateData = stateData;
         }
 
+        public override void DoChecks()
+        {
+            base.DoChecks();
+
+            IsDetectingWall = Core.CollisionSenses.Wall;
+            IsPlayerInMinAgroRange = Core.PlayerDetectionSenses.InMinAgroRange;
+            IsPlayerInMaxAgroRange = Core.PlayerDetectionSenses.InMaxAgroRange;
+        }
+
+        public override void Enter()
+        {
+            base.Enter();
+            IsIdleTimeOver = false;
+
+            SetRandomIdleTime();
+       
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+
+            //flip after idle
+        }
+
+        public override void LogicUpdate()
+        {
+            base.LogicUpdate();
+
+            if(Time.time >= StartTime + IdleTime)
+            {
+                IsIdleTimeOver = true;
+            }
+
       
-    }
+        }
 
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
-    }
+        public override void PhysicsUpdate()
+        {
+            base.PhysicsUpdate();
+        }
 
-    public void SetRandomIdleTime()
-    {
-        IdleTime = Random.Range(StateData.MinIdleTime, StateData.MaxIdleTime);
-    } 
+        public void SetRandomIdleTime()
+        {
+            IdleTime = Random.Range(StateData.MinIdleTime, StateData.MaxIdleTime);
+        } 
+    }
 }
