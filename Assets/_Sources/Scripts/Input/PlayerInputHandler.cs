@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using _Sources.Scripts;
 using _Sources.Scripts.Infrastructure;
 using _Sources.Scripts.Infrastructure.Services;
-using _Sources.Scripts.Services.Input;
+using _Sources.Scripts.Infrastructure.Services.Input;
 using SimpleInputNamespace;
 using UnityEngine;
 using UnityEngine.UI;

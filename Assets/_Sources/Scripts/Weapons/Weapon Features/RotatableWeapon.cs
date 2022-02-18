@@ -17,7 +17,8 @@ namespace _Sources.Scripts.Weapons.Weapon_Features
         [SerializeField] private LayerMask whatIsEnemy;
         [SerializeField] private float maxRange = 100;
         [SerializeField] private Tag enemyTag;
-        [SerializeField] private DungeonManager dm;
+        //[SerializeField] private DungeonManager dm;
+        [SerializeField] private float detectEnemiesInterval = 5f;
         
         private List<GameObject> _enemiesList = new List<GameObject>();
         private GameObject _closestEnemy;
@@ -28,22 +29,38 @@ namespace _Sources.Scripts.Weapons.Weapon_Features
         private PlayerEntity _playerEntity;
         public WeaponTypeDataSO RotatableWeaponData { get => rotatableWeaponData; private set => rotatableWeaponData = value; }
 
+        private float _detectEnemiesTimer = 0.0f;
+        private HashSet<GameObject> _enemies;
+        
+
         private void Awake()
         {
             InitialRotateAngle = initialAngle;
             
-            
+            _enemies = gameObject.FindAllWithTag(enemyTag);
         }
 
         private void Start()
         {
-            //DetectEnemies();
+            GameActions.Current.OnEnemyKilled += RemoveEnemyFromList;
+            GameActions.Current.OnDungeonGenerated += DetectEnemies;
         }
-      
+
+        private void OnDisable()
+        {
+            GameActions.Current.OnEnemyKilled -= RemoveEnemyFromList;
+            GameActions.Current.OnDungeonGenerated -= DetectEnemies;
+        }
+
+
 
         private void Update()
         {
-            FindClosestEnemy();
+            _detectEnemiesTimer += Time.deltaTime;
+            if (_detectEnemiesTimer >= detectEnemiesInterval)
+            {
+                FindClosestEnemy();
+            }
         }
 
         private void FixedUpdate()
@@ -98,7 +115,7 @@ namespace _Sources.Scripts.Weapons.Weapon_Features
             _playerEntity = gameObject.FindWithTag(RotatableWeaponData.PlayerTag).GetComponent<Player.PlayerFiniteStateMachine.PlayerEntity>();
             
             //_enemiesList = dm.SpawnedEnemies;
-            DetectEnemies();
+            //DetectEnemies();
        
             visitor.Visit(this);
 
@@ -108,7 +125,14 @@ namespace _Sources.Scripts.Weapons.Weapon_Features
         // TODO: event
         private void DetectEnemies()
         {
-            _enemiesList = gameObject.FindAllWithTag(enemyTag).ToList();
+            _enemiesList = _enemies.Any() ? _enemies.ToList() : null;
+            FindClosestEnemy();
+            
+        }
+        private void RemoveEnemyFromList(GameObject enemyToRemove)
+        {
+            _enemiesList.Remove(enemyToRemove);
+            FindClosestEnemy();
         }
         public void UnsetPlayer()
         { 
@@ -126,17 +150,22 @@ namespace _Sources.Scripts.Weapons.Weapon_Features
 
         private void FindClosestEnemy()
         {
-            float range = maxRange;
-            foreach (GameObject enemyGO in _enemiesList)
+            if (_playerEntity != null && _enemiesList.Count > 0)
             {
-                float dist = Vector2.Distance(enemyGO.transform.position, _playerEntity.transform.position);
-                if (dist < range)
+                float range = maxRange;
+                foreach (GameObject enemyGO in _enemiesList)
                 {
-                    range = dist;
-                    _closestEnemy = enemyGO;
+                    float dist = Vector2.Distance(enemyGO.transform.position, _playerEntity.transform.position);
+                    if (dist < range)
+                    {
+                        range = dist;
+                        _closestEnemy = enemyGO;
+                    }
                 }
+                
+                _detectEnemiesTimer = 0.0f;
             }
-            
+
         }
     }
 }

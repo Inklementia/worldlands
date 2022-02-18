@@ -1,69 +1,70 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using _Sources.Scripts.Enemies.State_Mashine;
+﻿using _Sources.Scripts.Enemies.State_Mashine;
 using UnityEngine;
 
-public class MeleeAttackState : AttackState
+namespace _Sources.Scripts.Enemies.States
 {
-    protected D_MeleeAttackState StateData;
-
-    protected AttackDetails AttackDetails;
-
-    protected bool PerformCloseRangeAction;
-
-    public MeleeAttackState(Entity etity, FiniteStateMashine stateMachine, string animBoolName, Transform attackPosition, D_MeleeAttackState stateData) : 
-        base(etity, stateMachine, animBoolName, attackPosition)
+    public class MeleeAttackState : AttackState
     {
-       StateData = stateData;
-    }
+        protected D_MeleeAttackState StateData;
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
+        protected AttackDetails AttackDetails;
 
-        PerformCloseRangeAction = Entity.Core.PlayerDetectionSenses.InCloseRangeAction;
-       
-    }
+        protected bool PerformCloseRangeAction;
 
-    public override void Enter()
-    {
-        base.Enter();
-
-        AttackDetails.DamageAmount = StateData.AttackDamage;
-        AttackDetails.Position = Entity.transform.position;
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
-    public override void FinishAttack()
-    {
-        base.FinishAttack();
-    }
-
-    public override void LogicUpdate()
-    {
-        base.LogicUpdate();
-    }
-
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
-    }
-
-    public override void TriggerAttack()
-    {
-        base.TriggerAttack();
-
-        Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(AttackPosition.position, StateData.AttackRadius, StateData.WhatIsPlayer);
-
-        foreach (Collider2D collider in detectedObjects)
+        public MeleeAttackState(Entity entity, FiniteStateMashine stateMachine, string animBoolName, Transform attackPosition, D_MeleeAttackState stateData) : 
+            base(entity, stateMachine, animBoolName, attackPosition)
         {
-            collider.transform.SendMessage("Damage", AttackDetails);
-            Debug.Log("Attack ");
+            StateData = stateData;
         }
-    }
+
+        public override void DoChecks()
+        {
+            base.DoChecks();
+
+            PerformCloseRangeAction = Entity.Core.PlayerDetectionSenses.InCloseRangeAction;
+       
+        }
+
+        public override void Enter()
+        {
+            base.Enter();
+
+            AttackDetails.DamageAmount = StateData.AttackDamage;
+            AttackDetails.Position = Entity.transform.position;
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+        }
+
+        public override void FinishAttack()
+        {
+            base.FinishAttack();
+        }
+
+        public override void LogicUpdate()
+        {
+            base.LogicUpdate();
+        }
+
+        public override void PhysicsUpdate()
+        {
+            base.PhysicsUpdate();
+        }
+
+        public override void TriggerAttack()
+        {
+            base.TriggerAttack();
+
+            Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(AttackPosition.position, StateData.AttackRadius, StateData.WhatIsPlayer);
+
+            foreach (Collider2D collider in detectedObjects)
+            {
+                collider.transform.SendMessage("Damage", AttackDetails);
+                Debug.Log("Attack ");
+            }
+        }
     
+    }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using _Sources.Scripts.Enemies.State_Mashine;
+using _Sources.Scripts.Enemies.States;
 using UnityEngine;
 
 public class MeleeEnemy_MoveState : MoveState
@@ -44,11 +45,7 @@ public class MeleeEnemy_MoveState : MoveState
             {
                 StateMachine.ChangeState(_enemy.IdleState);
             }
-
         }
-
-
-
     }
 
     public override void PhysicsUpdate()

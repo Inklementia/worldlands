@@ -255,9 +255,11 @@ namespace Dungeon
             var graphToScan = AstarPath.active.data.gridGraph;
             AstarPath.active.Scan(graphToScan);
             
+            GameActions.Current.DungeonGenerated();
+            GameActions.Current.DungeonGeneratedToSaveMap(_floorList);
         }
 
-        private void GenerateFloorTiles()
+        public void GenerateFloorTiles()
         {
             // generating tiles (they change to floor)
             for (int i = 0; i < _floorList.Count; i++)
@@ -330,30 +332,7 @@ namespace Dungeon
               
             }
         }
-
-        private bool CheckAvailableSpaceForBossRoom(Vector3 pos, Vector2 roomSize)
-        {
-            int roomWidth = Mathf.CeilToInt((roomSize.x + 2) / 2f); 
-            int roomHeight = Mathf.CeilToInt((roomSize.y + 2) / 2f);
-           // Debug.Log(roomWidth);
-
-            for (int w = -roomWidth; w <= roomWidth; w++)
-            {
-                for (int h = -roomHeight; h <= roomHeight; h++)
-                {
-                    Vector3 offset = new Vector3(w, h, 0);
-
-                    if (CheckIfInFloorList(pos + offset))
-                    {
-                       
-                        return false;
-                      
-                    }
-                }
-            }
-
-            return true;
-        }
+        
 
         private IEnumerator InsertPlaceForExitDoor()
         {

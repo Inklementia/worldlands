@@ -1,60 +1,61 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using _Sources.Scripts.Enemies.State_Mashine;
+﻿using _Sources.Scripts.Enemies.State_Mashine;
 using UnityEngine;
 
-public class AttackState : State
+namespace _Sources.Scripts.Enemies.States
 {
-    protected Transform AttackPosition;
-
-    protected bool IsAnimationFinished;
-    protected bool IsPlayerInMinAgroRange;
-
-    public AttackState(Entity etity, FiniteStateMashine stateMachine, string animBoolName, Transform attackPosition) : 
-        base(etity, stateMachine, animBoolName)
+    public class AttackState : State
     {
-        AttackPosition = attackPosition;
-    }
+        protected Transform AttackPosition;
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
+        protected bool IsAnimationFinished;
+        protected bool IsPlayerInMinAgroRange;
 
-        IsPlayerInMinAgroRange = Entity.Core.PlayerDetectionSenses.InMinAgroRange;
-    }
+        public AttackState(Entity etity, FiniteStateMashine stateMachine, string animBoolName, Transform attackPosition) : 
+            base(etity, stateMachine, animBoolName)
+        {
+            AttackPosition = attackPosition;
+        }
 
-    public override void Enter()
-    {
-        base.Enter();
+        public override void DoChecks()
+        {
+            base.DoChecks();
 
-        Entity.AnimationToStateMachine.AttackState = this;
-        IsAnimationFinished = false;
-        Entity.StopMovement();
-    }
+            IsPlayerInMinAgroRange = Entity.Core.PlayerDetectionSenses.InMinAgroRange;
+        }
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
+        public override void Enter()
+        {
+            base.Enter();
 
-    public override void LogicUpdate()
-    {
-        base.LogicUpdate();
-    }
+            Entity.AnimationToStateMachine.AttackState = this;
+            IsAnimationFinished = false;
+            Entity.StopMovement();
+        }
 
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
-    }
+        public override void Exit()
+        {
+            base.Exit();
+        }
 
-    public virtual void TriggerAttack()
-    {
+        public override void LogicUpdate()
+        {
+            base.LogicUpdate();
+        }
 
-    }
+        public override void PhysicsUpdate()
+        {
+            base.PhysicsUpdate();
+        }
 
-    public virtual void FinishAttack()
-    {
-        IsAnimationFinished = true;
+        public virtual void TriggerAttack()
+        {
+
+        }
+
+        public virtual void FinishAttack()
+        {
+            IsAnimationFinished = true;
+        }
     }
 }
 

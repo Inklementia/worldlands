@@ -1,61 +1,62 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using _Sources.Scripts.Enemies.State_Mashine;
+﻿using _Sources.Scripts.Enemies.State_Mashine;
 using UnityEngine;
 
-public class PlayerDetectedState : State
+namespace _Sources.Scripts.Enemies.States
 {
-    protected D_PlayerDetectedState StateData;
-
-    protected bool IsDetectingWall;
-    protected bool IsPlayerInMinAgroRange;
-    protected bool IsPlayerInMaxAgroRange;
-
-    protected bool PerformLongRangeAction;
-    protected bool PerformCloseRangeAction;
-
-    //protected Vector2 PlayerDetectedAt;
-    public PlayerDetectedState(Entity entity, FiniteStateMashine stateMachine, string animBoolName, D_PlayerDetectedState stateData) : 
-        base(entity, stateMachine, animBoolName)
+    public class PlayerDetectedState : State
     {
-        StateData = stateData;
-    }
+        protected D_PlayerDetectedState StateData;
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
-        IsPlayerInMinAgroRange = Entity.Core.PlayerDetectionSenses.InMinAgroRange;
-        IsPlayerInMaxAgroRange = Entity.Core.PlayerDetectionSenses.InMaxAgroRange;
-        PerformCloseRangeAction = Entity.Core.PlayerDetectionSenses.InCloseRangeAction;
-        IsDetectingWall = Entity.Core.CollisionSenses.Wall;
+        protected bool IsDetectingWall;
+        protected bool IsPlayerInMinAgroRange;
+        protected bool IsPlayerInMaxAgroRange;
 
-    }
+        protected bool PerformLongRangeAction;
+        protected bool PerformCloseRangeAction;
 
-    public override void Enter()
-    {
-        base.Enter();
-
-        PerformLongRangeAction = false;
-        //PlayerDetectedAt = Entity.GetPlayerPosition();
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
-    public override void LogicUpdate()
-    {
-        base.LogicUpdate();
-
-        if(Time.time >= StartTime + StateData.TimeBeforLongRangeAction)
+        //protected Vector2 PlayerDetectedAt;
+        public PlayerDetectedState(Entity entity, FiniteStateMashine stateMachine, string animBoolName, D_PlayerDetectedState stateData) : 
+            base(entity, stateMachine, animBoolName)
         {
-            PerformLongRangeAction = true;
+            StateData = stateData;
         }
-    }
 
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
+        public override void DoChecks()
+        {
+            base.DoChecks();
+            IsPlayerInMinAgroRange = Entity.Core.PlayerDetectionSenses.InMinAgroRange;
+            IsPlayerInMaxAgroRange = Entity.Core.PlayerDetectionSenses.InMaxAgroRange;
+            PerformCloseRangeAction = Entity.Core.PlayerDetectionSenses.InCloseRangeAction;
+            IsDetectingWall = Entity.Core.CollisionSenses.Wall;
+
+        }
+
+        public override void Enter()
+        {
+            base.Enter();
+
+            PerformLongRangeAction = false;
+            //PlayerDetectedAt = Entity.GetPlayerPosition();
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+        }
+
+        public override void LogicUpdate()
+        {
+            base.LogicUpdate();
+
+            if(Time.time >= StartTime + StateData.TimeBeforLongRangeAction)
+            {
+                PerformLongRangeAction = true;
+            }
+        }
+
+        public override void PhysicsUpdate()
+        {
+            base.PhysicsUpdate();
+        }
     }
 }

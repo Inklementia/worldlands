@@ -23,17 +23,7 @@ public class MeleeEnemy : Entity
     [SerializeField] private D_DeadState deadStateData;
  
     [SerializeField] private Transform meleeAttackPosition;
-   
-    public delegate void DropAction();
-
-    public static event DropAction OnDrop;
-    public override void Awake()
-    {
-        base.Awake();
-
-        // not working from here (core is not seen)
-
-    }
+    
     public override void Start()
     {
         base.Start();
@@ -69,9 +59,9 @@ public class MeleeEnemy : Entity
     public override void TakeDamage(AttackDetails attackDetails)
     {
         base.TakeDamage(attackDetails);
-        Core.HealthSystem.DecreaseHealth(attackDetails.DamageAmount);
+        
                
-        if(Core.HealthSystem.GetCurrentHealth() <= 0)
+        if(IsDead)
         {
             StateMachine.ChangeState(DeadState);
                    
@@ -81,11 +71,6 @@ public class MeleeEnemy : Entity
         {
             StateMachine.ChangeState(DamageState);
         }
-            
-
-   
-       
-
-      
+  
     }
 }

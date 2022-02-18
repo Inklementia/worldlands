@@ -121,6 +121,16 @@ namespace _Sources.Scripts.Enemies.State_Mashine
             _knockbackStartTime = Time.time;
    
             Core.Movement.SetVelocity(EntityData.KnockBackAngle, EntityData.KnockBackSpeed, _lastDamageDirection);
+            
+            Core.HealthSystem.DecreaseHealth(attackDetails.DamageAmount);
+
+            IsDead = Core.HealthSystem.GetCurrentHealth() <= 0 ? true : false;
+
+            if (IsDead)
+            {
+                GameActions.Current.EnemyKilledTrigger(this.gameObject);
+                Debug.Log("Enemy KIlled");
+            }
         
         }
 

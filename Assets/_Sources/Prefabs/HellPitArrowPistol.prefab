@@ -215,3 +215,10 @@ MonoBehaviour:
   rotatableWeaponData: {fileID: 11400000, guid: 1f0f1a8e320a7924091913d8a3433d67,
     type: 2}
   initialAngle: 90
+  fovRange: 6
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 512
+  maxRange: 100
+  enemyTag: {fileID: 11400000, guid: 39cbccd36e550ae47a281b694f925d61, type: 2}
+  detectEnemiesInterval: 5
