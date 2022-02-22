@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Dungeon 
+namespace _Sources.Scripts.Dungeon 
 {
     [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
     public class ExitDoor : MonoBehaviour

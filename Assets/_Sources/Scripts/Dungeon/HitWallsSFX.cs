@@ -1,10 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using MoreMountains.Feedbacks;
 using UnityEngine;
 
-namespace Dungeon 
+namespace _Sources.Scripts.Dungeon 
 {
 
 public class HitWallsSFX : MonoBehaviour

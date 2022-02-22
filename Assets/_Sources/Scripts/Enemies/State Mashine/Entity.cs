@@ -16,7 +16,7 @@ namespace _Sources.Scripts.Enemies.State_Mashine
         public Animator Anim { get; private set; }
   
         public AnimationToStateMachine AnimationToStateMachine { get; private set; }
-        public GameObject Target { get; private set; }
+        //public GameObject Target { get; private set; }
         public Vector2 StartingPos { get; private set; }
 
         // Pathfinding variables // probably move to coreComponent
@@ -65,7 +65,7 @@ namespace _Sources.Scripts.Enemies.State_Mashine
             //healthBar.SetMaxHealth(Core.HealthSystem.MaxHealth);
             //healthBar.SetHealth(Core.HealthSystem.Health);
         
-            Target = Core.PlayerDetectionSenses.Player;
+            //Target = Core.PlayerDetectionSenses.Player;
             _weaponGenerator = gameObject.FindWithTag(weaponGeneratorTag).GetComponent<WeaponGenerator>();
         }
         public virtual void Update()
@@ -88,9 +88,9 @@ namespace _Sources.Scripts.Enemies.State_Mashine
             }
         }
 
-        public virtual Vector2 GetTargetPosition()
+        public Vector3 GetTargetPosition()
         {
-            return Target.transform.position;
+            return Core.PlayerDetectionSenses.Player.transform.position;
         }
 
         public virtual void GoTo(Vector2 point, float speed)

@@ -8,6 +8,7 @@ namespace _Sources.Scripts.UI
     {
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private float fadeOutSpeed = 0.03f;
+        [SerializeField] private float additionalWaitTime = 1f;
         private void Awake()
         {
             DontDestroyOnLoad(this);
@@ -27,14 +28,17 @@ namespace _Sources.Scripts.UI
         
         private IEnumerator FadeOut()
         {
-           
+            /*
             while (canvasGroup.alpha > 0)
             {
                 canvasGroup.alpha -= fadeOutSpeed;
                 yield return new WaitForSeconds(fadeOutSpeed);
             }
+            */
             
             gameObject.SetActive(false);
+            yield return new WaitForSeconds(additionalWaitTime);
+            
         }
     }
 }

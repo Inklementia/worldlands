@@ -28,13 +28,15 @@ namespace _Sources.Scripts.Core.Components
         {
             base.Awake();
             //Player = gameObject.FindWithTag(playerTag);
-            Player = gameObject.FindWithTag(playerTag);
+           
             
         }
 
+ 
+
         private void Start()
         {
-            //Player = gameObject.FindWithTag(playerTag);
+            Player = gameObject.FindWithTag(playerTag);
         }
 
         public bool InMinAgroRange

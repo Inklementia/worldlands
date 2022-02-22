@@ -1,14 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using _Sources.Scripts;
-using Pathfinding;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
-namespace Dungeon
+namespace _Sources.Scripts.Dungeon
 {
     public class DungeonManager : MonoBehaviour
     {
@@ -18,6 +14,7 @@ namespace Dungeon
 
         [SerializeField] private GameObject[] randomItems;
         [SerializeField] private GameObject[] randomTraps;
+        [SerializeField] private Material[] materials;
 
         [SerializeField] private DungeonType dungeonType;
         
@@ -33,6 +30,7 @@ namespace Dungeon
 
         [SerializeField] private GameObject tilePrefab;
         [SerializeField] private GameObject exitDoorPrefab;
+        [SerializeField] private GameObject colliderPrefab;
         
         [SerializeField] private LayerMask whatIsFloor;
         [SerializeField] private LayerMask whatIsWall;
@@ -52,6 +50,7 @@ namespace Dungeon
         [Range(1, 20)]
         [SerializeField] private int maxHallLength = 20;
  
+        [SerializeField] private Vector2 minRoomSize = new Vector2(4,4);
         [SerializeField] private Vector2 maxRoomSize = new Vector2(7,7);
         
         [Header("Boss")]
@@ -59,7 +58,9 @@ namespace Dungeon
         [SerializeField] private int corridorLengthToBoss = 20;
         [SerializeField] private Vector2 bossRoomSize  = new Vector2(9,9);
         [SerializeField] private GameObject boss;
-     
+
+
+        [SerializeField] private GameObject playerSpawnPoint;
 
         protected internal float MinX, MaxX, MinY, MaxY;
         protected internal List<GameObject> _walls = new List<GameObject>();
@@ -67,13 +68,15 @@ namespace Dungeon
         public List<GameObject> SpawnedEnemies { get; private set; }
 
         private List<Vector3> _floorList = new List<Vector3>();
-        //private List<Vector3> _roomCentresList = new List<Vector3>();
+        private List<Vector3> _roomCentresList = new List<Vector3>();
+        private List<GameObject> _roomList = new List<GameObject>();
         private Vector2 _hitSize;
-
+  
       
 
         private void Start()
         {
+            
             SpawnedEnemies = new List<GameObject>();
             _hitSize = Vector2.one * 0.8f;
           //  GenerateField();
@@ -102,12 +105,12 @@ namespace Dungeon
         // for cavern type dungeon
         private void StartRandomWalker()
         {
-            Vector3 currentPos = Vector3.zero;
+            Vector2 currentPos = Vector2.zero;
             _floorList.Add(currentPos);
             //set floor tile at current position
             while (_floorList.Count < totalFloorCount )
             {
-                currentPos += GetRandomDirection();
+                currentPos += Direction2D.GetRandomCardinalDirection();
 
                 if (!CheckIfInFloorList(currentPos)) 
                 {
@@ -120,7 +123,7 @@ namespace Dungeon
         // for room type dungeon
         private void StartRoomWalker()
         {
-            
+            var roomIndex = 0;
             Vector3 currentPos = Vector3.zero;
             _floorList.Add(currentPos);
             //set floor tile at current position
@@ -128,48 +131,43 @@ namespace Dungeon
             {
                 int walkLength = Random.Range(minHallLength, maxHallLength);
                 currentPos = GenerateLongWalk(currentPos, walkLength);
-                GenerateRoom(currentPos, maxRoomSize, true);
+                GenerateRoom(currentPos, minRoomSize,maxRoomSize);
+                roomIndex++;
             }
+            playerSpawnPoint.transform.position = _roomList[0].transform.position;
+            _roomList[0].SetActive(false);
+            _roomList[_roomList.Count-1].SetActive(false);
             StartCoroutine(DelayedProgress());
  
         }
 
         private void StartWindingWalker()
         {
+            var roomIndex = 0;
             Vector3 currentPos = Vector3.zero;
             _floorList.Add(currentPos);
             //set floor tile at current position
             while (_floorList.Count < totalFloorCount)
             {
+                
                 int walkLength = Random.Range(minHallLength, maxHallLength);
                 currentPos = GenerateLongWalk(currentPos, walkLength);
                 int roll = Random.Range(0, 100);
                 if (roll > hallsFrequency)
                 {
-                    GenerateRoom(currentPos, maxRoomSize, true);
+                    GenerateRoom(currentPos, minRoomSize,maxRoomSize);
+                    roomIndex++;
                 }
                
             }
             StartCoroutine(DelayedProgress());
         }
-        // choose any of 4 directions
-        private Vector3 GetRandomDirection()
-        {
-            switch (Random.Range(1, 5))
-            {
-                case 1: return Vector3.up;
-                case 2: return Vector3.right;
-                case 3: return Vector3.down;
-                case 4: return Vector3.left;
-            }
 
-            return Vector3.zero;
-        }
 
         private Vector3 GenerateLongWalk(Vector3 pos, int walkLength)
         {
             // creating halls
-            Vector3 walkDirection = GetRandomDirection();
+            Vector3 walkDirection = Direction2D.GetRandomCardinalDirection();
            
             for (int i = 0; i < walkLength; i++)
             {
@@ -183,25 +181,21 @@ namespace Dungeon
 
             return pos;
         }
-        private void GenerateRoom(Vector3 pos, Vector2 maxSize, bool isRandom)
+        private void GenerateRoom(Vector3 pos, Vector2 minSize, Vector2 maxSize)
         {
+           
+            //_roomList.Add(new List<Vector3>());
             int roomWidth = 0;
             int roomHeight = 0;
-            if (isRandom)
-            {
-                // create a random room at the end of walk length
-                roomWidth = Random.Range(1, Mathf.CeilToInt(maxSize.x/2f)); // 4 tiles up and 4 tiles down relating to hallway (1) = 4 + 4 + 1
-                roomHeight = Random.Range(1, Mathf.CeilToInt(maxSize.y/2f));
-            }
-            else
-            {
-                // create a random room at the end of walk length
-                roomWidth = Mathf.CeilToInt(maxSize.x/2f); // 4 tiles up and 4 tiles down relating to hallway (1) = 4 + 4 + 1
-                roomHeight = Mathf.CeilToInt(maxSize.y/2f);
-            }
+              // create a random room at the end of walk length
+            roomWidth = Random.Range(Mathf.CeilToInt(minSize.x/2f), Mathf.CeilToInt(maxSize.x/2f)); // 4 tiles up and 4 tiles down relating to hallway (1) = 4 + 4 + 1
+            roomHeight = Random.Range(Mathf.CeilToInt(minSize.y/2f), Mathf.CeilToInt(maxSize.y/2f));
+            
+         
+
            
             Vector3 center = new Vector3(Mathf.Floor(roomWidth/2), Mathf.Floor(roomHeight/2), 0);
-            //bool roomReady = false;
+            bool roomReady = false;
   
             for (int w = -roomWidth; w <= roomWidth; w++)
             {
@@ -213,23 +207,34 @@ namespace Dungeon
                     if (!CheckIfInFloorList(pos + offset)) 
                     {
                         _floorList.Add(pos + offset);
-                        
-                        //newRoom.AddTileToRoom(pos + offset);   
-                        /*if (!CheckIfInRoomCentreList(pos + center) && !roomReady)
+
+                        if (w == roomWidth && h == roomHeight)
                         {
-                            _roomCentresList.Add(pos + center);
+                           
+                            _roomCentresList.Add(pos); 
+                            GenerateRoomCollider((roomWidth * 2) + 1, (roomHeight * 2) + 1, pos);
+                            
+                           
                           
-                            roomReady = true;
                         }
-                        */
                     }
                 }
             }
+
+       
+
+          
         }
         private bool CheckIfInFloorList(Vector3 tilePos)
         {
             //bool inFloorList = false;
             if (_floorList.Contains(tilePos)) return true;
+            return false;
+        }
+        private bool CheckIfInRoomCentreList(Vector3 tilePos)
+        {
+            //bool inFloorList = false;
+            if (_roomCentresList.Contains(tilePos)) return true;
             return false;
         }
 
@@ -254,6 +259,8 @@ namespace Dungeon
             // Recalculate only the first grid graph
             var graphToScan = AstarPath.active.data.gridGraph;
             AstarPath.active.Scan(graphToScan);
+
+        
             
             GameActions.Current.DungeonGenerated();
             GameActions.Current.DungeonGeneratedToSaveMap(_floorList);
@@ -316,7 +323,7 @@ namespace Dungeon
             if (path >= corridorLengthToBoss)
             {
                 //Debug.Log(CheckAvailableSpaceForBossRoom(currentPos, bossRoomSize));
-                GenerateRoom(currentPos, bossRoomSize, false);
+                GenerateRoom(currentPos, bossRoomSize, bossRoomSize);
                 
                 
                /* if (CheckAvailableSpaceForBossRoom(currentPos, bossRoomSize))
@@ -336,11 +343,11 @@ namespace Dungeon
 
         private IEnumerator InsertPlaceForExitDoor()
         {
-            Vector3 dir = GetRandomDirection();
+            Vector2 dir = Direction2D.GetRandomCardinalDirection();
             bool isExitPlaced = IfExitIsPlaced(_floorList[_floorList.Count - 1]); // last tile
             while (!isExitPlaced)
             {
-                Vector3 currentPos = WalkStraightInDir(_floorList[_floorList.Count - 1], dir);
+                Vector2 currentPos = WalkStraightInDir(_floorList[_floorList.Count - 1], dir);
               
                 yield return null;
                 isExitPlaced = IfExitIsPlaced(currentPos);
@@ -500,6 +507,26 @@ namespace Dungeon
             
         }
         
-       
+        private void GenerateRoomCollider(int width, int height, Vector3 roomCenter)
+        {
+            GameObject roomCollider = Instantiate(colliderPrefab, roomCenter, Quaternion.identity);
+            roomCollider.name = colliderPrefab.name;
+            roomCollider.transform.SetParent(gameObject.transform);
+            roomCollider.GetComponent<BoxCollider2D>().size = new Vector2(width, height);
+            _roomList.Add(roomCollider);
+
+        }
+        private void OnDrawGizmos()
+        {
+           
+            Gizmos.color = Color.magenta;
+            foreach (Vector3 tile in _roomCentresList)
+            {
+              
+                    Gizmos.DrawCube(tile, Vector3.one); 
+                
+            }
+            
+        }
     }
 }

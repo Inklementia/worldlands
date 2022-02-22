@@ -63,7 +63,7 @@ public class PlayerInputHandler : MonoBehaviour
         IsAttackButtonPressed = _inputService.IsAttackButtonPressed();
         CkeckIfJoystickPressed();
         
-       Debug.Log("Attck  "+IsAttackButtonPressed);
+       //Debug.Log("Attck  "+IsAttackButtonPressed);
         //Debug.Log("Attck Up "+IsAttackButtonPressedUp);
     }
     public bool CkeckIfJoystickPressed()

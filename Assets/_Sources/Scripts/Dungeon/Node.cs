@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Dungeon
+namespace _Sources.Scripts.Dungeon
 {
     public class Node
     {

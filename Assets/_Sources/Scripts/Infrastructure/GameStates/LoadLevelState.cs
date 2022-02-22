@@ -38,7 +38,7 @@ namespace _Sources.Scripts.Infrastructure.GameStates
         {
             //load heads-up-display
             _gameFactory.CreateHud();
-
+Debug.Log("FIRSt");
             //load player
             GameObject player = _gameFactory.CreatePlayer(GameObject.FindWithTag(SpawnPoint));
           

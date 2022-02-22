@@ -8,7 +8,7 @@ namespace _Sources.Scripts.Enemies.States
     {
         protected D_ChargeState StateData;
 
-        //protected Vector2 WhereToCharge;
+        protected Vector3 WhereToCharge;
 
         protected bool IsPlayerInMinAgroRange;
         protected bool IsPlayerInMaxAgroRange;
@@ -41,7 +41,7 @@ namespace _Sources.Scripts.Enemies.States
         public override void Enter()
         {
             base.Enter();
-
+            WhereToCharge = Core.PlayerDetectionSenses.Player.transform.position;
             IsChargeTimeOver = false;
             HandleFlip();
             //Entity.GoTo(Entity.GetTargetPosition(), StateData.ChargeSpeed);
@@ -74,11 +74,11 @@ namespace _Sources.Scripts.Enemies.States
 
         private void HandleFlip()
         {
-            if (Entity.Target.transform.position.x > Entity.transform.position.x)
+            if (WhereToCharge.x > Entity.transform.position.x)
             {
                 Entity.Core.Movement.Flip180();
             }
-            else if (Entity.Target.transform.position.x < Entity.transform.position.x)
+            else if (WhereToCharge.x < Entity.transform.position.x)
             {
                 Entity.Core.Movement.Flip0();
             }
