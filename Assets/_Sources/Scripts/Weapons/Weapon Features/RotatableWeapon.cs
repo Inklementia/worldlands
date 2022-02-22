@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using _Sources.Scripts.Enemies.State_Mashine;
 using _Sources.Scripts.Player.PlayerFiniteStateMachine;
-using Dungeon;
 using UnityEngine;
 
 namespace _Sources.Scripts.Weapons.Weapon_Features
@@ -37,19 +36,19 @@ namespace _Sources.Scripts.Weapons.Weapon_Features
         {
             InitialRotateAngle = initialAngle;
             
-            _enemies = gameObject.FindAllWithTag(enemyTag);
+          
         }
 
         private void Start()
         {
             GameActions.Current.OnEnemyKilled += RemoveEnemyFromList;
-            GameActions.Current.OnDungeonGenerated += DetectEnemies;
+            //GameActions.Current.OnDungeonGenerated += DetectEnemies;
         }
 
         private void OnDisable()
         {
             GameActions.Current.OnEnemyKilled -= RemoveEnemyFromList;
-            GameActions.Current.OnDungeonGenerated -= DetectEnemies;
+            //GameActions.Current.OnDungeonGenerated -= DetectEnemies;
         }
 
 
@@ -69,7 +68,9 @@ namespace _Sources.Scripts.Weapons.Weapon_Features
             if (_playerEntity != null)
             {
                 if (_playerEntity.Core.EnemyDetectionSenses.EnemyInFieldOfView())
+                
                 {
+                    Debug.Log("Enemy detects");
                     Vector2 direction =  _closestEnemy.transform.position - _playerEntity.transform.position;
                     direction.Normalize();
                     
@@ -115,7 +116,7 @@ namespace _Sources.Scripts.Weapons.Weapon_Features
             _playerEntity = gameObject.FindWithTag(RotatableWeaponData.PlayerTag).GetComponent<Player.PlayerFiniteStateMachine.PlayerEntity>();
             
             //_enemiesList = dm.SpawnedEnemies;
-            //DetectEnemies();
+            DetectEnemies();
        
             visitor.Visit(this);
 
@@ -125,7 +126,7 @@ namespace _Sources.Scripts.Weapons.Weapon_Features
         // TODO: event
         private void DetectEnemies()
         {
-            _enemiesList = _enemies.Any() ? _enemies.ToList() : null;
+            _enemiesList = gameObject.FindAllWithTag(enemyTag).ToList();
             FindClosestEnemy();
             
         }
@@ -150,7 +151,7 @@ namespace _Sources.Scripts.Weapons.Weapon_Features
 
         private void FindClosestEnemy()
         {
-            if (_playerEntity != null && _enemiesList.Count > 0)
+            if (_playerEntity != null)
             {
                 float range = maxRange;
                 foreach (GameObject enemyGO in _enemiesList)

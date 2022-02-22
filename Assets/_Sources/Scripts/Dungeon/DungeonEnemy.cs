@@ -1,11 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Timers;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Dungeon
+namespace _Sources.Scripts.Dungeon
 {
     public class DungeonEnemy : MonoBehaviour
     {

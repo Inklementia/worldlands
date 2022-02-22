@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Dungeon
+namespace _Sources.Scripts.Dungeon
 {
     [System.Serializable]
     public class ItemFrequency

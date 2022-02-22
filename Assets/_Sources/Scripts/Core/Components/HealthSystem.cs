@@ -1,6 +1,6 @@
 ﻿namespace _Sources.Scripts.Core.Components
 {
-    public class HealthSystem : CoreComponent
+    public class HealthSystem : CoreComponent, IHealthSystem
     {
         public float Health { get; private set; }
         public float MaxHealth { get; private set; }

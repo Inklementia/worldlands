@@ -1,5 +1,6 @@
 ﻿using _Sources.Scripts.Enemies.Data;
 using _Sources.Scripts.Enemies.State_Mashine;
+using _Sources.Scripts.Weapons;
 using UnityEngine;
 
 namespace _Sources.Scripts.Enemies.Units.RangedEnemy
@@ -26,6 +27,7 @@ namespace _Sources.Scripts.Enemies.Units.RangedEnemy
         [SerializeField] private bool canMelee;
         [SerializeField] private Transform meleeAttackPosition;
         [SerializeField] private Transform rangedAttackPosition;
+        [SerializeField] private ShootingWeapon _shootingWeapon;
 
         public override void Start()
         {
@@ -35,12 +37,14 @@ namespace _Sources.Scripts.Enemies.Units.RangedEnemy
             MoveState = new RangedEnemy_MoveState(this, StateMachine, "move", moveStateData, this);
             PlayerDetectedState = new RangedEnemy_PlayerDetectedState(this, StateMachine, "playerDetected", playerDetectedStateData, this);
             MeleeAttackState = new RangedEnemy_MeleeAttackState(this, StateMachine, "meleeAttack", meleeAttackPosition, meleeAttackStateData, this);
-            RangedAttackState = new RangedEnemy_RangedAttackState(this, StateMachine, "rangeAttack", rangedAttackPosition, rangedAttackStateData, this);
+            RangedAttackState = new RangedEnemy_RangedAttackState(this, StateMachine, "rangeAttack", rangedAttackPosition, rangedAttackStateData, _shootingWeapon, this);
             RunFromPlayerState = new RangedEnemy_RunFromPlayerState(this, StateMachine, "move", moveStateData, this);
             DamageState = new RangedEnemy_DamageState(this, StateMachine,"damage", damageStateData, this);
             DeadState = new RangedEnemy_DeadState(this, StateMachine, "dead", deadStateData, this);
 
+            _shootingWeapon.Equip();
             StateMachine.Initialize(MoveState);
+            
         }
         
         public override void OnDrawGizmos()

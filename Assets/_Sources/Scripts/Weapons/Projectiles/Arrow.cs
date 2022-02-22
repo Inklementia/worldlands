@@ -11,17 +11,12 @@ public class Arrow : BaseProjectile
     private float _speed;
 
 
-    private void OnEnable()
-    {
-        Rb.velocity = _direction * _speed;
-        Rb.gravityScale = 1;
-    }
-
     private void Awake()
     {
-        Rb.velocity = _direction * _speed;
-        Rb.gravityScale = 1;
-    }      
+       
+    }
+
+    
     
     public override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -51,6 +46,9 @@ public class Arrow : BaseProjectile
 
         _speed = speed;
         _direction = direction;
+        
+        Rb.velocity = _direction * _speed;
+        Rb.gravityScale = 1;
 
     }
 

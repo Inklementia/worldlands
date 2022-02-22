@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-namespace Dungeon
+namespace _Sources.Scripts.Dungeon
 {
     public enum DungeonType
     {

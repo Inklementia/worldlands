@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class MeleeEnemy : Entity
 {
+    public MeleeEnemy_SpawnState SpawnState { get; private set; }
     public MeleeEnemy_IdleState IdleState { get; private set; }
     public MeleeEnemy_MoveState MoveState { get; private set; }
     public MeleeEnemy_PlayerDetectedState PlayerDetectedState { get; private set; }
@@ -27,6 +28,7 @@ public class MeleeEnemy : Entity
     public override void Start()
     {
         base.Start();
+        SpawnState = new MeleeEnemy_SpawnState(this, StateMachine, "spawn", this);
         IdleState = new MeleeEnemy_IdleState(this, StateMachine, "idle", idleStateData, this);
         MoveState = new MeleeEnemy_MoveState(this, StateMachine, "move", moveStateData, this);
         PlayerDetectedState = new MeleeEnemy_PlayerDetectedState(this, StateMachine, "playerDetected", playerDetectedStateData, this);
@@ -34,7 +36,7 @@ public class MeleeEnemy : Entity
         MeleeAttackState = new MeleeEnemy_MeleeAttackState(this, StateMachine, "meleeAttack", meleeAttackPosition, meleeAttackStateData, this);
         DamageState = new MeleeEnemy_DamageState(this, StateMachine, "damage", damageStateData, this);
         DeadState = new MeleeEnemy_DeadState(this, StateMachine, "dead", deadStateData, this);
-        StateMachine.Initialize(MoveState);
+        StateMachine.Initialize(SpawnState);
 
   
     }
