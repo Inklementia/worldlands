@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
 namespace _Sources.Scripts.Dungeon
@@ -14,7 +15,7 @@ namespace _Sources.Scripts.Dungeon
 
         [SerializeField] private GameObject[] randomItems;
         [SerializeField] private GameObject[] randomTraps;
-        [SerializeField] private Material[] materials;
+        [SerializeField] private Tilemap tilemap;
 
         [SerializeField] private DungeonType dungeonType;
         
@@ -76,9 +77,9 @@ namespace _Sources.Scripts.Dungeon
 
         private void Start()
         {
+           
             
-            SpawnedEnemies = new List<GameObject>();
-            _hitSize = Vector2.one * 0.8f;
+            
           //  GenerateField();
             switch (dungeonType)
             {
@@ -268,6 +269,8 @@ namespace _Sources.Scripts.Dungeon
 
         public void GenerateFloorTiles()
         {
+            var randomColor = Random.ColorHSV(0,1,.2f,.7f, 1,1,1,1);
+            tilemap.color = randomColor;
             // generating tiles (they change to floor)
             for (int i = 0; i < _floorList.Count; i++)
             {
@@ -275,8 +278,11 @@ namespace _Sources.Scripts.Dungeon
                 //floorTilemap.SetTile((Vector3Int)targetTilePos, floorTile);
                 
                 GameObject tileGo = Instantiate(tilePrefab, _floorList[i], Quaternion.identity);
+                GameActions.Current.TilePlacedTrigger(randomColor);
                 tileGo.name = tilePrefab.name;
                 tileGo.transform.SetParent(transform);
+                
+                //tileGo.GetComponent<SpriteRenderer>().material = materials[randomMaterialIndex];
             }
         }
         private void SetExitDoor()
