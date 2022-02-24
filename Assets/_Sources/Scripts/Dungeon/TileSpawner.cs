@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace _Sources.Scripts.Dungeon
@@ -8,10 +9,16 @@ namespace _Sources.Scripts.Dungeon
     {
         private DungeonManager _dungeonManager;
         private LayerMask _dungeonMask;
+        private Color _color;
+
+        private void OnEnable()
+        {
         
-        
+        }
+
         private void Awake()
         {
+            GameActions.Current.OnTilePlaced += SetColor;
             //_dungeonManager = gameObject.FindWithTag(_dungeonManagerTag).GetComponent<DungeonManager>();
             _dungeonManager = FindObjectOfType<DungeonManager>();
 
@@ -24,8 +31,15 @@ namespace _Sources.Scripts.Dungeon
             _dungeonMask = LayerMask.GetMask("Wall", "Floor");
             GenerateWalls();
             // destroying spawner
-            
+           
             Destroy(gameObject);
+            
+            
+        }
+
+        private void OnDestroy()
+        {
+            GameActions.Current.OnTilePlaced -= SetColor;
         }
 
         private void AssignDungeonCoordinates()
@@ -50,28 +64,8 @@ namespace _Sources.Scripts.Dungeon
 
         private void GenerateFloor()
         {
-            //Vector2Int targetTilePos = new Vector2Int((int)transform.position.x, (int)transform.position.y);
-            //_dungeonManager.floorTilemap.SetTile((Vector3Int)targetTilePos, _dungeonManager.floorTile);
-            /* int randomIndex = Random.Range(0, _dungeonManager.otherFloorTiles.Length);
-            float roll = Random.Range(0, 100);
-            if (roll < _dungeonManager.otherFloorTiles[randomIndex].Frequency)
-            {
-                GameObject prefab = _dungeonManager.otherFloorTiles[randomIndex].Prefab;
-                GameObject floorGo =
-                    Instantiate(prefab, transform.position, Quaternion.identity);
-                floorGo.name = prefab.name;
-                floorGo.transform.SetParent(_dungeonManager.transform);
-            }
-            else
-            {
-                int randomIndex2 = Random.Range(0, _dungeonManager.mainFloorTiles.Length);
-                GameObject prefab = _dungeonManager.mainFloorTiles[randomIndex2];
-                GameObject floorGo =
-                    Instantiate(prefab, transform.position, Quaternion.identity);
-                floorGo.name = prefab.name;
-                floorGo.transform.SetParent(_dungeonManager.transform);
-            }
-            */
+            Debug.Log(_color);
+            
             int randomIndex = Random.Range(0, _dungeonManager.floorTiles.Length);
             int rotateOrNotRotate = Random.Range(0, 2);
             //Debug.Log(rotateOrNotRotate);
@@ -93,8 +87,16 @@ namespace _Sources.Scripts.Dungeon
                 Instantiate(prefab, transform.position, rot);
             floorGo.name = prefab.name;
             floorGo.transform.SetParent(_dungeonManager.transform);
+            floorGo.GetComponent<SpriteRenderer>().color = _color;
+            
         }
 
+        private void SetColor(Color color)
+        {
+            _color = color;
+            
+
+        }
         private void GenerateWalls()
         {
             for (int x = -1; x <= 1; x++)
@@ -112,7 +114,7 @@ namespace _Sources.Scripts.Dungeon
                                 Instantiate(_dungeonManager.wallPrefab, targetTilePos, Quaternion.identity);
                             wallGo.name = _dungeonManager.wallPrefab.name;
                             wallGo.transform.SetParent(_dungeonManager.transform);
-                        
+                            wallGo.GetComponent<SpriteRenderer>().color = _color;
                             _dungeonManager._walls.Add(wallGo);
                             
                             
@@ -122,43 +124,7 @@ namespace _Sources.Scripts.Dungeon
             
             //_dungeonManager.CheckHorizontalWalls();
         }
-
-   
-
-        private void GenerateWalls2()
-        {
-
-                    Vector2 targetTilePos_TopLeft = new Vector2(transform.position.x - 1, transform.position.y + 1);
-                    Vector2 targetTilePos_Top = new Vector2(transform.position.x + 0, transform.position.y + 1);
-                    Vector2 targetTilePos_TopRight = new Vector2(transform.position.x + 1, transform.position.y + 1);
-                    
-                    Vector2 targetTilePos_Left = new Vector2(transform.position.x - 1, transform.position.y + 0);
-                    Vector2 targetTilePos_Right = new Vector2(transform.position.x + 1, transform.position.y + 0);
-     
-                    
-                    Vector2 targetTilePos_BottomLeft = new Vector2(transform.position.x - 1, transform.position.y - 1);
-                    Vector2 targetTilePos_Bottom = new Vector2(transform.position.x + 0, transform.position.y - 1);
-                    Vector2 targetTilePos_BottomRight = new Vector2(transform.position.x + 1, transform.position.y - 1);
-                    
-                    Collider2D hit_TopLeft = Physics2D.OverlapBox(targetTilePos_TopLeft, Vector2.one * 0.8f, 0, _dungeonMask);
-                    Collider2D hit_Top = Physics2D.OverlapBox(targetTilePos_Top, Vector2.one * 0.8f, 0, _dungeonMask);
-                    Collider2D hit_TopRight = Physics2D.OverlapBox(targetTilePos_TopRight, Vector2.one * 0.8f, 0, _dungeonMask);
-                    
-                    Collider2D hit_Left = Physics2D.OverlapBox(targetTilePos_Left, Vector2.one * 0.8f, 0, _dungeonMask);
-                    Collider2D hit_Right = Physics2D.OverlapBox(targetTilePos_Right, Vector2.one * 0.8f, 0, _dungeonMask);
-                    
-                    Collider2D hit_BottomLeft = Physics2D.OverlapBox(targetTilePos_BottomLeft, Vector2.one * 0.8f, 0, _dungeonMask);
-                    Collider2D hit_Bottom = Physics2D.OverlapBox(targetTilePos_Bottom, Vector2.one * 0.8f, 0, _dungeonMask);
-                    Collider2D hit_BottomRight = Physics2D.OverlapBox(targetTilePos_BottomRight, Vector2.one * 0.8f, 0, _dungeonMask);
-
-                    if (hit_Top)
-                    {
-                        
-                    }
-                 
-                
-            
-        }
+        
         
         private void OnDrawGizmos()
         {

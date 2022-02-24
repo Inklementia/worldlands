@@ -42,5 +42,15 @@ namespace _Sources.Scripts
                 OnEnemyKilled(enemyGo);
             }
         }
+        
+        public event Action<Color> OnTilePlaced;
+
+        public void TilePlacedTrigger(Color color)
+        {
+            if (OnTilePlaced != null)
+            {
+                OnTilePlaced(color);
+            }
+        }
     }
 }
