@@ -4,6 +4,7 @@ using _Sources.Scripts.Core.Components;
 using _Sources.Scripts.Interfaces;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using DG.Tweening;
 
 namespace _Sources.Scripts.Battle
 {
@@ -50,9 +51,21 @@ namespace _Sources.Scripts.Battle
                 SpawnEnemies();
             }
         }
-
+   
+      
         public void SpawnEnemies()
         {
+            float effectDuration = 0.3f;
+            float shakeStrength = .3f;
+            int shakeVibrato = 20;
+            float shakeRandomness = 0;
+
+
+        //DOShakeRotation(float duration, float / Vector3 strength, int vibrato, float randomness, bool fadeOut)
+        transform.DOShakePosition(effectDuration, new Vector3(.3f, .1f, 0), shakeVibrato, shakeRandomness).SetLoops(1, LoopType.Restart);
+            //transform.DOShakeScale(effectDuration, new Vector3(shakeStrength, shakeStrength, shakeStrength), shakeVibrato, shakeRandomness).SetLoops(1, LoopType.Restart);
+            //transform.DOShakeRotation(effectDuration, new Vector3(0, 0, 20f), shakeVibrato, shakeRandomness).SetLoops(1, LoopType.Restart);
+
             for (int i = 0; i < enemySpawnerData.NumberOfEnemies; i++)
             {
                 StartCoroutine(SpawnSingle());

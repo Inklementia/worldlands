@@ -441766,7 +441766,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   tileSpawnerTag: {fileID: 11400000, guid: bb88556f197eb8a4197d56e53ca4de4c, type: 2}
-  totalFloorCount: 500
+  totalFloorCount: 200
   useRoundedEdges: 0
   roundedEdges:
   - {fileID: 5841025485107012939, guid: d9e2215503e81094b87d125f9989198e, type: 3}
@@ -441788,8 +441788,8 @@ MonoBehaviour:
   hallsFrequency: 70
   minHallLength: 10
   maxHallLength: 12
-  minRoomSize: {x: 6, y: 6}
-  maxRoomSize: {x: 8, y: 8}
+  minRoomSize: {x: 5, y: 5}
+  maxRoomSize: {x: 7, y: 7}
   finalDungeonInWorld: 1
   corridorLengthToBoss: 15
   bossRoomSize: {x: 10, y: 10}

@@ -28,17 +28,18 @@ namespace _Sources.Scripts.UI
         
         private IEnumerator FadeOut()
         {
-            /*
+            
+     
+            
+            
+           
+            yield return new WaitForSeconds(additionalWaitTime);
             while (canvasGroup.alpha > 0)
             {
                 canvasGroup.alpha -= fadeOutSpeed;
                 yield return new WaitForSeconds(fadeOutSpeed);
             }
-            */
-            
             gameObject.SetActive(false);
-            yield return new WaitForSeconds(additionalWaitTime);
-            
         }
     }
 }
