@@ -9,7 +9,7 @@ namespace _Sources.Scripts.Dungeon
     {
         private DungeonManager _dungeonManager;
         private LayerMask _dungeonMask;
-        private Color _color;
+        //private Color _color;
 
         private void OnEnable()
         {
@@ -18,7 +18,7 @@ namespace _Sources.Scripts.Dungeon
 
         private void Awake()
         {
-            GameActions.Current.OnTilePlaced += SetColor;
+          
             //_dungeonManager = gameObject.FindWithTag(_dungeonManagerTag).GetComponent<DungeonManager>();
             _dungeonManager = FindObjectOfType<DungeonManager>();
 
@@ -37,10 +37,7 @@ namespace _Sources.Scripts.Dungeon
             
         }
 
-        private void OnDestroy()
-        {
-            GameActions.Current.OnTilePlaced -= SetColor;
-        }
+
 
         private void AssignDungeonCoordinates()
         {
@@ -64,7 +61,7 @@ namespace _Sources.Scripts.Dungeon
 
         private void GenerateFloor()
         {
-            Debug.Log(_color);
+            //Debug.Log(_color);
             
             int randomIndex = Random.Range(0, _dungeonManager.floorTiles.Length);
             int rotateOrNotRotate = Random.Range(0, 2);
@@ -87,16 +84,11 @@ namespace _Sources.Scripts.Dungeon
                 Instantiate(prefab, transform.position, rot);
             floorGo.name = prefab.name;
             floorGo.transform.SetParent(_dungeonManager.transform);
-            floorGo.GetComponent<SpriteRenderer>().color = _color;
-            
+            //floorGo.GetComponent<SpriteRenderer>().color = _color;
+            _dungeonManager._floors.Add(floorGo);
         }
 
-        private void SetColor(Color color)
-        {
-            _color = color;
-            
-
-        }
+  
         private void GenerateWalls()
         {
             for (int x = -1; x <= 1; x++)
@@ -114,7 +106,7 @@ namespace _Sources.Scripts.Dungeon
                                 Instantiate(_dungeonManager.wallPrefab, targetTilePos, Quaternion.identity);
                             wallGo.name = _dungeonManager.wallPrefab.name;
                             wallGo.transform.SetParent(_dungeonManager.transform);
-                            wallGo.GetComponent<SpriteRenderer>().color = _color;
+                            //wallGo.GetComponent<SpriteRenderer>().color = _color;
                             _dungeonManager._walls.Add(wallGo);
                             
                             

@@ -65,7 +65,7 @@ namespace _Sources.Scripts.Dungeon
 
         protected internal float MinX, MaxX, MinY, MaxY;
         protected internal List<GameObject> _walls = new List<GameObject>();
-        
+        protected internal List<GameObject> _floors = new List<GameObject>();
         public List<GameObject> SpawnedEnemies { get; private set; }
 
         private List<Vector3> _floorList = new List<Vector3>();
@@ -255,7 +255,8 @@ namespace _Sources.Scripts.Dungeon
             
             SetExitDoor();
             CheckGeneratedDungeon();
-            
+            CheckRooms();
+            RecolorTiles();
 
             // Recalculate only the first grid graph
             var graphToScan = AstarPath.active.data.gridGraph;
@@ -267,10 +268,26 @@ namespace _Sources.Scripts.Dungeon
             GameActions.Current.DungeonGeneratedToSaveMap(_floorList);
         }
 
+        private void RecolorTiles()
+        {
+            Color newColor = Random.ColorHSV(0f, 1f, .2f, .5f, 1f, 1f, 1f, 1f);
+            tilemap.color = newColor;
+            foreach (GameObject wall in _walls)
+            {
+                wall.GetComponent<SpriteRenderer>().color = newColor;
+                wall.transform.GetChild(0).GetComponentInChildren<SpriteRenderer>().color = newColor;
+              
+            }
+            foreach (GameObject floor in _floors)
+            {
+                floor.GetComponent<SpriteRenderer>().color = newColor;
+                //floor.GetComponentInChildren<SpriteRenderer>().color = newColor;
+            }
+        }
+
         public void GenerateFloorTiles()
         {
-            var randomColor = Random.ColorHSV(0,1,.2f,.7f, 1,1,1,1);
-            tilemap.color = randomColor;
+    
             // generating tiles (they change to floor)
             for (int i = 0; i < _floorList.Count; i++)
             {
@@ -278,7 +295,7 @@ namespace _Sources.Scripts.Dungeon
                 //floorTilemap.SetTile((Vector3Int)targetTilePos, floorTile);
                 
                 GameObject tileGo = Instantiate(tilePrefab, _floorList[i], Quaternion.identity);
-                GameActions.Current.TilePlacedTrigger(randomColor);
+               //GameActions.Current.TilePlacedTrigger(randomColor);
                 tileGo.name = tilePrefab.name;
                 tileGo.transform.SetParent(transform);
                 
@@ -521,6 +538,26 @@ namespace _Sources.Scripts.Dungeon
             roomCollider.GetComponent<BoxCollider2D>().size = new Vector2(width, height);
             _roomList.Add(roomCollider);
 
+        }
+        private void CheckRooms()
+        {
+            for (int i = 0; i < _roomCentresList.Count; i++)
+            {
+                if(_roomCentresList[i] == _roomCentresList[i] + new Vector3(1, 0, 0))
+                {
+                    _roomCentresList.Remove(_roomCentresList[i]);
+                }
+
+                if (_roomCentresList[i] == _roomCentresList[i] + new Vector3(0, 1, 0))
+                {
+                    _roomCentresList.Remove(_roomCentresList[i]);
+                }
+
+                if (_roomCentresList[i] == _roomCentresList[i] + new Vector3(1, 1, 0))
+                {
+                    _roomCentresList.Remove(_roomCentresList[i]);
+                }
+            }
         }
         private void OnDrawGizmos()
         {
