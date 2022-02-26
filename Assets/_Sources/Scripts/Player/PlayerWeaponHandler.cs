@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Sources.Scripts.Player.PlayerFiniteStateMachine;
 using _Sources.Scripts.Weapons;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class PlayerWeaponHandler : MonoBehaviour
 {
     public PlayerInputHandler InputHandler { get; private set; }
     public PlayerWeaponry Weaponry { get; private set; }
+    public PlayerEntity Player { get; private set; }
 
     [SerializeField] private int weaponsNumberToCarry = 2;
     [SerializeField] private Tag weaponTag;
@@ -17,6 +19,7 @@ public class PlayerWeaponHandler : MonoBehaviour
     {
         InputHandler = GetComponent<PlayerInputHandler>();
         Weaponry = GetComponentInChildren<PlayerWeaponry>();
+        Player = GetComponent<PlayerEntity>();
     }
     // Start is called before the first frame update
     void Start()
@@ -89,6 +92,9 @@ public class PlayerWeaponHandler : MonoBehaviour
             if(InputHandler.IsAttackButtonPressedUp && !Weaponry.CurrentWeapon.ShouldBeCharged)
             {
                 Weaponry.CurrentWeapon.Attack();
+                Player.Core.EnergySystem.DecreaseStat(Weaponry.CurrentWeapon.BaseWeaponData.EnergyCostPerAttack);
+
+
             }
             else if (InputHandler.IsAttackButtonPressed && Weaponry.CurrentWeapon.ShouldBeCharged)
             {
@@ -98,6 +104,7 @@ public class PlayerWeaponHandler : MonoBehaviour
             else if(InputHandler.IsAttackButtonPressedUp && (Weaponry.CurrentWeapon.ShouldBeCharged && Weaponry.CurrentWeapon.Charged))
             {
                 Weaponry.CurrentWeapon.Attack();
+                Player.Core.EnergySystem.DecreaseStat(Weaponry.CurrentWeapon.BaseWeaponData.EnergyCostPerAttack);
             }
         }
 

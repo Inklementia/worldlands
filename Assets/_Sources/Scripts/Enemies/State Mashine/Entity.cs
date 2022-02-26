@@ -61,7 +61,7 @@ namespace _Sources.Scripts.Enemies.State_Mashine
 
             //Seeker.StartPath(Rb.position, MoveTarget.position, OnPathComplete);
             //InvokeRepeating("UpdatePath", 0f, 2f);
-            Core.HealthSystem.SetMaxHealth(EntityData.MaxHealth);
+            Core.HealthSystem.SetMaxStat(EntityData.MaxHealth);
             //healthBar.SetMaxHealth(Core.HealthSystem.MaxHealth);
             //healthBar.SetHealth(Core.HealthSystem.Health);
         
@@ -122,9 +122,9 @@ namespace _Sources.Scripts.Enemies.State_Mashine
    
             Core.Movement.SetVelocity(EntityData.KnockBackAngle, EntityData.KnockBackSpeed, _lastDamageDirection);
             
-            Core.HealthSystem.DecreaseHealth(attackDetails.DamageAmount);
+            Core.HealthSystem.DecreaseStat(attackDetails.DamageAmount);
 
-            IsDead = Core.HealthSystem.GetCurrentHealth() <= 0 ? true : false;
+            IsDead = Core.HealthSystem.GetCurrentStat() <= 0 ? true : false;
 
             if (IsDead)
             {
