@@ -19,7 +19,7 @@ namespace _Sources.Scripts.Battle
         private void Awake()
         {
             _pooler = ObjectPooler.Instance;
-            healthSystem.SetMaxHealth(enemySpawnerData.MaxHealth);
+            healthSystem.SetMaxStat(enemySpawnerData.MaxHealth);
         }
 
         private void Update()
@@ -45,7 +45,7 @@ namespace _Sources.Scripts.Battle
 
         public void TakeDamage(AttackDetails attackDetails)
         {
-            healthSystem.DecreaseHealth(attackDetails.DamageAmount);
+            healthSystem.DecreaseStat(attackDetails.DamageAmount);
             if (enemySpawnerData.SpawnOnHit)
             {
                 SpawnEnemies();

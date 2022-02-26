@@ -25,7 +25,7 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
 
         [SerializeField] private PlayerDataSO playerData;
 
-        private List<Vector3> _currentMap;
+        private List<Vector3> _currentMap; // ?
 
         private void Awake()
         {
@@ -44,7 +44,9 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
             // core initial funtions
         
             Core.Movement.SetFacingDirection(1);
-            Core.HealthSystem.SetMaxHealth(playerData.MaxHealth);
+            Core.HealthSystem.SetMaxStat(playerData.MaxHealth);
+            Core.EnergySystem.SetMaxStat(playerData.MaxEnergy);
+            Core.ShieldSystem.SetMaxStat(playerData.MaxShield);
 
             //getting components
             Anim = GetComponent<Animator>();
@@ -79,7 +81,7 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
         public virtual void Damage(AttackDetails attackDetails)
         {
             Debug.Log("damaged " + attackDetails.DamageAmount);
-            Core.HealthSystem.DecreaseHealth(attackDetails.DamageAmount);
+            Core.HealthSystem.DecreaseStat(attackDetails.DamageAmount);
             StateMachine.ChangeState(DamageState);
 
             if(attackDetails.Position.x > transform.position.x)
@@ -95,7 +97,7 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
 
             //Core.Movement.SetVelocity(EntityData.KnockBackAngle, EntityData.KnockBackSpeed, _lastDamageDirection);
 
-            if(Core.HealthSystem.GetCurrentHealth() <= 0)
+            if(Core.HealthSystem.GetCurrentStat() <= 0)
             {
                 StateMachine.ChangeState(DeadState);
             }

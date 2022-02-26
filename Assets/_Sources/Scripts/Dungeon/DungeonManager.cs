@@ -130,10 +130,12 @@ namespace _Sources.Scripts.Dungeon
             //set floor tile at current position
             while (_floorList.Count < totalFloorCount )
             {
+                GenerateRoom(currentPos, minRoomSize, maxRoomSize);
+                roomIndex++;
                 int walkLength = Random.Range(minHallLength, maxHallLength);
                 currentPos = GenerateLongWalk(currentPos, walkLength);
-                GenerateRoom(currentPos, minRoomSize,maxRoomSize);
-                roomIndex++;
+               
+               
             }
             playerSpawnPoint.transform.position = _roomList[0].transform.position;
             _roomList[0].SetActive(false);

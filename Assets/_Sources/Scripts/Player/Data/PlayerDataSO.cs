@@ -7,6 +7,8 @@ public class PlayerDataSO : ScriptableObject
 {
     public float MaxHealth = 100;
     public float MaxEnergy = 100;
+    public float MaxShield = 100;
+    public float ShieldRegenSpeed = 10;
 
     [Header("Move State")]
     public float MovementVelocity = 4f;

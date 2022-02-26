@@ -2,39 +2,41 @@
 
 namespace _Sources.Scripts
 {
-    public class StandaloneHealthSystem : MonoBehaviour, IHealthSystem
+    public class StandaloneHealthSystem : MonoBehaviour, IStats
     {
-        public float Health { get; private set; }
-        public float MaxHealth { get; private set; }
-    
+        public float CurrentStat { get; private set; }
+        public float MaxStat { get; private set; }
 
-        public float GetCurrentHealth()
+
+
+        public float GetCurrentStat()
         {
-            return Health;
+            return CurrentStat;
         }
-        public void SetMaxHealth(float maxHealth)
+        public void SetMaxStat(float maxHealth)
         {
-            MaxHealth = maxHealth;
-            Health = maxHealth;
+            MaxStat = maxHealth;
+            CurrentStat = maxHealth;
         }
 
-        public void DecreaseHealth(float damageAmount)
+        public void DecreaseStat(float damageAmount)
         {
-            Health -= damageAmount;
-            if (Health < 0)
+            CurrentStat -= damageAmount;
+            if (CurrentStat < 0)
             {
-                Health = 0;
+                CurrentStat = 0;
                 //Destroy(gameObject);
             }
         }
 
-        public void IncreaseHealth(float healAmount)
+        public void IncreaseStat(float healAmount)
         {
-            Health += healAmount;
-            if (Health > MaxHealth)
+            CurrentStat += healAmount;
+            if (CurrentStat > MaxStat)
             {
-                Health = MaxHealth;
+                CurrentStat = MaxStat;
             }
         }
+
     }
 }
