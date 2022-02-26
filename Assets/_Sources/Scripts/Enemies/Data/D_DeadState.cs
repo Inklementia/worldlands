@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "newDeadStateData", menuName = "Data/State Data/Dead State Data")]
 public class D_DeadState : ScriptableObject
 {
-    public Tag DeathBloodParticlesTag;
-    public Tag DeathChunkParticlesTag;
+    public Tag DeathParticlesTag;
+ 
 }

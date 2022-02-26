@@ -9,20 +9,18 @@ namespace _Sources.Scripts.Dungeon
 {
     public class DungeonManager : MonoBehaviour
     {
-        [SerializeField] private GameObject[] randomEnemies;
-        [Range(0, 100)]
-        [SerializeField] private int enemiesSpawnPercent;
+        [SerializeField] private DungeonEnemySpawnerManager spawnerManager;
 
         [SerializeField] private GameObject[] randomItems;
         [SerializeField] private GameObject[] randomTraps;
-        [SerializeField] private Tilemap tilemap;
+
 
         [SerializeField] private DungeonType dungeonType;
         
         [SerializeField] protected internal GameObject wallPrefab;
         [SerializeField] private GameObject roomPrefab;
         [SerializeField] protected internal GameObject mainFloorTile;
-
+        [SerializeField] private GameObject doorPrefab;
 
         [SerializeField] protected internal Sprite[] floorTiles;
         
@@ -70,6 +68,7 @@ namespace _Sources.Scripts.Dungeon
 
         private List<Vector3> _floorList = new List<Vector3>();
         private List<Vector3> _roomCentresList = new List<Vector3>();
+        private List<Vector3> _enterExitList = new List<Vector3>();
         private List<GameObject> _roomList = new List<GameObject>();
         private Vector2 _hitSize;
   
@@ -128,22 +127,40 @@ namespace _Sources.Scripts.Dungeon
             Vector3 currentPos = Vector3.zero;
             _floorList.Add(currentPos);
             //set floor tile at current position
-            while (_floorList.Count < totalFloorCount )
+            while (_floorList.Count < totalFloorCount)
             {
-                GenerateRoom(currentPos, minRoomSize, maxRoomSize);
+                GenerateRoom(currentPos, minRoomSize, maxRoomSize, false);
                 roomIndex++;
                 int walkLength = Random.Range(minHallLength, maxHallLength);
-                currentPos = GenerateLongWalk(currentPos, walkLength);
-               
-               
+                if (_floorList.Count + walkLength < totalFloorCount)
+                {
+                    currentPos = GenerateLongWalk(currentPos, walkLength);
+                }
+
             }
             playerSpawnPoint.transform.position = _roomList[0].transform.position;
-            _roomList[0].SetActive(false);
-            _roomList[_roomList.Count-1].SetActive(false);
+            RemoveRoomForPlayer();
+         
+
             StartCoroutine(DelayedProgress());
  
         }
 
+        private void DeactivateRoom(int roomIndex)
+        {
+            _roomList[roomIndex].SetActive(false);
+        }
+
+        private void RemoveRoomForPlayer()
+        {
+            for (int i = 0; i < _roomList.Count; i++)
+            {
+                if (_roomList[i].transform.position == playerSpawnPoint.transform.position)
+                {
+                    DeactivateRoom(i);
+                }
+            }
+        }
         private void StartWindingWalker()
         {
             var roomIndex = 0;
@@ -158,7 +175,7 @@ namespace _Sources.Scripts.Dungeon
                 int roll = Random.Range(0, 100);
                 if (roll > hallsFrequency)
                 {
-                    GenerateRoom(currentPos, minRoomSize,maxRoomSize);
+                    GenerateRoom(currentPos, minRoomSize,maxRoomSize, false);
                     roomIndex++;
                 }
                
@@ -184,7 +201,7 @@ namespace _Sources.Scripts.Dungeon
 
             return pos;
         }
-        private void GenerateRoom(Vector3 pos, Vector2 minSize, Vector2 maxSize)
+        private void GenerateRoom(Vector3 pos, Vector2 minSize, Vector2 maxSize, bool boss)
         {
            
             //_roomList.Add(new List<Vector3>());
@@ -194,10 +211,7 @@ namespace _Sources.Scripts.Dungeon
             roomWidth = Random.Range(Mathf.CeilToInt(minSize.x/2f), Mathf.CeilToInt(maxSize.x/2f)); // 4 tiles up and 4 tiles down relating to hallway (1) = 4 + 4 + 1
             roomHeight = Random.Range(Mathf.CeilToInt(minSize.y/2f), Mathf.CeilToInt(maxSize.y/2f));
             
-         
 
-           
-            Vector3 center = new Vector3(Mathf.Floor(roomWidth/2), Mathf.Floor(roomHeight/2), 0);
             bool roomReady = false;
   
             for (int w = -roomWidth; w <= roomWidth; w++)
@@ -216,9 +230,15 @@ namespace _Sources.Scripts.Dungeon
                            
                             _roomCentresList.Add(pos); 
                             GenerateRoomCollider((roomWidth * 2) + 1, (roomHeight * 2) + 1, pos);
-                            
+
+                            if (boss)
+                            {
+                                _enterExitList.Add(pos + new Vector3(roomWidth + 1,0,0));
+                                _enterExitList.Add(pos - new Vector3(roomWidth + 1,0,0));
+                                _enterExitList.Add(pos + new Vector3(0, roomHeight + 1,0));
+                                _enterExitList.Add(pos - new Vector3(0, roomHeight +1,0));
+                            }
                            
-                          
                         }
                     }
                 }
@@ -227,6 +247,28 @@ namespace _Sources.Scripts.Dungeon
        
 
           
+        }
+
+        private void InsertDoorsForBossRoom()
+        {
+            foreach (Vector2 tile in _enterExitList)
+            {
+                var numWallsH = 0;
+                var numWallsV = 0;
+                if (Physics2D.OverlapBox(tile + Vector2.up, _hitSize, 0, whatIsWall)) { numWallsH++; }
+                if (Physics2D.OverlapBox(tile + Vector2.down, _hitSize, 0, whatIsWall)) { numWallsH++; }
+                
+                if (Physics2D.OverlapBox(tile + Vector2.right, _hitSize, 0, whatIsWall)) { numWallsV++; }
+                if (Physics2D.OverlapBox(tile + Vector2.left, _hitSize, 0, whatIsWall)) { numWallsV++; }
+
+                if (numWallsH == 2 || numWallsV == 2)
+                {
+                    GameObject doorGo =
+                        Instantiate(doorPrefab, tile, Quaternion.identity);
+                    doorGo.name = doorPrefab.name;
+                    doorGo.transform.SetParent(gameObject.transform);
+                }
+            }
         }
         private bool CheckIfInFloorList(Vector3 tilePos)
         {
@@ -247,7 +289,7 @@ namespace _Sources.Scripts.Dungeon
 
             GenerateBossPath();
             GenerateFloorTiles();
-                
+            DeactivateRoom(_roomList.Count-1);
             if (gameObject.FindAllWithTag(tileSpawnerTag).Count > 0)
             {
                 yield return null;
@@ -257,8 +299,9 @@ namespace _Sources.Scripts.Dungeon
             
             SetExitDoor();
             CheckGeneratedDungeon();
-            CheckRooms();
-            RecolorTiles();
+            InsertDoorsForBossRoom();
+            //CheckRooms();
+            //RecolorTiles();
 
             // Recalculate only the first grid graph
             var graphToScan = AstarPath.active.data.gridGraph;
@@ -270,6 +313,7 @@ namespace _Sources.Scripts.Dungeon
             GameActions.Current.DungeonGeneratedToSaveMap(_floorList);
         }
 
+        /*
         private void RecolorTiles()
         {
             Color newColor = Random.ColorHSV(0f, 1f, .2f, .5f, 1f, 1f, 1f, 1f);
@@ -286,7 +330,7 @@ namespace _Sources.Scripts.Dungeon
                 //floor.GetComponentInChildren<SpriteRenderer>().color = newColor;
             }
         }
-
+*/
         public void GenerateFloorTiles()
         {
     
@@ -348,8 +392,9 @@ namespace _Sources.Scripts.Dungeon
             if (path >= corridorLengthToBoss)
             {
                 //Debug.Log(CheckAvailableSpaceForBossRoom(currentPos, bossRoomSize));
-                GenerateRoom(currentPos, bossRoomSize, bossRoomSize);
-                
+                GenerateRoom(currentPos, bossRoomSize, bossRoomSize, true);
+              
+             
                 
                /* if (CheckAvailableSpaceForBossRoom(currentPos, bossRoomSize))
                 {
@@ -446,9 +491,6 @@ namespace _Sources.Scripts.Dungeon
                             Collider2D hitBottom = Physics2D.OverlapBox(new Vector2(x, y - 1), _hitSize , 0, whatIsWall);
                             Collider2D hitLeft = Physics2D.OverlapBox(new Vector2(x - 1, y), _hitSize, 0, whatIsWall);
                             
-                    
-
-                            SetRandomEnemies( hitFloor, hitTop,  hitRight,  hitBottom, hitLeft);
                         }
                     }
                 }
@@ -460,41 +502,56 @@ namespace _Sources.Scripts.Dungeon
         public void SetWallTiles(int x, int y)
         {
             Collider2D hitWall = Physics2D.OverlapBox(new Vector2(x, y), _hitSize, 0, whatIsWall);
-            
+
             // checking if there is any wall tiles around current tile
-            Collider2D hitTop = Physics2D.OverlapBox(new Vector2(x, y + 1), _hitSize , 0, whatIsWall);
-            Collider2D hitRight = Physics2D.OverlapBox(new Vector2(x + 1, y), _hitSize , 0, whatIsWall);
-            Collider2D hitBottom = Physics2D.OverlapBox(new Vector2(x, y - 1), _hitSize , 0, whatIsWall);
+            Collider2D hitTop = Physics2D.OverlapBox(new Vector2(x, y + 1), _hitSize, 0, whatIsWall);
+            Collider2D hitRight = Physics2D.OverlapBox(new Vector2(x + 1, y), _hitSize, 0, whatIsWall);
+            Collider2D hitBottom = Physics2D.OverlapBox(new Vector2(x, y - 1), _hitSize, 0, whatIsWall);
             Collider2D hitLeft = Physics2D.OverlapBox(new Vector2(x - 1, y), _hitSize, 0, whatIsWall);
-                    
-            Collider2D hitTopFloor = Physics2D.OverlapBox(new Vector2(x, y + 1), _hitSize , 0, whatIsFloor);
-            Collider2D hitRightFloor = Physics2D.OverlapBox(new Vector2(x + 1, y), _hitSize , 0, whatIsFloor);
-            Collider2D hitBottomFloor = Physics2D.OverlapBox(new Vector2(x, y - 1), _hitSize , 0, whatIsFloor);
+
+            Collider2D hitTopFloor = Physics2D.OverlapBox(new Vector2(x, y + 1), _hitSize, 0, whatIsFloor);
+            Collider2D hitRightFloor = Physics2D.OverlapBox(new Vector2(x + 1, y), _hitSize, 0, whatIsFloor);
+            Collider2D hitBottomFloor = Physics2D.OverlapBox(new Vector2(x, y - 1), _hitSize, 0, whatIsFloor);
             Collider2D hitLeftFloor = Physics2D.OverlapBox(new Vector2(x - 1, y), _hitSize, 0, whatIsFloor);
 
             // assigning bit value if there is any wall tiles around current one
             int bitValue = 0;
-            
+
             if (hitWall)
+            {
+                if (!hitTop && hitTopFloor)
                 {
-                    if (!hitTop && hitTopFloor) { bitValue += 1; }
-                    if (!hitRight && hitRightFloor) { bitValue += 2; }
-                    if (!hitBottom && hitBottomFloor) { bitValue += 4; }
-                    if (!hitLeft && hitLeftFloor) { bitValue += 8; }
-
-                    //if (bitValue > 0)
-                   // {
-                        // setting correct edge
-                        GameObject wallGo =
-                            Instantiate(wallTiles[bitValue], new Vector2(x, y), Quaternion.identity);
-                        wallGo.name = wallTiles[bitValue].name;
-                        wallGo.transform.SetParent(hitWall.transform);
-                   // }
-
-                   
-                    //Debug.Log(bitValue);
+                    bitValue += 1;
                 }
-            
+
+                if (!hitRight && hitRightFloor)
+                {
+                    bitValue += 2;
+                }
+
+                if (!hitBottom && hitBottomFloor)
+                {
+                    bitValue += 4;
+                }
+
+                if (!hitLeft && hitLeftFloor)
+                {
+                    bitValue += 8;
+                }
+
+                //if (bitValue > 0)
+                // {
+                // setting correct edge
+                GameObject wallGo =
+                    Instantiate(wallTiles[bitValue], new Vector2(x, y), Quaternion.identity);
+                wallGo.name = wallTiles[bitValue].name;
+                wallGo.transform.SetParent(hitWall.transform);
+                // }
+
+
+                //Debug.Log(bitValue);
+            }
+
             if (useRoundedEdges)
             {
                 if (bitValue > 0)
@@ -507,42 +564,23 @@ namespace _Sources.Scripts.Dungeon
                 }
             }
         }
-        
-        private void SetRandomEnemies( Collider2D hitFloor, Collider2D hitTop,  Collider2D hitRight,  Collider2D hitBottom,  Collider2D hitLeft)
-        {
-            if (randomEnemies.Length > 0)
-            {
-                if ((hitTop || hitRight || hitBottom || hitLeft)
-                    && !(hitTop && hitBottom)
-                    && !(hitRight && hitLeft)){
-                            
-                    int roll = Random.Range(1, 101);
-                    if (roll <= enemiesSpawnPercent)
-                    {
-                        int itemIndex = Random.Range(0, randomEnemies.Length);
-                        GameObject itemGo = Instantiate(randomEnemies[itemIndex], hitFloor.transform.position,
-                            Quaternion.identity);
-                        SpawnedEnemies.Add(itemGo);
-                        itemGo.name = randomEnemies[itemIndex].name;
-                        itemGo.transform.SetParent(hitFloor.transform);
-                    }
-                }
-            }
-            //GameEventSystem.current.DungeonGenerated();
-            
-        }
-        
+
         private void GenerateRoomCollider(int width, int height, Vector3 roomCenter)
         {
             GameObject roomCollider = Instantiate(colliderPrefab, roomCenter, Quaternion.identity);
             roomCollider.name = colliderPrefab.name;
             roomCollider.transform.SetParent(gameObject.transform);
             roomCollider.GetComponent<BoxCollider2D>().size = new Vector2(width, height);
+            
+            //set Spawner
+            spawnerManager.SetSpawner(roomCenter, roomCollider.transform);
+            
             _roomList.Add(roomCollider);
 
         }
         private void CheckRooms()
         {
+            
             for (int i = 0; i < _roomCentresList.Count; i++)
             {
                 if(_roomCentresList[i] == _roomCentresList[i] + new Vector3(1, 0, 0))
@@ -571,7 +609,13 @@ namespace _Sources.Scripts.Dungeon
                     Gizmos.DrawCube(tile, Vector3.one); 
                 
             }
-            
+            Gizmos.color = Color.blue;
+            foreach (Vector3 tile in _enterExitList)
+            {
+              
+                Gizmos.DrawCube(tile, Vector3.one); 
+                
+            }
         }
     }
 }

@@ -12,6 +12,8 @@ namespace _Sources.Scripts.Enemies.State_Mashine
         public FiniteStateMashine StateMachine;
         public D_Entity EntityData;
         public EnemyCore Core { get; private set; }
+        public GameObject Dead { get; private set; }
+        public GameObject Alive { get; private set; }
         public Rigidbody2D Rb { get; private set; }
         public Animator Anim { get; private set; }
   
@@ -37,16 +39,17 @@ namespace _Sources.Scripts.Enemies.State_Mashine
         //public delegate void DropAction();
 
        // public static event DropAction OnDrop;
+
        [SerializeField] private Tag weaponGeneratorTag;
        private WeaponGenerator _weaponGenerator;
         public virtual void Awake()
         {
-            Anim = GetComponent<Animator>();
-            Rb = GetComponent<Rigidbody2D>();
-            AnimationToStateMachine = GetComponent<AnimationToStateMachine>();
+            Anim = GetComponentInChildren<Animator>();
+            Rb = GetComponentInChildren<Rigidbody2D>();
+            AnimationToStateMachine = GetComponentInChildren<AnimationToStateMachine>();
             Core = GetComponentInChildren<EnemyCore>();
 
-            Seeker = GetComponent<Seeker>();
+            Seeker = GetComponentInChildren<Seeker>();
        
             StartingPos = transform.position;
       
@@ -67,6 +70,8 @@ namespace _Sources.Scripts.Enemies.State_Mashine
         
             //Target = Core.PlayerDetectionSenses.Player;
             _weaponGenerator = gameObject.FindWithTag(weaponGeneratorTag).GetComponent<WeaponGenerator>();
+            Dead = transform.Find("Dead").gameObject;
+            Alive = transform.Find("Alive").gameObject;
         }
         public virtual void Update()
         {

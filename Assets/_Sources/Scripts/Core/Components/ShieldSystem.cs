@@ -1,12 +1,10 @@
-using _Sources.Scripts.Core.Components;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ShieldSystem : StatsComponent
+namespace _Sources.Scripts.Core.Components
 {
-    private void ResetShield()
+    public class ShieldSystem : StatsComponent
     {
+        private void ResetShield()
+        {
         
+        }
     }
 }

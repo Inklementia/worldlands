@@ -18,8 +18,18 @@ namespace _Sources.Scripts.Battle
 
         private void Awake()
         {
-            _pooler = ObjectPooler.Instance;
+           
             healthSystem.SetMaxStat(enemySpawnerData.MaxHealth);
+        }
+
+        private void OnEnable()
+        {
+            
+        }
+
+        private void Start()
+        {
+            _pooler = ObjectPooler.Instance;
         }
 
         private void Update()
@@ -29,6 +39,8 @@ namespace _Sources.Scripts.Battle
 
         public void ActivateSpawner()
         {
+          
+            
             if (!enemySpawnerData.SpawnOnHit)
             {
                 SpawnEnemies();
@@ -66,8 +78,9 @@ namespace _Sources.Scripts.Battle
             //transform.DOShakeScale(effectDuration, new Vector3(shakeStrength, shakeStrength, shakeStrength), shakeVibrato, shakeRandomness).SetLoops(1, LoopType.Restart);
             //transform.DOShakeRotation(effectDuration, new Vector3(0, 0, 20f), shakeVibrato, shakeRandomness).SetLoops(1, LoopType.Restart);
 
-            for (int i = 0; i < enemySpawnerData.NumberOfEnemies; i++)
+            for (int i = 0; i < enemySpawnerData.NumberOfEnemies-1; i++)
             {
+                GameObject enemyGO = _pooler.SpawnFromPool(enemySpawnerData.SpawnEnemyTag, transform.position , Quaternion.identity);
                 StartCoroutine(SpawnSingle());
 
             }
@@ -76,8 +89,12 @@ namespace _Sources.Scripts.Battle
         private IEnumerator SpawnSingle()
         {
             Vector3 randomOffset = new Vector3(Random.Range(0, 3),Random.Range(0, 3),Random.Range(0, 3));
-            GameObject enemyGO = _pooler.SpawnFromPool(enemySpawnerData.SpawnEnemyTag, transform.position + randomOffset, Quaternion.identity);
             yield return new WaitForSeconds(enemySpawnerData.SpawnInterval);
+           
+            GameObject enemyGO = _pooler.SpawnFromPool(enemySpawnerData.SpawnEnemyTag, transform.position + randomOffset, Quaternion.identity);
+          
+           
+           
         }
         
     }

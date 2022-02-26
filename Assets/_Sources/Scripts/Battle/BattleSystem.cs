@@ -5,13 +5,14 @@ namespace _Sources.Scripts.Battle
 {
     public partial class BattleSystem : MonoBehaviour
     {
-        [SerializeField] private EnemySpawner enemySpawner;
+        private EnemySpawner _enemySpawner;
         [SerializeField] private ColliderTrigger colliderTrigger;
 
         private BattleState _currentBattleState;
         
         private void Awake()
         {
+           
             _currentBattleState = BattleState.Idle;
             //enemySpawner = GetComponent<EnemySpawner>();
             // register enemy spawner 
@@ -19,6 +20,7 @@ namespace _Sources.Scripts.Battle
 
         private void Start()
         {
+            _enemySpawner = GetComponentInChildren<EnemySpawner>();
             colliderTrigger.OnEnterTrigger += OnPlayerEnterRoom;
         }
         
@@ -34,7 +36,7 @@ namespace _Sources.Scripts.Battle
 
         private void StartBattle()
         {
-            enemySpawner.ActivateSpawner();
+            _enemySpawner.ActivateSpawner();
         }
     }
 }
