@@ -18,9 +18,9 @@ namespace _Sources.Scripts.Dungeon
         [SerializeField] private DungeonType dungeonType;
         
         [SerializeField] protected internal GameObject wallPrefab;
-        [SerializeField] private GameObject roomPrefab;
         [SerializeField] protected internal GameObject mainFloorTile;
         [SerializeField] private GameObject doorPrefab;
+        
 
         [SerializeField] protected internal Sprite[] floorTiles;
         
@@ -303,14 +303,24 @@ namespace _Sources.Scripts.Dungeon
             //CheckRooms();
             //RecolorTiles();
 
-            // Recalculate only the first grid graph
-            var graphToScan = AstarPath.active.data.gridGraph;
-            AstarPath.active.Scan(graphToScan);
+            RecalculateAStar();
 
-        
-            
+
             GameActions.Current.DungeonGenerated();
             GameActions.Current.DungeonGeneratedToSaveMap(_floorList);
+        }
+
+        private void RecalculateAStar()
+        {
+            // Recalculate only the first grid graph
+            var graphToScan = AstarPath.active.data.gridGraph;
+            int width = (int) Mathf.Abs(MinX - MaxX) + 1;
+            int depth = (int) Mathf.Abs(MinY - MaxY) + 1;
+            var nodeSize = 1f;
+            graphToScan.SetDimensions(width, depth, nodeSize);
+            graphToScan.center.x = (MinX + MaxX) / 2;
+            graphToScan.center.y = (MinY + MaxY) / 2;
+            AstarPath.active.Scan(graphToScan);
         }
 
         /*
