@@ -17,7 +17,7 @@ public class HitWallsSFX : MonoBehaviour
 
         if (col.HasTag(triggerTag))
         {
-            wallAnim.SetTrigger("trigger");
+            //wallAnim.SetTrigger("trigger");
             //hitWallParticlesFeedback.Play( transform.position, 1);
             
         }

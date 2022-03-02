@@ -22,6 +22,7 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
 
         public Animator Anim { get; private set; }
         public PlayerInputHandler InputHandler { get; private set; }
+ 
 
         [SerializeField] private PlayerDataSO playerData;
 

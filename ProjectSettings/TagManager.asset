@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SpawnPoint
   - PlayerCamera
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Wall
   - Enemy
   - Player
-  - 
+  - Fog
   - 
   - 
   - 
@@ -63,6 +64,9 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 3215441047
+    locked: 0
+  - name: Fog
+    uniqueID: 3015578415
     locked: 0
   - name: UI
     uniqueID: 1426700563

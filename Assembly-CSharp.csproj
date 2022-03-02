@@ -67,6 +67,7 @@
      <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_Entity.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_MeleeAttackState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Battle\EnemySpawnerSO.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Dungeon\FogOfWar.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\GameStates\IState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\Weapon Features\ChargeableWeapon.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\MoveState.cs" />
@@ -201,6 +202,7 @@
      <Compile Include="Assets\_Sources\Scripts\Data\Vector3Data.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_PatrolState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_DeadState.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Dungeon\Fog.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\PatrolState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonFromYoutube\TilemapVisualizer.cs" />
@@ -233,6 +235,7 @@
      <Compile Include="Assets\_Sources\Scripts\StandaloneHealthSystem.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\LookAtEnemy.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\BaseWeaponDataSO.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Player\Defogger.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\IdleState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\PlayerCore.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
@@ -240,6 +243,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Dungeon\FogSO.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Services\Input\StandaloneInputService.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\Weapon Features\RotatableWeapon.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Services\PersistentProgress\PersistentProgressService.cs" />
