@@ -17,7 +17,7 @@ public class MeleeEnemy_PlayerDetectedState : PlayerDetectedState
     public override void Enter()
     {
         base.Enter();
-        _enemy.StopMovement();
+        _enemy.Core.Movement.StopMovement();
         //_enemy.ChargeState.SetWhereToCharge(PlayerDetectedAt);
         //Debug.Log("Player detected a: " + PlayerDetectedAt);
     }

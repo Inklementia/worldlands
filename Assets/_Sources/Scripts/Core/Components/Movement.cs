@@ -1,10 +1,10 @@
+using DG.Tweening;
 using UnityEngine;
 
 namespace _Sources.Scripts.Core.Components
 {
     public class Movement : CoreComponent
     {
-   
         public Rigidbody2D Rb { get; private set; }
 
         //public Vector2 CurrentVelocity { get; private set; }
@@ -32,6 +32,11 @@ namespace _Sources.Scripts.Core.Components
             //CurrentVelocity = Vector2.zero;
         }
 
+        public void StopMovement()
+        {
+            Rb.DOPause();
+            SetVelocityZero();
+        }
         //used for enemies
         public virtual void SetVelocity(Vector2 direction, float speed)
         {

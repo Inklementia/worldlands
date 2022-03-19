@@ -6,6 +6,10 @@ namespace _Sources.Scripts.Data
     public class PlayerProgress
     {
         public WorldData WorldData;
-        
+
+        public PlayerProgress(string initialLevelScene)
+        {
+            WorldData = new WorldData(initialLevelScene);
+        }
     }
 }

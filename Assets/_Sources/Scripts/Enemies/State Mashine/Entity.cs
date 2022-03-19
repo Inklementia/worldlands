@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace _Sources.Scripts.Enemies.State_Mashine
 {
-    public class Entity : MonoBehaviour, IDamageable
+    public class Entity : MonoBehaviour
     {
         public FiniteStateMashine StateMachine;
         public D_Entity EntityData;
@@ -23,19 +23,7 @@ namespace _Sources.Scripts.Enemies.State_Mashine
 
         // Pathfinding variables // probably move to coreComponent
         public Seeker Seeker { get; private set; }
- 
 
-        //[SerializeField] private HealthBar healthBar;
-  
-
-        //public Transform MoveTarget;
-
-        private float _knockbackStartTime;
-
-        private int _lastDamageDirection;
-
-        public bool IsDead {  get; protected set; }
-        
         //public delegate void DropAction();
 
        // public static event DropAction OnDrop;
@@ -58,6 +46,7 @@ namespace _Sources.Scripts.Enemies.State_Mashine
 
         public virtual void Start()
         {
+            Core.HealthSystem.IsDead = false;
             Core.Movement.SetFacingDirection(-1);
        
             StateMachine = new FiniteStateMashine();
@@ -75,7 +64,7 @@ namespace _Sources.Scripts.Enemies.State_Mashine
         }
         public virtual void Update()
         {
-            CheckKnockback();
+       
 
             StateMachine.CurrentState.LogicUpdate();
         }
@@ -84,59 +73,26 @@ namespace _Sources.Scripts.Enemies.State_Mashine
         {
             StateMachine.CurrentState.PhysicsUpdate();
         }
-
-        public void CheckKnockback()
-        {
-            if (Time.time >= _knockbackStartTime + EntityData.KnockbackDuration)
-            {
-                Core.Movement.SetVelocityZero();
-            }
-        }
+        
 
         public Vector3 GetTargetPosition()
         {
             return Core.PlayerDetectionSenses.Player.transform.position;
         }
-
-        public virtual void GoTo(Vector2 point, float speed)
-        {
-            var distance = Vector2.Distance(transform.position, point);
-            Rb.DOMove(point, distance / speed);
-            //transform.position = Vector2.MoveTowards(transform.position, MovePos, speed * Time.deltaTime);
-        }
-
-        public virtual void StopMovement()
-        {
-            Rb.DOPause();
-        }
-
+        
         // DAMAGE 
-        public virtual void TakeDamage(AttackDetails attackDetails)
+        public virtual void Damage(AttackDetails attackDetails)
         {
-  
-            if(attackDetails.Position.x > transform.position.x)
-            {
-                _lastDamageDirection = -1;
-            }
-            else
-            {
-                _lastDamageDirection = 1;
-            }
-   
-            _knockbackStartTime = Time.time;
-   
-            Core.Movement.SetVelocity(EntityData.KnockBackAngle, EntityData.KnockBackSpeed, _lastDamageDirection);
-            
-            Core.HealthSystem.DecreaseStat(attackDetails.DamageAmount);
 
-            IsDead = Core.HealthSystem.GetCurrentStat() <= 0 ? true : false;
+            Core.CombatSystem.TakeDamage(attackDetails);
 
-            if (IsDead)
+            if (Core.HealthSystem.IsDead)
             {
                 GameActions.Current.EnemyKilledTrigger(this.gameObject);
                 Debug.Log("Enemy KIlled");
             }
-        
+            
+            
         }
 
         public virtual void OnDrawGizmos()

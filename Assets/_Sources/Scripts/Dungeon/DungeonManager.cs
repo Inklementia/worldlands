@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,9 +11,6 @@ namespace _Sources.Scripts.Dungeon
     public class DungeonManager : MonoBehaviour
     {
         [SerializeField] private DungeonEnemySpawnerManager spawnerManager;
-
-        [SerializeField] private GameObject[] randomItems;
-        [SerializeField] private GameObject[] randomTraps;
 
 
         [SerializeField] private DungeonType dungeonType;
@@ -53,11 +51,8 @@ namespace _Sources.Scripts.Dungeon
         [SerializeField] private Vector2 maxRoomSize = new Vector2(7,7);
         
         [Header("Boss")]
-        [SerializeField] private bool finalDungeonInWorld;
         [SerializeField] private int corridorLengthToBoss = 20;
         [SerializeField] private Vector2 bossRoomSize  = new Vector2(9,9);
-        [SerializeField] private GameObject boss;
-
 
         [SerializeField] private GameObject playerSpawnPoint;
 
@@ -71,15 +66,24 @@ namespace _Sources.Scripts.Dungeon
         private List<Vector3> _enterExitList = new List<Vector3>();
         private List<GameObject> _roomList = new List<GameObject>();
         private Vector2 _hitSize;
-  
-      
+
+        private void OnEnable()
+        {
+            //GameActions.Current.OnLevelLoaded += GenerateDungeon;
+        }
+
+        private void OnDisable()
+        {
+            //GameActions.Current.OnLevelLoaded -= GenerateDungeon;
+        }
 
         private void Start()
         {
            
-            
+            _hitSize = Vector2.one * Constants.HitSize;
             
           //  GenerateField();
+          
             switch (dungeonType)
             {
                 case DungeonType.Caverns:
@@ -94,6 +98,7 @@ namespace _Sources.Scripts.Dungeon
             }
         }
 
+        
         private void Update()
         {
             // for testing
@@ -101,6 +106,11 @@ namespace _Sources.Scripts.Dungeon
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
+        }
+
+        private void GenerateDungeon(List<Vector3> mapTiles)
+        {
+            StartCoroutine(DelayedProgress());
         }
         // for cavern type dungeon
         private void StartRandomWalker()
@@ -185,22 +195,22 @@ namespace _Sources.Scripts.Dungeon
 
 
         private Vector3 GenerateLongWalk(Vector3 pos, int walkLength)
-        {
-            // creating halls
-            Vector3 walkDirection = Direction2D.GetRandomCardinalDirection();
-           
-            for (int i = 0; i < walkLength; i++)
-            {
-                if (!CheckIfInFloorList(pos + walkDirection)) 
-                {
-                    _floorList.Add(pos + walkDirection);
-                }
-
-                pos += walkDirection;
-            }
-
-            return pos;
-        }
+                 {
+                     // creating halls
+                     Vector3 walkDirection = Direction2D.GetRandomCardinalDirection();
+                    
+                     for (int i = 0; i < walkLength; i++)
+                     {
+                         if (!CheckIfInFloorList(pos + walkDirection)) 
+                         {
+                             _floorList.Add(pos + walkDirection);
+                         }
+         
+                         pos += walkDirection;
+                     }
+         
+                     return pos;
+                 }
         private void GenerateRoom(Vector3 pos, Vector2 minSize, Vector2 maxSize, bool boss)
         {
            
@@ -307,7 +317,7 @@ namespace _Sources.Scripts.Dungeon
 
 
             GameActions.Current.DungeonGenerated();
-            GameActions.Current.DungeonGeneratedToSaveMap(_floorList);
+            //GameActions.Current.DungeonGeneratedToSaveMap(_floorList);
         }
 
         private void RecalculateAStar()
@@ -347,15 +357,11 @@ namespace _Sources.Scripts.Dungeon
             // generating tiles (they change to floor)
             for (int i = 0; i < _floorList.Count; i++)
             {
-                //Vector2Int targetTilePos = new Vector2Int((int)_floorList[i].x, (int)_floorList[i].y);
-                //floorTilemap.SetTile((Vector3Int)targetTilePos, floorTile);
-                
                 GameObject tileGo = Instantiate(tilePrefab, _floorList[i], Quaternion.identity);
                //GameActions.Current.TilePlacedTrigger(randomColor);
                 tileGo.name = tilePrefab.name;
                 tileGo.transform.SetParent(transform);
-                
-                //tileGo.GetComponent<SpriteRenderer>().material = materials[randomMaterialIndex];
+
             }
         }
         private void SetExitDoor()

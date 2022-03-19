@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
 {
-    public class PlayerEntity : MonoBehaviour, ISavedProgress
+    public class PlayerEntity : MonoBehaviour
     {
         #region States
         public PlayerCore Core { get; private set; }
@@ -25,8 +25,6 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
  
 
         [SerializeField] private PlayerDataSO playerData;
-
-        private List<Vector3> _currentMap; // ?
 
         private void Awake()
         {
@@ -45,6 +43,7 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
             // core initial funtions
         
             Core.Movement.SetFacingDirection(1);
+            Core.HealthSystem.IsDead = false;
             Core.HealthSystem.SetMaxStat(playerData.MaxHealth);
             Core.EnergySystem.SetMaxStat(playerData.MaxEnergy);
             Core.ShieldSystem.SetMaxStat(playerData.MaxShield);
@@ -59,18 +58,11 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
             //RightInputHandler.DisableWeaponSwitchButton();
         }
 
-        private void OnEnable()
-        {
-            GameActions.Current.OnDungeonGeneratedToSaveMap += SaveCurrentMap;
-        }
-
-        private void OnDisable()
-        {
-            GameActions.Current.OnDungeonGeneratedToSaveMap -= SaveCurrentMap;
-        }
 
         private void Update()
         {
+            Core.LogicUpdate();
+            
             StateMachine.CurrentState.LogicUpdate();  
 
         }
@@ -79,46 +71,23 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
             StateMachine.CurrentState.PhysicsUpdate();
         }
 
-        public virtual void Damage(AttackDetails attackDetails)
+        public void Damage(AttackDetails attackDetails)
         {
-            Debug.Log("damaged " + attackDetails.DamageAmount);
-            Core.HealthSystem.DecreaseStat(attackDetails.DamageAmount);
-            StateMachine.ChangeState(DamageState);
-
-            if(attackDetails.Position.x > transform.position.x)
+            if(Core.HealthSystem.IsDead)
             {
-                // _lastDamageDirection = -1;
+                StateMachine.ChangeState(DeadState);
+
             }
             else
             {
-                //_lastDamageDirection = 1;
+                StateMachine.ChangeState(DamageState);
             }
+            
 
-            //_knockbackStartTime = Time.time;
-
-            //Core.Movement.SetVelocity(EntityData.KnockBackAngle, EntityData.KnockBackSpeed, _lastDamageDirection);
-
-            if(Core.HealthSystem.GetCurrentStat() <= 0)
-            {
-                StateMachine.ChangeState(DeadState);
-            }
         }
 
 
-        public void LoadProgress(PlayerProgress progress)
-        {
-            //progress.WorldData.PositionOnLevel = new PositionOnLevel(1,1,transform.position.AsVectorData(),)
-        }
-
-        public void UpdateProgress(PlayerProgress progress)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private void SaveCurrentMap(List<Vector3> tiles)
-        {
-            _currentMap = tiles;
-        }
+   
     }
 }
   

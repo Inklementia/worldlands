@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Sources.Scripts.Weapons;
 using _Sources.Scripts.Weapons.Projectiles;
 using MoreMountains.Feedbacks;
 using UnityEngine;
@@ -68,7 +69,9 @@ public class SlowDownProjectile : BaseProjectile
         Vector2 direction,
         float travelDistance,
         float lifeDuration,
-        float dragMultiplier)
+        float dragMultiplier,
+        ShootingWeapon weapon
+        )
     {
         DamageAmount = damage;
 

@@ -15,5 +15,8 @@ namespace _Sources.Scripts.Infrastructure.Factory
             _assets.Instantiate(AssetPath.PlayerPath, playerSpawnPoint.transform.position);
         public void CreateHud() => 
             _assets.Instantiate(AssetPath.HudPath);
+
+        public GameObject CreateWorldManager() => 
+            _assets.Instantiate(AssetPath.WorldPath, Vector3.zero);
     }
 }

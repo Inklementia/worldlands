@@ -313,7 +313,8 @@ namespace _Sources.Scripts.Weapons
                 direction,
                 baseWeaponData.ProjectileTravelDistance,
                 baseWeaponData.ProjectileLifeDuration,
-                baseWeaponData.ProjectileDragMultiplier
+                baseWeaponData.ProjectileDragMultiplier,
+                this
             );
         }
 

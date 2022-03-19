@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace _Sources.Scripts.Dungeon.Dungeon
+namespace _Sources.Scripts.Dungeon.DungeonFromYoutube
 {
     public class CorridorFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     {

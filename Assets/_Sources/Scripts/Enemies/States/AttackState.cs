@@ -29,7 +29,7 @@ namespace _Sources.Scripts.Enemies.States
 
             Entity.AnimationToStateMachine.AttackState = this;
             IsAnimationFinished = false;
-            Entity.StopMovement();
+            Entity.Core.Movement.StopMovement();
         }
 
         public override void Exit()

@@ -22,7 +22,7 @@ public class MeleeEnemy_DamageState : DamageState
     {
         base.Enter();
 
-        _enemy.StopMovement();
+        _enemy.Core.Movement.StopMovement();
         
 
     }

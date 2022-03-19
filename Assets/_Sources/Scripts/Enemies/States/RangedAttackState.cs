@@ -15,13 +15,13 @@ namespace _Sources.Scripts.Enemies.States
         protected bool InMinAgroRange;
         protected bool PerformCloseRangeAction;
 
-        protected ShootingWeapon ShootingWeapon;
+        protected Transform Target;
         
         public RangedAttackState(Entity entity, FiniteStateMashine stateMachine, string animBoolName, Transform attackPosition, D_RangedAttackState stateData, ShootingWeapon shootingWeapon) :
             base(entity, stateMachine, animBoolName, attackPosition)
         {
             StateData = stateData;
-            ShootingWeapon = shootingWeapon;
+         
         }
 
         public override void DoChecks()
@@ -57,7 +57,7 @@ namespace _Sources.Scripts.Enemies.States
         {
             base.TriggerAttack();
             
-            ShootingWeapon.Attack();
+            
         }
 
         public override void FinishAttack()

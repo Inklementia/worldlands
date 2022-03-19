@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using _Sources.Scripts.Dungeon.Dungeon.Data;
+using _Sources.Scripts.Dungeon.DungeonFromYoutube.Data;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace _Sources.Scripts.Dungeon.Dungeon
+namespace _Sources.Scripts.Dungeon.DungeonFromYoutube
 {
     public class SimpleRandomWalkDungeonGenerator : AbstractDungeonGenerator
     {

@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2640733975747643053}
   - component: {fileID: 3747393642278897022}
   - component: {fileID: 4134594028322502451}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spider_EnemySpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

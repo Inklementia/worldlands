@@ -1,40 +1,40 @@
 fileFormatVersion: 2
-guid: 6924be46b26f363478e15396515baef7
+guid: 022c507388c6e8e4fbd3d0860ac0a78d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3963239019028892749
-    second: spider_spritesheet_0
+      213: -1396518828625404284
+    second: spider_spritesheed_0
   - first:
-      213: 7432796771117950109
-    second: spider_spritesheet_1
+      213: 5241675907106841449
+    second: spider_spritesheed_1
   - first:
-      213: 2850625901149325257
-    second: spider_spritesheet_2
+      213: -1784131162108478951
+    second: spider_spritesheed_2
   - first:
-      213: 4828013660601284994
-    second: spider_spritesheet_3
+      213: 5082869383477802547
+    second: spider_spritesheed_3
   - first:
-      213: -5038644933642356911
-    second: spider_spritesheet_4
+      213: -8723634906924472151
+    second: spider_spritesheed_4
   - first:
-      213: 7175327662696506143
-    second: spider_spritesheet_5
+      213: -5622781607581117228
+    second: spider_spritesheed_5
   - first:
-      213: 7178501752612788991
-    second: spider_spritesheet_6
+      213: 7508746675754080795
+    second: spider_spritesheed_6
   - first:
-      213: -375483506418693886
-    second: spider_spritesheet_7
+      213: -4966349701861746154
+    second: spider_spritesheed_7
   - first:
-      213: 8077391884932095751
-    second: spider_spritesheet_8
+      213: -5404645863916839243
+    second: spider_spritesheed_8
   - first:
-      213: -3832718115553094016
-    second: spider_spritesheet_9
+      213: 3610740200150770281
+    second: spider_spritesheed_9
   - first:
-      213: -5503369545075204969
-    second: spider_spritesheet_10
+      213: -1816283188986220241
+    second: spider_spritesheed_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -98,7 +98,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -110,7 +110,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -122,7 +122,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spider_spritesheet_0
+      name: spider_spritesheed_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 100
-        width: 100
-        height: 100
+        y: 200
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,41 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4c4f21c3e0400730800000000000000
-      internalID: 3963239019028892749
+      spriteID: 48e53a146819e9ce0800000000000000
+      internalID: -1396518828625404284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spider_spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d94e72e5849962760800000000000000
-      internalID: 7432796771117950109
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spider_spritesheet_2
+      name: spider_spritesheed_1
       rect:
         serializedVersion: 2
         x: 200
-        y: 100
-        width: 100
-        height: 100
+        y: 200
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,41 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c7888167257f8720800000000000000
-      internalID: 2850625901149325257
+      spriteID: 963a3d6477c2eb840800000000000000
+      internalID: 5241675907106841449
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spider_spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2897fda28dc800340800000000000000
-      internalID: 4828013660601284994
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spider_spritesheet_4
+      name: spider_spritesheed_2
       rect:
         serializedVersion: 2
         x: 400
-        y: 100
-        width: 100
-        height: 100
+        y: 200
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 157fce4f023231ab0800000000000000
-      internalID: -5038644933642356911
+      spriteID: 91ab1d9292e7d37e0800000000000000
+      internalID: -1784131162108478951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spider_spritesheet_5
+      name: spider_spritesheed_3
       rect:
         serializedVersion: 2
-        x: 500
-        y: 100
-        width: 100
-        height: 100
+        x: 600
+        y: 200
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,20 +213,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f132f022e72e39360800000000000000
-      internalID: 7175327662696506143
+      spriteID: 33637e926caf98640800000000000000
+      internalID: 5082869383477802547
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spider_spritesheet_6
+      name: spider_spritesheed_4
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a8a19e954c6fe680800000000000000
+      internalID: -8723634906924472151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spider_spritesheed_5
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d4178e2bedd7f1b0800000000000000
+      internalID: -5622781607581117228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spider_spritesheed_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 100
-        height: 100
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,41 +276,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffa11088f492f9360800000000000000
-      internalID: 7178501752612788991
+      spriteID: b1a97bc815d643860800000000000000
+      internalID: 7508746675754080795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spider_spritesheet_7
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 20945e48db30acaf0800000000000000
-      internalID: -375483506418693886
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spider_spritesheet_8
+      name: spider_spritesheed_7
       rect:
         serializedVersion: 2
         x: 200
         y: 0
-        width: 100
-        height: 100
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,41 +297,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70f100d9f19a81070800000000000000
-      internalID: 8077391884932095751
+      spriteID: 61ad92e424bf31bb0800000000000000
+      internalID: -4966349701861746154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spider_spritesheet_9
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 086d0463e237fcac0800000000000000
-      internalID: -3832718115553094016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spider_spritesheet_10
+      name: spider_spritesheed_8
       rect:
         serializedVersion: 2
         x: 400
         y: 0
-        width: 100
-        height: 100
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,8 +318,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79cd61e8e8a10a3b0800000000000000
-      internalID: -5503369545075204969
+      spriteID: 5bed378c837def4b0800000000000000
+      internalID: -5404645863916839243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spider_spritesheed_9
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 962a53ed41deb1230800000000000000
+      internalID: 3610740200150770281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spider_spritesheed_10
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2176fc00144bc6e0800000000000000
+      internalID: -1816283188986220241
       vertices: []
       indices: 
       edges: []

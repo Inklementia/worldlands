@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8006160388298784426}
   - component: {fileID: 242260179985002564}
   - component: {fileID: 2358437944915835506}
+  - component: {fileID: 2334043084213558382}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -71,7 +72,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c02ec6899696425590d5a2571721a9ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawner: {fileID: 0}
   colliderTrigger: {fileID: 2358437944915835506}
 --- !u!114 &2358437944915835506
 MonoBehaviour:
@@ -86,3 +86,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerTag: {fileID: 11400000, guid: 179e93f8c5d4574478cd4f2f2deddede, type: 2}
+  triggerDeleteTag: {fileID: 11400000, guid: 483bc3111c7503847a5a54e98fecde0a, type: 2}
+--- !u!114 &2334043084213558382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4878882991895153231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228569bddf6523d4ab9885c54b7a6c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - {fileID: 11400000, guid: 483bc3111c7503847a5a54e98fecde0a, type: 2}

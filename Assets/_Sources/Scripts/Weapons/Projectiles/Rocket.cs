@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using _Sources.Scripts.Core.Components;
 using _Sources.Scripts.Enemies.State_Mashine;
+using _Sources.Scripts.Weapons;
 using _Sources.Scripts.Weapons.Projectiles;
 using MoreMountains.Feedbacks;
 using UnityEngine;
@@ -9,7 +11,8 @@ using UnityEngine;
 public class Rocket : BaseProjectile
 {
     private Transform _target;
-    protected GameObject[] _targets;
+
+    private ShootingWeapon _weapon;
     //[SerializeField] protected MMFeedback destroyParticlesFeedback;
     [SerializeField] private Tag DestroyOnto;
     //[SerializeField] private Tag splashTag;
@@ -20,15 +23,11 @@ public class Rocket : BaseProjectile
     private float _rotateAngleDeviation;
 
     private float _randomRotateAngleDeviation;
-
-    private void Start()
-    {
-        _targets = gameObject.FindAllWithTag(TargetTag).ToArray();
-        _target = GetClosestTarget(_targets);
-    }
+    
 
     private void FixedUpdate()
     {
+        _target = _weapon.RotatableWeapon.Aimhelper.ClosestEnemy.transform;
         Vector2 direction = (Vector2)_target.position - Rb.position;
 
         direction.Normalize();
@@ -40,27 +39,6 @@ public class Rocket : BaseProjectile
         Rb.velocity = transform.right * _speed;
     }
 
-    private Transform GetClosestTarget(GameObject[] enemies)
-    {
-        
-        Transform bestTarget = null;
-        float closestDistanceSqr = Mathf.Infinity;
-        Vector3 currentPosition = transform.position;
-        foreach (var potentialTarget in enemies)
-        {
-       
-            Vector3 directionToTarget = potentialTarget.transform.position - currentPosition;
-            float dSqrToTarget = directionToTarget.sqrMagnitude;
-            if (dSqrToTarget < closestDistanceSqr)
-            {
-                closestDistanceSqr = dSqrToTarget;
-                bestTarget = potentialTarget.transform;
-            }
-        }
-
-        return bestTarget;
-    }
-
     public override void FireProjectile(
         float damage,
         float speed,
@@ -69,14 +47,16 @@ public class Rocket : BaseProjectile
         Vector2 direction,
         float travelDistance,
         float lifeDuration,
-        float dragMultiplier
-        )
+        float dragMultiplier,
+        ShootingWeapon weapon
+    )
     {
         DamageAmount = damage;
         _speed = speed;
         _rotationSpeed = rotationSpeed;
         _rotateAngleDeviation = rotationAngleDeviation;
-        
+      
+        _weapon = weapon;
         AttackDetails.DamageAmount = damage;
         AttackDetails.Position = transform.position;
     }
@@ -87,16 +67,9 @@ public class Rocket : BaseProjectile
         if (collision.HasTag(DestroyOnto))
         {
             // TODO: instantiate particles
-            var position = transform.position;
-           // destroyParticlesFeedback.Play(position, 1);
 
-            
-            if (collision.HasTag(TargetTag) && collision.gameObject.GetComponent<Entity>().IsDead)
-            {
-                _targets.ToList().Remove(collision.gameObject);
-            }
-            _target = GetClosestTarget(_targets);
-            
+           // destroyParticlesFeedback.Play(position, 1);
+           
             //objectPooler.SpawnFromPool(splashTag, position, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
             gameObject.SetActive(false);
 

@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 4549123681864746632}
   - component: {fileID: 4549123681864746635}
   - component: {fileID: 4549123681864746679}
+  - component: {fileID: 7523382513588862139}
   - component: {fileID: 4549123681864746634}
   - component: {fileID: 4549123681864746637}
   - component: {fileID: 4549123681864746678}
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,7 +128,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4549123681864746636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8264e4c6e56088548821db9cbfdfa428, type: 3}
+  m_Script: {fileID: 11500000, guid: 759c5c4d6c9cc084599e915e8ee1857e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   baseWeaponData: {fileID: 11400000, guid: facdf2809d88a6d41b919e13554e665e, type: 2}
@@ -149,6 +150,24 @@ MonoBehaviour:
   rotatableWeaponData: {fileID: 11400000, guid: 7c7ab30de43976543962db4ca57474cf,
     type: 2}
   initialAngle: 90
+--- !u!114 &7523382513588862139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4549123681864746636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711a2e01a40d44c4a5287aee367299e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotatableWeapon: {fileID: 4549123681864746679}
+  indicatorPrefab: {fileID: 6178728579920490633, guid: 1a1ed8d8c2df27143bc79dfab9495f17,
+    type: 3}
+  detectEnemiesInterval: 5
+  enemyTag: {fileID: 11400000, guid: 39cbccd36e550ae47a281b694f925d61, type: 2}
+  maxRange: 100
 --- !u!58 &4549123681864746634
 CircleCollider2D:
   m_ObjectHideFlags: 0

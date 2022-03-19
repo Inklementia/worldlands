@@ -22,6 +22,7 @@ namespace _Sources.Scripts.Battle
         {
             _enemySpawner = GetComponentInChildren<EnemySpawner>();
             colliderTrigger.OnEnterTrigger += OnPlayerEnterRoom;
+            
         }
         
         private void OnPlayerEnterRoom(object sender, EventArgs e)
@@ -30,6 +31,7 @@ namespace _Sources.Scripts.Battle
             {
                 StartBattle();
                 colliderTrigger.OnEnterTrigger -= OnPlayerEnterRoom;
+                GameActions.Current.BattleColliderEntered();
             }
             
         }
@@ -37,6 +39,12 @@ namespace _Sources.Scripts.Battle
         private void StartBattle()
         {
             _enemySpawner.ActivateSpawner();
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawCube(transform.position, Vector3.one);
         }
     }
 }

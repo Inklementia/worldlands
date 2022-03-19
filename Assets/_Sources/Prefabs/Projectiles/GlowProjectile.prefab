@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1478950349369982783}
   - component: {fileID: 1478950349369982782}
-  - component: {fileID: 691792565723223828}
   - component: {fileID: 7494328449742738030}
   - component: {fileID: 4876376615439076109}
   - component: {fileID: 8323844351059805737}
@@ -78,31 +77,18 @@ SpriteRenderer:
   m_SortingLayerID: -1925609593
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9c869ede338bbb94daae199f42f7bfc1, type: 3}
+  m_Sprite: {fileID: -1874999468665147253, guid: 03b7e9a84ee634248a99d941b411eac2,
+    type: 3}
   m_Color: {r: 1, g: 0.89879847, b: 0.6179246, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.21, y: 0.21}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &691792565723223828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1478950349369982776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 228569bddf6523d4ab9885c54b7a6c49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tags:
-  - {fileID: 11400000, guid: ce6b76a81897de44eacfa50efd1c6813, type: 2}
 --- !u!50 &7494328449742738030
 Rigidbody2D:
   serializedVersion: 4
@@ -155,8 +141,6 @@ MonoBehaviour:
   Rb: {fileID: 7494328449742738030}
   TargetTag: {fileID: 11400000, guid: 39cbccd36e550ae47a281b694f925d61, type: 2}
   DestroyOnto: {fileID: 11400000, guid: 267e3742509d87b4dafda05c7d829f8c, type: 2}
-  splashTag: {fileID: 11400000, guid: ebc378c285af1734ea040bf54dd4b0ff, type: 2}
-  destroyParticlesFeedback: {fileID: 2138580964}
 --- !u!114 &1478950349369982777
 MonoBehaviour:
   m_ObjectHideFlags: 0

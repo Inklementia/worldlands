@@ -1,3 +1,4 @@
+using System;
 using _Sources.Scripts.Core.Components;
 using UnityEngine;
 
@@ -21,6 +22,14 @@ namespace _Sources.Scripts.Core
                 Debug.LogError("Missing Senses Component");
             }
 
+        }
+
+        public override void LogicUpdate()
+        {
+            base.LogicUpdate();
+            
+            //EnemyDetectionSenses.LogicUpdate();
+            
         }
     }
 }

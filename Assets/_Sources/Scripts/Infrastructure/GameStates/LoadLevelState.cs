@@ -36,6 +36,7 @@ namespace _Sources.Scripts.Infrastructure.GameStates
 
         private void OnLoaded()
         {
+            _gameFactory.CreateWorldManager();
             //load heads-up-display
             _gameFactory.CreateHud();
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8081956370836759458}
   - component: {fileID: 6957022769238712433}
   - component: {fileID: 7920743968307761724}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cat_EnemySpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

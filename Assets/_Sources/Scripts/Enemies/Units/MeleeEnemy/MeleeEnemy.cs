@@ -58,16 +58,13 @@ public class MeleeEnemy : Entity
         //Gizmos.DrawLine(AliveGO.transform.position, new Vector2(AliveGO.transform.position.x + MoveState.Direction.x, AliveGO.transform.position.y + MoveState.Direction.y));
     }
 
-    public override void TakeDamage(AttackDetails attackDetails)
+    public override void Damage(AttackDetails attackDetails)
     {
-        base.TakeDamage(attackDetails);
-        
-               
-        if(IsDead)
+        base.Damage(attackDetails);
+        if(Core.HealthSystem.IsDead)
         {
             StateMachine.ChangeState(DeadState);
-                   
-            //_weaponGenerator.DropWeapon(transform);
+
         }
         else
         {

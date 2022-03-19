@@ -61,12 +61,12 @@ namespace _Sources.Scripts.Enemies.Units.RangedEnemy
             
         }
 
-        public override void TakeDamage(AttackDetails attackDetails)
+        public override void Damage(AttackDetails attackDetails)
         {
-            base.TakeDamage(attackDetails);
+            base.Damage(attackDetails);
         
                
-            if(IsDead)
+            if(Core.HealthSystem.IsDead)
             {
                 StateMachine.ChangeState(DeadState);
             }

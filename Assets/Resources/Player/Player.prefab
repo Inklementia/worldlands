@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &303143422739302069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 665459901028029191}
+  - component: {fileID: 3911223149796779560}
+  m_Layer: 10
+  m_Name: CombatSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &665459901028029191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303143422739302069}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4443725827392222355}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3911223149796779560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303143422739302069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a1538440d184fa597ba040491748836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockBackSpeed: 2
+  knockBackAngle: {x: 1, y: 0}
+  knockbackDuration: 1
 --- !u!1 &1210389784488573485
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +257,7 @@ Transform:
   - {fileID: 1366429912620529136}
   - {fileID: 5689665064669472499}
   - {fileID: 7470829169522432215}
+  - {fileID: 665459901028029191}
   m_Father: {fileID: 4443725827962269618}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -566,7 +613,6 @@ GameObject:
   - component: {fileID: 4443725827962269612}
   - component: {fileID: 4443725827962269616}
   - component: {fileID: 4443725827962269623}
-  - component: {fileID: 8292908623772296802}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -767,20 +813,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.35588676, y: 0.39966154}
   m_EdgeRadius: 0
---- !u!114 &8292908623772296802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4443725827962269622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c1e720e6dab4479b5fcefdfde0dce18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fogData: {fileID: 11400000, guid: b7e3759730998694eb0698467f489b07, type: 2}
-  playerInput: {fileID: 6538895177417530552}
 --- !u!1 &4443725828127418403
 GameObject:
   m_ObjectHideFlags: 0
