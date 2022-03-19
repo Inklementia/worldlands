@@ -66,8 +66,8 @@ namespace _Sources.Scripts.Weapons
         private void PickUpWeapon()
         {
             CurrentWeapon.Equip();
-
-            CurrentWeapon.gameObject.transform.parent = transform;
+Debug.Log("PickUp "+CurrentWeapon.name);
+            CurrentWeapon.gameObject.transform.SetParent(transform);
             CurrentWeapon.gameObject.transform.localRotation = Quaternion.identity;
             CurrentWeapon.gameObject.transform.localPosition = Vector3.zero;
             CurrentWeapon.gameObject.transform.localScale = Vector3.one;

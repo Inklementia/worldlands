@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace _Sources.Scripts.Dungeon.Dungeon
+namespace _Sources.Scripts.Dungeon.DungeonFromYoutube
 {
     public class TilemapVisualizer : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace _Sources.Scripts.Dungeon.Dungeon
+namespace _Sources.Scripts.Dungeon.DungeonFromYoutube
 {
     public static class WallGenerator 
     {

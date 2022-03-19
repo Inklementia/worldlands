@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using _Sources.Scripts.Core;
 using _Sources.Scripts.Core.Components;
 using _Sources.Scripts.Interfaces;
 using UnityEngine;
@@ -11,15 +12,16 @@ namespace _Sources.Scripts.Battle
     public class EnemySpawner : MonoBehaviour, IDamageable
     {
         [SerializeField] private EnemySpawnerSO enemySpawnerData;
-        [SerializeField] private StandaloneHealthSystem healthSystem;
-
+       // [SerializeField] private StandaloneHealthSystem healthSystem;
+       public EnemyCore Core { get; private set; }
         private float _fullRespawnTimer = 0.0f;
         private ObjectPooler _pooler;
 
         private void Awake()
         {
-           
-            healthSystem.SetMaxStat(enemySpawnerData.MaxHealth);
+            Core = GetComponentInChildren<EnemyCore>();
+            
+            //healthSystem.SetMaxStat(enemySpawnerData.MaxHealth);
         }
 
         private void OnEnable()
@@ -30,6 +32,10 @@ namespace _Sources.Scripts.Battle
         private void Start()
         {
             _pooler = ObjectPooler.Instance;
+            
+            Core.HealthSystem.IsDead = false;
+            Core.Movement.SetFacingDirection(-1); //unnesseray
+            Core.HealthSystem.SetMaxStat(enemySpawnerData.MaxHealth);
         }
 
         private void Update()
@@ -57,7 +63,7 @@ namespace _Sources.Scripts.Battle
 
         public void TakeDamage(AttackDetails attackDetails)
         {
-            healthSystem.DecreaseStat(attackDetails.DamageAmount);
+           
             if (enemySpawnerData.SpawnOnHit)
             {
                 SpawnEnemies();
@@ -77,21 +83,28 @@ namespace _Sources.Scripts.Battle
         transform.DOShakePosition(effectDuration, new Vector3(.3f, .1f, 0), shakeVibrato, shakeRandomness).SetLoops(1, LoopType.Restart);
             //transform.DOShakeScale(effectDuration, new Vector3(shakeStrength, shakeStrength, shakeStrength), shakeVibrato, shakeRandomness).SetLoops(1, LoopType.Restart);
             //transform.DOShakeRotation(effectDuration, new Vector3(0, 0, 20f), shakeVibrato, shakeRandomness).SetLoops(1, LoopType.Restart);
+            StartCoroutine(SpawnMultiple());
+       
+        }
 
-            for (int i = 0; i < enemySpawnerData.NumberOfEnemies-1; i++)
+        private IEnumerator SpawnMultiple()
+        {
+            for (int i = 0; i < enemySpawnerData.NumberOfEnemies; i++)
             {
-                GameObject enemyGO = _pooler.SpawnFromPool(enemySpawnerData.SpawnEnemyTag, transform.position , Quaternion.identity);
-                StartCoroutine(SpawnSingle());
+                //_pooler.SpawnFromPool(enemySpawnerData.SpawnEnemyTag, transform.position , Quaternion.identity);
+                SpawnSingle();
+                float randomSpawnInterval = Random.Range(0, enemySpawnerData.SpawnInterval);
+                yield return new WaitForSeconds(randomSpawnInterval);
 
             }
         }
-
-        private IEnumerator SpawnSingle()
+        private void SpawnSingle()
         {
             Vector3 randomOffset = new Vector3(Random.Range(0, 3),Random.Range(0, 3),Random.Range(0, 3));
-            yield return new WaitForSeconds(enemySpawnerData.SpawnInterval);
+            _pooler.SpawnFromPool(enemySpawnerData.SpawnEnemyTag, transform.position + randomOffset, Quaternion.identity);
+            //yield return new WaitForSeconds(enemySpawnerData.SpawnInterval);
            
-            GameObject enemyGO = _pooler.SpawnFromPool(enemySpawnerData.SpawnEnemyTag, transform.position + randomOffset, Quaternion.identity);
+           
           
            
            

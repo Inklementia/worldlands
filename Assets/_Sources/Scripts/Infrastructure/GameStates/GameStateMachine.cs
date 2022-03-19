@@ -2,22 +2,23 @@
 using System.Collections.Generic;
 using _Sources.Scripts.Infrastructure.Factory;
 using _Sources.Scripts.Infrastructure.Services;
+using _Sources.Scripts.Infrastructure.Services.PersistentProgress;
+using _Sources.Scripts.Infrastructure.Services.SaveLoad;
 using _Sources.Scripts.UI;
 
 namespace _Sources.Scripts.Infrastructure.GameStates
 {
-    
     public class GameStateMachine
     {
         private readonly Dictionary<Type, IExitableState> _states;
         private IExitableState _activeState;
         public GameStateMachine(SceneLoader sceneLoader, LoadingScreen loadingScreen, AllServices allServices)
         {
-  
             _states = new Dictionary<Type, IExitableState>()
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, allServices),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, loadingScreen, allServices.Single<IGameFactory>()),
+                [typeof(LoadProgressState)] = new LoadProgressState(this, allServices.Single<IPersistentProgressService>(), allServices.Single<ISaveLoadService>()),
                 [typeof(GameLoopState)] = new GameLoopState(this),
             };
         }

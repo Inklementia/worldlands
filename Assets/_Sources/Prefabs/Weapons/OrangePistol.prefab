@@ -42,9 +42,9 @@ GameObject:
   - component: {fileID: 7214321766808791158}
   - component: {fileID: 8013275839627765261}
   - component: {fileID: 7214321766808791113}
+  - component: {fileID: 8356646034245792941}
   - component: {fileID: 7214321766808791156}
   - component: {fileID: 7214321766808791155}
-  - component: {fileID: 7214321766808791112}
   m_Layer: 0
   m_Name: OrangePistol
   m_TagString: Untagged
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -150,13 +150,25 @@ MonoBehaviour:
   rotatableWeaponData: {fileID: 11400000, guid: 7c7ab30de43976543962db4ca57474cf,
     type: 2}
   initialAngle: 90
-  fovRange: 6
-  whatIsEnemy:
-    serializedVersion: 2
-    m_Bits: 512
-  maxRange: 100
+  aimhelper: {fileID: 8356646034245792941}
+--- !u!114 &8356646034245792941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7214321766808791154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711a2e01a40d44c4a5287aee367299e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotatableWeapon: {fileID: 7214321766808791113}
+  indicatorPrefab: {fileID: 6178728579920490633, guid: 1a1ed8d8c2df27143bc79dfab9495f17,
+    type: 3}
+  detectEnemiesInterval: 3
   enemyTag: {fileID: 11400000, guid: 39cbccd36e550ae47a281b694f925d61, type: 2}
-  detectEnemiesInterval: 5
+  maxRange: 100
 --- !u!58 &7214321766808791156
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -187,19 +199,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - {fileID: 11400000, guid: f8ec1ccf4210661448a6e8317b7f8fd1, type: 2}
---- !u!114 &7214321766808791112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7214321766808791154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shaderTypes: 0
-  normalStrenght: 5
-  normalSmoothing: 1
-  computingNormal: 0

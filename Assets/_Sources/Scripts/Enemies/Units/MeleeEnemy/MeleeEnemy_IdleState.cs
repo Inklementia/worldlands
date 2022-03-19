@@ -19,7 +19,7 @@ public class MeleeEnemy_IdleState : IdleState
     public override void Enter()
     {
         base.Enter();
-        _enemy.StopMovement();
+        _enemy.Core.Movement.StopMovement();
         //_enemy.SetVelocityZero();
     }
 

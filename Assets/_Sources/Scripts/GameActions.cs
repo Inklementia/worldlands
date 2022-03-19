@@ -23,13 +23,22 @@ namespace _Sources.Scripts
                 OnDungeonGenerated();
             }
         }
-        public event Action<List<Vector3>> OnDungeonGeneratedToSaveMap;
+        public event Action<List<Vector2>> OnDungeonGeneratedToSaveMap;
 
-        public void DungeonGeneratedToSaveMap(List<Vector3> tiles)
+        public void DungeonGeneratedToSaveMap(List<Vector2> tiles)
         {
             if (OnDungeonGeneratedToSaveMap != null)
             {
                 OnDungeonGeneratedToSaveMap(tiles);
+            }
+        }
+        public event Action<List<Vector2>> OnLevelLoaded;
+
+        public void LevelLoaded(List<Vector2> tiles)
+        {
+            if (OnLevelLoaded != null)
+            {
+                OnLevelLoaded(tiles);
             }
         }
 
@@ -43,13 +52,13 @@ namespace _Sources.Scripts
             }
         }
         
-        public event Action<Color> OnTilePlaced;
+        public event Action OnBattleColliderEntered;
 
-        public void TilePlacedTrigger(Color color)
+        public void BattleColliderEntered()
         {
-            if (OnTilePlaced != null)
+            if (OnBattleColliderEntered != null)
             {
-                OnTilePlaced(color);
+                OnBattleColliderEntered();
             }
         }
     }

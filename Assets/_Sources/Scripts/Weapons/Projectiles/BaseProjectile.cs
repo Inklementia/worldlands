@@ -1,3 +1,4 @@
+using _Sources.Scripts.Core.Components;
 using _Sources.Scripts.Enemies.State_Mashine;
 using UnityEngine;
 
@@ -27,7 +28,8 @@ namespace _Sources.Scripts.Weapons.Projectiles
             Vector2 direction,
             float travelDistance,
             float lifeDuration,
-            float dragMultiplier
+            float dragMultiplier,
+            ShootingWeapon weapon
         )
         {
             DamageAmount = damageAmount;
@@ -40,7 +42,8 @@ namespace _Sources.Scripts.Weapons.Projectiles
             if (collision.HasTag(TargetTag))
             {
                 // decreasing health if projectile health target, and Tag matches target Tag
-                collision.GetComponent<Entity>().TakeDamage(AttackDetails);
+                collision.GetComponent<CombatSystem>().TakeDamage(AttackDetails);
+             
                 // turn off projectile
                 gameObject.SetActive(false);
 

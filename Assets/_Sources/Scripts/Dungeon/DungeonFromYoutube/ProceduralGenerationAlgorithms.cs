@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace _Sources.Scripts.Dungeon.Dungeon
+namespace _Sources.Scripts.Dungeon.DungeonFromYoutube
 {
     public static class ProceduralGenerationAlgorithms
     {

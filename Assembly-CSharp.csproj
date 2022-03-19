@@ -61,6 +61,7 @@
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Services\Input\MobileInputService.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\GameStates\IPayloadedState.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Dungeon\WallGenerator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\State Mashine\State.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\Projectiles\SplashProjectile.cs" />
@@ -77,23 +78,27 @@
      <Compile Include="Assets\_Sources\Scripts\DisableAflterAnimation.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_ChargeState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\RangedEnemy\RangedEnemy_RangedAttackState.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Infrastructure\Services\SaveLoad\SaveLoadService.cs" />
      <Compile Include="Assets\_Sources\Scripts\Input\FixedTouchField.cs" />
      <Compile Include="Assets\_Sources\Scripts\Constants.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Interfaces\IKnockable.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Dungeon\CaveDungeonGenerator.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\GameStates\IExitableState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Interfaces\ICollectable.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\GameStates\LoadLevelState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonFromYoutube\RoomFirstDungeonGenerator.cs" />
-     <Compile Include="Assets\_Sources\Scripts\Dungeon\ProceduralGenerationAlgorithms.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\IVisitor.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Services\PersistentProgress\IPersistentProgressService.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Infrastructure\GameStates\LoadProgressState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Input\PlayerInputHandler.cs" />
      <Compile Include="Assets\_Sources\Scripts\Player\Data\PlayerDataSO.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_PatrolState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Object Pooler\ObjectPooler.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_PlayerDetectedState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\Components\Movement.cs" />
+     <Compile Include="Assets\_Sources\Scripts\WorldDataSO.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\IWeaponFeature.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
@@ -101,6 +106,7 @@
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\RangedEnemy\RangedEnemy_PlayerDetectedState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\WeaponGenerator.cs" />
      <Compile Include="Assets\_Sources\Scripts\ForTesting\Player.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Dungeon\RoomDungeonGenerator.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\TileSpawner.cs" />
      <Compile Include="Assets\_Sources\Scripts\ColliderTrigger.cs" />
      <Compile Include="Assets\_Sources\Scripts\Player\PlayerStates\PlayerDeadState.cs" />
@@ -108,6 +114,7 @@
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\AssetManagement\AssetProvider.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\RangedEnemy\RangedEnemy_RunFromPlayerState.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Dungeon\RandomWalkerSO.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\ShootingWeapon.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_IdleState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Player\PlayerFiniteStateMachine\PlayerState.cs" />
@@ -121,6 +128,7 @@
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Services\PersistentProgress\ISavedProgressReader.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\Projectiles\Arrow.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Services\AllServices.cs" />
+     <Compile Include="Assets\_Sources\Scripts\WorldManager.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonEnemy.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\Room.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy.cs" />
@@ -147,6 +155,7 @@
      <Compile Include="Assets\_Sources\Scripts\Input\FixedButton.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\Components\ShieldSystem.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\GameStates\GameStateMachine.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Dungeon\AbstractDungeonGenerator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonFromYoutube\Data\SimpleRandomWalkSO.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\RunFromPlayerState.cs" />
@@ -156,6 +165,7 @@
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\DamageState.cs" />
      <Compile Include="Assets\_Sources\Scripts\EventManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Dungeon\TileGenerator.cs" />
      <Compile Include="Assets\_Sources\Scripts\Player\PlayerStates\PlayerDamageState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\Components\EnergySystem.cs" />
      <Compile Include="Assets\_Sources\Scripts\Battle\EnemySpawner.cs" />
@@ -173,9 +183,10 @@
      <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_PlayerDetectedState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\Projectiles\BaseProjectile.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\ICoroutineRunner.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Core\Components\CombatSystem.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Factory\IGameFactory.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
-     <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonFromYoutube\WallTypesHelper.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Dungeon\WallTypesHelper.cs" />
      <Compile Include="Assets\_Sources\Scripts\SingletonClass.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\Components\HealthSystem.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Factory\GameFactory.cs" />
@@ -188,6 +199,7 @@
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Services\IService.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\Components\EnemyDetectionSenses.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Infrastructure\Services\SaveLoad\ISaveLoadService.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\AssetManagement\AssetPath.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Services\PersistentProgress\ISavedProgress.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Services\Input\IInputService.cs" />
@@ -196,6 +208,7 @@
      <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonFromYoutube\CorridorFirstDungeonGenerator.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\Core.cs" />
      <Compile Include="Assets\_Sources\Scripts\Player\AimHelper.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Core\EnemyBuildingCore.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_ChargeState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Player\PlayerWeaponHandler.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
@@ -227,7 +240,7 @@
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Game.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_DamageState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\EnemyCore.cs" />
-     <Compile Include="Assets\_Sources\Scripts\Data\PositionOnLevel.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Data\LevelMap.cs" />
      <Compile Include="Assets\_Sources\Scripts\Structs\AttackDetails.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\WeaponTypeDataSO.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\Components\PlayerDetectionSenses.cs" />
@@ -247,7 +260,7 @@
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Services\Input\StandaloneInputService.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\Weapon Features\RotatableWeapon.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Services\PersistentProgress\PersistentProgressService.cs" />
-     <Compile Include="Assets\_Sources\Scripts\Data\TileData.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Data\Vector2Data.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_MeleeAttackState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\_Sources\Scripts\IStats.cs" />
@@ -263,6 +276,7 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets\_Sources\Animations\Animations\Boss\boss.json.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -276,6 +290,7 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+     <None Include="Assets\_Sources\Animations\Animations\Boss\boss.atlas.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
      <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6849564550875139035}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: PlayerCheck
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7234508224729253247}
   - component: {fileID: 4529689250476836968}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 181242774301123269}
   - component: {fileID: 7255410367725037437}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: CollisionSenses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 7677280574043314942}
   - component: {fileID: 7486343211636487866}
   - component: {fileID: 2843804475304778528}
+  - component: {fileID: 4567025729626089292}
   m_Layer: 9
   m_Name: Alive
   m_TagString: Untagged
@@ -322,6 +323,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff80cf5c799a4c408e970dd1dccf727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4567025729626089292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4641096437720387071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228569bddf6523d4ab9885c54b7a6c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - {fileID: 11400000, guid: 5a56e853a4b411e4c9f393b867a96cc9, type: 2}
+  - {fileID: 11400000, guid: 39cbccd36e550ae47a281b694f925d61, type: 2}
+  - {fileID: 11400000, guid: 267e3742509d87b4dafda05c7d829f8c, type: 2}
+  - {fileID: 11400000, guid: b5e712fa9f7027f4381aead63e6c02d1, type: 2}
 --- !u!1 &5489643649779686522
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,8 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1384772718580116524}
   - component: {fileID: 5262684993774572202}
-  - component: {fileID: 2388714955722535768}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Cat_MeleeEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,23 +397,6 @@ MonoBehaviour:
   damageStateData: {fileID: 11400000, guid: 0504012b9362b0a46854a101874e558d, type: 2}
   deadStateData: {fileID: 11400000, guid: 6689069f4e515ae47941a240f8c115cf, type: 2}
   meleeAttackPosition: {fileID: 5103007444370411829}
---- !u!114 &2388714955722535768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5489643649779686522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 228569bddf6523d4ab9885c54b7a6c49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tags:
-  - {fileID: 11400000, guid: 5a56e853a4b411e4c9f393b867a96cc9, type: 2}
-  - {fileID: 11400000, guid: 39cbccd36e550ae47a281b694f925d61, type: 2}
-  - {fileID: 11400000, guid: 267e3742509d87b4dafda05c7d829f8c, type: 2}
-  - {fileID: 11400000, guid: b5e712fa9f7027f4381aead63e6c02d1, type: 2}
 --- !u!1 &5878266655994350398
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1531204649248890126}
   - component: {fileID: 4888420134512886665}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: HealthSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6115261135340367073}
   - component: {fileID: 4988367471930610674}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Dead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +533,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3056526101415836646}
   - component: {fileID: 2496191843796430610}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Movement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -576,7 +576,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8938766485823454129}
   - component: {fileID: 8189364410096607166}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: PlayerDetectionSenses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,7 +627,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5103007444370411829}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: MeleeAttackPosition
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -657,7 +657,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5523364781948284391}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}

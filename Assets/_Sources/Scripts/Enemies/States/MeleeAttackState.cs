@@ -1,4 +1,5 @@
 ﻿using _Sources.Scripts.Enemies.State_Mashine;
+using _Sources.Scripts.Player.PlayerFiniteStateMachine;
 using UnityEngine;
 
 namespace _Sources.Scripts.Enemies.States
@@ -61,7 +62,7 @@ namespace _Sources.Scripts.Enemies.States
 
             foreach (Collider2D collider in detectedObjects)
             {
-                collider.transform.SendMessage("Damage", AttackDetails);
+               collider.GetComponent<PlayerEntity>().Damage(AttackDetails);
                 Debug.Log("Attack ");
             }
         }

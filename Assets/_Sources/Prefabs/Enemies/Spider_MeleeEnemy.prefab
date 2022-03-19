@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2985475595624110317}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2985475595706969112}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: PlayerCheck
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2985475596249311698}
   - component: {fileID: 2985475596249311701}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: CollisionSenses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2985475596525868733}
   - component: {fileID: 2985475596525868732}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Movement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 2985475596800756150}
   - component: {fileID: 2985475596800756151}
   - component: {fileID: 2985475596800756148}
+  - component: {fileID: 8736726001985400764}
   m_Layer: 9
   m_Name: Alive
   m_TagString: Untagged
@@ -230,7 +231,7 @@ SpriteRenderer:
   m_SortingLayerID: 1048795557
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3963239019028892749, guid: 6924be46b26f363478e15396515baef7,
+  m_Sprite: {fileID: -1396518828625404284, guid: 022c507388c6e8e4fbd3d0860ac0a78d,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -338,6 +339,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8736726001985400764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2985475596800756146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228569bddf6523d4ab9885c54b7a6c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - {fileID: 11400000, guid: 968a39180bcd33c4cafcb752027549df, type: 2}
+  - {fileID: 11400000, guid: 39cbccd36e550ae47a281b694f925d61, type: 2}
+  - {fileID: 11400000, guid: 267e3742509d87b4dafda05c7d829f8c, type: 2}
+  - {fileID: 11400000, guid: b5e712fa9f7027f4381aead63e6c02d1, type: 2}
 --- !u!1 &2985475596919813952
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2985475596919813955}
   - component: {fileID: 2985475596919813954}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,6 +388,7 @@ Transform:
   - {fileID: 2985475596249311698}
   - {fileID: 2985475597225737742}
   - {fileID: 2985475597357802172}
+  - {fileID: 2857462220285708236}
   m_Father: {fileID: 2985475596800756140}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -425,7 +444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2985475597225737742}
   - component: {fileID: 2985475597225737729}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: PlayerDetectionSenses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -477,7 +496,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2985475597357802172}
   - component: {fileID: 2985475597357802175}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: HealthSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,8 +539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8667538807606907971}
   - component: {fileID: 1679839194710148691}
-  - component: {fileID: 1006666362675672168}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Spider_MeleeEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -535,7 +553,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4204872232037808856}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -568,23 +586,6 @@ MonoBehaviour:
   damageStateData: {fileID: 11400000, guid: 68fa08ca5c3290a448699822b6a148f6, type: 2}
   deadStateData: {fileID: 11400000, guid: 0b0995c7a0a0e604ebc60ded96d496d4, type: 2}
   meleeAttackPosition: {fileID: 2985475597134755971}
---- !u!114 &1006666362675672168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4204872232037808856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 228569bddf6523d4ab9885c54b7a6c49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tags:
-  - {fileID: 11400000, guid: 968a39180bcd33c4cafcb752027549df, type: 2}
-  - {fileID: 11400000, guid: 39cbccd36e550ae47a281b694f925d61, type: 2}
-  - {fileID: 11400000, guid: 267e3742509d87b4dafda05c7d829f8c, type: 2}
-  - {fileID: 11400000, guid: b5e712fa9f7027f4381aead63e6c02d1, type: 2}
 --- !u!1 &4811433693188575716
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5086905781881704389}
   - component: {fileID: 680413346478421614}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Dead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -656,15 +657,61 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5503369545075204969, guid: 6924be46b26f363478e15396515baef7,
+  m_Sprite: {fileID: -1816283188986220241, guid: 022c507388c6e8e4fbd3d0860ac0a78d,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &8959632404771386637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2857462220285708236}
+  - component: {fileID: 3726805117741026469}
+  m_Layer: 0
+  m_Name: CombatSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2857462220285708236
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8959632404771386637}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2985475596919813955}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3726805117741026469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8959632404771386637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a1538440d184fa597ba040491748836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockBackSpeed: 2
+  knockBackAngle: {x: 1, y: 0}
+  knockbackDuration: 1

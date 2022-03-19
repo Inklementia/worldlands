@@ -15,6 +15,7 @@ namespace _Sources.Scripts.Infrastructure
 
         public void Load(string name, Action onLoaded = null)
         {
+            Debug.Log(name);
             _coroutineRunner.StartCoroutine(LoadScene(name, onLoaded));
         }
         private IEnumerator LoadScene(string nextScene, Action onLoaded = null)

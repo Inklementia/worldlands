@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace _Sources.Scripts.Dungeon.Dungeon
+namespace _Sources.Scripts.Dungeon
 {
     public static class WallTypesHelper
     {

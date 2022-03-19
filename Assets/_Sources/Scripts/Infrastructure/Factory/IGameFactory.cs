@@ -7,5 +7,6 @@ namespace _Sources.Scripts.Infrastructure.Factory
     {
         GameObject CreatePlayer(GameObject playerInitialPoint);
         void CreateHud();
+        GameObject CreateWorldManager();
     }
 }

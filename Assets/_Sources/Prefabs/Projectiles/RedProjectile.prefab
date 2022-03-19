@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 5939480324635585214}
   - component: {fileID: 3744123283887763396}
   - component: {fileID: 1754335659279496871}
-  - component: {fileID: 2914044580241144707}
+  - component: {fileID: 8882625013706623873}
   - component: {fileID: 5724833580715082387}
   - component: {fileID: 7825525011947778290}
   m_Layer: 0
@@ -202,12 +202,13 @@ SpriteRenderer:
   m_SortingLayerID: -1925609593
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9c869ede338bbb94daae199f42f7bfc1, type: 3}
+  m_Sprite: {fileID: -7601818783716274276, guid: e8bb93b5c97e0614e88fff3a876f0f68,
+    type: 3}
   m_Color: {r: 1, g: 0.17924805, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.4, y: 0.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -264,7 +265,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.19888216
---- !u!114 &2914044580241144707
+--- !u!114 &8882625013706623873
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -273,14 +274,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5724833580715082386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62f50260b69f6bf4999116c1b1cf8622, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ce5cc4d9eba7384ea1c6b759785dcab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Rb: {fileID: 3744123283887763396}
   TargetTag: {fileID: 11400000, guid: 39cbccd36e550ae47a281b694f925d61, type: 2}
   DestroyOnto: {fileID: 11400000, guid: 267e3742509d87b4dafda05c7d829f8c, type: 2}
-  splashTag: {fileID: 11400000, guid: 0084a961b68bf0e4dab9161eef015f50, type: 2}
-  destroyParticlesFeedback: {fileID: 6626193969168194126}
 --- !u!114 &5724833580715082387
 MonoBehaviour:
   m_ObjectHideFlags: 0

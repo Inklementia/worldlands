@@ -6,6 +6,7 @@ namespace _Sources.Scripts.Battle
     public class ColliderTrigger : MonoBehaviour
     {
         [SerializeField] private Tag triggerTag;
+
         public event EventHandler OnEnterTrigger;
        
         
@@ -15,6 +16,8 @@ namespace _Sources.Scripts.Battle
             {
                 OnEnterTrigger?.Invoke(this, EventArgs.Empty);
             }
+
+        
         }
     }
 }
