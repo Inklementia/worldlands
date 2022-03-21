@@ -35,7 +35,7 @@ namespace _Sources.Scripts.Infrastructure.GameStates
 
         private PlayerProgress newProgress()
         {
-            return new PlayerProgress("Main");
+            return new PlayerProgress("Main", false);
         }
     }
 }

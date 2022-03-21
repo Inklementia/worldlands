@@ -32,16 +32,12 @@ public class MeleeEnemy_ChargeState : ChargeState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
-     
-
         if (PerformCloseRangeAction)
         {
             StateMachine.ChangeState(_enemy.MeleeAttackState);
         }
         else if (IsChargeTimeOver)
         {
-
             if (IsPlayerInMaxAgroRange)
             {
                 StateMachine.ChangeState(_enemy.PlayerDetectedState);

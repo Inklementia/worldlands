@@ -6,5 +6,6 @@ namespace _Sources.Scripts.Infrastructure.Services.SaveLoad
     {
         void SaveProgress();
         PlayerProgress LoadProgress();
+        bool CheckIfSavedFileExists();
     }
 }

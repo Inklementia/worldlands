@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using UnityEditor.Build.Content;
 using UnityEngine;
 
 namespace _Sources.Scripts.Dungeon
@@ -18,11 +21,22 @@ namespace _Sources.Scripts.Dungeon
         [HideInInspector] public float minX, maxX, minY, maxY;
 
         private List<GameObject> _roomList = new List<GameObject>();
-
-        protected void GenerateDungeon()
+        [SerializeField] private Tag worldManagerTag;
+        protected WorldManager WorldManager;
+        protected virtual void Awake()
         {
-            RunProceduralGeneration();
-            
+            //WorldManager = gameObject.FindWithTag(worldManagerTag).GetComponent<WorldManager>();
+            WorldManager = GetComponentInParent<WorldManager>();
+        }
+
+        protected virtual void Start()
+        {
+           
+        }
+
+        protected virtual void GenerateDungeon()
+        {
+
         }
 
         protected abstract void RunProceduralGeneration();
@@ -87,7 +101,6 @@ namespace _Sources.Scripts.Dungeon
                             DeactivateArea(i);
                         }
                     }
-                   
                 }
               
             }

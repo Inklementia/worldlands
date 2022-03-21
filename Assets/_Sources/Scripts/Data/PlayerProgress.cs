@@ -7,9 +7,9 @@ namespace _Sources.Scripts.Data
     {
         public WorldData WorldData;
 
-        public PlayerProgress(string initialLevelScene)
+        public PlayerProgress(string initialLevelScene, bool isBossScene)
         {
-            WorldData = new WorldData(initialLevelScene);
+            WorldData = new WorldData(initialLevelScene, isBossScene);
         }
     }
 }

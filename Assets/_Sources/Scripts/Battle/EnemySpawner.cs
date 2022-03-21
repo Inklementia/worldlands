@@ -13,13 +13,13 @@ namespace _Sources.Scripts.Battle
     {
         [SerializeField] private EnemySpawnerSO enemySpawnerData;
        // [SerializeField] private StandaloneHealthSystem healthSystem;
-       public EnemyCore Core { get; private set; }
+       public EnemyBuildingCore Core { get; private set; }
         private float _fullRespawnTimer = 0.0f;
         private ObjectPooler _pooler;
 
         private void Awake()
         {
-            Core = GetComponentInChildren<EnemyCore>();
+            Core = GetComponentInChildren<EnemyBuildingCore>();
             
             //healthSystem.SetMaxStat(enemySpawnerData.MaxHealth);
         }

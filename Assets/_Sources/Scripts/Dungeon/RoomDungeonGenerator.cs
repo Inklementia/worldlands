@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using _Sources.Scripts.Infrastructure.Services;
+using _Sources.Scripts.Infrastructure.Services.PersistentProgress;
+using _Sources.Scripts.Infrastructure.Services.SaveLoad;
 using Sirenix.Utilities;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -16,9 +20,31 @@ namespace _Sources.Scripts.Dungeon
         [Range(1, 100)] [SerializeField] private int hallsFrequency = 50;
         private List<Vector2> _floorPositions = new List<Vector2>();
         private List<Vector2> _roomCentresList = new List<Vector2>();
-        private void Start()
+        
+        private ISaveLoadService _saveLoadService;
+        private IPersistentProgressService _persistentProgressService;
+
+        protected override void Awake()
         {
-            GenerateDungeon();
+            base.Awake();
+            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
+            _persistentProgressService = AllServices.Container.Single<IPersistentProgressService>();
+        }
+        protected override void Start()
+        {
+            base.Start();
+            if (_persistentProgressService.PlayerProgress.WorldData.LevelMap.Dungeon == null)
+            {
+                RunProceduralGeneration();
+                BuildDungeon(_floorPositions);
+            }
+            else
+            {
+
+                BuildDungeon(WorldManager.CurrentMap);
+            }
+               
+            
         }
 
         protected override void RunProceduralGeneration()
@@ -27,15 +53,22 @@ namespace _Sources.Scripts.Dungeon
             RunRoomWalker(randomWalkParameters, startPosition);
             
             //RemoveFirstBattleAreaForPlayer();
-            tileGenerator.InstantiateFloorTiles(_floorPositions);
-            wallGenerator.GenerateBasicWalls(_floorPositions.ToHashSet());
+            
+        }
+
+        private void BuildDungeon(List<Vector2> coordinates)
+        {
+            tileGenerator.InstantiateFloorTiles(coordinates);
+            wallGenerator.GenerateBasicWalls(coordinates.ToHashSet());
             wallGenerator.GenerateComplexWalls((int) minX, (int) maxX, (int) minY, (int) maxY);
-            SetExitDoor(_floorPositions);
+            SetExitDoor(coordinates);
             RemoveFirstBattleAreaForPlayer();
             RemoveIntersectRooms();
             RecalculateAStar();
-            
-            GameActions.Current.DungeonGeneratedToSaveMap(_floorPositions);
+           
+            GameActions.Current.DungeonGeneratedToSaveMap(coordinates);
+            _saveLoadService.SaveProgress();
+            Debug.Log("Map Saved");
         }
 
         private void RunRoomWalker(RandomWalkerSO parameters, Vector2 position)

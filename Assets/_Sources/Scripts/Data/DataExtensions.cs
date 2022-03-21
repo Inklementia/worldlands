@@ -10,9 +10,10 @@ namespace _Sources.Scripts.Data
 
         public static Vector3 AsUnityVector3(this Vector3Data vector3data) =>
             new Vector3(vector3data.X, vector3data.Y, vector3data.Z);
-        public static Vector2 AsUnityVector2(this Vector2Data vector3data) =>
-            new Vector3(vector3data.X, vector3data.Y, 0);
+        public static Vector2 AsUnityVector2(this Vector2Data vector2data) =>
+            new Vector2(vector2data.X, vector2data.Y);
 
+        public static string ToJson(this object obj) => JsonUtility.ToJson(obj);
         public static T ToDeserialized<T>(this string json) => 
             JsonUtility.FromJson<T>(json);
     }

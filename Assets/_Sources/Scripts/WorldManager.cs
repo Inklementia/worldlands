@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using _Sources.Scripts.Data;
+using _Sources.Scripts.Infrastructure.Services;
 using _Sources.Scripts.Infrastructure.Services.PersistentProgress;
+using _Sources.Scripts.Infrastructure.Services.SaveLoad;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,7 +18,9 @@ namespace _Sources.Scripts
         private int _currentWorld = 1;
         private bool _isBossScene = false;
         
-        private List<Vector2> _currentMap;
+        public List<Vector2> CurrentMap { get; private set; } = new List<Vector2>();
+
+   
 
         private void SetPlayerAtStartPosition(Vector3 place)
         {
@@ -35,7 +39,7 @@ namespace _Sources.Scripts
 
         private void SaveCurrentMap(List<Vector2> mapTiles)
         {
-            _currentMap = mapTiles;
+            CurrentMap = mapTiles;
         }
         public void LoadProgress(PlayerProgress progress)
         {
@@ -43,7 +47,7 @@ namespace _Sources.Scripts
                 _currentLevel == progress.WorldData.LevelMap.LevelNumber && 
                 CurrentScene() == progress.WorldData.LevelMap.GameScene)
             {
-                if (_isBossScene == progress.WorldData.LevelMap.IsBossScene)
+                if (_isBossScene == progress.WorldData.LevelMap.IsBossScene && _isBossScene)
                 {
                     // boss
                     Debug.Log("Boss must be here");
@@ -51,12 +55,16 @@ namespace _Sources.Scripts
                 else
                 {
                     // instantiate dungeon
-                    var savedMap = progress.WorldData.LevelMap.Dungeon;
-                    foreach (var tile in savedMap)
+                    List<Vector2Data> savedMap = progress.WorldData.LevelMap.Dungeon;
+                    if (savedMap != null)
                     {
-                        _currentMap.Add(tile.AsUnityVector2());
+                        foreach (Vector2Data tile in savedMap)
+                        {
+                            CurrentMap.Add(tile.AsUnityVector2());
+                        }
+                        GameActions.Current.LevelLoaded(CurrentMap);
                     }
-                    GameActions.Current.LevelLoaded(_currentMap);
+
                 }
             }
 
@@ -65,8 +73,8 @@ namespace _Sources.Scripts
 
         public void UpdateProgress(PlayerProgress progress)
         {
-            HashSet<Vector2Data> tilesToSave = new HashSet<Vector2Data>();
-            foreach (var tile in _currentMap)
+            List<Vector2Data> tilesToSave = new List<Vector2Data>();
+            foreach (Vector2 tile in CurrentMap)
             {
                 tilesToSave.Add(tile.AsTileData());
             }

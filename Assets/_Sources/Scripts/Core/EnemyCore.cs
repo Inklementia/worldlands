@@ -5,6 +5,7 @@ namespace _Sources.Scripts.Core
 {
     public class EnemyCore : Core
     {
+        
         public CollisionSenses CollisionSenses { get; private set; }
         public PlayerDetectionSenses PlayerDetectionSenses { get; private set; }
 

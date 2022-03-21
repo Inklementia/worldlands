@@ -44,7 +44,7 @@ namespace _Sources.Scripts.Infrastructure.GameStates
             _allServices.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
       
             _allServices.RegisterSingle<IGameFactory>(new GameFactory(_allServices.Single<IAssetProvider>()));
-            _allServices.RegisterSingle<ISaveLoadService>(new SaveLoadService());
+            _allServices.RegisterSingle<ISaveLoadService>(new SaveLoadService(_allServices.Single<IPersistentProgressService>(), _allServices.Single<IGameFactory>()));
         }
 
         public void Exit()

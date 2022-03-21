@@ -147,6 +147,7 @@
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Services\Input\InputService.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\RangedEnemy\RangedEnemy_DeadState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Core\Components\MovingCore.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\ItemFrequency.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonType.cs" />
@@ -288,6 +289,7 @@
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+     <None Include="Assets\player_progress.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\_Sources\Animations\Animations\Boss\boss.atlas.txt" />
