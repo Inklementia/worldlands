@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace _Sources.Scripts.Data
 {
+    [Serializable]
     public class LevelMap
     {
         public int WorldNumber;
@@ -11,15 +13,14 @@ namespace _Sources.Scripts.Data
 
         public bool IsBossScene;
        // public Vector3Data PlayerPosition;
-        public HashSet<Vector2Data> Dungeon;
+        public List<Vector2Data> Dungeon;
 
-        public LevelMap(int worldNumber, int levelNumber, string gameScene, bool isBossScene, HashSet<Vector2Data> dungeon)
+        public LevelMap(int worldNumber, int levelNumber, string gameScene, bool isBossScene, List<Vector2Data> dungeon)
         {
             WorldNumber = worldNumber;
             LevelNumber = levelNumber;
             GameScene = gameScene;
-            isBossScene = IsBossScene;
-            //PlayerPosition = playerPosition;
+            IsBossScene = isBossScene;
             Dungeon = dungeon;
         }
   

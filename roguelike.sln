@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Feedbacks", "MoreMountains.Feedbacks.csproj", "{d43405df-638b-bcb9-e4ab-e59d438a23f2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{9e34d0ea-bfbb-4d45-30bf-4bca1d0fda99}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstarPathfindingProject", "AstarPathfindingProject.csproj", "{d5065342-a5f3-f24e-2362-1e4da378924f}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.NiceVibrations.Haptics", "MoreMountains.NiceVibrations.Haptics.csproj", "{ef6a0953-8966-5bae-de9e-d73a0435b2f8}"
@@ -18,8 +20,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Feedbacks.MMTools", "MoreMountains.Feedbacks.MMTools.csproj", "{46ca0a53-f013-28f9-ce1b-a0f154d402b1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Feedbacks.TextMeshPro", "MoreMountains.Feedbacks.TextMeshPro.csproj", "{49a7fc9b-a0ed-d18d-0e0f-58e79a6426dc}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{9e34d0ea-bfbb-4d45-30bf-4bca1d0fda99}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Feedbacks.URP", "MoreMountains.Feedbacks.URP.csproj", "{d0729135-90eb-960a-fb65-6bc616ba1253}"
 EndProject
@@ -77,6 +77,10 @@ Global
 		{d43405df-638b-bcb9-e4ab-e59d438a23f2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{d43405df-638b-bcb9-e4ab-e59d438a23f2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{d43405df-638b-bcb9-e4ab-e59d438a23f2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9e34d0ea-bfbb-4d45-30bf-4bca1d0fda99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9e34d0ea-bfbb-4d45-30bf-4bca1d0fda99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9e34d0ea-bfbb-4d45-30bf-4bca1d0fda99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9e34d0ea-bfbb-4d45-30bf-4bca1d0fda99}.Release|Any CPU.Build.0 = Release|Any CPU
 		{d5065342-a5f3-f24e-2362-1e4da378924f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{d5065342-a5f3-f24e-2362-1e4da378924f}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{d5065342-a5f3-f24e-2362-1e4da378924f}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -105,10 +109,6 @@ Global
 		{49a7fc9b-a0ed-d18d-0e0f-58e79a6426dc}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49a7fc9b-a0ed-d18d-0e0f-58e79a6426dc}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49a7fc9b-a0ed-d18d-0e0f-58e79a6426dc}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9e34d0ea-bfbb-4d45-30bf-4bca1d0fda99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9e34d0ea-bfbb-4d45-30bf-4bca1d0fda99}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9e34d0ea-bfbb-4d45-30bf-4bca1d0fda99}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9e34d0ea-bfbb-4d45-30bf-4bca1d0fda99}.Release|Any CPU.Build.0 = Release|Any CPU
 		{d0729135-90eb-960a-fb65-6bc616ba1253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{d0729135-90eb-960a-fb65-6bc616ba1253}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{d0729135-90eb-960a-fb65-6bc616ba1253}.Release|Any CPU.ActiveCfg = Release|Any CPU

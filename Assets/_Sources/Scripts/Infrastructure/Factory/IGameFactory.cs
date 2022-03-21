@@ -1,4 +1,6 @@
-﻿using _Sources.Scripts.Infrastructure.Services;
+﻿using System.Collections.Generic;
+using _Sources.Scripts.Infrastructure.Services;
+using _Sources.Scripts.Infrastructure.Services.PersistentProgress;
 using UnityEngine;
 
 namespace _Sources.Scripts.Infrastructure.Factory
@@ -8,5 +10,8 @@ namespace _Sources.Scripts.Infrastructure.Factory
         GameObject CreatePlayer(GameObject playerInitialPoint);
         void CreateHud();
         GameObject CreateWorldManager();
+        List<ISavedProgressReader> ProgressReaders { get; }
+        List<ISavedProgress> ProgressWriters { get; }
+        void CleanUp();
     }
 }

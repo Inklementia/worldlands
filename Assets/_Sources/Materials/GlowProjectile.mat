@@ -122,7 +122,7 @@ Material:
     - _GhostTransparency: 0
     - _GlitchAmount: 17.58
     - _GlitchSize: 1
-    - _Glow: 18.1
+    - _Glow: 14.9
     - _GlowAffectLight: 1
     - _GlowTexUsed: 0
     - _GradBlend: 1
@@ -169,12 +169,12 @@ Material:
     - _OnlyInnerOutline: 0
     - _OnlyOutline: 0
     - _Outline8Directions: 0
-    - _OutlineAlpha: 1
+    - _OutlineAlpha: 0
     - _OutlineDistortAmount: 0.5
     - _OutlineDistortTexXSpeed: 5
     - _OutlineDistortTexYSpeed: 5
     - _OutlineDistortToggle: 1
-    - _OutlineGlow: 6.2
+    - _OutlineGlow: 1
     - _OutlineIsPixel: 0
     - _OutlinePixelWidth: 1
     - _OutlineTexGrey: 0

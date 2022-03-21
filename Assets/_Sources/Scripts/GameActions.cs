@@ -12,6 +12,8 @@ namespace _Sources.Scripts
         private void Awake()
         {
             Current = this;
+            
+            DontDestroyOnLoad(gameObject);
         }
 
         public event Action OnDungeonGenerated;
