@@ -21,11 +21,12 @@ namespace _Sources.Scripts.Infrastructure
         private IEnumerator LoadScene(string nextScene, Action onLoaded = null)
         {
             // if loaded scene is already initial - do nothing;
+            /*
             if (SceneManager.GetActiveScene().name == nextScene)
             {
                 onLoaded?.Invoke();
                 yield break;
-            }
+            }*/
             
             AsyncOperation waitNextScene = SceneManager.LoadSceneAsync(nextScene);
             

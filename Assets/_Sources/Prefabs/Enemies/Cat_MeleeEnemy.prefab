@@ -385,6 +385,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3ecc206632a3a24e94cd33dfd773b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dead: {fileID: 6091717106991062409}
+  alive: {fileID: 4641096437720387071}
   EntityData: {fileID: 11400000, guid: 9393cfd1b805dd94b9ccf1a25c3d6389, type: 2}
   weaponGeneratorTag: {fileID: 11400000, guid: baa68443e11395b448051c0cb4597448, type: 2}
   idleStateData: {fileID: 11400000, guid: 7a11cac58eb2265418403f06b53d1e11, type: 2}

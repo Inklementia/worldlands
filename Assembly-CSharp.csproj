@@ -121,6 +121,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
      <Compile Include="Assets\_Sources\Scripts\Data\PlayerProgress.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\GameBootstrapper.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Dungeon\ItemPlacement.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_DamageState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
@@ -150,6 +151,7 @@
      <Compile Include="Assets\_Sources\Scripts\Core\Components\MovingCore.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\ItemFrequency.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Infrastructure\GameStates\IGameStateMachine.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonType.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_SpawnState.cs" />
@@ -205,6 +207,7 @@
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Services\PersistentProgress\ISavedProgress.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Services\Input\IInputService.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\GameStates\BootstrapState.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Infrastructure\GameRunner.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\ChargeState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonFromYoutube\CorridorFirstDungeonGenerator.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\Core.cs" />
@@ -235,8 +238,10 @@
      <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonManager.cs" />
      <Compile Include="Assets\_Sources\Scripts\Player\PlayerStates\PlayerIdleState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonFromYoutube\WallGenerator.cs" />
+     <Compile Include="Assets\_Sources\Scripts\LevelTransfer.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\ExitDoor.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\Components\StatsComponent.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Dungeon\Graph.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\PlayerDetectedState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Game.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_DamageState.cs" />
@@ -275,6 +280,7 @@
      <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
      <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+     <None Include="Assets\player_progress.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\_Sources\Animations\Animations\Boss\boss.json.txt" />
@@ -289,7 +295,6 @@
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-     <None Include="Assets\player_progress.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\_Sources\Animations\Animations\Boss\boss.atlas.txt" />

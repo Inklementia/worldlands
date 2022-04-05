@@ -7,9 +7,9 @@ namespace _Sources.Scripts.Data
     {
         public LevelMap LevelMap;
 
-        public WorldData(string initialLevelScene, bool isBossScene)
+        public WorldData(string initialLevelScene , bool isBossScene)
         {
-            LevelMap = new LevelMap(1,1, initialLevelScene, isBossScene, null);
+            LevelMap = new LevelMap(1,1, initialLevelScene, isBossScene);
         }
     }
 }

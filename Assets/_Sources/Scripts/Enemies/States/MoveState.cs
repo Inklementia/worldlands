@@ -28,7 +28,7 @@ namespace _Sources.Scripts.Enemies.States
 
             IsDetectingWall = Entity.Core.CollisionSenses.Wall;
             IsPlayerInMinAgroRange = Entity.Core.PlayerDetectionSenses.InMinAgroRange;
-            IsPlayerInMaxAgroRange = Entity.Core.PlayerDetectionSenses.InMaxAgroRange;
+            IsPlayerInMaxAgroRange = Entity.Core.PlayerDetectionSenses.InMaxAgroRange();
             //Debug.Log("IsDetectingWall " + IsDetectingWall);
             //Debug.Log("IsPlayerInMinAgroRange " + IsPlayerInMinAgroRange);
             //Debug.Log("IsPlayerInMaxAgroRange " + IsPlayerInMaxAgroRange);

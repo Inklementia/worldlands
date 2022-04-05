@@ -1758,6 +1758,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 892035409240560380, guid: 5bc8ac657e5a6804393905f2f19abb66,
+        type: 3}
+      propertyPath: m_TagString
+      value: AttackButton
+      objectReference: {fileID: 0}
     - target: {fileID: 892035409240560381, guid: 5bc8ac657e5a6804393905f2f19abb66,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2175,6 +2180,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368145017199607511, guid: 55533dcf3e01d6644b26598ba75ec2ca,
+        type: 3}
+      propertyPath: m_TagString
+      value: PickupButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55533dcf3e01d6644b26598ba75ec2ca, type: 3}

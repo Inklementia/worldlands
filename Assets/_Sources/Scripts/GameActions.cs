@@ -63,5 +63,22 @@ namespace _Sources.Scripts
                 OnBattleColliderEntered();
             }
         }
+
+        public event Action OnDungeonFinished;
+        public void DungeonFinished()
+        {
+            if (OnDungeonFinished != null)
+            {
+                OnDungeonFinished();
+            }
+        }
+        public event Action OnLevelChanged;
+        public void RegenerateDungeon()
+        {
+            if (OnLevelChanged != null)
+            {
+                OnLevelChanged();
+            }
+        }
     }
 }

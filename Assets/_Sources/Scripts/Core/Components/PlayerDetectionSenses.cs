@@ -19,24 +19,38 @@ namespace _Sources.Scripts.Core.Components
 
         [SerializeField] private LayerMask whatIsPlayer;
         [SerializeField] private Tag playerTag;
+        //public GameObject Player { get; private set; }
+
         public GameObject Player { get; private set; }
 
+        private float _playerDetectionTimer = 0.0f;
 
+        [SerializeField] private float playerDetectInterval = 3f;
        // public bool InCloseRangeAction = false;
         
         protected override void Awake()
         {
             base.Awake();
-            //Player = gameObject.FindWithTag(playerTag);
-           
-            
+ 
+        }
+        public void LogicUpdate()
+        {
+            _playerDetectionTimer += Time.deltaTime;
+            if (_playerDetectionTimer >= playerDetectInterval + Time.deltaTime)
+            {
+                Player = GameObject.FindWithTag("Player");
+                _playerDetectionTimer = 0.0f;
+            }
+        }
+        public void SetPlayer(GameObject player)
+        {
+            Player = player;
         }
 
- 
-
-        private void Start()
+        protected override void Start()
         {
-            Player = gameObject.FindWithTag(playerTag);
+            base.Start();
+            Player = GameObject.FindWithTag("Player");
         }
 
         public bool InMinAgroRange
@@ -44,9 +58,9 @@ namespace _Sources.Scripts.Core.Components
             get => Physics2D.CircleCast(playerCheck.position, minAgroDistance, transform.right, 0.1f, whatIsPlayer);
         }
 
-        public bool InMaxAgroRange
+        public bool InMaxAgroRange()
         {
-            get => Physics2D.CircleCast(playerCheck.position, maxAgroDistance, transform.right, 0.1f, whatIsPlayer);
+            return  Physics2D.CircleCast(playerCheck.position, maxAgroDistance, transform.right, 0.1f, whatIsPlayer);
         }
 
         //in melee attack Range

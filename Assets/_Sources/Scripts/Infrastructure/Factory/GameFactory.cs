@@ -7,7 +7,7 @@ namespace _Sources.Scripts.Infrastructure.Factory
     public class GameFactory : IGameFactory
     {
         private readonly IAssetProvider _assets;
-
+        private List<GameObject> _instanciatedObjects = new List<GameObject>();
         public List<ISavedProgressReader> ProgressReaders { get; } = new List<ISavedProgressReader>();
         public List<ISavedProgress> ProgressWriters { get; } = new List<ISavedProgress>();
         public GameFactory(IAssetProvider assets)
@@ -17,12 +17,13 @@ namespace _Sources.Scripts.Infrastructure.Factory
 
         public GameObject CreatePlayer(GameObject playerSpawnPoint)
         {
+           
             return InstantiateAndRegister(AssetPath.PlayerPath, playerSpawnPoint.transform.position);
         }
 
         public void CreateHud()
         {
-            InstantiateAndRegister(AssetPath.HudPath);
+             InstantiateAndRegister(AssetPath.HudPath);
         } 
      
 
@@ -30,17 +31,23 @@ namespace _Sources.Scripts.Infrastructure.Factory
         {
             return InstantiateAndRegister(AssetPath.WorldPath, Vector3.zero);
         }
-
+        public GameObject CreateDungeon()
+        {
+            return InstantiateAndRegister(AssetPath.Dungeon, Vector3.zero);
+        }
         private GameObject InstantiateAndRegister(string prefabPath, Vector3 position)
         {
+           
             GameObject gameObject = _assets.Instantiate(prefabPath, position);
             RegisterProgressWatchers(gameObject);
+            _instanciatedObjects.Add(gameObject);
             return gameObject;
         }
         private GameObject InstantiateAndRegister(string prefabPath)
         {
             GameObject gameObject = _assets.Instantiate(prefabPath);
             RegisterProgressWatchers(gameObject);
+            _instanciatedObjects.Add(gameObject);
             return gameObject;
         }
 
@@ -58,6 +65,19 @@ namespace _Sources.Scripts.Infrastructure.Factory
         {
             ProgressReaders.Clear();
             ProgressWriters.Clear();
+        }
+
+        public void DeleteAllInstanciatedObjects()
+        {
+            if (_instanciatedObjects.Count > 0)
+            {
+                foreach (GameObject insObject in _instanciatedObjects)
+                {
+                    Object.Destroy(insObject);
+                }
+                _instanciatedObjects.Clear();
+            }
+           
         }
 
         private void Register(ISavedProgressReader progressReader)

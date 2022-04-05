@@ -28,7 +28,7 @@ namespace _Sources.Scripts.Enemies.States
         {
             base.DoChecks();
             
-            InMaxAgroRange = Entity.Core.PlayerDetectionSenses.InMaxAgroRange;
+            InMaxAgroRange = Entity.Core.PlayerDetectionSenses.InMaxAgroRange();
             InMinAgroRange = Entity.Core.PlayerDetectionSenses.InMinAgroRange;
             PerformCloseRangeAction = Entity.Core.PlayerDetectionSenses.InCloseRangeAction;
         }

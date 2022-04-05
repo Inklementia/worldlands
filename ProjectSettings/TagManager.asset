@@ -7,6 +7,10 @@ TagManager:
   - SpawnPoint
   - PlayerCamera
   - Weapon
+  - AttackButton
+  - PickupButton
+  - EnemySpawnerManager
+  - WorldManager
   layers:
   - Default
   - TransparentFX

@@ -8,7 +8,7 @@ using _Sources.Scripts.UI;
 
 namespace _Sources.Scripts.Infrastructure.GameStates
 {
-    public class GameStateMachine
+    public class GameStateMachine : IGameStateMachine
     {
         private readonly Dictionary<Type, IExitableState> _states;
         private IExitableState _activeState;

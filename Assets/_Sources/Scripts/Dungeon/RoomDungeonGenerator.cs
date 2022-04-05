@@ -24,33 +24,56 @@ namespace _Sources.Scripts.Dungeon
         private ISaveLoadService _saveLoadService;
         private IPersistentProgressService _persistentProgressService;
 
+        [SerializeField] private Tag enemySpawnerTag;
         protected override void Awake()
         {
             base.Awake();
             _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
             _persistentProgressService = AllServices.Container.Single<IPersistentProgressService>();
+            spawnerManager = gameObject.FindWithTag(enemySpawnerTag).GetComponent<DungeonEnemySpawnerManager>();
         }
+
+        private void OnEnable()
+        {
+            GameActions.Current.OnLevelChanged += GenerateDungeon;
+        }
+        private void OnDisable()
+        {
+            GameActions.Current.OnLevelChanged -= GenerateDungeon;
+        }
+        
+
         protected override void Start()
         {
             base.Start();
-            if (_persistentProgressService.PlayerProgress.WorldData.LevelMap.Dungeon == null)
+
+            //GenerateDungeon();
+
+        }
+
+        public override void GenerateDungeon()
+        {
+            int maxFloorTiles;
+            int multiplier = _persistentProgressService.PlayerProgress.WorldData.LevelMap.LevelNumber;
+            if (multiplier  == 0 || multiplier == 1)
             {
-                RunProceduralGeneration();
-                BuildDungeon(_floorPositions);
+                multiplier = 1;
+                maxFloorTiles = randomWalkParameters.TotalFloorCount;
             }
             else
             {
-
-                BuildDungeon(WorldManager.CurrentMap);
+                maxFloorTiles = (int)Mathf.Ceil(randomWalkParameters.TotalFloorCount * (multiplier/1.3f));
             }
-               
             
-        }
+            Debug.Log(maxFloorTiles +" / "+ multiplier);
+            RunProceduralGeneration(maxFloorTiles);
+            BuildDungeon(_floorPositions);
 
-        protected override void RunProceduralGeneration()
+        }
+        protected override void RunProceduralGeneration(int maxTiles)
         {
 
-            RunRoomWalker(randomWalkParameters, startPosition);
+            RunRoomWalker(randomWalkParameters, maxTiles, startPosition);
             
             //RemoveFirstBattleAreaForPlayer();
             
@@ -64,20 +87,23 @@ namespace _Sources.Scripts.Dungeon
             SetExitDoor(coordinates);
             RemoveFirstBattleAreaForPlayer();
             RemoveIntersectRooms();
+            RemoveBattleAreaFromLastRoom();
+            
             RecalculateAStar();
            
             GameActions.Current.DungeonGeneratedToSaveMap(coordinates);
-            _saveLoadService.SaveProgress();
-            Debug.Log("Map Saved");
+            //_saveLoadService.SaveProgress();
+            //Debug.Log("Map Saved");
         }
 
-        private void RunRoomWalker(RandomWalkerSO parameters, Vector2 position)
+        private void RunRoomWalker(RandomWalkerSO parameters, int maxTiles, Vector2 position)
         {
-
+           
             Vector3 currentPos = position;
             _floorPositions.Add(position);
+    
             //set floor tile at current position
-            while (_floorPositions.Count < parameters.TotalFloorCount)
+            while (_floorPositions.Count < maxTiles)
             {
                 if (isWinding)
                 {
@@ -93,7 +119,7 @@ namespace _Sources.Scripts.Dungeon
                 }
              
                 int walkLength = Random.Range(parameters.MinWalkLength, parameters.MaxWalkLength);
-                if (_floorPositions.Count + walkLength < parameters.TotalFloorCount)
+                if (_floorPositions.Count + walkLength < maxTiles)
                 {
                     currentPos = GenerateLongWalk(currentPos, walkLength);
                     CreateSingleRoom(currentPos, minRoomSize, maxRoomSize);

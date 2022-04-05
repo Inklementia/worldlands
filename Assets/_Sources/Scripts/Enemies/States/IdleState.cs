@@ -26,7 +26,7 @@ namespace _Sources.Scripts.Enemies.States
 
             IsDetectingWall = Core.CollisionSenses.Wall;
             IsPlayerInMinAgroRange = Core.PlayerDetectionSenses.InMinAgroRange;
-            IsPlayerInMaxAgroRange = Core.PlayerDetectionSenses.InMaxAgroRange;
+            IsPlayerInMaxAgroRange = Core.PlayerDetectionSenses.InMaxAgroRange();
         }
 
         public override void Enter()

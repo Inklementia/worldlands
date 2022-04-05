@@ -22,6 +22,7 @@ namespace _Sources.Scripts.Dungeon
 
         private void Awake()
         {
+            
             _generator = transform.parent.GetComponentInChildren<AbstractDungeonGenerator>();
             _dungeonMask = LayerMask.GetMask("Wall", "Floor");
             _hitSize = Vector2.one * 0.8f;

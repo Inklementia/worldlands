@@ -16,5 +16,10 @@ namespace _Sources.Scripts.Core.Components
             }
        
         }
+
+        protected virtual void Start()
+        {
+            
+        }
     }
 }

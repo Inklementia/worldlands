@@ -12,16 +12,19 @@ namespace _Sources.Scripts.Data
         public string GameScene; // boss or world
 
         public bool IsBossScene;
-       // public Vector3Data PlayerPosition;
-        public List<Vector2Data> Dungeon;
 
-        public LevelMap(int worldNumber, int levelNumber, string gameScene, bool isBossScene, List<Vector2Data> dungeon)
+        //public bool ShouldRegenerateDungeon;
+       // public Vector3Data PlayerPosition;
+        //public List<Vector2Data> Dungeon;
+
+        public LevelMap(int worldNumber, int levelNumber, string gameScene,bool isBossScene)
         {
             WorldNumber = worldNumber;
             LevelNumber = levelNumber;
             GameScene = gameScene;
             IsBossScene = isBossScene;
-            Dungeon = dungeon;
+            //ShouldRegenerateDungeon = shouldRegenerateDungeon;
+            //Dungeon = dungeon;
         }
   
     }

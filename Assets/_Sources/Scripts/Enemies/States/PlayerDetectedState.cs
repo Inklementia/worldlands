@@ -25,7 +25,7 @@ namespace _Sources.Scripts.Enemies.States
         {
             base.DoChecks();
             IsPlayerInMinAgroRange = Entity.Core.PlayerDetectionSenses.InMinAgroRange;
-            IsPlayerInMaxAgroRange = Entity.Core.PlayerDetectionSenses.InMaxAgroRange;
+            IsPlayerInMaxAgroRange = Entity.Core.PlayerDetectionSenses.InMaxAgroRange();
             PerformCloseRangeAction = Entity.Core.PlayerDetectionSenses.InCloseRangeAction;
             IsDetectingWall = Entity.Core.CollisionSenses.Wall;
 

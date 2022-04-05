@@ -9,7 +9,7 @@ namespace _Sources.Scripts.Infrastructure
     {
         
     //private GameBootstrapper instance;
-    [SerializeField] private LoadingScreen loadingScreen;
+    public LoadingScreen LoadingScreenPrefab;
 
     private Game _game;
 
@@ -27,16 +27,10 @@ namespace _Sources.Scripts.Infrastructure
         }
         StartNewGame();
         */
-        _game = new Game(this, loadingScreen);
+        _game = new Game(this, Instantiate(LoadingScreenPrefab));
         _game.StateMachine.Enter<BootstrapState>();
         DontDestroyOnLoad(this);
       
-    }
-
-    public void StartNewGame()
-    {
-        _game = new Game(this, loadingScreen);
-        _game.StateMachine.Enter<BootstrapState>();
     }
     }
 }
