@@ -1,0 +1,221 @@
+{
+  "roomDescriptionsList": [
+    {
+      "Key": {
+        "Id": 0,
+        "Name": "SpawnRoom"
+      },
+      "Value": {
+        "IsCorridor": false,
+        "RoomTemplates": [
+          {
+            "$id": "4",
+            "Name": "Room 1",
+            "Outline": {
+              "points": [
+                {
+                  "X": -9,
+                  "Y": 6
+                },
+                {
+                  "X": -1,
+                  "Y": 6
+                },
+                {
+                  "X": -1,
+                  "Y": -2
+                },
+                {
+                  "X": -9,
+                  "Y": -2
+                }
+              ]
+            },
+            "Doors": {
+              "$type": "Edgar.GraphBasedGenerator.Grid2D.ManualDoorModeGrid2D, EdgarSingleFile",
+              "Doors": null,
+              "DoorLines": [
+                {
+                  "Line": {
+                    "From": {
+                      "X": -9,
+                      "Y": 2
+                    },
+                    "To": {
+                      "X": -9,
+                      "Y": 2
+                    },
+                    "degeneratedDirection": 0,
+                    "Length": 0
+                  },
+                  "Length": 0,
+                  "DoorSocket": null,
+                  "Type": 0
+                },
+                {
+                  "Line": {
+                    "From": {
+                      "X": -5,
+                      "Y": 6
+                    },
+                    "To": {
+                      "X": -5,
+                      "Y": 6
+                    },
+                    "degeneratedDirection": 0,
+                    "Length": 0
+                  },
+                  "Length": 0,
+                  "DoorSocket": null,
+                  "Type": 0
+                },
+                {
+                  "Line": {
+                    "From": {
+                      "X": -1,
+                      "Y": 2
+                    },
+                    "To": {
+                      "X": -1,
+                      "Y": 2
+                    },
+                    "degeneratedDirection": 0,
+                    "Length": 0
+                  },
+                  "Length": 0,
+                  "DoorSocket": null,
+                  "Type": 0
+                },
+                {
+                  "Line": {
+                    "From": {
+                      "X": -5,
+                      "Y": -2
+                    },
+                    "To": {
+                      "X": -5,
+                      "Y": -2
+                    },
+                    "degeneratedDirection": 0,
+                    "Length": 0
+                  },
+                  "Length": 0,
+                  "DoorSocket": null,
+                  "Type": 0
+                }
+              ]
+            },
+            "RepeatMode": 0,
+            "AllowedTransformations": [
+              0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Key": {
+        "Id": 1,
+        "Name": "Room"
+      },
+      "Value": {
+        "IsCorridor": false,
+        "RoomTemplates": [
+          {
+            "$ref": "4"
+          }
+        ]
+      }
+    },
+    {
+      "Key": {
+        "Id": 2,
+        "Name": "Room"
+      },
+      "Value": {
+        "IsCorridor": false,
+        "RoomTemplates": [
+          {
+            "$ref": "4"
+          }
+        ]
+      }
+    },
+    {
+      "Key": {
+        "Id": 3,
+        "Name": "Room"
+      },
+      "Value": {
+        "IsCorridor": false,
+        "RoomTemplates": [
+          {
+            "$ref": "4"
+          }
+        ]
+      }
+    },
+    {
+      "Key": {
+        "Id": 4,
+        "Name": "BossRoom"
+      },
+      "Value": {
+        "IsCorridor": false,
+        "RoomTemplates": [
+          {
+            "$ref": "4"
+          }
+        ]
+      }
+    }
+  ],
+  "passages": [
+    {
+      "Room1": {
+        "Id": 0,
+        "Name": "SpawnRoom"
+      },
+      "Room2": {
+        "Id": 1,
+        "Name": "Room"
+      }
+    },
+    {
+      "Room1": {
+        "Id": 1,
+        "Name": "Room"
+      },
+      "Room2": {
+        "Id": 2,
+        "Name": "Room"
+      }
+    },
+    {
+      "Room1": {
+        "Id": 2,
+        "Name": "Room"
+      },
+      "Room2": {
+        "Id": 3,
+        "Name": "Room"
+      }
+    },
+    {
+      "Room1": {
+        "Id": 3,
+        "Name": "Room"
+      },
+      "Room2": {
+        "Id": 4,
+        "Name": "BossRoom"
+      }
+    }
+  ],
+  "MinimumRoomDistance": 0,
+  "Clusters": null,
+  "Constraints": null,
+  "RoomTemplateRepeatModeDefault": 2,
+  "RoomTemplateRepeatModeOverride": null,
+  "Name": "Test"
+}

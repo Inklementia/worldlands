@@ -18,7 +18,7 @@ namespace _Sources.Scripts.Dungeon
             GenerateDungeon();
         }
 
-        protected override void RunProceduralGeneration()
+        protected override void RunProceduralGeneration(int currentLevel)
         {
             RunRandomWalk(randomWalkParameters, startPosition);
           

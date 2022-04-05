@@ -9,6 +9,7 @@ namespace _Sources.Scripts.Enemies.State_Mashine
 {
     public class Entity : MonoBehaviour
     {
+  
         public FiniteStateMashine StateMachine;
         public D_Entity EntityData;
         public EnemyCore Core { get; private set; }
@@ -46,9 +47,10 @@ namespace _Sources.Scripts.Enemies.State_Mashine
 
         public virtual void Start()
         {
+            //Core.PlayerDetectionSenses.SetPlayer(GameObject.FindWithTag("Player"));
             Core.HealthSystem.IsDead = false;
             Core.Movement.SetFacingDirection(-1);
-       
+       Debug.Log("Start working");
             StateMachine = new FiniteStateMashine();
 
             //Seeker.StartPath(Rb.position, MoveTarget.position, OnPathComplete);
@@ -58,14 +60,12 @@ namespace _Sources.Scripts.Enemies.State_Mashine
             //healthBar.SetHealth(Core.HealthSystem.Health);
         
             //Target = Core.PlayerDetectionSenses.Player;
-            _weaponGenerator = gameObject.FindWithTag(weaponGeneratorTag).GetComponent<WeaponGenerator>();
-            Dead = transform.Find("Dead").gameObject;
-            Alive = transform.Find("Alive").gameObject;
+            //_weaponGenerator = gameObject.FindWithTag(weaponGeneratorTag).GetComponent<WeaponGenerator>();
+             Dead = transform.Find("Dead").gameObject;
+             Alive = transform.Find("Alive").gameObject;
         }
         public virtual void Update()
         {
-       
-
             StateMachine.CurrentState.LogicUpdate();
         }
 
@@ -89,7 +89,7 @@ namespace _Sources.Scripts.Enemies.State_Mashine
             if (Core.HealthSystem.IsDead)
             {
                 GameActions.Current.EnemyKilledTrigger(this.gameObject);
-                Debug.Log("Enemy KIlled");
+                Debug.Log("Enemy Killed");
             }
             
             

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ObjectPooler : SingletonClass<ObjectPooler>
 {
+
     #region Pool struct
 
     [Serializable]
@@ -21,8 +22,13 @@ public class ObjectPooler : SingletonClass<ObjectPooler>
 
     [SerializeField] private List<Pool> pools;
     private Dictionary<Tag, Queue<GameObject>> _poolDictionary;
+    
+    private void Awake()
+    {
+        PopulatePool();
+    }
 
-    private void OnEnable()
+    public void PopulatePool()
     {
         _poolDictionary = new Dictionary<Tag, Queue<GameObject>>();
 
@@ -40,7 +46,6 @@ public class ObjectPooler : SingletonClass<ObjectPooler>
             _poolDictionary.Add(pool.tag, objectPool);
         }
     }
-
     public GameObject SpawnFromPool(Tag objectTag, Vector3 position, Quaternion rotation)
     {
         GameObject objectToSpawn = _poolDictionary[objectTag].Dequeue();
@@ -56,5 +61,13 @@ public class ObjectPooler : SingletonClass<ObjectPooler>
         _poolDictionary[objectTag].Enqueue(objectToSpawn);
 
         return objectToSpawn;
+    }
+
+    public void DiactivateFromPool()
+    {
+        foreach (var item in pools)
+        {
+            item.prefab.SetActive(false);
+        }
     }
 }

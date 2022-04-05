@@ -38,7 +38,7 @@ namespace _Sources.Scripts.Infrastructure.GameStates
         private void RegisterServices()
         {
             //registering services
-
+            _allServices.RegisterSingle<IGameStateMachine>(_stateMachine);
             _allServices.RegisterSingle<IInputService>(InputService());
             _allServices.RegisterSingle<IAssetProvider>(new AssetProvider());
             _allServices.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());

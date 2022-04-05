@@ -1,4 +1,5 @@
 ﻿using System;
+using _Sources.Scripts.Dungeon;
 using _Sources.Scripts.Infrastructure.Factory;
 using _Sources.Scripts.Infrastructure.Services.PersistentProgress;
 using _Sources.Scripts.UI;
@@ -35,6 +36,7 @@ namespace _Sources.Scripts.Infrastructure.GameStates
         {
             _loadingScreen.Show();
             _gameFactory.CleanUp();
+            //_gameFactory.DeleteAllInstanciatedObjects();
             _sceneLoader.Load(sceneName, OnLoaded);
         }
 
@@ -61,13 +63,23 @@ namespace _Sources.Scripts.Infrastructure.GameStates
 
         private void InitGameWorld()
         {
-            _gameFactory.CreateWorldManager();
+          
+            GameObject wm = _gameFactory.CreateWorldManager();
+           
             //load heads-up-display
             _gameFactory.CreateHud();
-
+            GameObject attackButton = GameObject.FindWithTag("AttackButton");
+            GameObject pickupButton = GameObject.FindWithTag("PickupButton");
             //load player
             GameObject player = _gameFactory.CreatePlayer(GameObject.FindWithTag(SpawnPoint));
-
+            player.GetComponent<PlayerInputHandler>()._attackButtonGo = attackButton;
+            player.GetComponent<PlayerInputHandler>()._pickUpButtonGo = pickupButton;
+            
+            GameObject roomGenerator = _gameFactory.CreateDungeon();
+            
+            roomGenerator.GetComponentInChildren<AbstractDungeonGenerator>().spawnerManager = GameObject
+                .FindWithTag("EnemySpawnerManager").GetComponent<DungeonEnemySpawnerManager>();
+            wm.GetComponent<WorldManager>().generator = roomGenerator.GetComponentInChildren<RoomDungeonGenerator>();
 
             //assign cinemachine camera to player
             GameObject.FindWithTag(PlayerCamera).GetComponent<CinemachineVirtualCamera>().Follow = player.transform;

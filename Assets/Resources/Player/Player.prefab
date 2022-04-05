@@ -654,6 +654,10 @@ MonoBehaviour:
     type: 3}
   attackButtonGOTag: {fileID: 11400000, guid: f6b20463111e1684a98d6875ec848fbf, type: 2}
   pickUpButtonGOTag: {fileID: 11400000, guid: dca3851e26440cc45b7bf3f897ae2b63, type: 2}
+  _attackButtonGo: {fileID: 892035409240560380, guid: 5bc8ac657e5a6804393905f2f19abb66,
+    type: 3}
+  _pickUpButtonGo: {fileID: 8368145017199607511, guid: 55533dcf3e01d6644b26598ba75ec2ca,
+    type: 3}
 --- !u!114 &4443725827962269608
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -28,17 +28,26 @@ public class PlayerInputHandler : MonoBehaviour
     public bool IsAttackButtonPressed { get; private set; }
     public bool IsAttackButtonPressedDown { get; private set; }
     
-    private GameObject _attackButtonGo;
-    private GameObject _pickUpButtonGo;
-    
+    [HideInInspector] public GameObject _attackButtonGo;
+    [HideInInspector] public GameObject _pickUpButtonGo;
+
+    private void OnEnable()
+    {
+        
+    }
+
     private void Awake()
     {
-        _inputService = AllServices.Container.Single<IInputService>();
-     
-        //ChangeActionModeOnPickUp();
+    _inputService = AllServices.Container.Single<IInputService>();
+    
+        //Debug.Log("PLAYER AWAKE");
+      
+        
         _attackButtonGo = gameObject.FindWithTag(attackButtonGOTag);
         _pickUpButtonGo = gameObject.FindWithTag(pickUpButtonGOTag);
 
+        //ChangeActionModeOnPickUp();
+   
         MovementPos = new Vector2(0,0);
 
     }

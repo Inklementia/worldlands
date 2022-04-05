@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Random = UnityEngine.Random;
 
 namespace _Sources.Scripts.Dungeon
 {
@@ -9,7 +10,7 @@ namespace _Sources.Scripts.Dungeon
     {
         [SerializeField] protected GameObject floorTilePrefab;
         private AbstractDungeonGenerator _generator;
-
+        [SerializeField] protected internal Sprite[] floorTiles;
         private void Awake()
         {
             _generator = transform.parent.GetComponentInChildren<AbstractDungeonGenerator>();
@@ -17,15 +18,22 @@ namespace _Sources.Scripts.Dungeon
 
         public void InstantiateFloorTiles(IEnumerable<Vector2> floorPositions)
         {
-            InstantiateTiles(floorPositions, transform, floorTilePrefab);
+            InstantiateTiles(floorPositions, transform, floorTilePrefab, true);
             
         }
 
-        private void InstantiateTiles(IEnumerable<Vector2> positions, Transform map, GameObject tile)
+        private void InstantiateTiles(IEnumerable<Vector2> positions, Transform map, GameObject tile, bool isFloor)
         {
             foreach (var position in positions)
             {
-                InstantiateSingleTile(tile, position, map);
+                if (isFloor)
+                {
+                    InstantiateSingleFloorTile(tile, position, map);
+                }
+                else
+                {
+                    InstantiateSingleTile(tile, position, map);
+                }
                 AssignDungeonCoordinates(position);
             }
         }
@@ -33,6 +41,27 @@ namespace _Sources.Scripts.Dungeon
         public void InstantiateSingleTile(GameObject tile, Vector2 place, Transform parent)
         {
             GameObject tileGo = Instantiate(tile, place, Quaternion.identity);
+
+            tileGo.name = tile.name;
+            tileGo.transform.SetParent(parent);
+        }
+        public void InstantiateSingleFloorTile(GameObject tile, Vector2 place, Transform parent){
+            
+            int randomIndex = Random.Range(0, floorTiles.Length);
+            int rotateOrNotRotate = Random.Range(0, 2);
+            //Debug.Log(rotateOrNotRotate);
+           
+            Quaternion rot;
+            if (rotateOrNotRotate == 1)
+            {
+                rot = Quaternion.Euler(0, 180f, 0);
+            }
+            else
+            {
+                rot = Quaternion.identity;
+            }
+            tile.GetComponent<SpriteRenderer>().sprite = floorTiles[randomIndex];
+            GameObject tileGo = Instantiate(tile, place, rot);
 
             tileGo.name = tile.name;
             tileGo.transform.SetParent(parent);

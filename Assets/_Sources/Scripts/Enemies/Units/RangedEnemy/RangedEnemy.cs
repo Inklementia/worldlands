@@ -31,7 +31,7 @@ namespace _Sources.Scripts.Enemies.Units.RangedEnemy
 
         public override void Start()
         {
-            base.Awake();
+            base.Start();
 
             IdleState = new RangedEnemy_IdleState(this, StateMachine, "idle", idleStateData, this);
             MoveState = new RangedEnemy_MoveState(this, StateMachine, "move", moveStateData, this);

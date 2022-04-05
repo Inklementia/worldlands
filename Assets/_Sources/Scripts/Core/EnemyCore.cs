@@ -22,5 +22,12 @@ namespace _Sources.Scripts.Core
             }
 
         }
+        public override void LogicUpdate()
+        {
+            base.LogicUpdate();
+            
+            PlayerDetectionSenses.LogicUpdate();
+            
+        }
     }
 }

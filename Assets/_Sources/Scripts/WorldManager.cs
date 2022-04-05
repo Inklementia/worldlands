@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using _Sources.Scripts.Data;
+using _Sources.Scripts.Dungeon;
 using _Sources.Scripts.Infrastructure.Services;
 using _Sources.Scripts.Infrastructure.Services.PersistentProgress;
 using _Sources.Scripts.Infrastructure.Services.SaveLoad;
@@ -13,14 +14,23 @@ namespace _Sources.Scripts
     {
         [SerializeField] private WorldDataSO worldData;
         [SerializeField] private GameObject playerSpawnPoint;
-        
-        private int _currentLevel = 1;
+   
+        public int CurrentLevel { get; private set; }
         private int _currentWorld = 1;
         private bool _isBossScene = false;
-        
-        public List<Vector2> CurrentMap { get; private set; } = new List<Vector2>();
+        private bool _shouldRegenerate;
+       
+        public RoomDungeonGenerator generator;
+        private void Start()
+        {
+            //generator = GameObject.FindObjectOfType<RoomDungeonGenerator>();
+            if (CurrentLevel == 0)
+            {
+                CurrentLevel = 1;
+            }
 
-   
+            Debug.Log("Current Level: "+CurrentLevel);
+        }
 
         private void SetPlayerAtStartPosition(Vector3 place)
         {
@@ -29,32 +39,52 @@ namespace _Sources.Scripts
 
         private void OnEnable()
         {
-            GameActions.Current.OnDungeonGeneratedToSaveMap += SaveCurrentMap;
+            //GameActions.Current.OnDungeonGeneratedToSaveMap += SaveCurrentMap;
+            //GameActions.Current.OnDungeonFinished += IncreaseLevel;
         }
 
         private void OnDisable()
         {
-            GameActions.Current.OnDungeonGeneratedToSaveMap -= SaveCurrentMap;
+            //GameActions.Current.OnDungeonGeneratedToSaveMap -= SaveCurrentMap;
+            //GameActions.Current.OnDungeonFinished -= IncreaseLevel;
+            
         }
 
-        private void SaveCurrentMap(List<Vector2> mapTiles)
+        private void Update()
         {
-            CurrentMap = mapTiles;
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                generator.GenerateDungeon();
+            }
         }
+
+        public void IncreaseLevel()
+        {
+            Debug.Log("lEVEL uP "+CurrentLevel);
+            CurrentLevel++;
+         
+            Debug.Log("lEVEL uP "+CurrentLevel);
+        }
+
         public void LoadProgress(PlayerProgress progress)
         {
-            if (_currentWorld == progress.WorldData.LevelMap.WorldNumber &&
-                _currentLevel == progress.WorldData.LevelMap.LevelNumber && 
-                CurrentScene() == progress.WorldData.LevelMap.GameScene)
+            if (CurrentScene() == progress.WorldData.LevelMap.GameScene)
             {
                 if (_isBossScene == progress.WorldData.LevelMap.IsBossScene && _isBossScene)
                 {
                     // boss
                     Debug.Log("Boss must be here");
+               
                 }
                 else
                 {
+                    Debug.Log("normal level here");
+                
+                   
+                    //GameActions.Current.RegenerateDungeon();
                     // instantiate dungeon
+                    //CurrentLevel = progress.WorldData.LevelMap.LevelNumber;
+                    /*
                     List<Vector2Data> savedMap = progress.WorldData.LevelMap.Dungeon;
                     if (savedMap != null)
                     {
@@ -63,8 +93,22 @@ namespace _Sources.Scripts
                             CurrentMap.Add(tile.AsUnityVector2());
                         }
                         GameActions.Current.LevelLoaded(CurrentMap);
-                    }
+                    }*/
 
+                }
+
+                CurrentLevel = progress.WorldData.LevelMap.LevelNumber;
+                _currentWorld = progress.WorldData.LevelMap.WorldNumber;
+               
+                if (generator != null)
+                {
+                    generator.GenerateDungeon();
+                }
+                
+                if (CurrentLevel == worldData.NumberOfLevels)
+                {
+                    Debug.Log("END OF WORLD");
+                    CurrentLevel = 0;
                 }
             }
 
@@ -73,13 +117,18 @@ namespace _Sources.Scripts
 
         public void UpdateProgress(PlayerProgress progress)
         {
+            /*
             List<Vector2Data> tilesToSave = new List<Vector2Data>();
-            foreach (Vector2 tile in CurrentMap)
+            if(CurrentMap != null)
             {
-                tilesToSave.Add(tile.AsTileData());
-            }
-
-            progress.WorldData.LevelMap = new LevelMap(_currentWorld, _currentLevel, CurrentScene(), _isBossScene, tilesToSave);
+                foreach (Vector2 tile in CurrentMap)
+                {
+                    tilesToSave.Add(tile.AsTileData());
+                }
+            }*/
+           
+            progress.WorldData.LevelMap = new LevelMap(_currentWorld, CurrentLevel, CurrentScene(),_isBossScene);
+            
         }
 
         private static string CurrentScene()

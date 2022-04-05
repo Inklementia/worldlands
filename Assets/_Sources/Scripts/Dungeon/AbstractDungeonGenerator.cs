@@ -14,19 +14,18 @@ namespace _Sources.Scripts.Dungeon
         [SerializeField] protected Vector2 startPosition = Vector2.zero;
         [SerializeField] protected RandomWalkerSO randomWalkParameters;
         [SerializeField] private GameObject colliderPrefab;
-        [SerializeField] private DungeonEnemySpawnerManager spawnerManager;
+       
         [SerializeField] private GameObject exitDoorPrefab;
 
 
         [HideInInspector] public float minX, maxX, minY, maxY;
-
+        public DungeonEnemySpawnerManager spawnerManager;
         private List<GameObject> _roomList = new List<GameObject>();
-        [SerializeField] private Tag worldManagerTag;
-        protected WorldManager WorldManager;
+       
         protected virtual void Awake()
         {
             //WorldManager = gameObject.FindWithTag(worldManagerTag).GetComponent<WorldManager>();
-            WorldManager = GetComponentInParent<WorldManager>();
+            //WorldManager = GetComponentInParent<WorldManager>();
         }
 
         protected virtual void Start()
@@ -34,12 +33,12 @@ namespace _Sources.Scripts.Dungeon
            
         }
 
-        protected virtual void GenerateDungeon()
+        public virtual void GenerateDungeon()
         {
 
         }
 
-        protected abstract void RunProceduralGeneration();
+        protected abstract void RunProceduralGeneration(int currentLevel);
 
         protected void GenerateAreaCollider(int width, int height, Vector3 roomCenter)
         {
@@ -69,6 +68,12 @@ namespace _Sources.Scripts.Dungeon
                 }
             }
         }
+
+        protected void RemoveBattleAreaFromLastRoom()
+        {
+            _roomList[_roomList.Count - 1].SetActive(false);
+            Destroy(_roomList[_roomList.Count - 1]);
+        }
         private void DeactivateArea(int roomIndex)
         {
             _roomList[roomIndex].SetActive(false);
@@ -77,10 +82,13 @@ namespace _Sources.Scripts.Dungeon
 
         protected void SetExitDoor(List<Vector2> floorPosition)
         {
+            //Debug.Log(floorPosition[floorPosition.Count - 1]);
             Vector3 doorPos = floorPosition[floorPosition.Count - 1];
             GameObject doorGo = Instantiate(exitDoorPrefab, doorPos, Quaternion.identity);
             doorGo.name = exitDoorPrefab.name;
             doorGo.transform.SetParent(transform);
+
+            doorGo.GetComponent<ExitDoor>().FindWorldManager();
         }
 
         protected void RemoveFirstBattleAreaForPlayer()

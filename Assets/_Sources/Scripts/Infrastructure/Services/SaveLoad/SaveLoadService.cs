@@ -29,8 +29,8 @@ namespace _Sources.Scripts.Infrastructure.Services.SaveLoad
             }
 
             string saveString = _persistentProgressService.PlayerProgress.ToJson();
-            PlayerPrefs.SetString(ProgressKey, saveString);
-            //File.WriteAllText(Application.dataPath + "/player_progress.txt", saveString);
+            //PlayerPrefs.SetString(ProgressKey, saveString);
+            File.WriteAllText(Application.dataPath + "/player_progress.txt", saveString);
            
         }
 
@@ -38,20 +38,16 @@ namespace _Sources.Scripts.Infrastructure.Services.SaveLoad
         {
             // Change to EASY SAVE 3 
             
-            /*if (File.Exists(Application.dataPath + "/player_progress.txt"))
+            if (File.Exists(Application.dataPath + "/player_progress.txt"))
             {
                 string saveString = File.ReadAllText(Application.dataPath + "/player_progress.txt");
                 return saveString.ToDeserialized<PlayerProgress>();
-            }*/
-            return PlayerPrefs.GetString(ProgressKey)?.ToDeserialized<PlayerProgress>();
-            //return null;
+            }
+            //return PlayerPrefs.GetString(ProgressKey)?.ToDeserialized<PlayerProgress>();
+            return null;
 
         }
 
-        public bool CheckIfSavedFileExists()
-        {
-            //return PlayerPrefs.GetString(ProgressKey) != null;
-            return File.Exists(Application.dataPath + "/player_progress.txt");
-        }
+   
     }
 }

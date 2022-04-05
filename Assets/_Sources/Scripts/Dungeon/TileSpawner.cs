@@ -33,11 +33,7 @@ namespace _Sources.Scripts.Dungeon
             // destroying spawner
            
             Destroy(gameObject);
-            
-            
         }
-
-
 
         private void AssignDungeonCoordinates()
         {
@@ -62,7 +58,6 @@ namespace _Sources.Scripts.Dungeon
         private void GenerateFloor()
         {
             //Debug.Log(_color);
-            
             int randomIndex = Random.Range(0, _dungeonManager.floorTiles.Length);
             int rotateOrNotRotate = Random.Range(0, 2);
             //Debug.Log(rotateOrNotRotate);
