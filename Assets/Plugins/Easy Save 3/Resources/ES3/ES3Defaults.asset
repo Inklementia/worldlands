@@ -30,7 +30,6 @@ MonoBehaviour:
     serializationDepthLimit: 64
     assemblyNames:
     - Assembly-CSharp
-    - Edgar.Unity
     - MoreMountains.Feedbacks
     - Assembly-CSharp-firstpass
     - AstarPathfindingProject
@@ -41,7 +40,6 @@ MonoBehaviour:
     - Cinemachine
     - MoreMountains.Feedbacks.MMTools
     - MoreMountains.Feedbacks.TextMeshPro
-    - Edgar.Unity.Examples
     - MoreMountains.Feedbacks.URP
     - MoreMountains.Feedbacks.Cinemachine
     - SimpleInput.Runtime
@@ -55,7 +53,6 @@ MonoBehaviour:
     - MoreMountains.Tools.TextMeshPro
     - MoreMountains.Feedbacks.NiceVibrations
     - MoreMountains.Tools.Editor
-    - Edgar.Unity.Editor
     - PsdPlugin
     - Sirenix.OdinInspector.CompatibilityLayer.Editor
     - MoreMountains.Feedbacks.Editor
