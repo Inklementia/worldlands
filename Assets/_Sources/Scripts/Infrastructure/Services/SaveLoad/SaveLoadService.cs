@@ -29,22 +29,23 @@ namespace _Sources.Scripts.Infrastructure.Services.SaveLoad
             }
 
             string saveString = _persistentProgressService.PlayerProgress.ToJson();
-            //PlayerPrefs.SetString(ProgressKey, saveString);
-            File.WriteAllText(Application.dataPath + "/player_progress.txt", saveString);
+            PlayerPrefs.SetString(ProgressKey, saveString);
+            //File.WriteAllText(Application.dataPath + "/player_progress.txt", saveString);
+            ES3DataManager.Instance.SaveLevelNumber(_persistentProgressService.PlayerProgress.WorldData.LevelMap.LevelNumber);
            
         }
 
         public PlayerProgress LoadProgress()
         {
             // Change to EASY SAVE 3 
-            
+            /*
             if (File.Exists(Application.dataPath + "/player_progress.txt"))
             {
                 string saveString = File.ReadAllText(Application.dataPath + "/player_progress.txt");
                 return saveString.ToDeserialized<PlayerProgress>();
-            }
-            //return PlayerPrefs.GetString(ProgressKey)?.ToDeserialized<PlayerProgress>();
-            return null;
+            }*/
+            return PlayerPrefs.GetString(ProgressKey)?.ToDeserialized<PlayerProgress>();
+            //return null;
 
         }
 

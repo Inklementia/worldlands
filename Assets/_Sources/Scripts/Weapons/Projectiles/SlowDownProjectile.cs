@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 public class SlowDownProjectile : BaseProjectile
 {
     [SerializeField] private Tag DestroyOnto;
-    //[SerializeField] protected MMFeedback destroyParticlesFeedback;
+    [SerializeField] protected MMFeedback destroyParticlesFeedback;
     private Vector2 _direction;
 
     private float _travelDistance;
@@ -108,7 +108,7 @@ public class SlowDownProjectile : BaseProjectile
         {
             // TODO: instantiate particles
             var position = transform.position;
-            //destroyParticlesFeedback.Play(position, 1);
+            destroyParticlesFeedback.Play(position, 1);
          
             //objectPooler.SpawnFromPool(splashTag, position, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
             gameObject.SetActive(false);

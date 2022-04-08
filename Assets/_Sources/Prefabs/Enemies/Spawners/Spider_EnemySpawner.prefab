@@ -97,6 +97,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   playerTag: {fileID: 11400000, guid: 179e93f8c5d4574478cd4f2f2deddede, type: 2}
+  playerDetectInterval: 3
 --- !u!1 &6181295836285387404
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &838313750631697802
 Transform:
   m_ObjectHideFlags: 0

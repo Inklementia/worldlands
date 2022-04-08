@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: GlowProjectile
   m_Shader: {fileID: 4800000, guid: a36b7719ff0465b42ab1407d67672c5f, type: 3}
-  m_ShaderKeywords: DOODLE_ON GLITCH_ON GLOW_ON OUTBASE_ON OUTDIST_ON RADIALGRADIENT_ON
-    _GLOWAFFECTLIGHT_ON _GRADISRADIAL_ON _OUTLINEDISTORTTOGGLE_ON
+  m_ShaderKeywords: GLOW_ON OUTDIST_ON RADIALGRADIENT_ON _GLOWAFFECTLIGHT_ON _GRADISRADIAL_ON
+    _OUTLINEDISTORTTOGGLE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -122,7 +122,7 @@ Material:
     - _GhostTransparency: 0
     - _GlitchAmount: 17.58
     - _GlitchSize: 1
-    - _Glow: 14.9
+    - _Glow: 82.6
     - _GlowAffectLight: 1
     - _GlowTexUsed: 0
     - _GradBlend: 1

@@ -62,8 +62,10 @@ namespace _Sources.Scripts.Enemies.States
 
             foreach (Collider2D collider in detectedObjects)
             {
-               collider.GetComponent<PlayerEntity>().Damage(AttackDetails);
-                Debug.Log("Attack ");
+                PlayerEntity player = collider.GetComponent<PlayerEntity>();
+                player.CheckDamage();
+                player.Core.PlayerCombatSystem.TakeDamage(AttackDetails);
+                Debug.Log("Attack");
             }
         }
     

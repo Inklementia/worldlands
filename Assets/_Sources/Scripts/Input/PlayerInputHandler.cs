@@ -17,10 +17,8 @@ public class PlayerInputHandler : MonoBehaviour
    //public float MovementPosY { get; private set; }
 
     [SerializeField] private ButtonInputUI switchWeaponButton;
-
-    [Header("Buttons")]
-    [SerializeField] private Tag attackButtonGOTag;
-    [SerializeField] private Tag pickUpButtonGOTag;
+    [SerializeField] private ButtonInputUI doubleFireButton;
+    [SerializeField] private ButtonInputUI regenerateLevel;
     
     public bool IsSwitchWeaponButtonPressed { get; private set; }
     public bool IsPickUpButtonPressed { get; private set; }
@@ -28,9 +26,9 @@ public class PlayerInputHandler : MonoBehaviour
     public bool IsAttackButtonPressed { get; private set; }
     public bool IsAttackButtonPressedDown { get; private set; }
     
-     public GameObject _attackButtonGo;
+    public GameObject _attackButtonGo;
     public GameObject _pickUpButtonGo;
-
+    
     private void OnEnable()
     {
         
@@ -74,7 +72,12 @@ public class PlayerInputHandler : MonoBehaviour
         IsSwitchWeaponButtonPressed = _inputService.IsSwitchWeaponButtonPressed();
         IsAttackButtonPressed = _inputService.IsAttackButtonPressed();
         CkeckIfJoystickPressed();
-        
+
+
+        if (_inputService.IsAttackButtonDown())
+        {
+            
+        }
        //Debug.Log("Attck  "+IsAttackButtonPressed);
         //Debug.Log("Attck Up "+IsAttackButtonPressedUp);
     }

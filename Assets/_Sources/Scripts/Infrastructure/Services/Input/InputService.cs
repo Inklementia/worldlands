@@ -9,7 +9,7 @@ namespace _Sources.Scripts.Infrastructure.Services.Input
         protected const string SwitchWeapon = "SwitchWeapon";
         protected const string Attack = "Attack";
         protected const string PickUp = "PickUp";
-
+        protected const string Regenerate = "Regenerate";
         public abstract Vector2 Axis { get; }
 
         public bool IsSwitchWeaponButtonPressed() =>
@@ -26,7 +26,9 @@ namespace _Sources.Scripts.Infrastructure.Services.Input
         public bool IsPickUpButtonUp() =>
             SimpleInput.GetButtonUp(PickUp);
 
-      
+        public bool IsRegenerateButtonPressed() =>
+            SimpleInput.GetButtonUp(Regenerate);
+
         protected static Vector2 SimpleInputAxis() =>
             new Vector2(SimpleInput.GetAxis(Horizontal), SimpleInput.GetAxis(Vertical));
 

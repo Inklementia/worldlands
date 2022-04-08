@@ -4,6 +4,7 @@ using _Sources.Scripts.Core;
 using _Sources.Scripts.Data;
 using _Sources.Scripts.Infrastructure.Services.PersistentProgress;
 using _Sources.Scripts.Player.PlayerStates;
+using _Sources.Scripts.UI;
 using UnityEngine;
 
 namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
@@ -25,7 +26,7 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
  
 
         [SerializeField] private PlayerDataSO playerData;
-
+        public PlayerUI playerUI;
         private void Awake()
         {
         
@@ -54,7 +55,8 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
             WeaponHandler = GetComponent<PlayerWeaponHandler>();
 
             StateMachine.Initialize(IdleState);
-
+            
+            playerUI.SetUI(this);
             //RightInputHandler.DisableWeaponSwitchButton();
         }
 
@@ -71,7 +73,7 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
             StateMachine.CurrentState.PhysicsUpdate();
         }
 
-        public void Damage(AttackDetails attackDetails)
+        public void CheckDamage()
         {
             if(Core.HealthSystem.IsDead)
             {

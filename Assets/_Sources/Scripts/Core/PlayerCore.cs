@@ -9,6 +9,7 @@ namespace _Sources.Scripts.Core
         public EnemyDetectionSenses EnemyDetectionSenses { get; private set; }
         public EnergySystem EnergySystem { get; private set; }
         public ShieldSystem ShieldSystem { get; private set; }
+        public PlayerCombatSystem PlayerCombatSystem { get; private set; }
 
         protected override void Awake()
         {
@@ -16,7 +17,8 @@ namespace _Sources.Scripts.Core
             EnemyDetectionSenses = GetComponentInChildren<EnemyDetectionSenses>();
             EnergySystem = GetComponentInChildren<EnergySystem>();
             ShieldSystem = GetComponentInChildren<ShieldSystem>();
-
+            PlayerCombatSystem = GetComponentInChildren<PlayerCombatSystem>();
+            
             if (!EnemyDetectionSenses)
             {
                 Debug.LogError("Missing Senses Component");
@@ -27,9 +29,7 @@ namespace _Sources.Scripts.Core
         public override void LogicUpdate()
         {
             base.LogicUpdate();
-            
-            //EnemyDetectionSenses.LogicUpdate();
-            
+            ShieldSystem.LogicUpdate();
         }
     }
 }

@@ -33,7 +33,7 @@ namespace _Sources.Scripts.Core.Components
             CurrentStat = maxHealth;
         }
 
-        public void DecreaseStat(float damageAmount)
+        public virtual  void DecreaseStat(float damageAmount)
         {
             CurrentStat -= damageAmount;
             if (CurrentStat < 0)
@@ -41,15 +41,19 @@ namespace _Sources.Scripts.Core.Components
                 CurrentStat = 0;
                 //Destroy(gameObject);
             }
+            
+            
         }
 
-        public void IncreaseStat(float healAmount)
+        public virtual void IncreaseStat(float healAmount)
         {
             CurrentStat += healAmount;
             if (CurrentStat > MaxStat)
             {
                 CurrentStat = MaxStat;
             }
+           
+           
         }
 
     }

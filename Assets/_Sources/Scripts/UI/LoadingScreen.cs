@@ -27,14 +27,21 @@ namespace _Sources.Scripts.UI
 
         public void Show()
         {
+           screenTransitionMaterial.SetFloat(propertyName, 0);
             gameObject.SetActive(true);
-            canvasGroup.alpha = 1;
+           
+            //canvasGroup.alpha = 1;
         }
 
+        public void ShowAnimation()
+        {
+     
+            StartCoroutine(ScreenTransitionIn());
+        }
         public void Hide()
         {
             //gameObject.SetActive(false);
-            StartCoroutine(ScreenTransition());
+            StartCoroutine(ScreenTransitionOut());
         }
         
         private IEnumerator FadeOut()
@@ -48,7 +55,7 @@ namespace _Sources.Scripts.UI
             gameObject.SetActive(false);
         }
 
-        private IEnumerator ScreenTransition()
+        private IEnumerator ScreenTransitionOut()
         {
             yield return new WaitForSeconds(additionalWaitTime);
             float currentTime = 0;
@@ -62,6 +69,22 @@ namespace _Sources.Scripts.UI
             }
             OnTransitionDone?.Invoke();
             gameObject.SetActive(false);
+           
+        }
+        private IEnumerator ScreenTransitionIn()
+        {
+            gameObject.SetActive(true);
+            float currentTime = transitionTime;
+            while (currentTime > 0)
+            {
+                currentTime -= Time.deltaTime;
+                loadingText.DOFade(1f, .1f);
+                screenTransitionMaterial.SetFloat(propertyName, Mathf.Clamp01(currentTime / transitionTime));
+              
+                yield return null;
+            }
+            OnTransitionDone?.Invoke();
+           
            
         }
     }

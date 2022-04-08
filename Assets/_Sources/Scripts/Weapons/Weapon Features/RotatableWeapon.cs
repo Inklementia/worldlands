@@ -78,7 +78,7 @@ namespace _Sources.Scripts.Weapons.Weapon_Features
         
         public void Accept(IVisitor visitor)
         {
-            PlayerEntity = gameObject.FindWithTag(RotatableWeaponData.PlayerTag).GetComponent<PlayerEntity>();
+            PlayerEntity = GameObject.FindWithTag("Player").GetComponent<PlayerEntity>();
             Aimhelper.AssignPlayerToAimHelper(PlayerEntity);
             //_enemiesList = dm.SpawnedEnemies;
             if (PlayerEntity.Core.EnemyDetectionSenses.EnemyInFieldOfView())

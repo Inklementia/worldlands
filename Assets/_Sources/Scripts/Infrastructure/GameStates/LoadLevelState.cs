@@ -2,6 +2,7 @@
 using _Sources.Scripts.Dungeon;
 using _Sources.Scripts.Infrastructure.Factory;
 using _Sources.Scripts.Infrastructure.Services.PersistentProgress;
+using _Sources.Scripts.Player.PlayerFiniteStateMachine;
 using _Sources.Scripts.UI;
 using Cinemachine;
 using UnityEngine;
@@ -67,14 +68,18 @@ namespace _Sources.Scripts.Infrastructure.GameStates
             GameObject wm = _gameFactory.CreateWorldManager();
            
             //load heads-up-display
-            _gameFactory.CreateHud();
+            GameObject hud = _gameFactory.CreateHud();
+            
             GameObject attackButton = GameObject.FindWithTag("AttackButton");
             GameObject pickupButton = GameObject.FindWithTag("PickupButton");
+            PlayerUI playerUI = GameObject.FindWithTag("PlayerUI").GetComponent<PlayerUI>();
             //load player
             GameObject player = _gameFactory.CreatePlayer(GameObject.FindWithTag(SpawnPoint));
             player.GetComponent<PlayerInputHandler>()._attackButtonGo = attackButton;
             player.GetComponent<PlayerInputHandler>()._pickUpButtonGo = pickupButton;
-            
+            player.GetComponent<PlayerEntity>().playerUI = playerUI;
+            //hud.GetComponentInChildren<PlayerUI>().player = player.GetComponent<PlayerEntity>();
+                
             GameObject roomGenerator = _gameFactory.CreateDungeon();
             
             roomGenerator.GetComponentInChildren<AbstractDungeonGenerator>().spawnerManager = GameObject

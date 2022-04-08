@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 5310128647707430243}
   - component: {fileID: 5310128647707430252}
   - component: {fileID: 6972991991350158195}
-  - component: {fileID: 767163223001894267}
   - component: {fileID: 2643124842983180200}
   - component: {fileID: 6165966343593793572}
-  - component: {fileID: 5779405745029199822}
   - component: {fileID: 1609077974419257105}
+  - component: {fileID: 2727406219995511530}
   m_Layer: 8
   m_Name: 16_tiles_wall_15
   m_TagString: Untagged
@@ -57,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 0bfe23af3c6d42f499c39f1c9771ae86, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,9 +74,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -394411213
-  m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingLayerID: -1925609593
+  m_SortingLayer: 5
+  m_SortingOrder: 5
   m_Sprite: {fileID: 4530044418486181334, guid: d344380b17ea7f6429df4bd295586788,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -105,57 +104,6 @@ MonoBehaviour:
   tags:
   - {fileID: 11400000, guid: 267e3742509d87b4dafda05c7d829f8c, type: 2}
   - {fileID: 11400000, guid: b5e712fa9f7027f4381aead63e6c02d1, type: 2}
---- !u!331 &767163223001894267
-SpriteMask:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5310128647707430254}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 4530044418486181334, guid: d344380b17ea7f6429df4bd295586788,
-    type: 3}
-  m_MaskAlphaCutoff: 0.2
-  m_FrontSortingLayerID: 0
-  m_BackSortingLayerID: 0
-  m_FrontSortingLayer: 0
-  m_BackSortingLayer: 0
-  m_FrontSortingOrder: 0
-  m_BackSortingOrder: 0
-  m_IsCustomRangeActive: 0
-  m_SpriteSortPoint: 0
 --- !u!95 &2643124842983180200
 Animator:
   serializedVersion: 3
@@ -187,25 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e9bc12197abab44a57f877e0d23b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitWallParticlesFeedback: {fileID: 7233064139325254873}
-  wallAnim: {fileID: 2643124842983180200}
   triggerTag: {fileID: 11400000, guid: ce6b76a81897de44eacfa50efd1c6813, type: 2}
---- !u!114 &5779405745029199822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5310128647707430254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shaderTypes: 0
-  normalStrenght: 5
-  normalSmoothing: 1
-  computingNormal: 0
+  material: {fileID: 2100000, guid: 0bfe23af3c6d42f499c39f1c9771ae86, type: 2}
 --- !u!58 &1609077974419257105
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -222,6 +153,22 @@ CircleCollider2D:
   m_Offset: {x: 0.03321469, y: 0}
   serializedVersion: 2
   m_Radius: 0.4667853
+--- !u!114 &2727406219995511530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5310128647707430254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 0
+  normalStrenght: 5
+  normalSmoothing: 1
+  computingNormal: 0
 --- !u!1 &6293732056473848835
 GameObject:
   m_ObjectHideFlags: 0
