@@ -11,6 +11,8 @@ TagManager:
   - PickupButton
   - EnemySpawnerManager
   - WorldManager
+  - LoadingScreen
+  - PlayerUI
   layers:
   - Default
   - TransparentFX
@@ -60,11 +62,11 @@ TagManager:
   - name: Weapons
     uniqueID: 2546169397
     locked: 0
-  - name: Particles
-    uniqueID: 1415739697
-    locked: 0
   - name: Projectiles
     uniqueID: 2369357703
+    locked: 0
+  - name: Particles
+    uniqueID: 1415739697
     locked: 0
   - name: Foreground
     uniqueID: 3215441047

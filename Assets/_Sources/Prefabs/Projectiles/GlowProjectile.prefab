@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1478950349369982776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 208727217330320106}
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1925609593
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1874999468665147253, guid: 03b7e9a84ee634248a99d941b411eac2,
     type: 3}
@@ -141,6 +141,7 @@ MonoBehaviour:
   Rb: {fileID: 7494328449742738030}
   TargetTag: {fileID: 11400000, guid: 39cbccd36e550ae47a281b694f925d61, type: 2}
   DestroyOnto: {fileID: 11400000, guid: 267e3742509d87b4dafda05c7d829f8c, type: 2}
+  destroyParticlesFeedback: {fileID: 2138580964}
 --- !u!114 &1478950349369982777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,9 +285,9 @@ MonoBehaviour:
     Quantized: 0
     TargetBPM: 120
   DebugActive: 0
-  Mode: 1
+  Mode: 0
   CachedRecycle: 1
-  ParticlesPrefab: {fileID: 5324066042521340181, guid: 27378466b1167a346aa751c0d1cbe10b,
+  ParticlesPrefab: {fileID: 9121362506625068374, guid: 80cc664e3d2c2594788e7055be325489,
     type: 3}
   RandomParticlePrefabs: []
   PositionMode: 3

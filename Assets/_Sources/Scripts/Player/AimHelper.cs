@@ -32,13 +32,13 @@ namespace _Sources.Scripts.Player
         private void Start()
         {
             _detectEnemiesTimer = detectEnemiesInterval;
-            GameActions.Current.OnEnemyKilled += RemoveEnemyFromList;
+            GameActions.Instance.OnEnemyKilled += RemoveEnemyFromList;
             //GameActions.Current.OnBattleColliderEntered += DetectEnemies;
         }
 
         private void OnDisable()
         {
-            GameActions.Current.OnEnemyKilled -= RemoveEnemyFromList;
+            GameActions.Instance.OnEnemyKilled -= RemoveEnemyFromList;
            // GameActions.Current.OnBattleColliderEntered -= DetectEnemies;
             //GameActions.Current.OnDungeonGenerated -= DetectEnemies;
         }

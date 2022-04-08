@@ -88,7 +88,7 @@ namespace _Sources.Scripts.Enemies.State_Mashine
 
             if (Core.HealthSystem.IsDead)
             {
-                GameActions.Current.EnemyKilledTrigger(this.gameObject);
+                GameActions.Instance.EnemyKilledTrigger(this.gameObject);
                 Debug.Log("Enemy Killed");
             }
             

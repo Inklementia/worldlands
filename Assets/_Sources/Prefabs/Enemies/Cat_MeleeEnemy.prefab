@@ -62,6 +62,7 @@ Transform:
   - {fileID: 1531204649248890126}
   - {fileID: 181242774301123269}
   - {fileID: 8938766485823454129}
+  - {fileID: 6779745042402548801}
   m_Father: {fileID: 5556125298006549384}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -385,8 +386,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3ecc206632a3a24e94cd33dfd773b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dead: {fileID: 6091717106991062409}
-  alive: {fileID: 4641096437720387071}
   EntityData: {fileID: 11400000, guid: 9393cfd1b805dd94b9ccf1a25c3d6389, type: 2}
   weaponGeneratorTag: {fileID: 11400000, guid: baa68443e11395b448051c0cb4597448, type: 2}
   idleStateData: {fileID: 11400000, guid: 7a11cac58eb2265418403f06b53d1e11, type: 2}
@@ -568,6 +567,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22190692a75e8db4a95e77360a2bf324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7967847890759531972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6779745042402548801}
+  - component: {fileID: 9017102319843853236}
+  m_Layer: 0
+  m_Name: CombatSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6779745042402548801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7967847890759531972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7234508224729253247}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9017102319843853236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7967847890759531972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a1538440d184fa597ba040491748836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockBackSpeed: 2
+  knockBackAngle: {x: 1, y: 0}
+  knockbackDuration: 1
 --- !u!1 &8569041326424312257
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,6 +665,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   playerTag: {fileID: 11400000, guid: 179e93f8c5d4574478cd4f2f2deddede, type: 2}
+  playerDetectInterval: 3
 --- !u!1 &9092569868835243806
 GameObject:
   m_ObjectHideFlags: 0

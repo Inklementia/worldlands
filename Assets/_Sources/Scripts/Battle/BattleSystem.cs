@@ -31,7 +31,7 @@ namespace _Sources.Scripts.Battle
             {
                 StartBattle();
                 colliderTrigger.OnEnterTrigger -= OnPlayerEnterRoom;
-                GameActions.Current.BattleColliderEntered();
+                GameActions.Instance.BattleColliderEntered();
             }
             
         }

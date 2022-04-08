@@ -5,16 +5,9 @@ using UnityEngine;
 
 namespace _Sources.Scripts
 {
-    public class GameActions : MonoBehaviour
+    public class GameActions : SingletonClass<GameActions>
     {
-        public static GameActions Current;
 
-        private void Awake()
-        {
-            Current = this;
-            
-            DontDestroyOnLoad(gameObject);
-        }
 
         public event Action OnDungeonGenerated;
 
@@ -78,6 +71,31 @@ namespace _Sources.Scripts
             if (OnLevelChanged != null)
             {
                 OnLevelChanged();
+            }
+        }
+        
+        public event Action<float, bool> OnShieldChange;
+        public void ChangeShieldValue(float amount, bool reset)
+        {
+            if (OnShieldChange != null)
+            {
+                OnShieldChange(amount, reset);
+            }
+        }
+        public event Action<float, bool> OnHealthChange;
+        public void ChangeHealthValue(float amount, bool reset)
+        {
+            if (OnHealthChange != null)
+            {
+                OnHealthChange(amount, reset);
+            }
+        }
+        public event Action<float, bool> OnEnergyChange;
+        public void ChangeEnergyValue(float amount, bool reset)
+        {
+            if (OnEnergyChange != null)
+            {
+                OnEnergyChange(amount, reset);
             }
         }
     }

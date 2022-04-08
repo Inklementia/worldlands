@@ -8,7 +8,7 @@ namespace _Sources.Scripts.Infrastructure.Factory
     public interface IGameFactory : IService
     {
         GameObject CreatePlayer(GameObject playerInitialPoint);
-        void CreateHud();
+        GameObject CreateHud();
         GameObject CreateWorldManager();
         GameObject CreateDungeon();
         List<ISavedProgressReader> ProgressReaders { get; }

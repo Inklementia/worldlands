@@ -21,9 +21,9 @@ namespace _Sources.Scripts.Infrastructure.Factory
             return InstantiateAndRegister(AssetPath.PlayerPath, playerSpawnPoint.transform.position);
         }
 
-        public void CreateHud()
+        public GameObject CreateHud()
         {
-             InstantiateAndRegister(AssetPath.HudPath);
+             return InstantiateAndRegister(AssetPath.HudPath);
         } 
      
 

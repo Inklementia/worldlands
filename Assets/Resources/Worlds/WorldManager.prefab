@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6026175222082952256}
   - component: {fileID: 6026175222082952263}
   - component: {fileID: 6026175222082952262}
+  - component: {fileID: 5587949183477770283}
   m_Layer: 0
   m_Name: WorldManager
   m_TagString: WorldManager
@@ -48,6 +49,7 @@ MonoBehaviour:
   playerSpawnPoint: {fileID: 4163167995987725346, guid: fe1734bc36ee0dc48ba6bbe99eaa821b,
     type: 3}
   generator: {fileID: 0}
+  levelTransfer: {fileID: 0}
 --- !u!114 &6026175222082952262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,3 +64,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - {fileID: 11400000, guid: 08cdd0dd93e0f804a94b898100cde289, type: 2}
+--- !u!114 &5587949183477770283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6026175222082952261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a5867b34ad42718a41c39c1c1b04d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

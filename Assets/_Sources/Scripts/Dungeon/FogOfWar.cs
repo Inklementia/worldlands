@@ -10,12 +10,12 @@ namespace _Sources.Scripts.Dungeon
 
         private void Start()
         {
-            GameActions.Current.OnDungeonGenerated += GenerateFog;
+            GameActions.Instance.OnDungeonGenerated += GenerateFog;
         }
 
         private void OnDisable()
         {
-            GameActions.Current.OnDungeonGenerated -= GenerateFog;
+            GameActions.Instance.OnDungeonGenerated -= GenerateFog;
         }
 
         private void SetFogTile(int x, int y)

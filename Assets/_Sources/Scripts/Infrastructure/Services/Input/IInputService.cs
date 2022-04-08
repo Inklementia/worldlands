@@ -6,6 +6,7 @@ namespace _Sources.Scripts.Infrastructure.Services.Input
     {
         Vector2 Axis { get; }
         bool IsSwitchWeaponButtonPressed();
+        bool IsRegenerateButtonPressed();
         bool IsAttackButtonUp();
         bool IsAttackButtonDown();
         bool IsAttackButtonPressed();

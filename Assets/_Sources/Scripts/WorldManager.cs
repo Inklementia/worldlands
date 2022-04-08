@@ -1,11 +1,15 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using _Sources.Scripts.Data;
 using _Sources.Scripts.Dungeon;
 using _Sources.Scripts.Infrastructure.Services;
+using _Sources.Scripts.Infrastructure.Services.Input;
 using _Sources.Scripts.Infrastructure.Services.PersistentProgress;
 using _Sources.Scripts.Infrastructure.Services.SaveLoad;
+using _Sources.Scripts.UI;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 
 namespace _Sources.Scripts
@@ -21,6 +25,17 @@ namespace _Sources.Scripts
         private bool _shouldRegenerate;
        
         public RoomDungeonGenerator generator;
+        
+        private IInputService _inputService;
+        private LevelTransfer _levelTransfer;
+
+        private bool _once;
+        private void Awake()
+        {
+            _inputService = AllServices.Container.Single<IInputService>();
+            _levelTransfer = transform.GetComponent<LevelTransfer>();
+        }
+    
         private void Start()
         {
             //generator = GameObject.FindObjectOfType<RoomDungeonGenerator>();
@@ -52,11 +67,14 @@ namespace _Sources.Scripts
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                generator.GenerateDungeon();
+            if (_inputService.IsRegenerateButtonPressed() && _once)
+            { 
+                _once = false;
+                _levelTransfer.RunLevel("Main");
+               
             }
         }
+
 
         public void IncreaseLevel()
         {
@@ -68,6 +86,7 @@ namespace _Sources.Scripts
 
         public void LoadProgress(PlayerProgress progress)
         {
+            _once = true;
             if (CurrentScene() == progress.WorldData.LevelMap.GameScene)
             {
                 if (_isBossScene == progress.WorldData.LevelMap.IsBossScene && _isBossScene)

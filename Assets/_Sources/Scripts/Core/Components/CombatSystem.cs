@@ -33,7 +33,6 @@ namespace _Sources.Scripts.Core.Components
         // DAMAGE 
         public virtual void TakeDamage(AttackDetails attackDetails)
         {
-  
             if(attackDetails.Position.x > transform.position.x)
             {
                 _lastDamageDirection = -1;
@@ -42,7 +41,6 @@ namespace _Sources.Scripts.Core.Components
             {
                 _lastDamageDirection = 1;
             }
-   
             
             Core.HealthSystem.DecreaseStat(attackDetails.DamageAmount);
 

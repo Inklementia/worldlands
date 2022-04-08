@@ -316,7 +316,7 @@ namespace _Sources.Scripts.Dungeon
             RecalculateAStar();
 
 
-            GameActions.Current.DungeonGenerated();
+            GameActions.Instance.DungeonGenerated();
             //GameActions.Current.DungeonGeneratedToSaveMap(_floorList);
         }
 

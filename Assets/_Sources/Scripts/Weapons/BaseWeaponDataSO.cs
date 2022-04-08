@@ -5,7 +5,8 @@ namespace _Sources.Scripts.Weapons
     [CreateAssetMenu(fileName = "newBaseWeaponData", menuName = "Data/Weapon Data/Base Data")]
     public class BaseWeaponDataSO : ScriptableObject
     {
-        public string Name;
+        public string Name; 
+        public string Description;
         [Header("Base")]
         public float Damage = 10;
         public float EnergyCostPerAttack = 1f;

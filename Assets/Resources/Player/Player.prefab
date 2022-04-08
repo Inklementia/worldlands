@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 665459901028029191}
-  - component: {fileID: 3911223149796779560}
+  - component: {fileID: 9100283273580729979}
   m_Layer: 10
   m_Name: CombatSystem
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 4443725827392222355}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3911223149796779560
+--- !u!114 &9100283273580729979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,12 +40,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 303143422739302069}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a1538440d184fa597ba040491748836, type: 3}
+  m_Script: {fileID: 11500000, guid: 095c564a5535422591dd92e58b7859da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockBackSpeed: 2
-  knockBackAngle: {x: 1, y: 0}
-  knockbackDuration: 1
 --- !u!1 &1210389784488573485
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,6 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2d5bbe7566e374b9fd3435cffc1802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rechargeCd: 0
 --- !u!1 &3291323029132746814
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.9}
+  m_AnchoredPosition: {x: 0, y: 0.57}
   m_SizeDelta: {x: 2, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4443725827514208113
@@ -652,8 +650,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switchWeaponButton: {fileID: 1379215970752930771, guid: 91d210a8bc5b46c44af0a554b20e7093,
     type: 3}
-  attackButtonGOTag: {fileID: 11400000, guid: f6b20463111e1684a98d6875ec848fbf, type: 2}
-  pickUpButtonGOTag: {fileID: 11400000, guid: dca3851e26440cc45b7bf3f897ae2b63, type: 2}
+  doubleFireButton: {fileID: 0}
+  regenerateLevel: {fileID: 0}
   _attackButtonGo: {fileID: 892035409240560380, guid: 5bc8ac657e5a6804393905f2f19abb66,
     type: 3}
   _pickUpButtonGo: {fileID: 8368145017199607511, guid: 55533dcf3e01d6644b26598ba75ec2ca,
@@ -828,6 +826,7 @@ GameObject:
   - component: {fileID: 4443725828127418460}
   - component: {fileID: 4443725828127418462}
   - component: {fileID: 4443725828127418461}
+  - component: {fileID: 7342295144118003912}
   m_Layer: 10
   m_Name: Fill
   m_TagString: Untagged
@@ -875,24 +874,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.84899163, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7482667652216324306, guid: 6943c8b53afdaaa4c913e19244a5b28f,
+  m_Sprite: {fileID: 8950759142192175709, guid: bdcd389cb002e1240b144cad23edd881,
     type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 0
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7342295144118003912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4443725828127418403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 3
+  normalStrenght: 5
+  normalSmoothing: 1
+  computingNormal: 0
 --- !u!1 &4443725828716799083
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,21 +996,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.75
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 0000000033c37de8a755aa29a559833e3576c3978787398d3179625497bca7bf2f13beb313b90955
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
-  m_PointLightInnerAngle: 127.1
-  m_PointLightOuterAngle: 233
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 1
+  m_PointLightOuterRadius: 2
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5

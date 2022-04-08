@@ -35,11 +35,11 @@ namespace _Sources.Scripts.Dungeon
 
         private void OnEnable()
         {
-            GameActions.Current.OnLevelChanged += GenerateDungeon;
+            GameActions.Instance.OnLevelChanged += GenerateDungeon;
         }
         private void OnDisable()
         {
-            GameActions.Current.OnLevelChanged -= GenerateDungeon;
+            GameActions.Instance.OnLevelChanged -= GenerateDungeon;
         }
         
 
@@ -91,7 +91,7 @@ namespace _Sources.Scripts.Dungeon
             
             RecalculateAStar();
            
-            GameActions.Current.DungeonGeneratedToSaveMap(coordinates);
+            GameActions.Instance.DungeonGeneratedToSaveMap(coordinates);
             //_saveLoadService.SaveProgress();
             //Debug.Log("Map Saved");
         }
