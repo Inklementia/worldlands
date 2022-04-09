@@ -45,8 +45,25 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
         
             Core.Movement.SetFacingDirection(1);
             Core.HealthSystem.IsDead = false;
-            Core.HealthSystem.SetMaxStat(playerData.MaxHealth);
-            Core.EnergySystem.SetMaxStat(playerData.MaxEnergy);
+            
+            if (ES3DataManager.Instance.Health == 0)
+            {
+                Core.HealthSystem.SetMaxStat(playerData.MaxHealth);
+            }else
+            {
+                Core.HealthSystem.SetMaxStat(ES3DataManager.Instance.Health);
+            }
+           
+            if (ES3DataManager.Instance.Energy == 0)
+            {
+                Core.EnergySystem.SetMaxStat(playerData.MaxEnergy);
+            }else
+            {
+                Core.HealthSystem.SetMaxStat(ES3DataManager.Instance.Energy);
+            }
+            
+      
+            
             Core.ShieldSystem.SetMaxStat(playerData.MaxShield);
 
             //getting components

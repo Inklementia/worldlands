@@ -7,7 +7,7 @@ namespace _Sources.Scripts.Core.Components
     public class ShieldSystem : StatsComponent
     {
         [SerializeField] private float rechargeCd = 1f;
-        [SerializeField] private float requiredTimeWithoutDamage = 2f;
+        [SerializeField] private float requiredTimeWithoutDamage = 5f;
         private float _shieldRechargeTimer;
         private float _noDamageTimer = 0.0f;
         private bool _shouldCheck;

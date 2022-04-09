@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using _Sources.Scripts.Data;
 using _Sources.Scripts.Infrastructure.Services;
 using _Sources.Scripts.Infrastructure.Services.PersistentProgress;
 using _Sources.Scripts.Infrastructure.Services.SaveLoad;
+using _Sources.Scripts.Player.PlayerFiniteStateMachine;
+using _Sources.Scripts.Weapons;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -44,6 +48,17 @@ namespace _Sources.Scripts.Dungeon
                     _wm.IncreaseLevel();
                     
                     _saveLoadService.SaveProgress();
+
+                    var player = GameObject.FindWithTag("Player");
+                    List<ShootingWeapon> weapons = player.GetComponent<PlayerWeaponry>().CarriedWeapons;
+
+                
+                    ES3DataManager.Instance.SaveEquipedWeapon(weapons[0].gameObject);
+                    ES3DataManager.Instance.SaveSecondaryWeapon(weapons[1].gameObject);
+                    
+                    ES3DataManager.Instance.SavePlayerHealthState(player.GetComponent<PlayerEntity>().Core.HealthSystem.CurrentStat);
+                    ES3DataManager.Instance.SavePlayerEnergyState(player.GetComponent<PlayerEntity>().Core.EnergySystem.CurrentStat);
+                    
                     levelTransfer.RunLevel("Main");
                 }
                   

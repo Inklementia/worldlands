@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using _Sources.Scripts.Data;
 using UnityEngine;
 
 namespace _Sources.Scripts.Weapons
@@ -11,6 +13,22 @@ namespace _Sources.Scripts.Weapons
         public List<ShootingWeapon> CarriedWeapons { get; private set; }
         public ShootingWeapon CurrentWeapon { get; private set; }
         public bool CanSwitchWeapons { get; private set; }
+
+        private void Awake()
+        {
+            if (ES3DataManager.Instance.SecondaryWeapon != null)
+            {
+                var loadCurrentWeapon = ES3DataManager.Instance.SecondaryWeapon.GetComponent<ShootingWeapon>();
+                EquipWeapon(loadCurrentWeapon);
+            }
+            
+            if (ES3DataManager.Instance.EquipedWeapon != null)
+            {
+                var loadCurrentWeapon = ES3DataManager.Instance.EquipedWeapon.GetComponent<ShootingWeapon>();
+                EquipWeapon(loadCurrentWeapon);
+            }
+            
+        }
 
         private void Start()
         {

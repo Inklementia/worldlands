@@ -8,4 +8,5 @@ public class D_DamageState : ScriptableObject
     public float DamageTime = 1f;
 
     public Tag HitParticles;
+    public Material HitMaterial;
 }

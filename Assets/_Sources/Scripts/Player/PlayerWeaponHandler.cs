@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Sources.Scripts.Core;
+using _Sources.Scripts.Data;
 using _Sources.Scripts.Player.PlayerFiniteStateMachine;
 using _Sources.Scripts.Weapons;
 using UnityEngine;
@@ -20,6 +22,10 @@ public class PlayerWeaponHandler : MonoBehaviour
         InputHandler = GetComponent<PlayerInputHandler>();
         Weaponry = GetComponentInChildren<PlayerWeaponry>();
         Player = GetComponent<PlayerEntity>();
+        
+                    
+       
+
     }
     // Start is called before the first frame update
     void Start()
@@ -82,6 +88,7 @@ public class PlayerWeaponHandler : MonoBehaviour
         {
             //StartCoroutine(WaitAndChangeActionModeOnAttack());
             InputHandler.EnableAttackButton();
+          
         }
     }
     private void ManageAttacking()
@@ -89,6 +96,9 @@ public class PlayerWeaponHandler : MonoBehaviour
         // if player has weapon
         if (Weaponry.CurrentWeapon != null)
         {
+            InputHandler.ShowEnergyIndicator(true);
+            InputHandler.SetEnergyCostIndicator( Weaponry.CurrentWeapon.BaseWeaponData.EnergyCostPerAttack);
+            
             if(InputHandler.IsAttackButtonPressedUp && !Weaponry.CurrentWeapon.ShouldBeCharged)
             {
                 Weaponry.CurrentWeapon.Attack();

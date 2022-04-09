@@ -139,6 +139,7 @@
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\RangedEnemy\RangedEnemy_MoveState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\Projectiles\SlowDownProjectile.cs" />
+     <Compile Include="Assets\_Sources\Scripts\UI\UITransitionForStart.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\Direction2D.cs" />
      <Compile Include="Assets\_Sources\Scripts\Input\CustomFloatingJoystick.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\DeadState.cs" />
@@ -183,6 +184,7 @@
      <Compile Include="Assets\_Sources\Scripts\Battle\BattleState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\Node.cs" />
      <Compile Include="Assets\_Sources\Scripts\FadeOutSFX.cs" />
+     <Compile Include="Assets\_Sources\Scripts\UI\ContinueGame.cs" />
      <Compile Include="Assets\_Sources\Scripts\Battle\BattleSystem.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
      <Compile Include="Assets\_Sources\Scripts\Player\PlayerFiniteStateMachine\PlayerStateMachine.cs" />
@@ -253,6 +255,7 @@
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Game.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_DamageState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\EnemyCore.cs" />
+     <Compile Include="Assets\_Sources\Scripts\UI\GameOver.cs" />
      <Compile Include="Assets\_Sources\Scripts\Data\LevelMap.cs" />
      <Compile Include="Assets\_Sources\Scripts\AudioManager.cs" />
      <Compile Include="Assets\_Sources\Scripts\Structs\AttackDetails.cs" />

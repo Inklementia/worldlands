@@ -18,11 +18,13 @@ namespace _Sources.Scripts.UI
         [SerializeField] private string propertyName = "_Progress";
         [SerializeField] private float transitionTime = 1f;
         [SerializeField] private TMP_Text loadingText;
-        public UnityEvent OnTransitionDone;
+
+      
         private void Awake()
         {
             DontDestroyOnLoad(this);
             screenTransitionMaterial.SetFloat(propertyName, 0);
+            
         }
 
         public void Show()
@@ -67,9 +69,17 @@ namespace _Sources.Scripts.UI
               
                 yield return null;
             }
-            OnTransitionDone?.Invoke();
+
+            GameObject.FindWithTag("HUD").GetComponent<UITransitionForStart>().ShowGameUI();
+
+            StartCoroutine(HideLoadingScreen());
+
+        }
+
+        private IEnumerator HideLoadingScreen()
+        {
+            yield return new WaitForSeconds(1.4f);
             gameObject.SetActive(false);
-           
         }
         private IEnumerator ScreenTransitionIn()
         {
@@ -83,7 +93,7 @@ namespace _Sources.Scripts.UI
               
                 yield return null;
             }
-            OnTransitionDone?.Invoke();
+            //OnTransitionDone?.Invoke();
            
            
         }

@@ -42,8 +42,9 @@ namespace _Sources.Scripts.Weapons.Projectiles
             if (collision.HasTag(TargetTag))
             {
                 // decreasing health if projectile health target, and Tag matches target Tag
-                collision.GetComponent<CombatSystem>().TakeDamage(AttackDetails);
-             
+               
+               
+              collision.GetComponentInParent<Entity>().Damage(AttackDetails);
                 // turn off projectile
                 gameObject.SetActive(false);
 

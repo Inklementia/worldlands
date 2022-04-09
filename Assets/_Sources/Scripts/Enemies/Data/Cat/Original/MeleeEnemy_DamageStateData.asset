@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageTime: 0.5
   HitParticles: {fileID: 11400000, guid: 095e40cea26ceec428b20894b11b099a, type: 2}
+  HitMaterial: {fileID: 2100000, guid: f980a277740283048831616366d47edb, type: 2}

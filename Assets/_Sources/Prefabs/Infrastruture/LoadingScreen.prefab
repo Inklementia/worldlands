@@ -288,7 +288,20 @@ MonoBehaviour:
   loadingText: {fileID: 733228104367002135}
   OnTransitionDone:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3657197964411568117, guid: e4a73bec29ddfc849960ccdcd826d287,
+          type: 3}
+        m_TargetAssemblyTypeName: _Sources.Scripts.UI.UITransitionForStart, Assembly-CSharp
+        m_MethodName: ShowGameUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7341825801363293375
 GameObject:
   m_ObjectHideFlags: 0

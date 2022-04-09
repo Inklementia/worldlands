@@ -6,6 +6,7 @@ using _Sources.Scripts.Infrastructure;
 using _Sources.Scripts.Infrastructure.Services;
 using _Sources.Scripts.Infrastructure.Services.Input;
 using SimpleInputNamespace;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,7 +29,9 @@ public class PlayerInputHandler : MonoBehaviour
     
     public GameObject _attackButtonGo;
     public GameObject _pickUpButtonGo;
-    
+
+    public TMP_Text energyCostIndicatorText;
+    public GameObject energyCostIndicator;
     private void OnEnable()
     {
         
@@ -45,8 +48,9 @@ public class PlayerInputHandler : MonoBehaviour
             _attackButtonGo = GameObject.FindWithTag("AttackButton");
             _pickUpButtonGo = GameObject.FindWithTag("PickUpButton");
         }
-       
 
+
+   
         //ChangeActionModeOnPickUp();
    
         MovementPos = new Vector2(0,0);
@@ -55,7 +59,9 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void Start()
     {
-       
+        energyCostIndicatorText = _attackButtonGo.GetComponentInChildren<TMP_Text>();
+        energyCostIndicator = energyCostIndicatorText.gameObject.transform.parent.gameObject;
+        energyCostIndicator.SetActive(false);
     }
 
     private void Update()
@@ -91,7 +97,7 @@ public class PlayerInputHandler : MonoBehaviour
        // StartCoroutine(WaitAndChangeActionButtonOnAttack());
        _pickUpButtonGo.SetActive(false);
        _attackButtonGo.SetActive(true);
- 
+       
     }
 
  
@@ -122,5 +128,14 @@ public class PlayerInputHandler : MonoBehaviour
     public void DisableWeaponSwitch()
     {
         switchWeaponButton.gameObject.SetActive(true);
+    }
+    public void SetEnergyCostIndicator(float energyCostAmount)
+    {
+        energyCostIndicatorText.text = energyCostAmount.ToString();
+    }
+
+    public void ShowEnergyIndicator(bool show)
+    {
+        energyCostIndicator.SetActive(show);
     }
 }
