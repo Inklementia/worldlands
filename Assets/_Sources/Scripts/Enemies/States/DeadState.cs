@@ -27,6 +27,7 @@ namespace _Sources.Scripts.Enemies.States
             //ObjectPooler.Instance.SpawnFromPool(StateData.DeathChunkParticlesTag, Entity.transform.position,Entity.transform.rotation);
             Entity.Dead.gameObject.SetActive(true);
             Entity.Alive.gameObject.SetActive(false);
+            
       
         }
 

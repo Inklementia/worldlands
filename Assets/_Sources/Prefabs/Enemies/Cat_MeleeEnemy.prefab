@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 7486343211636487866}
   - component: {fileID: 2843804475304778528}
   - component: {fileID: 4567025729626089292}
+  - component: {fileID: 1754685316097980398}
   m_Layer: 9
   m_Name: Alive
   m_TagString: Untagged
@@ -185,7 +186,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: f980a277740283048831616366d47edb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -341,6 +342,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 39cbccd36e550ae47a281b694f925d61, type: 2}
   - {fileID: 11400000, guid: 267e3742509d87b4dafda05c7d829f8c, type: 2}
   - {fileID: 11400000, guid: b5e712fa9f7027f4381aead63e6c02d1, type: 2}
+--- !u!114 &1754685316097980398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4641096437720387071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 3
+  normalStrenght: 5
+  normalSmoothing: 1
+  computingNormal: 0
 --- !u!1 &5489643649779686522
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ namespace _Sources.Scripts.Player.PlayerStates
         {
             base.Enter();
             PlayerEntity.Core.Movement.SetVelocityZero();
+            GameActions.Instance.PlayerKilled(PlayerEntity.gameObject.transform);
         }
 
         public override void Exit()

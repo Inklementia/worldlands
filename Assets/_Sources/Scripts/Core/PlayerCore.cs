@@ -1,5 +1,6 @@
 using System;
 using _Sources.Scripts.Core.Components;
+using DG.Tweening;
 using UnityEngine;
 
 namespace _Sources.Scripts.Core
@@ -13,7 +14,11 @@ namespace _Sources.Scripts.Core
 
         protected override void Awake()
         {
+            
             base.Awake();
+            DOTween.SetTweensCapacity(2000, 100);
+            
+            
             EnemyDetectionSenses = GetComponentInChildren<EnemyDetectionSenses>();
             EnergySystem = GetComponentInChildren<EnergySystem>();
             ShieldSystem = GetComponentInChildren<ShieldSystem>();

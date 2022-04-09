@@ -14,14 +14,14 @@
         {
             base.IncreaseStat(amount);
 
-            GameActions.Instance.ChangeHealthValue(CurrentStat, false);
+            
         }
         
         public override void DecreaseStat(float amount)
         {
             base.DecreaseStat(amount);
 
-            GameActions.Instance.ChangeHealthValue(CurrentStat, false);
+          
         }
         
     }

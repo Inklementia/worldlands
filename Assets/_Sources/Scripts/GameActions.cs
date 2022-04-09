@@ -98,5 +98,15 @@ namespace _Sources.Scripts
                 OnEnergyChange(amount, reset);
             }
         }
+
+        public event Action<Transform> OnPlayerKilled;
+
+        public void PlayerKilled(Transform point)
+        {
+            if (OnPlayerKilled != null)
+            {
+                OnPlayerKilled(point);
+            }
+        }
     }
 }

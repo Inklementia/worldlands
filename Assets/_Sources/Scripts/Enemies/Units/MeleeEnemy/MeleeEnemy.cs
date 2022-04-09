@@ -61,6 +61,7 @@ public class MeleeEnemy : Entity
     public override void Damage(AttackDetails attackDetails)
     {
         base.Damage(attackDetails);
+        Core.CombatSystem.TakeDamage(attackDetails);
         if(Core.HealthSystem.IsDead)
         {
             StateMachine.ChangeState(DeadState);
@@ -69,6 +70,7 @@ public class MeleeEnemy : Entity
         else
         {
             StateMachine.ChangeState(DamageState);
+            
         }
   
     }

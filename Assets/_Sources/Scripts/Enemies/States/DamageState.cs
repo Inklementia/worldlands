@@ -1,4 +1,5 @@
 ﻿using _Sources.Scripts.Enemies.State_Mashine;
+using DG.Tweening;
 using UnityEngine;
 
 namespace _Sources.Scripts.Enemies.States
@@ -27,9 +28,14 @@ namespace _Sources.Scripts.Enemies.States
             base.Enter();
             IsDamageTimeOver = false;
 
+            Sequence hitSFXsequence = DOTween.Sequence();
+            hitSFXsequence.Append( StateData.HitMaterial.DOFloat(.5f, "_HitEffectBlend", .1f));
+            hitSFXsequence.Append( StateData.HitMaterial.DOFloat(0f, "_HitEffectBlend", .1f));  
+       
+           
             ObjectPooler.Instance.SpawnFromPool(StateData.HitParticles, Entity.transform.position,
                 Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
-
+            
       
         }
 
