@@ -36,12 +36,9 @@ namespace _Sources.Scripts.Data
         {
             LoadPlayerHealth();
             LoadPlayerEnergy();
-            
+
             LoadLevelNumber();
-            
-            LoadVolumeValue();
-            LoadVolumeBGValue();
-            
+
             LoadEquipedWeapon();
             LoadSecondaryWeapon();
             

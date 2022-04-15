@@ -89,7 +89,6 @@
      <Compile Include="Assets\_Sources\Scripts\Interfaces\ICollectable.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\GameStates\LoadLevelState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
-     <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonFromYoutube\RoomFirstDungeonGenerator.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\IVisitor.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Services\PersistentProgress\IPersistentProgressService.cs" />
@@ -143,7 +142,6 @@
      <Compile Include="Assets\_Sources\Scripts\Dungeon\Direction2D.cs" />
      <Compile Include="Assets\_Sources\Scripts\Input\CustomFloatingJoystick.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\DeadState.cs" />
-     <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonFromYoutube\SimpleRandomWalkDungeonGenerator.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\Components\CollisionSenses.cs" />
      <Compile Include="Assets\_Sources\Scripts\Player\PlayerStates\PlayerCanCombatState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Player\PlayerStates\PlayerMoveState.cs" />
@@ -165,7 +163,6 @@
      <Compile Include="Assets\_Sources\Scripts\Dungeon\AbstractDungeonGenerator.cs" />
      <Compile Include="Assets\_Sources\Scripts\UI\ContinueGame.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
-     <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonFromYoutube\Data\SimpleRandomWalkSO.cs" />
      <Compile Include="Assets\_Sources\Scripts\UI\SettingsMenu.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\RunFromPlayerState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_MoveState.cs" />
@@ -203,7 +200,6 @@
      <Compile Include="Assets\_Sources\Scripts\Core\Components\HealthSystem.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Factory\GameFactory.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
-     <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonFromYoutube\AbstractDungeonGenerator.cs" />
      <Compile Include="Assets\_Sources\Scripts\Items\IPotionVisitor.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\Projectiles\Rocket.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\RangedEnemy\RangedEnemy.cs" />
@@ -218,7 +214,6 @@
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\GameStates\BootstrapState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\GameRunner.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\ChargeState.cs" />
-     <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonFromYoutube\CorridorFirstDungeonGenerator.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\Core.cs" />
      <Compile Include="Assets\_Sources\Scripts\Player\AimHelper.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\EnemyBuildingCore.cs" />
@@ -232,7 +227,6 @@
      <Compile Include="Assets\_Sources\Scripts\Dungeon\Fog.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\PatrolState.cs" />
-     <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonFromYoutube\TilemapVisualizer.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonEnemySpawnerManager.cs" />
      <Compile Include="Assets\_Sources\Scripts\Data\DataExtensions.cs" />
      <Compile Include="Assets\_Sources\Scripts\Object Pooler\Interfaces\IPooledObject.cs" />
@@ -241,13 +235,11 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
      <Compile Include="Assets\_Sources\Scripts\GameActions.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_IdleState.cs" />
-     <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonFromYoutube\ProceduralGenerationAlgorithms.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\Components\CoreComponent.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\RangedAttackState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonManager.cs" />
      <Compile Include="Assets\_Sources\Scripts\Player\PlayerStates\PlayerIdleState.cs" />
-     <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonFromYoutube\WallGenerator.cs" />
      <Compile Include="Assets\_Sources\Scripts\LevelTransfer.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\ExitDoor.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\Components\StatsComponent.cs" />
