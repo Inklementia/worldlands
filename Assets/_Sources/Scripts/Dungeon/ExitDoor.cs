@@ -50,11 +50,17 @@ namespace _Sources.Scripts.Dungeon
                     _saveLoadService.SaveProgress();
 
                     var player = GameObject.FindWithTag("Player");
-                    List<ShootingWeapon> weapons = player.GetComponent<PlayerWeaponry>().CarriedWeapons;
-
-                
-                    ES3DataManager.Instance.SaveEquipedWeapon(weapons[0].gameObject);
-                    ES3DataManager.Instance.SaveSecondaryWeapon(weapons[1].gameObject);
+                    List<ShootingWeapon> weapons = player.GetComponentInChildren<PlayerWeaponry>().CarriedWeapons;
+                    if (weapons.Any() && weapons[0] !=  null)
+                    {
+                        ES3DataManager.Instance.SaveEquipedWeapon(weapons[0].gameObject);
+                    }
+                    if (weapons.Any() && weapons[1] !=  null)
+                    {
+                        ES3DataManager.Instance.SaveSecondaryWeapon(weapons[1].gameObject);
+                    }
+                   
+                   
                     
                     ES3DataManager.Instance.SavePlayerHealthState(player.GetComponent<PlayerEntity>().Core.HealthSystem.CurrentStat);
                     ES3DataManager.Instance.SavePlayerEnergyState(player.GetComponent<PlayerEntity>().Core.EnergySystem.CurrentStat);
