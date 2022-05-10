@@ -12,9 +12,13 @@ namespace _Sources.Scripts.Enemies.States
 
         protected bool IsPlayerInMinAgroRange;
 
+        protected Material CurrentMaterial;
+
         public DamageState(Entity entity, FiniteStateMashine stateMachine, string animBoolName, D_DamageState stateData) : base(entity, stateMachine, animBoolName)
         {
             StateData = stateData;
+            CurrentMaterial = new Material(StateData.HitMaterial);
+            entity.Alive.GetComponent<SpriteRenderer>().material = CurrentMaterial;
         }
 
         public override void DoChecks()
@@ -29,11 +33,11 @@ namespace _Sources.Scripts.Enemies.States
             IsDamageTimeOver = false;
 
             Sequence hitSFXsequence = DOTween.Sequence();
-            hitSFXsequence.Append( StateData.HitMaterial.DOFloat(.5f, "_HitEffectBlend", .1f));
-            hitSFXsequence.Append( StateData.HitMaterial.DOFloat(0f, "_HitEffectBlend", .1f));  
+            hitSFXsequence.Append( CurrentMaterial.DOFloat(.8f, "_HitEffectBlend", .1f));
+            hitSFXsequence.Append( CurrentMaterial.DOFloat(0f, "_HitEffectBlend", .1f));  
        
            
-            ObjectPooler.Instance.SpawnFromPool(StateData.HitParticles, Entity.transform.position,
+            ObjectPooler.Instance.SpawnFromPool(StateData.HitParticles, Entity.Alive.transform.position,
                 Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
             
       

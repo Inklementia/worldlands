@@ -1,6 +1,7 @@
 using _Sources.Scripts;
 using System.Collections;
 using System.Collections.Generic;
+using _Sources.Scripts.Interfaces;
 using UnityEngine;
 
 namespace _Sources.Scripts.Core.Components

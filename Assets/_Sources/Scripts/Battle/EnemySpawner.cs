@@ -13,14 +13,19 @@ namespace _Sources.Scripts.Battle
     {
         [SerializeField] private EnemySpawnerSO enemySpawnerData;
        // [SerializeField] private StandaloneHealthSystem healthSystem;
-       public EnemyBuildingCore Core { get; private set; }
+        public EnemyBuildingCore Core { get; private set; }
         private float _fullRespawnTimer = 0.0f;
         private ObjectPooler _pooler;
+        private Material CurrentMaterial;
+        
+        [SerializeField] private Tag hitParticles;
+        [SerializeField] private Material hitMaterial;
 
         private void Awake()
         {
             Core = GetComponentInChildren<EnemyBuildingCore>();
-            
+            CurrentMaterial = new Material(hitMaterial);
+            GetComponent<SpriteRenderer>().material = CurrentMaterial;
             //healthSystem.SetMaxStat(enemySpawnerData.MaxHealth);
         }
 
@@ -68,6 +73,24 @@ namespace _Sources.Scripts.Battle
             {
                 SpawnEnemies();
             }
+            
+            Core.CombatSystem.TakeDamage(attackDetails);
+
+            Sequence hitSFXsequence = DOTween.Sequence();
+            hitSFXsequence.Append( CurrentMaterial.DOFloat(.8f, "_HitEffectBlend", .1f));
+            hitSFXsequence.Append( CurrentMaterial.DOFloat(0f, "_HitEffectBlend", .1f));  
+       
+           
+            ObjectPooler.Instance.SpawnFromPool(hitParticles, attackDetails.Position,
+                Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
+            
+            if (Core.HealthSystem.IsDead)
+            {
+                GameActions.Instance.EnemyKilledTrigger(this.gameObject);
+                Debug.Log("Enemy Killed");
+                gameObject.SetActive(false);
+            }
+
         }
    
       

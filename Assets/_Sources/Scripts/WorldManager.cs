@@ -8,6 +8,7 @@ using _Sources.Scripts.Infrastructure.Services.Input;
 using _Sources.Scripts.Infrastructure.Services.PersistentProgress;
 using _Sources.Scripts.Infrastructure.Services.SaveLoad;
 using _Sources.Scripts.UI;
+using TMPro;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
@@ -18,12 +19,12 @@ namespace _Sources.Scripts
     {
         [SerializeField] private WorldDataSO worldData;
         [SerializeField] private GameObject playerSpawnPoint;
-   
+
         public int CurrentLevel { get; private set; }
         private int _currentWorld = 1;
         private bool _isBossScene = false;
         private bool _shouldRegenerate;
-       
+        private ISaveLoadService _saveLoadService;
         public RoomDungeonGenerator generator;
         
         private IInputService _inputService;
@@ -34,17 +35,16 @@ namespace _Sources.Scripts
         {
             _inputService = AllServices.Container.Single<IInputService>();
             _levelTransfer = transform.GetComponent<LevelTransfer>();
+            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
         }
     
         private void Start()
         {
             //generator = GameObject.FindObjectOfType<RoomDungeonGenerator>();
-            if (CurrentLevel == 0)
-            {
-                CurrentLevel = 1;
-            }
+ 
 
-            Debug.Log("Current Level: "+CurrentLevel);
+          
+            //Debug.Log("Current Level: "+CurrentLevel);
         }
 
         private void SetPlayerAtStartPosition(Vector3 place)
@@ -78,26 +78,32 @@ namespace _Sources.Scripts
 
         public void IncreaseLevel()
         {
-            Debug.Log("lEVEL uP "+CurrentLevel);
+            //ebug.Log("lEVEL uP "+CurrentLevel);
             CurrentLevel++;
          
-            Debug.Log("lEVEL uP "+CurrentLevel);
+            //Debug.Log("lEVEL uP "+CurrentLevel);
+        }
+
+        public void ResetLevel()
+        {
+            CurrentLevel = 1;
         }
 
         public void LoadProgress(PlayerProgress progress)
         {
+            
             _once = true;
             if (CurrentScene() == progress.WorldData.LevelMap.GameScene)
             {
                 if (_isBossScene == progress.WorldData.LevelMap.IsBossScene && _isBossScene)
                 {
                     // boss
-                    Debug.Log("Boss must be here");
+                    //Debug.Log("Boss must be here");
                
                 }
                 else
                 {
-                    Debug.Log("normal level here");
+                    //Debug.Log("normal level here");
                 
                    
                     //GameActions.Current.RegenerateDungeon();
@@ -118,7 +124,9 @@ namespace _Sources.Scripts
 
                 CurrentLevel = progress.WorldData.LevelMap.LevelNumber;
                 _currentWorld = progress.WorldData.LevelMap.WorldNumber;
-               
+                Debug.Log(CurrentLevel);
+                GameObject.FindWithTag("LevelNumber").GetComponent<TMP_Text>()
+                   .SetText(CurrentLevel.ToString());
                 if (generator != null)
                 {
                     generator.GenerateDungeon();
@@ -126,8 +134,10 @@ namespace _Sources.Scripts
                 
                 if (CurrentLevel == worldData.NumberOfLevels)
                 {
-                    Debug.Log("END OF WORLD");
-                    CurrentLevel = 0;
+                    //Debug.Log("END OF WORLD");
+                    CurrentLevel = 1;
+                    progress.WorldData.LevelMap.LevelNumber = CurrentLevel;
+                    _saveLoadService.SaveProgress();
                 }
             }
 

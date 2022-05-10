@@ -98,24 +98,31 @@ public class PlayerWeaponHandler : MonoBehaviour
         {
             InputHandler.ShowEnergyIndicator(true);
             InputHandler.SetEnergyCostIndicator( Weaponry.CurrentWeapon.BaseWeaponData.EnergyCostPerAttack);
+            if (Player.Core.EnergySystem.CurrentStat > Weaponry.CurrentWeapon.BaseWeaponData.EnergyCostPerAttack)
+            {
+                if(InputHandler.IsAttackButtonPressedUp && !Weaponry.CurrentWeapon.ShouldBeCharged)
+                {
+                    Weaponry.CurrentWeapon.Attack();
+                    Player.Core.EnergySystem.DecreaseStat(Weaponry.CurrentWeapon.BaseWeaponData.EnergyCostPerAttack);
+
+
+                }
+                else if (InputHandler.IsAttackButtonPressed && Weaponry.CurrentWeapon.ShouldBeCharged)
+                {
+                    // charging
+                    Weaponry.CurrentWeapon.ChargeableWeapon.Charge();
+                }
+                else if(InputHandler.IsAttackButtonPressedUp && (Weaponry.CurrentWeapon.ShouldBeCharged && Weaponry.CurrentWeapon.Charged))
+                {
+                    Weaponry.CurrentWeapon.Attack();
+                    Player.Core.EnergySystem.DecreaseStat(Weaponry.CurrentWeapon.BaseWeaponData.EnergyCostPerAttack);
+                }
+            }
+            else
+            {
+                Debug.Log("No Energy");
+            }
             
-            if(InputHandler.IsAttackButtonPressedUp && !Weaponry.CurrentWeapon.ShouldBeCharged)
-            {
-                Weaponry.CurrentWeapon.Attack();
-                Player.Core.EnergySystem.DecreaseStat(Weaponry.CurrentWeapon.BaseWeaponData.EnergyCostPerAttack);
-
-
-            }
-            else if (InputHandler.IsAttackButtonPressed && Weaponry.CurrentWeapon.ShouldBeCharged)
-            {
-                // charging
-                Weaponry.CurrentWeapon.ChargeableWeapon.Charge();
-            }
-            else if(InputHandler.IsAttackButtonPressedUp && (Weaponry.CurrentWeapon.ShouldBeCharged && Weaponry.CurrentWeapon.Charged))
-            {
-                Weaponry.CurrentWeapon.Attack();
-                Player.Core.EnergySystem.DecreaseStat(Weaponry.CurrentWeapon.BaseWeaponData.EnergyCostPerAttack);
-            }
         }
 
     }
@@ -131,7 +138,7 @@ public class PlayerWeaponHandler : MonoBehaviour
 
             _encounteredWeapon.Position = collision.transform;
             _encounteredWeapon.Weapon = collision.GetComponent<ShootingWeapon>();
-            Debug.Log("Encountered weapon: "+ _encounteredWeapon.Weapon.BaseWeaponData.Name);
+            //Debug.Log("Encountered weapon: "+ _encounteredWeapon.Weapon.BaseWeaponData.Name);
           
         }
     }

@@ -22,9 +22,10 @@ namespace _Sources.Scripts.Enemies.States
         {
             base.Enter();
 
-            ObjectPooler.Instance.SpawnFromPool(StateData.DeathParticlesTag, Entity.transform.position,
-                Entity.transform.rotation);
+            //ObjectPooler.Instance.SpawnFromPool(StateData.DeathParticlesTag, Entity.transform.position,
+            //    Entity.transform.rotation);
             //ObjectPooler.Instance.SpawnFromPool(StateData.DeathChunkParticlesTag, Entity.transform.position,Entity.transform.rotation);
+            Entity.Dead.transform.position = Entity.Alive.transform.position;
             Entity.Dead.gameObject.SetActive(true);
             Entity.Alive.gameObject.SetActive(false);
             

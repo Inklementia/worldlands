@@ -50,6 +50,7 @@ namespace _Sources.Scripts.Infrastructure.GameStates
         {
             InitGameWorld();
             InformProgressReaders();
+            
             //when everything is loaded - enter Game loop state
             _stateMachine.Enter<GameLoopState>();
         }

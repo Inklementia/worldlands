@@ -9,7 +9,7 @@ namespace _Sources.Scripts.Weapons.Weapon_Features
         [SerializeField] private WeaponTypeDataSO chargeableWeaponData;
         [SerializeField] private Tag chargeSliderTag;
         private Slider _chargeSlider;
-        [SerializeField] private Animator anim;
+        //[SerializeField] private Animator anim;
 
         private bool _canFireWithoutCharge;
 
@@ -21,7 +21,7 @@ namespace _Sources.Scripts.Weapons.Weapon_Features
         public WeaponTypeDataSO ChargeableWeaponData { get => chargeableWeaponData; private set => chargeableWeaponData = value; }
 
         public float ChargedProjectileSpeed { get; private set; }
-
+        public float ChargedProjectileDamage { get; private set; }
 
         private void Awake()
         {
@@ -36,7 +36,7 @@ namespace _Sources.Scripts.Weapons.Weapon_Features
         {
             if(_playerEntity != null)
             {
-                anim.SetBool("charge", _playerEntity.InputHandler.IsAttackButtonPressed);
+                //anim.SetBool("charge", _playerEntity.InputHandler.IsAttackButtonPressed);
 
                 if (!_playerEntity.InputHandler.IsAttackButtonPressed)
                 {
@@ -60,8 +60,6 @@ namespace _Sources.Scripts.Weapons.Weapon_Features
         {
             // show arrow and do bow animation
             Debug.Log("CHARGING");
-
-       
 
             _chargeValue += Time.deltaTime;
             _chargeSlider.value = _chargeValue;
@@ -92,6 +90,7 @@ namespace _Sources.Scripts.Weapons.Weapon_Features
         private void ApplyChargedPower()
         {
             ChargedProjectileSpeed = _chargeValue + _weapon.BaseWeaponData.ProjectileSpeed;
+            ChargedProjectileDamage = ((Mathf.Ceil(_chargeValue) * 10) +  _weapon.BaseWeaponData.Damage);
         }
 
         public void Accept(IVisitor visitor)
