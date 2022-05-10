@@ -16,23 +16,7 @@ public class Arrow : BaseProjectile
     {
        
     }
-
     
-    
-    public override void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.HasTag(StickTo))
-        {
-            transform.parent = collision.gameObject.transform;
-
-            Rb.velocity = Vector2.zero;
-            Rb.gravityScale = 0;
-     
-        }
-       
-    }
-
-
     public override void FireProjectile(
         float damage,
         float speed,
@@ -44,16 +28,33 @@ public class Arrow : BaseProjectile
         float dragMultiplier,
         ShootingWeapon weapon)
     {
+        
         DamageAmount = damage;
 
+        AttackDetails.DamageAmount = damage;
+        AttackDetails.Position = transform.position;
+        
         _speed = speed;
         _direction = direction;
         
         Rb.velocity = _direction * _speed;
         Rb.gravityScale = 1;
-
+        //transform.rotation = Quaternion.Euler(0, 0, direction+90);
     }
 
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+        if (collision.HasTag(StickTo))
+        {
+            transform.parent = collision.gameObject.transform;
+
+            Rb.velocity = Vector2.zero;
+            Rb.gravityScale = 0;
+     
+        }
+       
+    }
 
 
 }

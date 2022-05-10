@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7214321765626135862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.163, y: 0.0448, z: 0}
+  m_LocalPosition: {x: 0.155, y: 0.061, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7214321766808791159}
@@ -163,8 +163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotatableWeapon: {fileID: 7214321766808791113}
-  indicatorPrefab: {fileID: 6178728579920490633, guid: 1a1ed8d8c2df27143bc79dfab9495f17,
-    type: 3}
   detectEnemiesInterval: 3
   enemyTag: {fileID: 11400000, guid: 39cbccd36e550ae47a281b694f925d61, type: 2}
   maxRange: 100

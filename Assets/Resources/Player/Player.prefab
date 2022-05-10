@@ -43,6 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095c564a5535422591dd92e58b7859da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockBackSpeed: 2
+  knockBackAngle: {x: 1, y: 0}
+  knockbackDuration: 1
 --- !u!1 &1210389784488573485
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rechargeCd: 0
+  requiredTimeWithoutDamage: 5
 --- !u!1 &3291323029132746814
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +660,8 @@ MonoBehaviour:
     type: 3}
   _pickUpButtonGo: {fileID: 8368145017199607511, guid: 55533dcf3e01d6644b26598ba75ec2ca,
     type: 3}
+  energyCostIndicatorText: {fileID: 0}
+  energyCostIndicator: {fileID: 0}
 --- !u!114 &4443725827962269608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,6 +689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: d7b341ed3c11a404b82057e23e2b3502, type: 2}
+  playerUI: {fileID: 0}
 --- !u!114 &4443725827962269614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -874,7 +881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6948514, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -904,7 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shaderTypes: 3
+  shaderTypes: 0
   normalStrenght: 5
   normalSmoothing: 1
   computingNormal: 0

@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Sources.Scripts.Player;
 using _Sources.Scripts.Weapons.Projectiles;
 using _Sources.Scripts.Weapons.Weapon_Features;
 using UnityEngine;
 
 namespace _Sources.Scripts.Weapons
 {
+   
     public class ShootingWeapon : MonoBehaviour
     {
         [SerializeField] private BaseWeaponDataSO baseWeaponData;
@@ -190,7 +192,7 @@ namespace _Sources.Scripts.Weapons
                             attackPosition.rotation,
                             transform.right,
                             ChargeableWeapon.ChargedProjectileSpeed,
-                            baseWeaponData.Damage,
+                            ChargeableWeapon.ChargedProjectileDamage,
                             baseWeaponData.ProjectileRotationSpeed, 
                             baseWeaponData.ProjectileRotateAngleDeviation
                         );

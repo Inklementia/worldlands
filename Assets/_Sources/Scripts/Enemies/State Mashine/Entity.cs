@@ -50,7 +50,7 @@ namespace _Sources.Scripts.Enemies.State_Mashine
             //Core.PlayerDetectionSenses.SetPlayer(GameObject.FindWithTag("Player"));
             Core.HealthSystem.IsDead = false;
             Core.Movement.SetFacingDirection(-1);
-       Debug.Log("Start working");
+    
             StateMachine = new FiniteStateMashine();
 
             //Seeker.StartPath(Rb.position, MoveTarget.position, OnPathComplete);

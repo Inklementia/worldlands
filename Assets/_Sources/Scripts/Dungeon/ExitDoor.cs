@@ -46,26 +46,31 @@ namespace _Sources.Scripts.Dungeon
                 if (_wm.CurrentLevel < 3)
                 {
                     _wm.IncreaseLevel();
-                    
                     _saveLoadService.SaveProgress();
 
                     var player = GameObject.FindWithTag("Player");
+                    
                     List<ShootingWeapon> weapons = player.GetComponentInChildren<PlayerWeaponry>().CarriedWeapons;
-                    if (weapons.Any() && weapons[0] !=  null)
+                    if (weapons[0] !=  null)
                     {
                         ES3DataManager.Instance.SaveEquipedWeapon(weapons[0].gameObject);
                     }
-                    if (weapons.Any() && weapons[1] !=  null)
+                    if (weapons[1] !=  null)
                     {
                         ES3DataManager.Instance.SaveSecondaryWeapon(weapons[1].gameObject);
                     }
                    
                    
-                    
+                    ES3DataManager.Instance.SaveLevelNumber(_wm.CurrentLevel);
+                    ES3DataManager.Instance.SaveKilledEnemiesCount(100000);
                     ES3DataManager.Instance.SavePlayerHealthState(player.GetComponent<PlayerEntity>().Core.HealthSystem.CurrentStat);
                     ES3DataManager.Instance.SavePlayerEnergyState(player.GetComponent<PlayerEntity>().Core.EnergySystem.CurrentStat);
                     
                     levelTransfer.RunLevel("Main");
+                }
+                else
+                {
+                    // do screen 
                 }
                   
                 

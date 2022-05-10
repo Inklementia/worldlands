@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378301e5efae5fb4e9d746a170a0b91d, type: 3}
   m_Name: MeleeEnemyMoveStateData
   m_EditorClassIdentifier: 
-  MovementSpeed: 0
+  MovementSpeed: 3

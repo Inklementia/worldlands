@@ -36,7 +36,7 @@ namespace _Sources.Scripts.Weapons.Weapon_Features
             //Debug.Log(InitialRotateAngle);
             if (PlayerEntity != null)
             {
-                if (PlayerEntity.Core.EnemyDetectionSenses.EnemyInFieldOfView())
+                if (PlayerEntity.Core.EnemyDetectionSenses.EnemyInFieldOfView() && Aimhelper.GetDirection() != Vector2.zero)
                 {
                     
                     RotateWeapon(Aimhelper.GetDirection());

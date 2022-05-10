@@ -11,7 +11,7 @@ using UnityEngine;
 public class Rocket : BaseProjectile
 {
     private Transform _target;
-
+    [SerializeField] protected MMFeedback destroyParticlesFeedback;
     private ShootingWeapon _weapon;
     //[SerializeField] protected MMFeedback destroyParticlesFeedback;
     [SerializeField] private Tag DestroyOnto;
@@ -27,16 +27,20 @@ public class Rocket : BaseProjectile
 
     private void FixedUpdate()
     {
-        _target = _weapon.RotatableWeapon.Aimhelper.ClosestEnemy.transform;
-        Vector2 direction = (Vector2)_target.position - Rb.position;
+        if (_weapon != null)
+        {
+            _target = _weapon.RotatableWeapon.Aimhelper.ClosestEnemy.transform;
+            Vector2 direction = (Vector2)_target.position - Rb.position;
 
-        direction.Normalize();
+            direction.Normalize();
 
-        _randomRotateAngleDeviation = Random.Range(-_rotateAngleDeviation, _rotateAngleDeviation);
-        float rotateAmount = Vector3.Cross(direction, transform.right).z + _randomRotateAngleDeviation;
+            _randomRotateAngleDeviation = Random.Range(-_rotateAngleDeviation, _rotateAngleDeviation);
+            float rotateAmount = Vector3.Cross(direction, transform.right).z + _randomRotateAngleDeviation;
 
-        Rb.angularVelocity = -rotateAmount * _rotationSpeed;
-        Rb.velocity = transform.right * _speed;
+            Rb.angularVelocity = -rotateAmount * _rotationSpeed;
+            Rb.velocity = transform.right * _speed;
+        }
+      
     }
 
     public override void FireProjectile(
@@ -68,7 +72,8 @@ public class Rocket : BaseProjectile
         {
             // TODO: instantiate particles
 
-           // destroyParticlesFeedback.Play(position, 1);
+            var position = transform.position;
+            destroyParticlesFeedback.Play(position, 1);
            
             //objectPooler.SpawnFromPool(splashTag, position, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
             gameObject.SetActive(false);

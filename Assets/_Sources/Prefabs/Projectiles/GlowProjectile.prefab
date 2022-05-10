@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7494328449742738030}
   - component: {fileID: 4876376615439076109}
   - component: {fileID: 8323844351059805737}
-  - component: {fileID: 1478950349369982777}
   - component: {fileID: 3993885586761436504}
+  - component: {fileID: 8569826869239803462}
   m_Layer: 0
   m_Name: GlowProjectile
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1478950349369982776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 208727217330320106}
   m_Father: {fileID: 0}
@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f75d3c4d1ab105b4c94fb8988667fff6, type: 2}
+  - {fileID: 2100000, guid: 6d2035188d7cea64cb3cc102dcd11d71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.21, y: 0.21}
+  m_Size: {x: 0.42, y: 0.42}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -108,7 +108,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &4876376615439076109
 CircleCollider2D:
@@ -139,25 +139,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rb: {fileID: 7494328449742738030}
-  TargetTag: {fileID: 11400000, guid: 39cbccd36e550ae47a281b694f925d61, type: 2}
+  targetTag: {fileID: 11400000, guid: 39cbccd36e550ae47a281b694f925d61, type: 2}
+  damagePopUpTag: {fileID: 11400000, guid: 6b889bda5b9d67044908bbbb1a97b149, type: 2}
   DestroyOnto: {fileID: 11400000, guid: 267e3742509d87b4dafda05c7d829f8c, type: 2}
   destroyParticlesFeedback: {fileID: 2138580964}
---- !u!114 &1478950349369982777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1478950349369982776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shaderTypes: 0
-  normalStrenght: 5
-  normalSmoothing: 1
-  computingNormal: 0
 --- !u!114 &3993885586761436504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +158,22 @@ MonoBehaviour:
   tags:
   - {fileID: 11400000, guid: b0cfce30db1d57941ac5c43ecdf19677, type: 2}
   - {fileID: 11400000, guid: ce6b76a81897de44eacfa50efd1c6813, type: 2}
+--- !u!114 &8569826869239803462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478950349369982776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 0
+  normalStrenght: 5
+  normalSmoothing: 1
+  computingNormal: 0
 --- !u!1 &2039151973517309294
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +286,7 @@ MonoBehaviour:
     Quantized: 0
     TargetBPM: 120
   DebugActive: 0
-  Mode: 0
+  Mode: 1
   CachedRecycle: 1
   ParticlesPrefab: {fileID: 9121362506625068374, guid: 80cc664e3d2c2594788e7055be325489,
     type: 3}

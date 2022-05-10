@@ -10,7 +10,6 @@ namespace _Sources.Scripts.Player
     public class AimHelper: MonoBehaviour
     {
         [SerializeField] private RotatableWeapon rotatableWeapon;
-        [SerializeField] private GameObject indicatorPrefab;
         [SerializeField] private float detectEnemiesInterval = 5f;
         [SerializeField] private Tag enemyTag;
         [SerializeField] private float maxRange = 100;
@@ -20,17 +19,20 @@ namespace _Sources.Scripts.Player
         private List<GameObject> _enemiesList = new List<GameObject>();
         public GameObject ClosestEnemy { get; private set; }
         private PlayerEntity _playerEntity;
+        
         private GameObject _indicator;
         private void Awake()
         {
-           
+            _indicator = GameObject.FindWithTag("TargetIndicator");
+            _indicator.GetComponent<SpriteRenderer>().enabled = false;
             //GameActions.Current.OnDungeonGenerated += DetectEnemies;
-            _indicator = GameObject.Instantiate(indicatorPrefab, Vector3.zero, Quaternion.identity);
-            _indicator.SetActive(false);
         }
 
         private void Start()
         {
+            
+            //
+            
             _detectEnemiesTimer = detectEnemiesInterval;
             GameActions.Instance.OnEnemyKilled += RemoveEnemyFromList;
             //GameActions.Current.OnBattleColliderEntered += DetectEnemies;
@@ -59,10 +61,12 @@ namespace _Sources.Scripts.Player
         public Vector2 GetDirection()
         {
             //Debug.Log("Enemy detects");
-            Vector2 direction = ClosestEnemy.transform.position - _playerEntity.transform.position;
-            direction.Normalize();
-            return direction;
-
+            if (ClosestEnemy == null) return Vector2.zero;
+             Vector2 direction = ClosestEnemy.transform.position - _playerEntity.transform.position;
+             direction.Normalize();
+             return direction;
+            
+         
         }
         
         // TODO: event
@@ -88,6 +92,7 @@ namespace _Sources.Scripts.Player
         {
             if (_playerEntity != null)
             {
+               
                 float range = maxRange;
                 foreach (GameObject enemyGO in _enemiesList)
                 {
@@ -107,7 +112,7 @@ namespace _Sources.Scripts.Player
 
         private void ActivateIndicator()
         {
-            _indicator.SetActive(true);
+            _indicator.GetComponent<SpriteRenderer>().enabled = true;
             _indicator.transform.parent = ClosestEnemy.transform;
             _indicator.transform.localPosition = Vector3.zero;
             

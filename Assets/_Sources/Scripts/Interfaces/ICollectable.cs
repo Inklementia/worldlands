@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using _Sources.Scripts.Player.PlayerFiniteStateMachine;
-using UnityEngine;
 
-public interface ICollectable
+namespace _Sources.Scripts.Interfaces
 {
-    void ApplyTo(PlayerEntity playerEntity);
+    public interface ICollectable
+    {
+        void ApplyTo(PlayerEntity playerEntity);
+    }
 }

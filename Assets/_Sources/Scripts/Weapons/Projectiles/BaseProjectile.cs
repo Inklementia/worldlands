@@ -1,3 +1,4 @@
+using _Sources.Scripts.Battle;
 using _Sources.Scripts.Core.Components;
 using _Sources.Scripts.Enemies.State_Mashine;
 using UnityEngine;
@@ -7,8 +8,8 @@ namespace _Sources.Scripts.Weapons.Projectiles
     public abstract class BaseProjectile : MonoBehaviour
     {
         [SerializeField] protected Rigidbody2D Rb;
-        [SerializeField] protected Tag TargetTag;
-
+        [SerializeField] protected Tag targetTag;
+        [SerializeField] protected Tag damagePopUpTag;
         protected float DamageAmount;
         protected AttackDetails AttackDetails;
 
@@ -39,14 +40,27 @@ namespace _Sources.Scripts.Weapons.Projectiles
 
         public virtual void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.HasTag(TargetTag))
+            if (collision.HasTag(targetTag))
             {
+                AttackDetails.Position = collision.transform.position;
+                
+                GameObject popUp = ObjectPooler.SpawnFromPool(damagePopUpTag, AttackDetails.Position, Quaternion.identity);
+                popUp.GetComponent<DamagePopUp>().SetUp(DamageAmount);
                 // decreasing health if projectile health target, and Tag matches target Tag
-               
-               
-              collision.GetComponentInParent<Entity>().Damage(AttackDetails);
+
+                if (collision.GetComponentInParent<Entity>() != null)
+                {
+                  
+                    collision.GetComponentInParent<Entity>().Damage(AttackDetails);
+                }
+                else
+                {
+                 
+                    collision.GetComponent<EnemySpawner>().TakeDamage(AttackDetails);
+                }
+                
                 // turn off projectile
-                gameObject.SetActive(false);
+              
 
             }
         }

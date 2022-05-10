@@ -113,7 +113,7 @@ namespace _Sources.Scripts.Weapons.Weapon_Features
         }
         public void Accept(IVisitor visitor)
         {
-            _playerEntity = gameObject.FindWithTag(MultishotWeaponData.PlayerTag).GetComponent<Player.PlayerFiniteStateMachine.PlayerEntity>();
+            _playerEntity = GameObject.FindGameObjectWithTag("Player").GetComponent<Player.PlayerFiniteStateMachine.PlayerEntity>();
             AssignFirePoints();
 
             visitor.Visit(this); 

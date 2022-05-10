@@ -1,4 +1,7 @@
-﻿using _Sources.Scripts.Interfaces;
+﻿using _Sources.Scripts.Enemies.State_Mashine;
+using _Sources.Scripts.Interfaces;
+using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 namespace _Sources.Scripts.Core.Components
@@ -8,7 +11,9 @@ namespace _Sources.Scripts.Core.Components
         [SerializeField] private float knockBackSpeed = 2;
         [SerializeField] private Vector2 knockBackAngle = new Vector2 (1,0);
         [SerializeField] private float knockbackDuration = 1f;
-
+    
+       
+        
         private float _knockbackStartTime;
         private int _lastDamageDirection;
 
@@ -32,7 +37,9 @@ namespace _Sources.Scripts.Core.Components
         
         // DAMAGE 
         public virtual void TakeDamage(AttackDetails attackDetails)
-        {
+        { 
+       
+            
             if(attackDetails.Position.x > transform.position.x)
             {
                 _lastDamageDirection = -1;
@@ -43,7 +50,7 @@ namespace _Sources.Scripts.Core.Components
             }
             
             Core.HealthSystem.DecreaseStat(attackDetails.DamageAmount);
-
+            
             Core.HealthSystem.IsDead = Core.HealthSystem.GetCurrentStat() <= 0 ? true : false;
 
         }

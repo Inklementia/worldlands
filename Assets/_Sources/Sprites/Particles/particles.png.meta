@@ -35,6 +35,9 @@ TextureImporter:
   - first:
       213: 2771832032555197376
     second: particles_10
+  - first:
+      213: 8980415328753738973
+    second: particles_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -79,7 +82,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -244,10 +247,10 @@ TextureImporter:
       name: particles_5
       rect:
         serializedVersion: 2
-        x: 149
-        y: 150
-        width: 43
-        height: 43
+        x: 147
+        y: 149
+        width: 46
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,10 +289,10 @@ TextureImporter:
       name: particles_7
       rect:
         serializedVersion: 2
-        x: 61
-        y: 105
-        width: 15
-        height: 29
+        x: 62
+        y: 106
+        width: 12
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,10 +331,10 @@ TextureImporter:
       name: particles_9
       rect:
         serializedVersion: 2
-        x: 145
-        y: 41
-        width: 41
-        height: 40
+        x: 147
+        y: 102
+        width: 46
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,10 +352,10 @@ TextureImporter:
       name: particles_10
       rect:
         serializedVersion: 2
-        x: 150
-        y: 104
-        width: 41
-        height: 41
+        x: 77
+        y: 31
+        width: 56
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -362,6 +365,27 @@ TextureImporter:
       bones: []
       spriteID: 0c3608d3c86877620800000000000000
       internalID: 2771832032555197376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: particles_11
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 41
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd4e6d54928d0ac70800000000000000
+      internalID: 8980415328753738973
       vertices: []
       indices: 
       edges: []
