@@ -100,9 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0294e428c2f44a72a550f554bb1b3fe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnerData: {fileID: 11400000, guid: 825cfd3ae1b016b49b87dab548017c0e, type: 2}
+  enemySpawnerData: {fileID: 11400000, guid: bef47b105c03d504eaffa3b4b579f27d, type: 2}
   hitParticles: {fileID: 11400000, guid: 095e40cea26ceec428b20894b11b099a, type: 2}
   hitMaterial: {fileID: 2100000, guid: f980a277740283048831616366d47edb, type: 2}
+  sr: {fileID: 1228026232725270496}
 --- !u!61 &8081956370836759458
 BoxCollider2D:
   m_ObjectHideFlags: 0

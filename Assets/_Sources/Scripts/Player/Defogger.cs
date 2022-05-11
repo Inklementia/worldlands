@@ -1,5 +1,6 @@
 ﻿using System;
 using _Sources.Scripts.Dungeon;
+using _Sources.Scripts.Input;
 using UnityEngine;
 
 namespace _Sources.Scripts.Player

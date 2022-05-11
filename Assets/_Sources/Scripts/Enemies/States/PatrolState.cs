@@ -1,3 +1,4 @@
+using _Sources.Scripts.Enemies.Data;
 using _Sources.Scripts.Enemies.State_Mashine;
 using UnityEngine;
 

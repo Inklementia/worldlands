@@ -1,4 +1,5 @@
 ﻿using System;
+using _Sources.Scripts.Helpers;
 using UnityEngine;
 
 namespace _Sources.Scripts
@@ -19,7 +20,9 @@ namespace _Sources.Scripts
                 s.source.pitch = s.pitch;
                 s.source.loop = s.loop;
                 s.source.outputAudioMixerGroup = s.output;
+                s.source.playOnAwake = s.playOnAwake;
             }
+            Play("Bg");
         }
 
         // called from where specific sound is needed

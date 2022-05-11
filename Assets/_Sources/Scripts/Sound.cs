@@ -16,7 +16,7 @@ namespace _Sources.Scripts
         public float pitch;
 
         public bool loop;
-
+        public bool playOnAwake;
         public AudioMixerGroup output;
         [HideInInspector] public AudioSource source;
     }

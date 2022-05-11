@@ -1,5 +1,6 @@
 ﻿using _Sources.Scripts.Enemies.Data;
 using _Sources.Scripts.Enemies.State_Mashine;
+using _Sources.Scripts.Structs;
 using _Sources.Scripts.Weapons;
 using UnityEngine;
 

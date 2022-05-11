@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbf889b4b9dbf543a2f4a1b18f742ae, type: 3}
   m_Name: DarkFantasy_Base
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Dark Fantasy
   Description: 
-  Damage: 10
-  EnergyCostPerAttack: 1
+  Damage: 30
+  EnergyCostPerAttack: 5
   AttackCd: 0.2
   NumberOfProjectilesPerRound: 1
   IntervalBetweenRounds: 0.5
   ProjectileTravelDistance: 5
   ProjectileLifeDuration: 6
   ProjectileDragMultiplier: 0.5
-  ProjectileSpeed: 8
+  ProjectileSpeed: 10
   ProjectileRotationSpeed: 200
   ProjectileRotateAngleDeviation: 0

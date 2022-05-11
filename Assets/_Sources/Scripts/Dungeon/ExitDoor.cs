@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using _Sources.Scripts.Data;
+using _Sources.Scripts.Helpers;
 using _Sources.Scripts.Infrastructure.Services;
 using _Sources.Scripts.Infrastructure.Services.PersistentProgress;
 using _Sources.Scripts.Infrastructure.Services.SaveLoad;
 using _Sources.Scripts.Player.PlayerFiniteStateMachine;
 using _Sources.Scripts.Weapons;
+using DG.Tweening;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,6 +27,7 @@ namespace _Sources.Scripts.Dungeon
         private ISaveLoadService _saveLoadService;
 
         [SerializeField] private Tag worldManagerTag;
+        [SerializeField] private GameObject endScreenGO;
         private WorldManager _wm;
         private void Awake()
         {
@@ -43,26 +47,15 @@ namespace _Sources.Scripts.Dungeon
         {
             if (other.HasTag(playerTag))
             {
+                Debug.Log("Level "+_wm.CurrentLevel);
                 if (_wm.CurrentLevel < 3)
                 {
                     _wm.IncreaseLevel();
                     _saveLoadService.SaveProgress();
 
+                    
                     var player = GameObject.FindWithTag("Player");
                     
-                    List<ShootingWeapon> weapons = player.GetComponentInChildren<PlayerWeaponry>().CarriedWeapons;
-                    if (weapons[0] !=  null)
-                    {
-                        ES3DataManager.Instance.SaveEquipedWeapon(weapons[0].gameObject);
-                    }
-                    if (weapons[1] !=  null)
-                    {
-                        ES3DataManager.Instance.SaveSecondaryWeapon(weapons[1].gameObject);
-                    }
-                   
-                   
-                    ES3DataManager.Instance.SaveLevelNumber(_wm.CurrentLevel);
-                    ES3DataManager.Instance.SaveKilledEnemiesCount(100000);
                     ES3DataManager.Instance.SavePlayerHealthState(player.GetComponent<PlayerEntity>().Core.HealthSystem.CurrentStat);
                     ES3DataManager.Instance.SavePlayerEnergyState(player.GetComponent<PlayerEntity>().Core.EnergySystem.CurrentStat);
                     
@@ -70,11 +63,17 @@ namespace _Sources.Scripts.Dungeon
                 }
                 else
                 {
-                    // do screen 
+                    GameObject panel = GameObject.FindWithTag("EndScreen").transform.GetChild(0).gameObject;
+                    panel.SetActive(true);
+                    panel.GetComponent<CanvasGroup>().DOFade(1, .5f);
+                    
+                    Time.timeScale = 0;
+                    ES3DataManager.Instance.DeleteEnergy();
+                    ES3DataManager.Instance.DeleteHealth();
+                    ES3DataManager.Instance.DeleteLevelNumber();
+                    PlayerPrefs.DeleteAll();
+                    
                 }
-                  
-                
-
             }
         }
 

@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "newMeleeAttackStateData", menuName = "Data/State Data/Melee Attack State Data")]
-public class D_MeleeAttackState : ScriptableObject 
+namespace _Sources.Scripts.Enemies.Data
 {
-    public float AttackDamage = 10f;
-    public float AttackRadius = .8f;
+    [CreateAssetMenu(fileName = "newMeleeAttackStateData", menuName = "Data/State Data/Melee Attack State Data")]
+    public class D_MeleeAttackState : ScriptableObject 
+    {
+        public float AttackDamage = 10f;
+        public float AttackRadius = .8f;
 
-    public LayerMask WhatIsPlayer;
+        public LayerMask WhatIsPlayer;
+    }
 }

@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using _Sources.Scripts.Weapons;
 using UnityEngine;
 
-public struct EncounteredWeapon {
+namespace _Sources.Scripts.Structs
+{
+    public struct EncounteredWeapon {
 
-    public Transform Position;
-    public ShootingWeapon Weapon;
+        public Transform Position;
+        public ShootingWeapon Weapon;
 
+    }
 }
 
 

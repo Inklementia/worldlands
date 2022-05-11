@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Bubble Gun
   Description: Very nice gun
-  Damage: 15
-  EnergyCostPerAttack: 1
-  AttackCd: 0.1
+  Damage: 20
+  EnergyCostPerAttack: 3
+  AttackCd: 0.3
   NumberOfProjectilesPerRound: 1
   IntervalBetweenRounds: 0.5
   ProjectileTravelDistance: 5
   ProjectileLifeDuration: 6
   ProjectileDragMultiplier: 0.5
-  ProjectileSpeed: 5
+  ProjectileSpeed: 4
   ProjectileRotationSpeed: 200
   ProjectileRotateAngleDeviation: 0

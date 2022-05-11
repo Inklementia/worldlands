@@ -371,6 +371,7 @@ MonoBehaviour:
   enemySpawnerData: {fileID: 11400000, guid: 2e803164b3c827d4c9050c2ec8011ff6, type: 2}
   hitParticles: {fileID: 11400000, guid: 095e40cea26ceec428b20894b11b099a, type: 2}
   hitMaterial: {fileID: 2100000, guid: f980a277740283048831616366d47edb, type: 2}
+  sr: {fileID: 5010244323550366447}
 --- !u!61 &2640733975747643053
 BoxCollider2D:
   m_ObjectHideFlags: 0

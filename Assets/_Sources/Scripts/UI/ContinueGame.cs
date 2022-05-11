@@ -1,6 +1,7 @@
 ﻿using System;
 using _Sources.Scripts.Infrastructure.Factory;
 using _Sources.Scripts.Infrastructure.Services;
+using _Sources.Scripts.Input;
 using _Sources.Scripts.Player.PlayerFiniteStateMachine;
 using UnityEngine;
 

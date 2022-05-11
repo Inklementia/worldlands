@@ -15,10 +15,10 @@ MonoBehaviour:
   Name: 
   Description: 
   Damage: 10
-  EnergyCostPerAttack: 1
+  EnergyCostPerAttack: 2
   AttackCd: 0.2
-  NumberOfProjectilesPerRound: 1
-  IntervalBetweenRounds: 0.5
+  NumberOfProjectilesPerRound: 3
+  IntervalBetweenRounds: 0.1
   ProjectileTravelDistance: 5
   ProjectileLifeDuration: 6
   ProjectileDragMultiplier: 0.5

@@ -676,6 +676,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponsNumberToCarry: 2
   weaponTag: {fileID: 11400000, guid: f8ec1ccf4210661448a6e8317b7f8fd1, type: 2}
+  firstWeaponPrefab: {fileID: 7214321766808791154, guid: 3d6cd495cfc45964f9227179315bb0bb,
+    type: 3}
+  RefillEnergyText: {fileID: 0}
 --- !u!114 &4443725827962269619
 MonoBehaviour:
   m_ObjectHideFlags: 0

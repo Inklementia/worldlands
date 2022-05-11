@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _Sources.Scripts.Infrastructure
+namespace _Sources.Scripts.Infrastructure.AssetManagement
 {
     public class AssetProvider : IAssetProvider
     {

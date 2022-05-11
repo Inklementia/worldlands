@@ -27,7 +27,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_2020_3_20;UNITY_2020_3;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;ODIN_INSPECTOR;ODIN_INSPECTOR_3;MOREMOUNTAINS_FEEDBACKS;MOREMOUNTAINS_NICEVIBRATIONS;MOREMOUNTAINS_TOOLS;MOREMOUNTAINS_CINEMACHINE_INSTALLED;MOREMOUNTAINS_TOOLS_FOR_MMFEEDBACKS;MOREMOUNTAINS_TEXTMESHPRO_INSTALLED;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_2020_3_20;UNITY_2020_3;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;ODIN_INSPECTOR;ODIN_INSPECTOR_3;MOREMOUNTAINS_FEEDBACKS;MOREMOUNTAINS_NICEVIBRATIONS;MOREMOUNTAINS_TOOLS;MOREMOUNTAINS_CINEMACHINE_INSTALLED;MOREMOUNTAINS_TOOLS_FOR_MMFEEDBACKS;MOREMOUNTAINS_TEXTMESHPRO_INSTALLED;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn></NoWarn>
@@ -58,30 +58,32 @@
      <Compile Include="Assets\_Sources\Scripts\UI\LoadingScreen.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\AttackState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\RangedEnemy\RangedEnemy_IdleState.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Items\Chest.cs" />
      <Compile Include="Assets\_Sources\Scripts\Interfaces\IDamageable.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Services\Input\MobileInputService.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\GameStates\IPayloadedState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\WallGenerator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
+     <Compile Include="Assets\_Sources\Scripts\UI\MainMenu.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\State Mashine\State.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_Entity.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_MeleeAttackState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Battle\EnemySpawnerSO.cs" />
-     <Compile Include="Assets\_Sources\Scripts\Dungeon\FogOfWar.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\GameStates\IState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\Weapon Features\ChargeableWeapon.cs" />
+     <Compile Include="Assets\_Sources\Scripts\UI\AdsPlay.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\MoveState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Weapons\Weapon Features\MultishotWeapon.cs" />
      <Compile Include="Assets\_Sources\Scripts\Structs\EncounteredWeapon.cs" />
      <Compile Include="Assets\_Sources\Scripts\Player\PlayerStates\PlayerAttackState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Sound.cs" />
-     <Compile Include="Assets\_Sources\Scripts\DisableAflterAnimation.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Helpers\DisableAflterAnimation.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_ChargeState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\RangedEnemy\RangedEnemy_RangedAttackState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Services\SaveLoad\SaveLoadService.cs" />
      <Compile Include="Assets\_Sources\Scripts\Input\FixedTouchField.cs" />
-     <Compile Include="Assets\_Sources\Scripts\Constants.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Helpers\Constants.cs" />
      <Compile Include="Assets\_Sources\Scripts\Interfaces\IKnockable.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\CaveDungeonGenerator.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\GameStates\IExitableState.cs" />
@@ -108,8 +110,7 @@
      <Compile Include="Assets\_Sources\Scripts\ForTesting\Player.cs" />
      <Compile Include="Assets\_Sources\Scripts\UI\EnemyKillCount.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\RoomDungeonGenerator.cs" />
-     <Compile Include="Assets\_Sources\Scripts\Dungeon\TileSpawner.cs" />
-     <Compile Include="Assets\_Sources\Scripts\ColliderTrigger.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Helpers\ColliderTrigger.cs" />
      <Compile Include="Assets\_Sources\Scripts\Player\PlayerStates\PlayerDeadState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\AssetManagement\AssetProvider.cs" />
@@ -125,6 +126,7 @@
      <Compile Include="Assets\_Sources\Scripts\Dungeon\ItemPlacement.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_DamageState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
+     <Compile Include="Assets\_Sources\Scripts\BackToMainMenu.cs" />
      <Compile Include="Assets\_Sources\Scripts\DamagePopUp.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\RangedEnemy\RangedEnemy_DamageState.cs" />
@@ -171,7 +173,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\MeleeAttackState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\DamageState.cs" />
-     <Compile Include="Assets\_Sources\Scripts\EventManager.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Helpers\EventManager.cs" />
      <Compile Include="Assets\_Sources\Scripts\Data\ES3DataManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\TileGenerator.cs" />
@@ -185,10 +187,11 @@
      <Compile Include="Assets\_Sources\Scripts\Dungeon\Node.cs" />
      <Compile Include="Assets\_Sources\Scripts\FadeOutSFX.cs" />
      <Compile Include="Assets\_Sources\Scripts\UI\AdsContinueGame.cs" />
+     <Compile Include="Assets\_Sources\Scripts\UI\AdsRefillEnergy.cs" />
      <Compile Include="Assets\_Sources\Scripts\Battle\BattleSystem.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
      <Compile Include="Assets\_Sources\Scripts\Player\PlayerFiniteStateMachine\PlayerStateMachine.cs" />
-     <Compile Include="Assets\_Sources\Scripts\OpenUrl.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Helpers\OpenUrl.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Units\MeleeEnemy\MeleeEnemy_MoveState.cs" />
      <Compile Include="Assets\_Sources\Scripts\Items\ItemGenerator.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\State Mashine\FiniteStateMashine.cs" />
@@ -201,7 +204,7 @@
      <Compile Include="Assets\_Sources\Scripts\Items\CollectableItem.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\WallTypesHelper.cs" />
-     <Compile Include="Assets\_Sources\Scripts\SingletonClass.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Helpers\SingletonClass.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\Components\HealthSystem.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\Factory\GameFactory.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
@@ -237,14 +240,13 @@
      <Compile Include="Assets\_Sources\Scripts\Enums\ActionInputMode.cs" />
      <Compile Include="Assets\_Sources\Scripts\Infrastructure\AssetManagement\IAssetProvider.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
-     <Compile Include="Assets\_Sources\Scripts\GameActions.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Helpers\GameActions.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\Data\D_IdleState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\Components\CoreComponent.cs" />
      <Compile Include="Assets\_Sources\Scripts\Enemies\States\RangedAttackState.cs" />
-     <Compile Include="Assets\_Sources\Scripts\Dungeon\DungeonManager.cs" />
      <Compile Include="Assets\_Sources\Scripts\Player\PlayerStates\PlayerIdleState.cs" />
-     <Compile Include="Assets\_Sources\Scripts\LevelTransfer.cs" />
+     <Compile Include="Assets\_Sources\Scripts\Helpers\LevelTransfer.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\ExitDoor.cs" />
      <Compile Include="Assets\_Sources\Scripts\Core\Components\StatsComponent.cs" />
      <Compile Include="Assets\_Sources\Scripts\Dungeon\Graph.cs" />
@@ -336,12 +338,6 @@
  </Reference>
  <Reference Include="UnityEngine.ClothModule">
  <HintPath>D:/Programms/Unity/2020.3.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.ClothModule.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.ClusterInputModule">
- <HintPath>D:/Programms/Unity/2020.3.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.ClusterRendererModule">
- <HintPath>D:/Programms/Unity/2020.3.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.CoreModule">
  <HintPath>D:/Programms/Unity/2020.3.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
@@ -495,9 +491,6 @@
  </Reference>
  <Reference Include="UnityEngine.VideoModule">
  <HintPath>D:/Programms/Unity/2020.3.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.VideoModule.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.VirtualTexturingModule">
- <HintPath>D:/Programms/Unity/2020.3.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.VirtualTexturingModule.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.WindModule">
  <HintPath>D:/Programms/Unity/2020.3.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Description: 
-  Damage: 10
-  EnergyCostPerAttack: 1
-  AttackCd: 0.2
+  Damage: 40
+  EnergyCostPerAttack: 6
+  AttackCd: 0.3
   NumberOfProjectilesPerRound: 1
   IntervalBetweenRounds: 0.5
   ProjectileTravelDistance: 5

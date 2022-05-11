@@ -1,6 +1,8 @@
 using _Sources.Scripts.Battle;
 using _Sources.Scripts.Core.Components;
 using _Sources.Scripts.Enemies.State_Mashine;
+using _Sources.Scripts.Object_Pooler;
+using _Sources.Scripts.Structs;
 using UnityEngine;
 
 namespace _Sources.Scripts.Weapons.Projectiles
@@ -45,6 +47,7 @@ namespace _Sources.Scripts.Weapons.Projectiles
                 AttackDetails.Position = collision.transform.position;
                 
                 GameObject popUp = ObjectPooler.SpawnFromPool(damagePopUpTag, AttackDetails.Position, Quaternion.identity);
+                popUp.transform.SetParent(collision.transform);
                 popUp.GetComponent<DamagePopUp>().SetUp(DamageAmount);
                 // decreasing health if projectile health target, and Tag matches target Tag
 

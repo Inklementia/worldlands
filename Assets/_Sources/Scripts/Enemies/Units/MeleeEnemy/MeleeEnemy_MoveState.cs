@@ -1,55 +1,57 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using _Sources.Scripts.Enemies.Data;
 using _Sources.Scripts.Enemies.State_Mashine;
 using _Sources.Scripts.Enemies.States;
 using UnityEngine;
 
-public class MeleeEnemy_MoveState : MoveState
+namespace _Sources.Scripts.Enemies.Units.MeleeEnemy
 {
-    private MeleeEnemy _enemy;
-
-    public MeleeEnemy_MoveState(Entity entity, FiniteStateMashine stateMachine, string animBoolName, D_MoveState stateData, MeleeEnemy enemy) : 
-        base(entity, stateMachine, animBoolName, stateData)
+    public class MeleeEnemy_MoveState : MoveState
     {
-        _enemy = enemy;
-    }
+        private MeleeEnemy _enemy;
 
-    public override void Enter()
-    {
-        base.Enter();
-        //_enemy.Core.Movement.SetVelocity(Direction, StateData.MovementSpeed);
-      
-        //bug.Log(Direction + " * " + StateData.MovementSpeed);
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-        
-    }
-
-    public override void LogicUpdate()
-    {
-        base.LogicUpdate();
-
-        _enemy.Core.Movement.SetVelocity(Direction, StateData.MovementSpeed);
-
-        if (IsPlayerInMinAgroRange)
+        public MeleeEnemy_MoveState(Entity entity, FiniteStateMashine stateMachine, string animBoolName, D_MoveState stateData, MeleeEnemy enemy) : 
+            base(entity, stateMachine, animBoolName, stateData)
         {
-            StateMachine.ChangeState(_enemy.PlayerDetectedState);
+            _enemy = enemy;
         }
-        else if (IsDetectingWall)
+
+        public override void Enter()
         {
-            SpendTime += Time.deltaTime;
-            if (SpendTime >= TimeBeforeDetectingWall || Direction == Vector2.zero)
+            base.Enter();
+            //_enemy.Core.Movement.SetVelocity(Direction, StateData.MovementSpeed);
+      
+            //bug.Log(Direction + " * " + StateData.MovementSpeed);
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+        
+        }
+
+        public override void LogicUpdate()
+        {
+            base.LogicUpdate();
+
+            _enemy.Core.Movement.SetVelocity(Direction, StateData.MovementSpeed);
+
+            if (IsPlayerInMinAgroRange)
             {
-                StateMachine.ChangeState(_enemy.IdleState);
+                StateMachine.ChangeState(_enemy.PlayerDetectedState);
+            }
+            else if (IsDetectingWall)
+            {
+                SpendTime += Time.deltaTime;
+                if (SpendTime >= TimeBeforeDetectingWall || Direction == Vector2.zero)
+                {
+                    StateMachine.ChangeState(_enemy.IdleState);
+                }
             }
         }
-    }
 
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
+        public override void PhysicsUpdate()
+        {
+            base.PhysicsUpdate();
+        }
     }
 }

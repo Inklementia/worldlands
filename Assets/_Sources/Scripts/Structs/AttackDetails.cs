@@ -1,9 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public struct AttackDetails
+namespace _Sources.Scripts.Structs
 {
-    public Vector2 Position;
-    public float DamageAmount;
+    public struct AttackDetails
+    {
+        public Vector2 Position;
+        public float DamageAmount;
+    }
 }

@@ -16,6 +16,7 @@ TagManager:
   - HUD
   - LevelNumber
   - TargetIndicator
+  - EndScreen
   layers:
   - Default
   - TransparentFX

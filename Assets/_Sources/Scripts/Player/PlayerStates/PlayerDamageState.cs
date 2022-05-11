@@ -1,4 +1,6 @@
-﻿using _Sources.Scripts.Player.PlayerFiniteStateMachine;
+﻿using _Sources.Scripts.Object_Pooler;
+using _Sources.Scripts.Player.Data;
+using _Sources.Scripts.Player.PlayerFiniteStateMachine;
 using UnityEngine;
 
 namespace _Sources.Scripts.Player.PlayerStates

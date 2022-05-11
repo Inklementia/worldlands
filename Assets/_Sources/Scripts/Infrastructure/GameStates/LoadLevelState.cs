@@ -2,6 +2,8 @@
 using _Sources.Scripts.Dungeon;
 using _Sources.Scripts.Infrastructure.Factory;
 using _Sources.Scripts.Infrastructure.Services.PersistentProgress;
+using _Sources.Scripts.Input;
+using _Sources.Scripts.Player;
 using _Sources.Scripts.Player.PlayerFiniteStateMachine;
 using _Sources.Scripts.UI;
 using Cinemachine;
@@ -73,11 +75,15 @@ namespace _Sources.Scripts.Infrastructure.GameStates
             
             GameObject attackButton = GameObject.FindWithTag("AttackButton");
             GameObject pickupButton = GameObject.FindWithTag("PickupButton");
+            GameObject refillEnergyText = GameObject.FindWithTag("RefillEnergyText");
+            refillEnergyText.SetActive(false);
             PlayerUI playerUI = GameObject.FindWithTag("PlayerUI").GetComponent<PlayerUI>();
             //load player
             GameObject player = _gameFactory.CreatePlayer(GameObject.FindWithTag(SpawnPoint));
             player.GetComponent<PlayerInputHandler>()._attackButtonGo = attackButton;
             player.GetComponent<PlayerInputHandler>()._pickUpButtonGo = pickupButton;
+            player.GetComponent<PlayerWeaponHandler>().RefillEnergyText = refillEnergyText;
+          
             player.GetComponent<PlayerEntity>().playerUI = playerUI;
             //hud.GetComponentInChildren<PlayerUI>().player = player.GetComponent<PlayerEntity>();
                 

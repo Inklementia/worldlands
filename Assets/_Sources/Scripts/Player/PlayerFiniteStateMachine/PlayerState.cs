@@ -1,4 +1,5 @@
 using _Sources.Scripts.Core;
+using _Sources.Scripts.Player.Data;
 using UnityEngine;
 
 namespace _Sources.Scripts.Player.PlayerFiniteStateMachine

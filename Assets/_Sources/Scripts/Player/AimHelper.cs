@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using _Sources.Scripts.Helpers;
 using _Sources.Scripts.Player.PlayerFiniteStateMachine;
 using _Sources.Scripts.Weapons.Weapon_Features;
 using UnityEngine;
@@ -24,7 +25,7 @@ namespace _Sources.Scripts.Player
         private void Awake()
         {
             _indicator = GameObject.FindWithTag("TargetIndicator");
-            _indicator.GetComponent<SpriteRenderer>().enabled = false;
+            //_indicator.GetComponent<SpriteRenderer>().enabled = false;
             //GameActions.Current.OnDungeonGenerated += DetectEnemies;
         }
 

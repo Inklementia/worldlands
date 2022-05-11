@@ -16,17 +16,7 @@ namespace _Sources.Scripts.Weapons
 
         private void Awake()
         {
-            if (ES3DataManager.Instance.SecondaryWeapon != null)
-            {
-                var loadCurrentWeapon = ES3DataManager.Instance.SecondaryWeapon.GetComponent<ShootingWeapon>();
-                EquipWeapon(loadCurrentWeapon);
-            }
-            
-            if (ES3DataManager.Instance.EquipedWeapon != null)
-            {
-                var loadCurrentWeapon = ES3DataManager.Instance.EquipedWeapon.GetComponent<ShootingWeapon>();
-                EquipWeapon(loadCurrentWeapon);
-            }
+  
             
         }
 
