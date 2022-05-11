@@ -1,4 +1,6 @@
-﻿using _Sources.Scripts.Interfaces;
+﻿using _Sources.Scripts.Helpers;
+using _Sources.Scripts.Interfaces;
+using _Sources.Scripts.Structs;
 using UnityEngine;
 
 namespace _Sources.Scripts.Core.Components

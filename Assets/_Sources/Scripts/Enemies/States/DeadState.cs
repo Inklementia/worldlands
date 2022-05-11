@@ -1,4 +1,7 @@
-﻿using _Sources.Scripts.Enemies.State_Mashine;
+﻿using _Sources.Scripts.Enemies.Data;
+using _Sources.Scripts.Enemies.State_Mashine;
+using _Sources.Scripts.Helpers;
+using UnityEngine;
 
 namespace _Sources.Scripts.Enemies.States
 {
@@ -28,7 +31,9 @@ namespace _Sources.Scripts.Enemies.States
             Entity.Dead.transform.position = Entity.Alive.transform.position;
             Entity.Dead.gameObject.SetActive(true);
             Entity.Alive.gameObject.SetActive(false);
-            
+            GameActions.Instance.EnemyKilledTrigger(Entity.gameObject);
+     
+            Debug.Log("Enemy Killed");
       
         }
 

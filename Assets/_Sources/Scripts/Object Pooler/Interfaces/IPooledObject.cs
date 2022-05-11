@@ -1,4 +1,4 @@
-namespace Interfaces
+namespace _Sources.Scripts.Object_Pooler.Interfaces
 {
     public interface IPooledObject
     {

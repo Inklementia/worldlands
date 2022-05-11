@@ -1,33 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
-using _Sources.Scripts;
+using _Sources.Scripts.Helpers;
 using UnityEngine;
 
-public class EnemyKillCount : MonoBehaviour
+namespace _Sources.Scripts.UI
 {
-    public static int score;
-
-    private void Start()
+    public class EnemyKillCount : MonoBehaviour
     {
-        score = 0;
-        GameActions.Instance.OnEnemyKilled += AddKill;
-        //GameActions.Current.OnBattleColliderEntered += DetectEnemies;
-    }
+        public static int score;
 
-    private void OnDisable()
-    {
-        GameActions.Instance.OnEnemyKilled -= AddKill;
-        // GameActions.Current.OnBattleColliderEntered -= DetectEnemies;
-        //GameActions.Current.OnDungeonGenerated -= DetectEnemies;
-    }
+        private void Start()
+        {
+            score = 0;
+            GameActions.Instance.OnEnemyKilled += AddKill;
+            //GameActions.Current.OnBattleColliderEntered += DetectEnemies;
+        }
 
-    private void AddKill(GameObject obj)
-    {
-        score += 1;
-    }
+        private void OnDisable()
+        {
+            GameActions.Instance.OnEnemyKilled -= AddKill;
+            // GameActions.Current.OnBattleColliderEntered -= DetectEnemies;
+            //GameActions.Current.OnDungeonGenerated -= DetectEnemies;
+        }
 
-    private void ResetKills()
-    {
-        score = 0;
+        private void AddKill(GameObject obj)
+        {
+            score += 1;
+        }
+
+        private void ResetKills()
+        {
+            score = 0;
+        }
     }
 }

@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public enum ActionInputMode 
+namespace _Sources.Scripts.Enums
 {
-    Attack,
-    PickUp
+    public enum ActionInputMode 
+    {
+        Attack,
+        PickUp
+    }
 }

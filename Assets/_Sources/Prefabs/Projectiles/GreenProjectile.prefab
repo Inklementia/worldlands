@@ -267,7 +267,6 @@ MonoBehaviour:
   damagePopUpTag: {fileID: 11400000, guid: 6b889bda5b9d67044908bbbb1a97b149, type: 2}
   DestroyOnto: {fileID: 11400000, guid: 267e3742509d87b4dafda05c7d829f8c, type: 2}
   destroyParticlesFeedback: {fileID: 5741390532784562998}
-  damagePopUpTag: {fileID: 11400000, guid: 6b889bda5b9d67044908bbbb1a97b149, type: 2}
 --- !u!114 &6569570725541264363
 MonoBehaviour:
   m_ObjectHideFlags: 0

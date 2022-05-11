@@ -1,10 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "newDeadStateData", menuName = "Data/State Data/Dead State Data")]
-public class D_DeadState : ScriptableObject
+namespace _Sources.Scripts.Enemies.Data
 {
-    public Tag DeathParticlesTag;
+    [CreateAssetMenu(fileName = "newDeadStateData", menuName = "Data/State Data/Dead State Data")]
+    public class D_DeadState : ScriptableObject
+    {
+        public Tag DeathParticlesTag;
  
+    }
 }

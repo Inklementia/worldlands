@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Fire gun
   Description: A red gun
-  Damage: 10
-  EnergyCostPerAttack: 1
+  Damage: 15
+  EnergyCostPerAttack: 3
   AttackCd: 0.3
   NumberOfProjectilesPerRound: 1
   IntervalBetweenRounds: 0.5

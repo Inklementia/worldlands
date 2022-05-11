@@ -1,3 +1,4 @@
+using _Sources.Scripts.Player.Data;
 using _Sources.Scripts.Player.PlayerFiniteStateMachine;
 using _Sources.Scripts.Weapons;
 

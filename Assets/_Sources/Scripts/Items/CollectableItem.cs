@@ -6,7 +6,7 @@ namespace _Sources.Scripts.Items
     [System.Serializable]
     public class CollectableItem
     {
-        public ICollectable collectable;
+        public GameObject prefab;
         public bool isUnique;
     }
 }

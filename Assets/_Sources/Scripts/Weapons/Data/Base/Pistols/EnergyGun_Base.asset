@@ -18,7 +18,7 @@ MonoBehaviour:
   EnergyCostPerAttack: 2
   AttackCd: 0.2
   NumberOfProjectilesPerRound: 2
-  IntervalBetweenRounds: 0.5
+  IntervalBetweenRounds: 0.2
   ProjectileTravelDistance: 5
   ProjectileLifeDuration: 8
   ProjectileDragMultiplier: 0.5

@@ -22,12 +22,13 @@ namespace _Sources.Scripts.UI
 
         private void Update()
         {
-            Time.timeScale = _isPaused ? 0 : 1;
+           
 
         }
         public void TogglePause()
         {
             _isPaused = !_isPaused;
+            Time.timeScale = _isPaused ? 0 : 1;
         }
     
         

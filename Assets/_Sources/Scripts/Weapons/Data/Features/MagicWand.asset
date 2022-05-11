@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d068deafed941b84fa61b6c48216d5cb, type: 3}
   m_Name: MagicWand
   m_EditorClassIdentifier: 
-  PlayerTag: {fileID: 0}
+  PlayerTag: {fileID: 11400000, guid: 179e93f8c5d4574478cd4f2f2deddede, type: 2}
   MaxCharge: 3
   MinCharge: 0.5
   CanFireWithoutCharge: 0
   FireAngle: 360
   NumberOfProjectiles: 8
-  AngleDeviation: 0
+  AngleDeviation: 0.3
   ProjectileSpeedDeviation: 0
   RemoveAdditionalSegmentAtEnd: 0

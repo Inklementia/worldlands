@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26eddfb2ef34c5db97deca95088fe40, type: 3}
   m_Name: Spider_EnemySpawnerData
   m_EditorClassIdentifier: 
-  Name: Unknown Nest
-  MaxHealth: 500
+  Name: Spider Nest
+  MaxHealth: 200
   SpawnInterval: 2
-  FullRespawnInterval: 10
+  FullRespawnInterval: 30
   SpawnOnHit: 0
   NumberOfEnemies: 3
   SpawnEnemyTag: {fileID: 11400000, guid: 968a39180bcd33c4cafcb752027549df, type: 2}

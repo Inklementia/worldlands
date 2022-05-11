@@ -1,35 +1,50 @@
 ﻿using _Sources.Scripts.Battle;
+using _Sources.Scripts.Helpers;
+using _Sources.Scripts.Player;
+using _Sources.Scripts.Weapons;
 using UnityEngine;
 
 namespace _Sources.Scripts.Data
 {
-    public class ES3DataManager : SingletonClass<ES3DataManager>
+    public class ES3DataManager : MonoBehaviour
     {
-        private const string HealthConstant = "Cash";
-        private const string EnergyConstant = "LaunchCount";
+        public static ES3DataManager Instance;
+        private const string HealthConstant = "Health";
+        private const string EnergyConstant = "Energy";
+        private const string PlayerConstant = "Player";
         private const string EquipedWeaponConstant = "EquipedWeapon";
         private const string SecondaryWeaponConstant = "SecondaryWeapon";
-        private const string CurrentLevelConstant = "VolumeValue";
+        private const string CurrentLevelConstant = "CurrentLevel";
         private const string KilledEnemiesConstant = "KilledEnemies";
 
         private const string VolumeConstant = "VolumeValue";
         private const string VolumeBgConstant = "VolumeBGValue";
 
-        public float Health { get; private set; }
-        
-        public float Energy { get; private set; }
-        
-        public GameObject EquipedWeapon { get; private set; }
-        public GameObject SecondaryWeapon { get; private set; }
-        public int CurrentLevel { get; set; }
-        public int KilledEnemiesCount { get; set; }
-        public float VolumeValue { get; set; }
+        public float Health;
+        public float Energy;
+
+        public string EquipedWeaponName;
+        public string SecondaryWeaponName;
+        public int CurrentLevel;
+        public int KilledEnemiesCount;
+        public float VolumeValue;
         public float VolumeBgValue { get; set; }
 
-        public override void Awake()
+        public void Awake()
         {
-            base.Awake();
+            if(Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+                return;
+            }
+
             LoadAllData();
+            
+           
         }
         
         public void LoadAllData()
@@ -96,23 +111,27 @@ namespace _Sources.Scripts.Data
         }
         
 
-        public GameObject LoadEquipedWeapon()
+        public string LoadEquipedWeapon()
         {
             if (ES3.KeyExists(EquipedWeaponConstant))
             {
-                return EquipedWeapon = ES3.Load<GameObject>(EquipedWeaponConstant);
+                return EquipedWeaponName = ES3.Load<string>(EquipedWeaponConstant);
             }
+        return null;
 
-            return null;
         }
-        public GameObject LoadSecondaryWeapon()
+        
+
+        public string LoadSecondaryWeapon()
         {
             if (ES3.KeyExists(SecondaryWeaponConstant))
             {
-                return SecondaryWeapon = ES3.Load<GameObject>(SecondaryWeaponConstant);
-            }
+               
+                 return SecondaryWeaponName = ES3.Load<string>(SecondaryWeaponConstant);
 
+            }
             return null;
+  
         }
         public int LoadKilledEnemiesValue()
         {
@@ -126,8 +145,8 @@ namespace _Sources.Scripts.Data
         public void SavePlayerHealthState(float healthAmount) => ES3.Save(HealthConstant, Health = healthAmount);
         public void SavePlayerEnergyState(float energyAmount) => ES3.Save(EnergyConstant, Energy = energyAmount);
         
-        public void SaveEquipedWeapon(GameObject currentWeapon) => ES3.Save(EquipedWeaponConstant, EquipedWeapon = currentWeapon);
-        public void SaveSecondaryWeapon(GameObject secondaryWeapon) => ES3.Save(SecondaryWeaponConstant, SecondaryWeapon = secondaryWeapon);
+        public void SaveEquipedWeapon(string currentWeapon) => ES3.Save(EquipedWeaponConstant, EquipedWeaponName = currentWeapon);
+        public void SaveSecondaryWeapon(string secondaryWeapon) => ES3.Save(SecondaryWeaponConstant, SecondaryWeaponName = secondaryWeapon);
         
         public void SaveKilledEnemiesCount(int enemiesCount) => ES3.Save(KilledEnemiesConstant, KilledEnemiesCount = enemiesCount);
 
@@ -137,6 +156,27 @@ namespace _Sources.Scripts.Data
         public void SaveVolumeBGValue(float volumeValue) => ES3.Save(VolumeBgConstant, VolumeBgValue = volumeValue);
 
   
-
+        public void DeleteLevelNumber()
+        {
+            if (ES3.KeyExists(CurrentLevelConstant))
+            {
+                ES3.DeleteKey(CurrentLevelConstant);
+            }
+        }
+        public void DeleteHealth()
+        {
+            if (ES3.KeyExists(HealthConstant))
+            {
+                ES3.DeleteKey(HealthConstant);
+            }
+        }
+        public void DeleteEnergy()
+        {
+            if (ES3.KeyExists(EnergyConstant))
+            {
+                ES3.DeleteKey(EnergyConstant);
+            }
+        }
+        
     }
 }

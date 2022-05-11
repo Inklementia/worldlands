@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using _Sources.Scripts.Data;
 using _Sources.Scripts.Dungeon;
+using _Sources.Scripts.Helpers;
 using _Sources.Scripts.Infrastructure.Services;
 using _Sources.Scripts.Infrastructure.Services.Input;
 using _Sources.Scripts.Infrastructure.Services.PersistentProgress;
@@ -123,6 +124,10 @@ namespace _Sources.Scripts
                 }
 
                 CurrentLevel = progress.WorldData.LevelMap.LevelNumber;
+                if (CurrentLevel == 0)
+                {
+                    CurrentLevel = 1;
+                }
                 _currentWorld = progress.WorldData.LevelMap.WorldNumber;
                 Debug.Log(CurrentLevel);
                 GameObject.FindWithTag("LevelNumber").GetComponent<TMP_Text>()
@@ -131,6 +136,7 @@ namespace _Sources.Scripts
                 {
                     generator.GenerateDungeon();
                 }
+                /*
                 
                 if (CurrentLevel == worldData.NumberOfLevels)
                 {
@@ -138,7 +144,9 @@ namespace _Sources.Scripts
                     CurrentLevel = 1;
                     progress.WorldData.LevelMap.LevelNumber = CurrentLevel;
                     _saveLoadService.SaveProgress();
-                }
+                }*/
+                
+                _saveLoadService.SaveProgress();
             }
 
            

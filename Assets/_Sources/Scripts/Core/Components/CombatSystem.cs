@@ -1,5 +1,6 @@
 ﻿using _Sources.Scripts.Enemies.State_Mashine;
 using _Sources.Scripts.Interfaces;
+using _Sources.Scripts.Structs;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;

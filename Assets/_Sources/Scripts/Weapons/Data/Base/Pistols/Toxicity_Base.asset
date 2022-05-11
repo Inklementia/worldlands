@@ -16,7 +16,7 @@ MonoBehaviour:
   Description: A Toxicity in out city...
   Damage: 15
   EnergyCostPerAttack: 2
-  AttackCd: 0.1
+  AttackCd: 0.2
   NumberOfProjectilesPerRound: 3
   IntervalBetweenRounds: 0.6
   ProjectileTravelDistance: 5

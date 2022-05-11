@@ -1,5 +1,7 @@
-﻿using _Sources.Scripts.Enemies.State_Mashine;
+﻿using _Sources.Scripts.Enemies.Data;
+using _Sources.Scripts.Enemies.State_Mashine;
 using _Sources.Scripts.Player.PlayerFiniteStateMachine;
+using _Sources.Scripts.Structs;
 using UnityEngine;
 
 namespace _Sources.Scripts.Enemies.States

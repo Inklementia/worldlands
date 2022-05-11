@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using _Sources.Scripts.Core;
 using _Sources.Scripts.Data;
 using _Sources.Scripts.Infrastructure.Services.PersistentProgress;
+using _Sources.Scripts.Input;
+using _Sources.Scripts.Player.Data;
 using _Sources.Scripts.Player.PlayerStates;
 using _Sources.Scripts.UI;
 using UnityEngine;
@@ -23,7 +25,6 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
 
         public Animator Anim { get; private set; }
         public PlayerInputHandler InputHandler { get; private set; }
- 
 
         [SerializeField] private PlayerDataSO playerData;
         public PlayerUI playerUI;
@@ -57,9 +58,7 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
             {
                Core.HealthSystem.SetMaxStat(ES3DataManager.Instance.Energy + 20);
             }
-            
-      
-            
+
             Core.ShieldSystem.SetMaxStat(playerData.MaxShield);
 
             //getting components
@@ -77,9 +76,7 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
         private void Update()
         {
             Core.LogicUpdate();
-            
-            StateMachine.CurrentState.LogicUpdate();  
-
+            StateMachine.CurrentState.LogicUpdate();
         }
         private void FixedUpdate()
         {
@@ -91,18 +88,12 @@ namespace _Sources.Scripts.Player.PlayerFiniteStateMachine
             if(Core.HealthSystem.IsDead)
             {
                 StateMachine.ChangeState(DeadState);
-
             }
             else
             {
                 StateMachine.ChangeState(DamageState);
             }
-            
-
         }
-
-
-   
     }
 }
   

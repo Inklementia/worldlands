@@ -1,5 +1,9 @@
 using _Sources.Scripts.Core;
+using _Sources.Scripts.Enemies.Data;
+using _Sources.Scripts.Helpers;
 using _Sources.Scripts.Interfaces;
+using _Sources.Scripts.Intermediaries;
+using _Sources.Scripts.Structs;
 using _Sources.Scripts.Weapons;
 using DG.Tweening;
 using Pathfinding;
@@ -88,8 +92,7 @@ namespace _Sources.Scripts.Enemies.State_Mashine
 
             if (Core.HealthSystem.IsDead)
             {
-                GameActions.Instance.EnemyKilledTrigger(this.gameObject);
-                Debug.Log("Enemy Killed");
+               
             }
             
             

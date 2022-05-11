@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7919901078609472550}
   - component: {fileID: -7843292905384755999}
   - component: {fileID: 4931332531404168930}
-  - component: {fileID: 4169165490454719742}
   m_Layer: 0
   m_Name: Exit Door
   m_TagString: Untagged
@@ -76,7 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: -394411213
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300012, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
+  m_Sprite: {fileID: 7577328287588368852, guid: cf11e1c8b92e66f4787ec87c267744fc,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,6 +105,8 @@ MonoBehaviour:
   playerTag: {fileID: 11400000, guid: 179e93f8c5d4574478cd4f2f2deddede, type: 2}
   NextLevel: 
   worldManagerTag: {fileID: 11400000, guid: 08cdd0dd93e0f804a94b898100cde289, type: 2}
+  endScreenGO: {fileID: 6374130842677355472, guid: abc167719390064419b3e4b2b7187e2b,
+    type: 3}
 --- !u!61 &7919901078609472550
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -122,7 +124,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 2.62, y: 2.68}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -164,19 +166,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a5867b34ad42718a41c39c1c1b04d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4169165490454719742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5560660041584224566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shaderTypes: 3
-  normalStrenght: 5
-  normalSmoothing: 1
-  computingNormal: 0

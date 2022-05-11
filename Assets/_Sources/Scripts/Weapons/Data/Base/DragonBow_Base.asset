@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Description: 
-  Damage: 10
-  EnergyCostPerAttack: 1
+  Damage: 50
+  EnergyCostPerAttack: 5
   AttackCd: 0.2
   NumberOfProjectilesPerRound: 1
   IntervalBetweenRounds: 0.5
   ProjectileTravelDistance: 5
   ProjectileLifeDuration: 6
   ProjectileDragMultiplier: 0.5
-  ProjectileSpeed: 8
+  ProjectileSpeed: 10
   ProjectileRotationSpeed: 200
   ProjectileRotateAngleDeviation: 0

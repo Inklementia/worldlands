@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "newDamageStateData", menuName = "Data/State Data/Damage State Data")]
-public class D_DamageState : ScriptableObject
+namespace _Sources.Scripts.Enemies.Data
 {
-    public float DamageTime = 1f;
+    [CreateAssetMenu(fileName = "newDamageStateData", menuName = "Data/State Data/Damage State Data")]
+    public class D_DamageState : ScriptableObject
+    {
+        public float DamageTime = 1f;
 
-    public Tag HitParticles;
-    public Material HitMaterial;
+        public Tag HitParticles;
+        public Material HitMaterial;
+    }
 }

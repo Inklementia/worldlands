@@ -1,4 +1,5 @@
 using _Sources.Scripts.Player;
+using _Sources.Scripts.Player.Data;
 using _Sources.Scripts.Player.PlayerFiniteStateMachine;
 using UnityEngine;
 
@@ -48,7 +49,9 @@ namespace _Sources.Scripts.Player.PlayerStates
 
         private void CheckMovementDirection()
         {
-            if (!Core.EnemyDetectionSenses.EnemyInFieldOfView() || PlayerEntity.WeaponHandler.Weaponry.CurrentWeapon == null)
+            if (!Core.EnemyDetectionSenses.EnemyInFieldOfView() ||
+                PlayerEntity.WeaponHandler.Weaponry.CurrentWeapon == null
+               )
             {
                 //if player detect enemies he doesn not flip
                 if (Core.Movement.FacingDirection == 1 && Input.x < 0)
@@ -60,9 +63,7 @@ namespace _Sources.Scripts.Player.PlayerStates
                     Core.Movement.Flip();
                 }
             }
-       
-           
         }
-       
+
     }
 }
