@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f9107cd58614607a7945ae3acc1e4b6, type: 3}
   m_Name: Dungeon1
   m_EditorClassIdentifier: 
-  TotalFloorCount: 200
+  TotalFloorCount: 120
   MinWalkLength: 10
   MaxWalkLength: 15

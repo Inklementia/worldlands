@@ -32,7 +32,7 @@ namespace _Sources.Scripts.Infrastructure.Services.SaveLoad
             PlayerPrefs.SetString(ProgressKey, saveString);
             //File.WriteAllText(Application.dataPath + "/player_progress.txt", saveString);
             ES3DataManager.Instance.SaveLevelNumber(_persistentProgressService.PlayerProgress.WorldData.LevelMap.LevelNumber);
-           
+
         }
 
         public PlayerProgress LoadProgress()

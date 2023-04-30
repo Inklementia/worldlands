@@ -17,7 +17,7 @@ MonoBehaviour:
   SpawnInterval: 2
   FullRespawnInterval: 30
   SpawnOnHit: 0
-  NumberOfEnemies: 3
+  NumberOfEnemies: 2
   SpawnEnemyTag: {fileID: 11400000, guid: 968a39180bcd33c4cafcb752027549df, type: 2}
   HasSpecialUnits: 0
   NumberOfSpecialEnemies: 0

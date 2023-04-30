@@ -65,7 +65,7 @@ namespace _Sources.Scripts.Dungeon
                 {
                     GameObject panel = GameObject.FindWithTag("EndScreen").transform.GetChild(0).gameObject;
                     panel.SetActive(true);
-                    panel.GetComponent<CanvasGroup>().DOFade(1, .5f);
+                    //panel.GetComponent<CanvasGroup>().DOFade(1, .5f);
                     
                     Time.timeScale = 0;
                     ES3DataManager.Instance.DeleteEnergy();
