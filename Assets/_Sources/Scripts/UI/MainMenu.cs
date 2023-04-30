@@ -13,12 +13,13 @@ namespace _Sources.Scripts.UI
         [SerializeField] private Image imageTransition;
         public void Continue()
         {
-            Destroy( GameObject.FindObjectOfType<GameBootstrapper>());
+           
             StartCoroutine(TransitionFade());
         }
 
         public void StartNew()
         {
+          
             ES3DataManager.Instance.DeleteEnergy();
             ES3DataManager.Instance.DeleteHealth();
             ES3DataManager.Instance.DeleteLevelNumber();

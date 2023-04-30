@@ -82,6 +82,7 @@ namespace _Sources.Scripts.UI
             }
             else if (showCompletionState == UnityAdsShowCompletionState.SKIPPED)
             {
+                // RefillEnergy();
                 // do not reward the user for skipping the ad
             }
             else if (showCompletionState == UnityAdsShowCompletionState.UNKNOWN)
