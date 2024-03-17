@@ -5,13 +5,17 @@ Welcome to Worldlands, an engaging mobile roguelike game that unfolds in procedu
 
 ### Key Features:
 
-**Procedural World Generation**: Explore a vast and ever-changing world, ensuring that no two playthroughs are alike. The procedural generation adds an element of surprise and strategic depth to the gameplay.
+**Procedural World Generation:** Randomly generates labyrinths and caves!
 
-**Dynamic Design Patterns**: Immerse yourself in a game architecture that leverages various design patterns, enhancing code organization and maintainability. Worldlands is a testament to the power of applying tried-and-true software design principles.
+**Dynamic Design Patterns:** Applies various design principles and architectural concepts.
 
-**Mobile Optimization**: Tailored for mobile gaming, Worldlands is designed to provide a seamless and immersive experience on your handheld device. Enjoy the roguelike adventure on the go.
+**Mobile Compatibility:** Includes a HUD for mobile play!
 
-**Open Source**: Dive into the codebase, contribute, or tweak the game to suit your preferences. Worldlands is open-source, fostering collaboration and community-driven development.
+**Handcrafted Assets:** All assets are meticulously made by hand!
+
+**Multiple Weapons:** Offers a variety of weaponry for diverse gameplay experiences!
+
+**Save Systems:** Now, players can save their progress and pick up where they left off!
 
 <a href="https://drive.google.com/drive/folders/1glhcOLuBUZGVJ2Wuwfz6oQ4K94Mpsqcq?usp=sharing">Diagrams</a> are here and <a href="https://drive.google.com/file/d/1Rt0jYwftF6ViZ1sySRmfqlXRvBb2LFP-/view?usp=sharing">Report</a> is here
 
