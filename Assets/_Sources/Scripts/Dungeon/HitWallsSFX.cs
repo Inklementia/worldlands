@@ -1,5 +1,4 @@
 using DG.Tweening;
-using MoreMountains.Feedbacks;
 using UnityEngine;
 
 namespace _Sources.Scripts.Dungeon 
@@ -14,8 +13,7 @@ public class HitWallsSFX : MonoBehaviour
     {
         if (col.HasTag(triggerTag))
         {
-            material.DOFloat(3, "_GlitchAmount", .3f);
-            material.DOFloat(0, "_GlitchAmount", .3f);
+            //smth
         }
     }
 }

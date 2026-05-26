@@ -6,7 +6,6 @@ using _Sources.Scripts.Helpers;
 using _Sources.Scripts.Infrastructure.Services;
 using _Sources.Scripts.Infrastructure.Services.PersistentProgress;
 using _Sources.Scripts.Infrastructure.Services.SaveLoad;
-using Sirenix.Utilities;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -83,7 +82,7 @@ namespace _Sources.Scripts.Dungeon
         private void BuildDungeon(List<Vector2> coordinates)
         {
             tileGenerator.InstantiateFloorTiles(coordinates);
-            wallGenerator.GenerateBasicWalls(coordinates.ToHashSet());
+            wallGenerator.GenerateBasicWalls(new HashSet<Vector2>(coordinates));
             wallGenerator.GenerateComplexWalls((int) minX, (int) maxX, (int) minY, (int) maxY);
             SetExitDoor(coordinates);
             RemoveFirstBattleAreaForPlayer();

@@ -40,6 +40,19 @@ namespace _Sources.Scripts.Weapons.Projectiles
             AttackDetails.Position = transform.position;
         }
 
+        protected void PlayDestroyParticles(ParticleSystem prefab, Vector3 position)
+        {
+            if (prefab == null)
+            {
+                return;
+            }
+
+            var instance = Instantiate(prefab, position, Quaternion.identity);
+            instance.Play();
+            var main = instance.main;
+            Destroy(instance.gameObject, main.duration + main.startLifetime.constantMax);
+        }
+
         public virtual void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.HasTag(targetTag))

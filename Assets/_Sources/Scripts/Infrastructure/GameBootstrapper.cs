@@ -1,6 +1,5 @@
 using _Sources.Scripts.Infrastructure.GameStates;
 using _Sources.Scripts.UI;
-using MoreMountains.Tools;
 using UnityEngine;
 
 namespace _Sources.Scripts.Infrastructure
